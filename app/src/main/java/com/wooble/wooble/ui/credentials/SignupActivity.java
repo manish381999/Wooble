@@ -1,13 +1,13 @@
 package com.wooble.wooble.ui.credentials;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
+
+
 import com.wooble.wooble.databinding.ActivitySignupBinding;
 
 import java.util.Objects;
@@ -15,10 +15,7 @@ import java.util.Objects;
 public class SignupActivity extends AppCompatActivity {
 ActivitySignupBinding binding;
 
-FirebaseAuth auth;
-FirebaseDatabase database;
 
-FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +25,10 @@ FirebaseUser currentUser;
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        auth=FirebaseAuth.getInstance();
-        database=FirebaseDatabase.getInstance();
 
-        currentUser=auth.getCurrentUser();
 
 
       gotoLogin();
-      UploadUserDetails();
     }
 
     private void gotoLogin() {
@@ -46,7 +39,5 @@ FirebaseUser currentUser;
         });
     }
 
-    private void UploadUserDetails(){
 
-    }
 }

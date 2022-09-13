@@ -73,7 +73,7 @@
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
-                        android:id="@+id/login_name"
+                        android:id="@+id/signup_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:autofillHints=""
@@ -101,7 +101,7 @@
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
-                        android:id="@+id/login_mobile_no"
+                        android:id="@+id/signup_mobile_no"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:autofillHints=""
@@ -131,7 +131,7 @@
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
-                        android:id="@+id/login_email"
+                        android:id="@+id/signup_email"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:autofillHints=""
@@ -161,7 +161,7 @@
                     app:passwordToggleEnabled="true">
 
                     <EditText
-                        android:id="@+id/login_password"
+                        android:id="@+id/signup_password"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:autofillHints=""
@@ -181,7 +181,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
-                    android:id="@+id/login_btn"
+                    android:id="@+id/sign_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
