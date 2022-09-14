@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item
+    android:id="@+id/navigation_home"
+    android:title="Home"
+    android:icon="@drawable/ic_home"
+    />
+
+    <item
+        android:id="@+id/navigation_resume"
+        android:title="Resume"
+        android:icon="@drawable/ic_resume"/>
+
+    <item
+        android:id="@+id/navigation_blogs"
+        android:title="Blogs"
+        android:icon="@drawable/ic_blogs"/>
+
+    <item
+        android:id="@+id/navigation_gallery"
+        android:title="Gallery"
+        android:icon="@drawable/ic_gallery"/>
+
+    <item
+        android:id="@+id/navigation_project"
+        android:title="Project"
+        android:icon="@drawable/ic_project"/>
+
+</menu>

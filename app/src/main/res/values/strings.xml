@@ -20,5 +20,7 @@
     <string name="send_you_a_verification_code">send you a verification code</string>
     <string name="to_reset_your_password">to reset your password.</string>
     <string name="don_t_worry">Don\'t worry.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

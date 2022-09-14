@@ -16,7 +16,6 @@ public class SignupActivity extends AppCompatActivity {
 ActivitySignupBinding binding;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +23,6 @@ ActivitySignupBinding binding;
         setContentView(binding.getRoot());
 
         Objects.requireNonNull(getSupportActionBar()).hide();
-
-
 
 
       gotoLogin();

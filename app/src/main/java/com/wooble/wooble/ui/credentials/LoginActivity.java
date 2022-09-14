@@ -1,19 +1,15 @@
 package com.wooble.wooble.ui.credentials;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.text.method.SingleLineTransformationMethod;
-import android.view.MotionEvent;
+
 import android.view.View;
 
-import com.wooble.wooble.R;
-import com.wooble.wooble.SplashActivity;
+
+
 import com.wooble.wooble.databinding.ActivityLoginBinding;
 
 import java.util.Objects;
