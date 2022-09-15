@@ -110,7 +110,6 @@
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/ubuntu"
                         android:hint="@string/mobile_number"
-                        android:inputType="phone"
                         android:padding="10dp"
                         android:singleLine="true"
                         android:textColor="#2B2929"

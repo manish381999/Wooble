@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_signup.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_splash.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1555" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/login_button_bg.xml" value="0.1555" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/login_edit_text_bg.xml" value="0.1915" />
