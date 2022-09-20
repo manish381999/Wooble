@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+
 import com.wooble.wooble.databinding.ActivityForgotPasswordBinding;
 
 import java.util.Objects;
@@ -21,7 +22,7 @@ ActivityForgotPasswordBinding binding;
         Objects.requireNonNull(getSupportActionBar()).hide();
 
     gotoLogin();
-
+gotoOpt();
     }
 
     private void gotoLogin(){
@@ -31,6 +32,16 @@ ActivityForgotPasswordBinding binding;
                 Intent intent=new Intent(Forgot_PasswordActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+    }
+
+    private void gotoOpt(){
+        binding.passwordRecoverBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Forgot_PasswordActivity.this, OtpActivity.class));
             }
         });
     }

@@ -21,6 +21,8 @@ ActivityMainBinding binding;
         NavController navController= Navigation.findNavController(MainActivity.this,R.id.frame_layout);
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 
+
+
     }
 
 

@@ -22,5 +22,14 @@
     <string name="don_t_worry">Don\'t worry.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_that_is_specific">Title that is Specific</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="type_something">Type Something…</string>
+    <string name="publish">Publish</string>
+    <string name="submit">Submit</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="an_4_digit_code_has_been_sent_to">An 4 digit code has been sent to</string>
+    <string name="example_gmail_com">Example@gmail.com</string>
 
 </resources>

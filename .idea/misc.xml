@@ -7,17 +7,43 @@
         <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_signup.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_splash.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/Rakesh/AndroidStudioProjects/Wooble/app/src/main/res/xml/network_security_config.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/blogs_edittext_bg.xml" value="0.169" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_align_center.xml" value="0.143" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_align_left.xml" value="0.143" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_align_right.xml" value="0.143" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1555" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_blogs.xml" value="0.175" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_bold.xml" value="0.143" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_gallery.xml" value="0.175" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_home.xml" value="0.104" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_italic.xml" value="0.143" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_launcher_background.xml" value="0.175" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.175" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/ic_underline.xml" value="0.143" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/login_button_bg.xml" value="0.1555" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/login_edit_text_bg.xml" value="0.1915" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/navigation.xml" value="0.175" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/publish_btn_bg.xml" value="0.13" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/drawable/view_background.xml" value="0.1665" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/font/ubuntu.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_create_blogs.xml" value="0.15067567567567566" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_forgot_password.xml" value="0.15067567567567566" />
-        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_login.xml" value="0.176" />
-        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_main2.xml" value="0.21822916666666667" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_otp.xml" value="0.15067567567567566" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_signup.xml" value="0.15067567567567566" />
         <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/activity_splash.xml" value="0.152" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/fragment_blogs.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/fragment_gallery.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/fragment_home.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/fragment_project.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/layout/fragment_resume.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/menu/bottom_nav.xml" value="0.15" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/menu/bottom_navigation.xml" value="0.15067567567567566" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/menu/menu.xml" value="0.15" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2385" />
+        <entry key="..\:/Users/manis/AndroidStudioProjects/Wooble/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2335" />
       </map>
     </option>
   </component>

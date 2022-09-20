@@ -2,15 +2,11 @@ package com.wooble.wooble.ui.credentials;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.text.method.SingleLineTransformationMethod;
-import android.view.MotionEvent;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +21,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.R;
-import com.wooble.wooble.SplashActivity;
 import com.wooble.wooble.databinding.ActivityLoginBinding;
 
 import java.util.HashMap;
@@ -118,6 +113,7 @@ ActivityLoginBinding binding;
             public void onClick(View view) {
                 Intent intent=new Intent(LoginActivity.this,Forgot_PasswordActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
