@@ -32,7 +32,7 @@ ActivitySignupBinding binding;
 
     private EditText etname, etemail,etmobileNumber,etpassword;
     private Button btnSignup;
-    private String URL="http://172.168.6.166/api/register.php";
+    private String URL="http://172.168.2.86/api/register.php";
     private String name, email, mobile_no, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,7 @@ ActivitySignupBinding binding;
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
+//                            System.out.println("Response" + response);
                             if (response.equals("success")) {
                                 Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
@@ -71,6 +72,11 @@ ActivitySignupBinding binding;
                                 finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }else if(response.equals("exist")){
+                                Toast.makeText(SignupActivity.this, "Email already Exist Please Login", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
 
                         }

@@ -35,7 +35,7 @@ ActivityLoginBinding binding;
     private String email, password;
     private Button loginButton;
 
-    private String URL="http://172.168.6.166/api/login.php";
+    private String URL="http://172.168.2.86/api/login.php";
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -69,6 +69,7 @@ ActivityLoginBinding binding;
                                 finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(LoginActivity.this, "Invalid id/password", Toast.LENGTH_SHORT).show();
+                                System.out.println("failure");
                             }
 
                         }
@@ -87,6 +88,7 @@ ActivityLoginBinding binding;
                             data.put("email",email);
                             data.put("password", password);
                             return data;
+
                         }
                     };
 
