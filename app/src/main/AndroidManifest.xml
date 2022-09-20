@@ -20,6 +20,9 @@
         <activity android:name=".ui.credentials.OtpActivity"
             android:exported="false"/>
 
+        <activity android:name=".ui.Blogs.Create_BlogsActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".ui.credentials.Forgot_PasswordActivity"
             android:exported="false" />
