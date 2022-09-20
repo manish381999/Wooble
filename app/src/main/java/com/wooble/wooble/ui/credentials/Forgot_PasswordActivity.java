@@ -22,7 +22,14 @@ ActivityForgotPasswordBinding binding;
         Objects.requireNonNull(getSupportActionBar()).hide();
 
     gotoLogin();
-gotoOpt();
+
+   binding.passwordRecoverBtn.setOnClickListener(new View.OnClickListener() {
+       @Override
+       public void onClick(View view) {
+           Intent intent=new Intent(Forgot_PasswordActivity.this, OtpActivity.class);
+           startActivity(intent);
+       }
+   });
     }
 
     private void gotoLogin(){
@@ -37,12 +44,5 @@ gotoOpt();
 
     }
 
-    private void gotoOpt(){
-        binding.passwordRecoverBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Forgot_PasswordActivity.this, OtpActivity.class));
-            }
-        });
-    }
+
 }

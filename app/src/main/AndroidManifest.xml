@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wooble"
         tools:targetApi="31" >
+
+        <activity android:name=".ui.credentials.OtpActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".ui.credentials.Forgot_PasswordActivity"
             android:exported="false" />
