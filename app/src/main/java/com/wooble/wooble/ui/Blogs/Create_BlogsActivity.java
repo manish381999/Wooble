@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -25,6 +29,7 @@ import java.util.Random;
 
 public class Create_BlogsActivity extends AppCompatActivity {
 ActivityCreateBlogsBinding binding;
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +38,24 @@ ActivityCreateBlogsBinding binding;
 
         setContentView(binding.getRoot());
 
+
+        // Find the WebView by its unique ID
+        WebView webView = findViewById(R.id.web);
+
+        // loading http://www.google.com url in the WebView.
+        webView.loadUrl("https://www.geeksforgeeks.org");
+
+        // this will enable the javascript.
+        webView.getSettings().setJavaScriptEnabled(true);
+
+        // WebViewClient allows you to handle
+        // onPageFinished and override Url loading.
+        webView.setWebViewClient(new WebViewClient());
+
     }
 
-    private void getSupportActionBar(Toolbar toolbar) {
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
-    }
+
 
 
 

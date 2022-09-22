@@ -12,8 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
+import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.databinding.FragmentBlogsBinding;
+import com.wooble.wooble.ui.credentials.LoginActivity;
 
 import java.util.Objects;
 
@@ -28,12 +29,12 @@ public class BlogsFragment extends Fragment {
 
         binding = FragmentBlogsBinding.inflate(inflater, container, false);
 
-requireActivity().setTitle("Blogs");
+      requireActivity().setTitle("Blogs");
 
         binding.addBlogs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), Create_BlogsActivity.class);
+            Intent intent=new Intent(getActivity(),Create_BlogsActivity.class);
                 startActivity(intent);
             }
         });

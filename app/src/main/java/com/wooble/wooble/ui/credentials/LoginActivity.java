@@ -44,6 +44,7 @@ ActivityLoginBinding binding;
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
+
         email = password = "";
 
         etEmail = (EditText) findViewById(R.id.login_email);
