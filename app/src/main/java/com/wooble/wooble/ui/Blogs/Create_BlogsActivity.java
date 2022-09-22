@@ -43,7 +43,7 @@ ActivityCreateBlogsBinding binding;
         WebView webView = findViewById(R.id.web);
 
         // loading http://www.google.com url in the WebView.
-        webView.loadUrl("https://www.geeksforgeeks.org");
+        webView.loadUrl("http://172.168.2.86/api/editor/html/popular/full.html");
 
         // this will enable the javascript.
         webView.getSettings().setJavaScriptEnabled(true);
