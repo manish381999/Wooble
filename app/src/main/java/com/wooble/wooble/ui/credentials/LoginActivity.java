@@ -32,22 +32,15 @@ import java.util.Objects;
 public class LoginActivity extends AppCompatActivity {
 ActivityLoginBinding binding;
 
-
     private EditText etEmail, etPassword;
     private String email, password;
     private Button loginButton;
-
     private String URL="http://172.168.2.86/api/login.php";
-
-
     public static final String SHARED_PREFS = "shared_prefs";
-
     // key for storing email.
     public static final String EMAIL_KEY = "email_key";
-
     // key for storing password.
     public static final String PASSWORD_KEY = "password_key";
-
     // variable for shared preferences.
     SharedPreferences sharedpreferences;
 
@@ -58,19 +51,10 @@ ActivityLoginBinding binding;
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
-
         email = password = "";
-
         etEmail = (EditText) findViewById(R.id.login_email);
         etPassword = (EditText) findViewById(R.id.login_password);
         loginButton = (Button) findViewById(R.id.login_btn);
-
-        // getting the data which is stored in shared preferences.
-        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-        email = sharedpreferences.getString("EMAIL_KEY", null);
-        password = sharedpreferences.getString("PASSWORD_KEY", null);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-
         gotoSignup();
         gotoForgot_Password();
 
@@ -85,12 +69,12 @@ ActivityLoginBinding binding;
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("success")) {
-                                // below two lines will put values for
-                                // email and password in shared preferences.
+                                sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+                                email = sharedpreferences.getString("EMAIL_KEY", null);
+                                password = sharedpreferences.getString("PASSWORD_KEY", null);
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
                                 editor.putString(EMAIL_KEY, etEmail.getText().toString());
                                 editor.putString(PASSWORD_KEY, etPassword.getText().toString());
-
-                                // to save our data with key and value.
                                 editor.apply();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
@@ -105,24 +89,19 @@ ActivityLoginBinding binding;
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Toast.makeText(LoginActivity.this, error.toString().trim(),Toast.LENGTH_SHORT).show();
-
                         }
                     }){
                         @Nullable
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
-
                             Map<String,String> data = new HashMap<>();
                             data.put("email",email);
                             data.put("password", password);
                             return data;
-
                         }
                     };
-
                     RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                     requestQueue.add(stringRequest);
-
                 }else{
                     Toast.makeText(LoginActivity.this, "fields can not be empty", Toast.LENGTH_SHORT).show();
                 }

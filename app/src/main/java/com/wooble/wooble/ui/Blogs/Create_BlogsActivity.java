@@ -46,11 +46,16 @@ ActivityCreateBlogsBinding binding;
         webView.loadUrl("file:///android_asset/editor/html/popular/full.html");
 
         // this will enable the javascript.
+        webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
 
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setAllowFileAccessFromFileURLs(true);
         // WebViewClient allows you to handle
         // onPageFinished and override Url loading.
-        webView.setWebViewClient(new WebViewClient());
+
 
     }
 
