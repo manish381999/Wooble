@@ -1,30 +1,19 @@
 package com.wooble.wooble.ui.Blogs;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
+
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.StyleSpan;
-import android.text.style.UnderlineSpan;
-import android.view.View;
 
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
 
 
-import java.util.Random;
+
 
 
 public class Create_BlogsActivity extends AppCompatActivity {
@@ -39,23 +28,20 @@ ActivityCreateBlogsBinding binding;
         setContentView(binding.getRoot());
 
 
+
+
         // Find the WebView by its unique ID
         WebView webView = findViewById(R.id.web);
 
         // loading http://www.google.com url in the WebView.
         webView.loadUrl("file:///android_asset/editor/html/popular/full.html");
 
-        // this will enable the javascript.
-        webView.setWebViewClient(new WebViewClient());
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
 
-        webView.getSettings().setAllowFileAccess(true);
-        webView.getSettings().setAllowFileAccessFromFileURLs(true);
+        // this will enable the javascript.
+        webView.getSettings().setJavaScriptEnabled(true);
         // WebViewClient allows you to handle
         // onPageFinished and override Url loading.
-
+        webView.setWebViewClient(new WebViewClient());
 
     }
 

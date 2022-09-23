@@ -10,8 +10,12 @@ import android.os.Bundle;
 
 import com.wooble.wooble.databinding.ActivityMainBinding;
 
+
+
 public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,5 +29,7 @@ ActivityMainBinding binding;
 
     }
 
+    }
 
-}
+
+
