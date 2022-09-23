@@ -4,7 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -37,6 +39,18 @@ ActivityLoginBinding binding;
 
     private String URL="http://172.168.2.86/api/login.php";
 
+
+    public static final String SHARED_PREFS = "shared_prefs";
+
+    // key for storing email.
+    public static final String EMAIL_KEY = "email_key";
+
+    // key for storing password.
+    public static final String PASSWORD_KEY = "password_key";
+
+    // variable for shared preferences.
+    SharedPreferences sharedpreferences;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +64,12 @@ ActivityLoginBinding binding;
         etEmail = (EditText) findViewById(R.id.login_email);
         etPassword = (EditText) findViewById(R.id.login_password);
         loginButton = (Button) findViewById(R.id.login_btn);
+
+        // getting the data which is stored in shared preferences.
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+        email = sharedpreferences.getString("EMAIL_KEY", null);
+        password = sharedpreferences.getString("PASSWORD_KEY", null);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
 
         gotoSignup();
         gotoForgot_Password();
@@ -65,6 +85,13 @@ ActivityLoginBinding binding;
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("success")) {
+                                // below two lines will put values for
+                                // email and password in shared preferences.
+                                editor.putString(EMAIL_KEY, etEmail.getText().toString());
+                                editor.putString(PASSWORD_KEY, etPassword.getText().toString());
+
+                                // to save our data with key and value.
+                                editor.apply();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -104,11 +131,6 @@ ActivityLoginBinding binding;
 
     }
 
-//    public void login(View view)
-//    {
-//
-//    }
-
 
     private void gotoForgot_Password() {
         binding.forgotPasswordTv.setOnClickListener(new View.OnClickListener() {
@@ -131,5 +153,15 @@ ActivityLoginBinding binding;
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (email != null && password != null) {
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }
