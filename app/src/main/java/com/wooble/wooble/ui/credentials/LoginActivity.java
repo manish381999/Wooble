@@ -86,6 +86,7 @@ ActivityLoginBinding binding;
                         public void onResponse(String response) {
                             if (response.equals("success")) {
                                 // below two lines will put values for
+
                                 // email and password in shared preferences.
                                 editor.putString(EMAIL_KEY, etEmail.getText().toString());
                                 editor.putString(PASSWORD_KEY, etPassword.getText().toString());
