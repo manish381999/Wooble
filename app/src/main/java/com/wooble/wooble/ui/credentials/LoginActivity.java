@@ -34,13 +34,10 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 ActivityLoginBinding binding;
-
     private EditText etEmail, etPassword;
     private String email, password;
     private Button loginButton;
     private String URL="http://172.168.2.86/api/login.php";
-
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +50,6 @@ ActivityLoginBinding binding;
         loginButton = (Button) findViewById(R.id.login_btn);
         gotoSignup();
         gotoForgot_Password();
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +70,6 @@ ActivityLoginBinding binding;
                             } else if (response.equals("failure")) {
                                 Toast.makeText(LoginActivity.this, "Invalid id/password", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -133,7 +128,6 @@ ActivityLoginBinding binding;
         String userPassword = sessionManagement.getSessionPassword();
 
         if(userEmail != null && userPassword != null){
-            //user id logged in and so move to mainActivity
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
