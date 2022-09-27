@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.R;
+import com.wooble.wooble.SessionManagement;
+import com.wooble.wooble.User;
 import com.wooble.wooble.databinding.ActivityLoginBinding;
 
 import java.util.HashMap;
@@ -36,13 +39,7 @@ ActivityLoginBinding binding;
     private String email, password;
     private Button loginButton;
     private String URL="http://172.168.2.86/api/login.php";
-    public static final String SHARED_PREFS = "shared_prefs";
-    // key for storing email.
-    public static final String EMAIL_KEY = "email_key";
-    // key for storing password.
-    public static final String PASSWORD_KEY = "password_key";
-    // variable for shared preferences.
-    SharedPreferences sharedpreferences;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -51,7 +48,6 @@ ActivityLoginBinding binding;
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
-        email = password = "";
         etEmail = (EditText) findViewById(R.id.login_email);
         etPassword = (EditText) findViewById(R.id.login_password);
         loginButton = (Button) findViewById(R.id.login_btn);
@@ -69,19 +65,14 @@ ActivityLoginBinding binding;
                         @Override
                         public void onResponse(String response) {
                             if (response.equals("success")) {
-                                sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
-                                email = sharedpreferences.getString("EMAIL_KEY", null);
-                                password = sharedpreferences.getString("PASSWORD_KEY", null);
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
-                                editor.putString(EMAIL_KEY, etEmail.getText().toString());
-                                editor.putString(PASSWORD_KEY, etPassword.getText().toString());
-                                editor.apply();
+                                User user = new User(email,password);
+                                SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
+                                sessionManagement.saveSession(user);
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(LoginActivity.this, "Invalid id/password", Toast.LENGTH_SHORT).show();
-                                System.out.println("failure");
                             }
 
                         }
@@ -137,10 +128,17 @@ ActivityLoginBinding binding;
     @Override
     protected void onStart() {
         super.onStart();
-        if (email != null && password != null) {
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
-            finish();
+        SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
+        String userEmail = sessionManagement.getSession();
+
+        if(userEmail != null){
+            //user id logged in and so move to mainActivity
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        else{
+            //do nothing
         }
     }
 }
