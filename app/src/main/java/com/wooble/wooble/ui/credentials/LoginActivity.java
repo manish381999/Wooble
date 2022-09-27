@@ -129,9 +129,10 @@ ActivityLoginBinding binding;
     protected void onStart() {
         super.onStart();
         SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
-        String userEmail = sessionManagement.getSession();
+        String userEmail = sessionManagement.getSessionEmail();
+        String userPassword = sessionManagement.getSessionPassword();
 
-        if(userEmail != null){
+        if(userEmail != null && userPassword != null){
             //user id logged in and so move to mainActivity
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
