@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    tools:context=".ui.home.Create_Portfolio_Activity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/pp_linerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:elevation="10dp"
+                android:background="@color/splash_screen_cl"
+                android:orientation="vertical"
+                >
+
+
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:src="@drawable/place_holder"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="4dp"
+                    android:layout_gravity="center_horizontal"
+                    app:civ_shadow="true"
+                    app:civ_shadow_radius="10dp"
+                    app:civ_shadow_color="#0D41A5"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile Picture"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/ubuntu"
+                    android:layout_marginEnd="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="15dp"
+                    android:textSize="22sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:elevation="10dp"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:helperText="This username will be your wooble link."
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="User name"
+                        android:inputType="text"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="Full name"
+                        android:inputType="text"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_aboutYourself"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/about_yourself"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="About Yourself"
+                        android:inputType="textAutoCorrect|textMultiLine"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <Spinner
+                        android:id="@+id/profession_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:spinnerMode="dropdown"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Links"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/splash_screen_cl"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="18dp"
+                    app:drawableStartCompat="@drawable/ic_link" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_fb_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/fb_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="Facebool Link"
+                        android:inputType="text"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_instagram_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/instagram_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="Instagram Link"
+                        android:inputType="text"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_LinkedIn_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/LinkedIn_Link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="LinkedIn Link"
+                        android:inputType="text"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_twitter_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/twitter_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="Twitter Link"
+                        android:inputType="text"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ti_whatsapp_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundMode="none"
+                    android:layout_marginHorizontal="15dp"
+                    app:hintTextColor="@color/splash_screen_cl">
+
+                    <EditText
+                        android:id="@+id/et_whatsapp_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints=""
+                        android:fontFamily="@font/ubuntu"
+                        android:background="@drawable/login_edit_text_bg"
+                        android:hint="Whatsapp Number"
+                        android:inputType="text"
+                        android:gravity="top|left"
+                        android:padding="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/light_black_color"
+                        android:textColorHint="#202020"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+     <Button
+         android:id="@+id/bt_save"
+         android:layout_width="150dp"
+         android:layout_height="50dp"
+         android:text="Save"
+         android:textAllCaps="false"
+         android:textSize="18sp"
+         android:background="@drawable/login_button_bg"
+         android:layout_marginStart="15dp"
+         android:layout_marginTop="20dp"
+         android:layout_marginBottom="20dp"/>
+
+
+            </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

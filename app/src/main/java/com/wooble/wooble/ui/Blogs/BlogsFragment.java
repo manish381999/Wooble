@@ -11,12 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.databinding.FragmentBlogsBinding;
-import com.wooble.wooble.ui.credentials.LoginActivity;
-
-import java.util.Objects;
 
 
 public class BlogsFragment extends Fragment {
