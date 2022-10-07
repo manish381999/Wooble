@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.annotation.SuppressLint;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
+import com.wooble.wooble.ui.credentials.LoginActivity;
 
 import java.util.Objects;
 
@@ -81,7 +83,11 @@ ActivityMainBinding binding;
                 break;
 
             case  R.id.navigation_logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+                SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
+                sessionManagement.removeSession();
+                Intent i = new Intent(MainActivity.this, LoginActivity.class );
+                startActivity(i);
+                finish();
                 break;
 
         }

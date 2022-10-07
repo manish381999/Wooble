@@ -24,6 +24,7 @@ import com.wooble.wooble.databinding.ActivitySignupBinding;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
 ActivitySignupBinding binding;
@@ -59,7 +60,7 @@ ActivitySignupBinding binding;
                 mobile_no = etmobileNumber.getText().toString().trim();
                 password = etpassword.getText().toString().trim();
 
-                if(!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals(""))
+                if(!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("") && isValidEmail(email)==true)
                 {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
@@ -109,6 +110,19 @@ ActivitySignupBinding binding;
             }
         });
 
+    }
+
+    public static boolean isValidEmail(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 
     private void gotoLogin() {
