@@ -39,6 +39,7 @@ ActivityLoginBinding binding;
     private String email, password;
     private Button loginButton;
     private String URL="http://172.168.2.86/api/login.php";
+//    private String URL="https://test.wooble.org/android_dir/login.php";
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

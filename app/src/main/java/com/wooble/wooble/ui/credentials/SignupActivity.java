@@ -34,6 +34,7 @@ ActivitySignupBinding binding;
     private EditText etname, etemail,etmobileNumber,etpassword;
     private Button btnSignup;
     private String URL="http://172.168.2.86/api/register.php";
+//    private String URL="https://test.wooble.org/android_connection.php";
     private String name, email, mobile_no, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ ActivitySignupBinding binding;
                 mobile_no = etmobileNumber.getText().toString().trim();
                 password = etpassword.getText().toString().trim();
 
-                if(!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("") && isValidEmail(email)==true)
+                if(!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals(""))
                 {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
