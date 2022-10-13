@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    />
-
 
     <application
         android:allowBackup="true"
@@ -21,10 +19,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.Create_Portfolio_Activity"
+            android:name=".ui.Gallery.ImageUploaderActivity"
+            android:exported="false"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.portfolio.Create_Portfolio_Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"
-            />
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ui.Blogs.Create_BlogsActivity"
             android:exported="false"
@@ -63,7 +69,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data

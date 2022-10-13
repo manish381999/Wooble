@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.home;
+package com.wooble.wooble.ui.portfolio;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,11 +33,12 @@ ActivityCreatePortfolioBinding binding;
 
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Create Portfolio");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
       binding.btSave.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              Intent intent=new Intent(Create_Portfolio_Activity.this, HomeFragment.class);
+              Intent intent=new Intent(Create_Portfolio_Activity.this, PortfolioFragment.class);
               startActivity(intent);
               finish();
 
@@ -106,4 +108,13 @@ ActivityCreatePortfolioBinding binding;
 
         }
     }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        if (item.getItemId()==android.R.id.home){
+//            onBackPressed();
+//
+//        }
+//        return true;
+//    }
 }

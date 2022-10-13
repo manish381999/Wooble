@@ -8,16 +8,15 @@
 
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_height="120dp"
         android:layout_width="120dp"
+        android:layout_height="119dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:src="@drawable/place_holder"
         app:civ_border_color="@color/white"
-        app:civ_shadow_radius="5dp"
         app:civ_shadow="true"
         app:civ_shadow_color="#0D41A5"
-        />
+        app:civ_shadow_radius="5dp" />
 
     <TextView
         android:layout_width="wrap_content"

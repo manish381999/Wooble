@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.home;
+package com.wooble.wooble.ui.portfolio;
 
 
 import android.content.Intent;
@@ -9,25 +9,24 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.wooble.wooble.R;
-import com.wooble.wooble.databinding.FragmentHomeBinding;
+
+import com.wooble.wooble.databinding.FragmentPortfolioBinding;
 
 
-public class HomeFragment extends Fragment {
+public class PortfolioFragment extends Fragment {
 
- FragmentHomeBinding binding;
+ FragmentPortfolioBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-        binding=FragmentHomeBinding.inflate(inflater, container, false);
+        binding=FragmentPortfolioBinding.inflate(inflater, container, false);
 
-        requireActivity().setTitle("Home");
+        requireActivity().setTitle("Portfolio");
 
         binding.addPortfolio.setOnClickListener(new View.OnClickListener() {
             @Override

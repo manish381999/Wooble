@@ -13,9 +13,6 @@ import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
 
 
-
-
-
 public class Create_BlogsActivity extends AppCompatActivity {
 ActivityCreateBlogsBinding binding;
     @SuppressLint("SetJavaScriptEnabled")

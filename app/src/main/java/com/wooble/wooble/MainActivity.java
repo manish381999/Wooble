@@ -34,7 +34,7 @@ ActivityMainBinding binding;
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         NavController navController= Navigation.findNavController(MainActivity.this,R.id.frame_layout);
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
@@ -43,7 +43,7 @@ ActivityMainBinding binding;
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
 
 
         binding.navigationDrawer.setNavigationItemSelectedListener(this);
