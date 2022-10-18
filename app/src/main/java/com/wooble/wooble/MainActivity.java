@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
+import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
 
 import java.util.Objects;
@@ -59,7 +60,8 @@ ActivityMainBinding binding;
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.navigation_profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
+               startActivity(intent);
                 break;
 
             case R.id.navigation_email_signature:
