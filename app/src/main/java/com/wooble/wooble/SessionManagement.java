@@ -2,6 +2,9 @@ package com.wooble.wooble;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.wooble.wooble.ui.credentials.User;
+
 public class SessionManagement {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;

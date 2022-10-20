@@ -1,4 +1,4 @@
-package com.wooble.wooble;
+package com.wooble.wooble.ui.credentials;
 
 public class User {
 
