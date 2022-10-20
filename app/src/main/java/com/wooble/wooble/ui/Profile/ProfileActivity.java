@@ -13,7 +13,6 @@ import android.view.View;
 
 import com.wooble.wooble.databinding.ActivityProfileBinding;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 

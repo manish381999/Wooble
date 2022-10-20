@@ -21,7 +21,7 @@
     <string name="to_reset_your_password">to reset your password.</string>
     <string name="don_t_worry">Don\'t worry.</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="title_that_is_specific">Title that is Specific</string>
     <string name="select_date">Select Date</string>
     <string name="select_time">Select Time</string>
@@ -38,6 +38,39 @@
 
     <string name="start">Start</string>
     <string name="close">Close</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="user_name">User name</string>
+    <string name="about_yourself">About Yourself</string>
+    <string name="links">Links</string>
+    <string name="facebook_link">Facebook Link</string>
+    <string name="instagram_link">Instagram Link</string>
+    <string name="linkedin_link">LinkedIn Link</string>
+    <string name="twitter_link">Twitter Link</string>
+    <string name="whatsapp_number">Whatsapp Number</string>
+    <string name="save">Save</string>
+    <string name="image_title">Image title</string>
+    <string name="caption">Caption</string>
+    <string name="upload">Upload</string>
+    <string name="version_1_0">VERSION: 1.0</string>
+    <string name="_9123456789">9123456789</string>
+    <string name="wooble_gmail_com">Wooble@gmail.com</string>
+    <string name="pass">******</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="profession">Profession</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="resume">Resume</string>
+    <string name="blogs">Blogs</string>
+    <string name="gallery">Gallery</string>
+    <string name="project">Project</string>
+    <string name="profile">Profile</string>
+    <string name="email_signature">Email signature</string>
+    <string name="setting">Setting</string>
+    <string name="communicate">Communicate</string>
+    <string name="social_media">Social media</string>
+    <string name="share">Share</string>
+    <string name="others">Others</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="logout">Logout</string>
 
 
 </resources>

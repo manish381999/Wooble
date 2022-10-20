@@ -3,28 +3,28 @@
 
 <item
     android:id="@+id/navigation_portfolio"
-    android:title="Portfolio"
+    android:title="@string/portfolio"
     android:icon="@drawable/ic_portfolio"
     />
 
     <item
         android:id="@+id/navigation_resume"
-        android:title="Resume"
+        android:title="@string/resume"
         android:icon="@drawable/ic_resume"/>
 
     <item
         android:id="@+id/navigation_blogs"
-        android:title="Blogs"
+        android:title="@string/blogs"
         android:icon="@drawable/ic_blogs"/>
 
     <item
         android:id="@+id/navigation_gallery"
-        android:title="Gallery"
+        android:title="@string/gallery"
         android:icon="@drawable/ic_gallery"/>
 
     <item
         android:id="@+id/navigation_project"
-        android:title="Project"
+        android:title="@string/project"
         android:icon="@drawable/ic_project"/>
 
 </menu>

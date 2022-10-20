@@ -23,30 +23,30 @@
 
 <ImageView
     android:id="@+id/ic_otp"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
+    android:layout_width="@dimen/dp_200_dsa"
+    android:layout_height="@dimen/dp_200_dsa"
     android:src="@drawable/ic_otp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:foregroundGravity="center"
-    android:layout_marginStart="35dp"
-    android:layout_marginTop="100dp"
-    />
+    android:layout_marginStart="@dimen/dp_35_dsa"
+    android:layout_marginTop="@dimen/dp_100_dsa"
+    android:contentDescription="@null" />
 
     <TextView
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_otp"
-        android:textSize="32sp"
+        android:textSize="@dimen/sp_32_dsa"
         android:fontFamily="@font/ubuntu"
         android:textColor="@color/splash_screen_cl"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/ic_otp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginStart="@dimen/dp_40_dsa"
+        android:layout_marginTop="@dimen/dp_40_dsa"/>
 
     <TextView
         android:id="@+id/tv2"
@@ -55,9 +55,9 @@
         android:text="@string/an_4_digit_code_has_been_sent_to"
         app:layout_constraintTop_toBottomOf="@id/tv1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="18dp"
-        android:textSize="16sp"
+        android:layout_marginStart="@dimen/dp_40_dsa"
+        android:layout_marginTop="@dimen/dp_18_dsa"
+        android:textSize="@dimen/sp_16_dsa"
         android:textColor="@color/black"/>
 
     <TextView
@@ -67,9 +67,9 @@
         android:hint="@string/example_gmail_com"
         app:layout_constraintTop_toBottomOf="@id/tv2"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="@dimen/dp_40_dsa"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/sp_16_dsa"
         android:textColorHint="@color/black"/>
 
 
@@ -80,30 +80,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/splash_screen_cl"
-                app:height="45dp"
-                app:width="40dp"
+                app:height="@dimen/dp_45_dsa"
+                app:width="@dimen/dp_40_dsa"
                 app:bar_enabled="true"
                 app:bar_active_color="@color/black"
-                app:bar_height="2dp"
+                app:bar_height="@dimen/dp_2_dsa"
                 app:length="4"
-                app:otp_text_size="24dp"
+                app:otp_text_size="@dimen/dp_24_dsa"
                 app:layout_constraintTop_toBottomOf="@id/tv3"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dp_15_dsa"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingClass,MissingConstraints" />
+                />
 
 
             <Button
         android:id="@+id/btn_verify"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/dp_300_dsa"
         android:layout_height="wrap_content"
         android:text="@string/verify"
         android:textAllCaps="false"
-        android:textSize="21sp"
+        android:textSize="@dimen/sp_21_dsa"
         android:background="@drawable/login_button_bg"
         app:layout_constraintTop_toBottomOf="@id/otp_view"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="@dimen/dp_40_dsa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

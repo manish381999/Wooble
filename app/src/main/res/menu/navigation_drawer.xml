@@ -6,17 +6,17 @@
     <item
 
         android:id="@+id/navigation_profile"
-        android:title="Profile"
+        android:title="@string/profile"
         android:icon="@drawable/ic_account"/>
 
     <item
         android:id="@+id/navigation_email_signature"
-        android:title="Email signature"
+        android:title="@string/email_signature"
         android:icon="@drawable/ic_email_signature"/>
 
     <item
         android:id="@+id/navigation_setting"
-        android:title="Setting"
+        android:title="@string/setting"
         android:icon="@drawable/ic_settings"/>
 
 
@@ -24,17 +24,17 @@
 
     <group
         android:checkableBehavior="single">
-        <item android:title="Communicate">
+        <item android:title="@string/communicate">
         <menu>
 
             <item
                 android:id="@+id/navigation_social_media"
-                android:title="Social media"
+                android:title="@string/social_media"
                 android:icon="@drawable/ic_connect_without_contact_"/>
 
             <item
                 android:id="@+id/navigation_share"
-                android:title="Share"
+                android:title="@string/share"
                 android:icon="@drawable/ic_baseline_share_24"/>
 
         </menu>
@@ -48,17 +48,17 @@
 
     <group
         android:checkableBehavior="single">
-        <item android:title="Others">
+        <item android:title="@string/others">
             <menu>
 
                 <item
                     android:id="@+id/navigation_rate_us"
-                    android:title="Rate Us"
+                    android:title="@string/rate_us"
                     android:icon="@drawable/ic_baseline_star_rate"/>
 
                 <item
                     android:id="@+id/navigation_logout"
-                    android:title="Logout"
+                    android:title="@string/logout"
                     android:icon="@drawable/ic_baseline_logout_24"/>
 
             </menu>

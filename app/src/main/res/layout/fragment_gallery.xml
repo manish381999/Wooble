@@ -10,13 +10,13 @@
         android:id="@+id/add_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="@dimen/dp_30_dsa"
+        android:layout_marginBottom="@dimen/dp_30_dsa"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_blogs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="52dp"
-        />
+        app:maxImageSize="@dimen/dp_52_dsa"
+        android:contentDescription="@null" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splash_screen_cl"
+    android:elevation="10dp"
     tools:context=".ui.Profile.Edit_Profile_Activity">
 
 

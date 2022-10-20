@@ -31,7 +31,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
+                    android:layout_height="@dimen/dp_280_dsa"
                     android:contentDescription="@string/todo"
                     android:scaleType="centerCrop"
                     android:src="@drawable/login_activity_bg" />
@@ -43,7 +43,7 @@
                     android:gravity="center"
                     android:text="@string/your_portfolio"
                     android:textColor="@color/purple_500"
-                    android:textSize="38sp"
+                    android:textSize="@dimen/sp_38_dsa"
                     android:textStyle="bold" />
 
                 <TextView
@@ -53,7 +53,7 @@
                     android:gravity="center"
                     android:text="@string/your_reflection"
                     android:textColor="@color/purple_700"
-                    android:textSize="28sp"
+                    android:textSize="@dimen/sp_28_dsa"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -61,15 +61,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/dp_20_dsa"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                android:layout_marginEnd="@dimen/dp_20_dsa"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/name"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="@dimen/dp_58_dsa"
                     android:background="@drawable/login_edit_text_bg"
                     app:boxBackgroundMode="outline"
                     app:hintTextColor="@color/splash_screen_cl">
@@ -81,23 +81,23 @@
                         android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_baseline_account_circle_24"
-                        android:drawablePadding="10dp"
+                        android:drawablePadding="@dimen/dp_10_dsa"
                         android:fontFamily="@font/ubuntu"
                         android:hint="@string/full_name"
                         android:inputType="textPersonName"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10_dsa"
                         android:singleLine="true"
                         android:textColor="#2B2929"
                         android:textColorHint="#202020"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/sp_18_dsa"
                         android:textStyle="bold" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/mobile_no"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/dp_58_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
                     android:background="@drawable/login_edit_text_bg"
                     app:boxBackgroundMode="outline"
                     app:hintTextColor="@color/splash_screen_cl">
@@ -109,15 +109,15 @@
                         android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_baseline_phone_24"
-                        android:drawablePadding="10dp"
+                        android:drawablePadding="@dimen/dp_10_dsa"
                         android:fontFamily="@font/ubuntu"
                         android:hint="@string/mobile_number"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10_dsa"
                         android:singleLine="true"
                         android:textColor="#2B2929"
                         android:inputType="number"
                         android:textColorHint="#202020"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/sp_18_dsa"
                         android:textStyle="bold" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -126,8 +126,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/email"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/dp_58_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
                     android:background="@drawable/login_edit_text_bg"
                     app:boxBackgroundMode="outline"
                     app:hintTextColor="@color/splash_screen_cl">
@@ -139,15 +139,15 @@
                         android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_email"
-                        android:drawablePadding="10dp"
+                        android:drawablePadding="@dimen/dp_10_dsa"
                         android:fontFamily="@font/ubuntu"
                         android:hint="@string/enter_email"
                         android:inputType="textEmailAddress"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10_dsa"
                         android:singleLine="true"
                         android:textColor="#2B2929"
                         android:textColorHint="#202020"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/sp_18_dsa"
                         android:textStyle="bold" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,8 +155,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_height="@dimen/dp_58_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
                     android:background="@drawable/login_edit_text_bg"
                     app:boxBackgroundMode="outline"
                     app:hintTextColor="@color/splash_screen_cl"
@@ -169,15 +169,15 @@
                         android:autofillHints=""
                         android:background="@android:color/transparent"
                         android:drawableStart="@drawable/ic_password"
-                        android:drawablePadding="10dp"
+                        android:drawablePadding="@dimen/dp_10_dsa"
                         android:fontFamily="@font/ubuntu"
                         android:hint="@string/password"
                         android:inputType="textPassword"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10_dsa"
                         android:singleLine="true"
                         android:textColor="#2B2929"
                         android:textColorHint="#202020"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/sp_18_dsa"
                         android:textStyle="bold" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -185,26 +185,26 @@
                 <Button
                     android:id="@+id/sign_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="@dimen/dp_55_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"
                     android:background="@drawable/login_button_bg"
                     android:fontFamily="@font/ubuntu"
                     android:text="@string/sign_up"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="23sp" />
+                    android:textSize="@dimen/sp_23_dsa" />
 
                 <TextView
                     android:id="@+id/gotoLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="@dimen/dp_20_dsa"
+                    android:layout_marginBottom="@dimen/dp_20_dsa"
                     android:fontFamily="@font/ubuntu"
                     android:gravity="center"
                     android:text="@string/already_have_an_account_login"
                     android:textColor="#1E1D1D"
-                    android:textSize="19sp"
+                    android:textSize="@dimen/sp_19_dsa"
                     android:textStyle="bold" />
 
             </LinearLayout>

@@ -19,7 +19,7 @@
         <fragment
             android:id="@+id/frame_layout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/dp_0_dsa"
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
             app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +32,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dp_50_dsa"
             android:background="?android:attr/windowBackground"
             app:labelVisibilityMode="selected"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/navigation_drawer"
         app:headerLayout="@layout/drawer_header"
-        app:itemIconSize="28dp"
+        app:itemIconSize="@dimen/dp_28_dsa"
         app:itemIconTint="@color/splash_screen_cl"
         android:layout_gravity="start"
         app:itemTextAppearance="?attr/textAppearanceBodyMedium">
@@ -63,14 +63,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="20dp"
-
-            >
+            android:layout_marginBottom="@dimen/dp_20_dsa">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="VERSION: 1.0"
+                android:text="@string/version_1_0"
                 android:textStyle="bold"/>
 
         </LinearLayout>

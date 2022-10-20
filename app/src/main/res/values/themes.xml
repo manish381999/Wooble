@@ -12,6 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+
     </style>
 
 <style name="toolbar" parent="TextAppearance.MaterialComponents.Button">
@@ -25,5 +27,11 @@
 
     </style>
 
+    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
 
 </resources>

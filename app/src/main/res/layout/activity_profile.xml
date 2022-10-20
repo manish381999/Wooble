@@ -16,39 +16,41 @@
     <ImageView
         android:id="@+id/cover_pic"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/dp_200_dsa"
         android:src="@drawable/place_holder"
         android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
-        android:elevation="10dp"
+        android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@null" />
 
 
     <ImageView
         android:id="@+id/add_cover_pic"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/dp_24_dsa"
+        android:layout_height="@dimen/dp_24_dsa"
         android:src="@drawable/edit_2"
-        android:elevation="10dp"
+        android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintBottom_toBottomOf="@+id/cover_pic"
         app:layout_constraintEnd_toEndOf="@+id/cover_pic"
         app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="@+id/cover_pic"
         app:layout_constraintTop_toTopOf="@+id/cover_pic"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1"
+        android:contentDescription="@null" />
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_pic"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="@dimen/dp_170_dsa"
+        android:layout_height="@dimen/dp_170_dsa"
         android:src="@drawable/place_holder"
         app:civ_border_color="@color/white"
-        app:civ_border_width="4dp"
+        app:civ_border_width="@dimen/dp_4_dsa"
         android:layout_gravity="center_horizontal"
         app:civ_shadow="true"
-        android:elevation="10dp"
-        app:civ_shadow_radius="10dp"
+        android:elevation="@dimen/dp_10_dsa"
+        app:civ_shadow_radius="@dimen/dp_10_dsa"
         app:layout_constraintTop_toTopOf="@id/cover_pic"
         app:layout_constraintStart_toStartOf="@id/cover_pic"
         app:layout_constraintEnd_toEndOf="@id/cover_pic"
@@ -59,13 +61,13 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/add_profile_pic"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
+        android:layout_width="@dimen/dp_50_dsa"
+        android:layout_height="@dimen/dp_45_dsa"
         android:src="@drawable/ic_blogs"
         app:civ_border_color="@color/white"
-        app:civ_border_width="2dp"
-        android:padding="2dp"
-        android:elevation="10dp"
+        app:civ_border_width="@dimen/dp_2_dsa"
+        android:padding="@dimen/dp_2_dsa"
+        android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintBottom_toBottomOf="@+id/profile_pic"
         app:layout_constraintEnd_toEndOf="@+id/profile_pic"
         app:layout_constraintHorizontal_bias="0.9"
@@ -77,14 +79,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/profile_pic"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="@dimen/dp_20_dsa"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/full_name"
-                android:textSize="18sp"
+                android:textSize="@dimen/sp_18_dsa"
                 android:fontFamily="@font/ubuntu"
                 android:textColor="@color/light_black_color"/>
 
@@ -92,31 +94,31 @@
             <TextView
                 android:id="@+id/tv_full_name"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="15dp"
-                android:textSize="18sp"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:padding="15dp"
+                android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mobile_number"
-                android:textSize="18sp"
+                android:textSize="@dimen/sp_18_dsa"
                 android:fontFamily="@font/ubuntu"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textColor="@color/light_black_color"/>
 
             <TextView
                 android:id="@+id/tv_mobileNo"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/dp_50_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:layout_marginTop="15dp"
-                android:textSize="18sp"
-                android:hint="9123456789"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:hint="@string/_9123456789"
                 android:textColor="@color/black"
                 android:padding="15dp"/>
 
@@ -126,58 +128,58 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/enter_email"
-                android:textSize="18sp"
+                android:textSize="@dimen/sp_18_dsa"
                 android:fontFamily="@font/ubuntu"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textColor="@color/light_black_color"/>
 
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/dp_50_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:layout_marginTop="15dp"
-                android:textSize="18sp"
-                android:hint="Woobile@gmail.com"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:hint="@string/wooble_gmail_com"
                 android:textColor="@color/black"
-                android:padding="12dp"/>
+                android:padding="@dimen/dp_12_dsa"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password"
-                android:textSize="18sp"
+                android:textSize="@dimen/sp_18_dsa"
                 android:fontFamily="@font/ubuntu"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textColor="@color/light_black_color"/>
 
             <TextView
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/dp_50_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:layout_marginTop="15dp"
-                android:hint="******"
-                android:textSize="18sp"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:hint="@string/pass"
+                android:textSize="@dimen/sp_18_dsa"
                 android:textColor="@color/black"
-                android:padding="15dp"/>
+                android:padding="@dimen/dp_15_dsa"/>
 
 
             <Button
                 android:id="@+id/bt_editProfile"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Edit profile"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:text="@string/edit_profile"
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
+                android:textSize="@dimen/sp_18_dsa"
+                android:layout_marginTop="@dimen/dp_20_dsa"
                 android:background="@drawable/login_button_bg"
                 android:gravity="center_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ti_image_caption"
-                android:layout_marginBottom="180dp"/>
+                android:layout_marginBottom="@dimen/dp_180_dsa"/>
 
 
         </LinearLayout>
