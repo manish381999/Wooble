@@ -71,6 +71,13 @@
     <string name="others">Others</string>
     <string name="rate_us">Rate Us</string>
     <string name="logout">Logout</string>
+    <string name="project_name">Project name</string>
+    <string name="aim_of_project">Aim of project</string>
+    <string name="description">Description</string>
+    <string name="about_project">About Project</string>
+    <string name="select_pdf">Select PDF</string>
+    <string name="no_file_selected">No file selected</string>
+    <string name="conclusion">Conclusion</string>
 
 
 </resources>

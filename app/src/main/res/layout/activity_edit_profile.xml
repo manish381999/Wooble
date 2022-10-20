@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splash_screen_cl"
-    android:elevation="10dp"
+    android:elevation="@dimen/dp_10_dsa"
     tools:context=".ui.Profile.Edit_Profile_Activity">
 
 
@@ -16,15 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="30dp"
-        android:layout_margin="20dp"
+        app:cardElevation="@dimen/dp_10_dsa"
+        app:cardCornerRadius="@dimen/dp_30_dsa"
+        android:layout_margin="@dimen/dp_20_dsa"
         >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="@dimen/dp_500_dsa"
+        android:layout_marginHorizontal="@dimen/dp_20_dsa"
+        android:layout_marginTop="@dimen/dp_15_dsa"
         android:orientation="vertical">
 
 
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/full_name"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:fontFamily="@font/ubuntu"
             android:textColor="@color/light_black_color"/>
 
@@ -40,35 +40,36 @@
         <EditText
             android:id="@+id/et_full_name"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:textSize="18sp"
+            android:layout_height="@dimen/dp_50_dsa"
+            android:layout_marginTop="@dimen/dp_15_dsa"
+            android:textSize="@dimen/sp_18_dsa"
             android:background="@drawable/login_edit_text_bg"
             android:hint="@string/Wooble"
             android:inputType="textPersonName"
-            android:padding="15dp"
-            android:textColor="@color/black" />
+            android:padding="@dimen/dp_15_dsa"
+            android:textColor="@color/black"
+            android:importantForAutofill="no" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mobile_number"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
             android:textColor="@color/light_black_color"/>
 
         <EditText
             android:id="@+id/tv_mobileNo"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dp_50_dsa"
             android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="15dp"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
+            android:textSize="@dimen/sp_18_dsa"
             android:inputType="number"
             android:hint="9123456789"
             android:textColor="@color/black"
-            android:padding="15dp"/>
+            android:padding="@dimen/dp_15_dsa"/>
 
 
 
@@ -76,59 +77,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/enter_email"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
             android:textColor="@color/light_black_color"/>
 
         <EditText
             android:id="@+id/tv_email"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dp_50_dsa"
             android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
             android:inputType="textEmailAddress"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:hint="Woobile@gmail.com"
             android:textColor="@color/black"
-            android:padding="12dp"/>
+            android:padding="@dimen/dp_12_dsa"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
             android:textColor="@color/light_black_color"/>
 
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dp_50_dsa"
             android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dp_15_dsa"
             android:hint="******"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18_dsa"
             android:textColor="@color/black"
-            android:padding="15dp"/>
+            android:padding="@dimen/dp_15_dsa"/>
 
 
         <Button
             android:id="@+id/bt_update"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dp_50_dsa"
             android:text="Update"
             android:textAllCaps="false"
             android:layout_gravity="center_horizontal"
-            android:textSize="18sp"
-            android:layout_marginTop="20dp"
+            android:textSize="@dimen/sp_18_dsa"
+            android:layout_marginTop="@dimen/dp_20_dsa"
             android:background="@drawable/login_button_bg"
             android:gravity="center_horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ti_image_caption"
-            android:layout_marginBottom="180dp"/>
+            android:layout_marginBottom="@dimen/dp_180_dsa"/>
 
 
     </LinearLayout>
