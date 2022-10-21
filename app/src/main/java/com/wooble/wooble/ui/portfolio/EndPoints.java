@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.home;
+package com.wooble.wooble.ui.portfolio;
 
 public class EndPoints {
     private static final String ROOT_URL = "http://172.168.0.182/api/profile.php?apicall=";

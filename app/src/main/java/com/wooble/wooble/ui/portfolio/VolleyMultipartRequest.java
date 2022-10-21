@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.home;
+package com.wooble.wooble.ui.portfolio;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
