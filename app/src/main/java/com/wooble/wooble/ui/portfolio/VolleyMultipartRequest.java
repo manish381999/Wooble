@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.home;
+package com.wooble.wooble.ui.portfolio;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -189,7 +189,7 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
         dataOutputStream.writeBytes(lineEnd);
     }
 
-    class DataPart {
+    public class DataPart {
         private String fileName;
         private byte[] content;
         private String type;
@@ -197,7 +197,7 @@ public class VolleyMultipartRequest extends Request<NetworkResponse> {
         public DataPart() {
         }
 
-        DataPart(String name, byte[] data) {
+        public DataPart(String name, byte[] data) {
             fileName = name;
             content = data;
         }

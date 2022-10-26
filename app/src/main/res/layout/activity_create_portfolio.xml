@@ -69,8 +69,8 @@
                     android:id="@+id/ti_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:helperText="This username will be your wooble link."
                     app:hintTextColor="@color/splash_screen_cl">
 
@@ -79,8 +79,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
                         android:hint="@string/user_name"
                         android:inputType="text"
                         android:padding="@dimen/dp_20_dsa"
@@ -92,13 +92,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -106,8 +105,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
                         android:hint="@string/full_name"
                         android:inputType="text"
                         android:padding="@dimen/dp_20_dsa"
@@ -123,8 +122,8 @@
                     android:id="@+id/ti_aboutYourself"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -132,11 +131,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_180_dsa"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
+                        android:gravity="top|start"
                         android:hint="@string/about_yourself"
                         android:inputType="textAutoCorrect|textMultiLine"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:textColor="@color/light_black_color"
                         android:textColorHint="#202020"
@@ -147,44 +146,44 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <Spinner
-                        android:id="@+id/profession_category"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_55_dsa"
-                        android:spinnerMode="dropdown"
-                        android:background="@android:drawable/btn_dropdown"
-                        android:gravity="center"
-                        android:layout_marginHorizontal="@dimen/dp_15_dsa"
-                        android:layout_marginTop="@dimen/dp_16_dsa"/>
+                <Spinner
+                    android:id="@+id/profession_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_55_dsa"
+                    android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    android:layout_marginTop="@dimen/dp_16_dsa"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/links"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/ubuntu"
-                    android:textColor="@color/splash_screen_cl"
-                    android:layout_marginTop="20dp"
                     android:layout_marginStart="18dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="@string/links"
+                    android:textColor="@color/splash_screen_cl"
+                    android:textSize="20sp"
                     app:drawableStartCompat="@drawable/ic_link" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_fb_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
-                        android:id="@+id/fb_link"
+                        android:id="@+id/et_fb_link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
                         android:background="@drawable/login_edit_text_bg"
+                        android:gravity="top|start"
                         android:hint="@string/facebook_link"
                         android:inputType="text"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:singleLine="true"
                         android:textColor="@color/light_black_color"
@@ -199,8 +198,8 @@
                     android:id="@+id/ti_instagram_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -208,11 +207,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
+                        android:gravity="top|start"
                         android:hint="@string/instagram_link"
                         android:inputType="text"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:singleLine="true"
                         android:textColor="@color/light_black_color"
@@ -222,24 +221,25 @@
 
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_LinkedIn_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
-                        android:id="@+id/LinkedIn_Link"
+                        android:id="@+id/et_LinkedIn_Link"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
+                        android:gravity="top|start"
                         android:hint="@string/linkedin_link"
                         android:inputType="text"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:singleLine="true"
                         android:textColor="@color/light_black_color"
@@ -249,12 +249,13 @@
 
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_twitter_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -262,11 +263,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
+                        android:gravity="top|start"
                         android:hint="@string/twitter_link"
                         android:inputType="text"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:singleLine="true"
                         android:textColor="@color/light_black_color"
@@ -276,12 +277,13 @@
 
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ti_whatsapp_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxBackgroundMode="none"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -289,11 +291,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:autofillHints=""
-                        android:fontFamily="@font/ubuntu"
                         android:background="@drawable/login_edit_text_bg"
+                        android:fontFamily="@font/ubuntu"
+                        android:gravity="top|start"
                         android:hint="@string/whatsapp_number"
                         android:inputType="number"
-                        android:gravity="top|start"
                         android:padding="@dimen/dp_20_dsa"
                         android:singleLine="true"
                         android:textColor="@color/light_black_color"
@@ -305,24 +307,23 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
-     <Button
-         android:id="@+id/bt_save"
-         android:layout_width="@dimen/dp_150_dsa"
-         android:layout_height="@dimen/dp_50_dsa"
-         android:text="@string/save"
-         android:textAllCaps="false"
-         android:textSize="@dimen/sp_18_dsa"
-         android:background="@drawable/login_button_bg"
-         android:layout_marginStart="@dimen/dp_15_dsa"
-         android:layout_marginTop="@dimen/dp_20_dsa"
-         android:layout_marginBottom="@dimen/dp_20_dsa"/>
+                <Button
+                    android:id="@+id/bt_save"
+                    android:layout_width="@dimen/dp_150_dsa"
+                    android:layout_height="@dimen/dp_50_dsa"
+                    android:layout_marginStart="@dimen/dp_15_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"
+                    android:layout_marginBottom="@dimen/dp_20_dsa"
+                    android:background="@drawable/login_button_bg"
+                    android:text="@string/save"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/sp_18_dsa" />
 
 
             </LinearLayout>
 
 
-                </LinearLayout>
+        </LinearLayout>
 
 
 
