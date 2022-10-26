@@ -102,10 +102,10 @@ binding.btUpdate.setOnClickListener(new View.OnClickListener() {
 
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
-//        String fullName = binding.etFullName.getText().toString().trim();
-//        String email = binding.etEmail.getText().toString().trim();
-//        String mobile = binding.etMobileNo.getText().toString().trim();
-//        String password = binding.etPassword.getText().toString().trim();
+        String fullName = binding.etFullName.getText().toString().trim();
+        String email = binding.etEmail.getText().toString().trim();
+        String mobile = binding.etMobileNo.getText().toString().trim();
+        String password = binding.etPassword.getText().toString().trim();
 
 //        System.out.println("hello"+ profileEmail);
 //        System.out.println("hello"+ fullName);
@@ -150,10 +150,10 @@ binding.btUpdate.setOnClickListener(new View.OnClickListener() {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("profileEmail", profileEmail);
-//                params.put("fullname", fullName);
-//                params.put("email", email);
-//                params.put("mobile", mobile);
-//                params.put("password", password);
+                params.put("fullname", fullName);
+                params.put("email", email);
+                params.put("mobile", mobile);
+                params.put("password", password);
                 return params;
             }
 
