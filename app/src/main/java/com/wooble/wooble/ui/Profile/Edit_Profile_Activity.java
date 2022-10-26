@@ -107,19 +107,6 @@ binding.btUpdate.setOnClickListener(new View.OnClickListener() {
         String mobile = binding.etMobileNo.getText().toString().trim();
         String password = binding.etPassword.getText().toString().trim();
 
-//        System.out.println("hello"+ profileEmail);
-//        System.out.println("hello"+ fullName);
-//        System.out.println("hello"+ userName);
-//        System.out.println("hello"+ desigNation);
-//        System.out.println("hello"+ fb_Link);
-//        System.out.println("hello"+ insta_Link);
-//        System.out.println("hello"+ profileEmail);
-//        System.out.println("hello"+ twitter_Link);
-//        System.out.println("hello"+ whatsapp_Link);
-//        System.out.println("hello"+ backGround);
-        //getting the tag from the edittext
-        //final String username = username.getText().toString().trim();
-
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_ONLY_PROFILE_DATA,
                 new Response.Listener<NetworkResponse>() {
