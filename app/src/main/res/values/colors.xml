@@ -13,4 +13,5 @@
     <color name="app_text_cl">#FFF</color>
     <color name="light_white">#EFF4FE</color>
     <color name="light_black_color">#454545</color>
+    <color name="red">#FF0000</color>
 </resources>
