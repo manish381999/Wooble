@@ -60,6 +60,8 @@
         android:textColorHint="@color/light_black_color"
         android:textColor="@color/light_black_color"
         android:textSize="@dimen/sp_17_dsa"
+        android:textAllCaps="false"
+        android:fontFamily="@font/ubuntu"
         android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/username"
         app:layout_constraintStart_toStartOf="@id/username"
