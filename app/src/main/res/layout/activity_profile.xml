@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:elevation="10dp"
     tools:context=".ui.Profile.ProfileActivity">
 
 
@@ -13,17 +14,21 @@
         android:layout_height="wrap_content"
         >
 
-    <ImageView
-        android:id="@+id/cover_pic"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_200_dsa"
-        android:src="@drawable/place_holder"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/dp_10_dsa"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@null" />
+
+
+            <ImageView
+                android:id="@+id/cover_pic"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_200_dsa"
+                android:src="@drawable/place_holder"
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="@dimen/dp_10_dsa"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="@null" />
+
+
 
 
     <ImageView
@@ -46,7 +51,7 @@
         android:layout_height="@dimen/dp_170_dsa"
         android:src="@drawable/place_holder"
         app:civ_border_color="@color/white"
-        app:civ_border_width="@dimen/dp_4_dsa"
+        app:civ_border_width="@dimen/dp_2_dsa"
         android:layout_gravity="center_horizontal"
         app:civ_shadow="true"
         android:elevation="@dimen/dp_10_dsa"
@@ -99,7 +104,7 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:padding="@dimen/dp_15_dsa"
+                android:padding="@dimen/dp_12_dsa"
                 android:textColor="@color/black" />
 
             <TextView
@@ -120,7 +125,7 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:hint="@string/_9123456789"
                 android:textColor="@color/black"
-                android:padding="15dp"/>
+                android:padding="12dp"/>
 
 
 

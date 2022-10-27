@@ -9,20 +9,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityProfileBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
@@ -35,7 +31,6 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -59,27 +54,13 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        binding.addCoverPic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                coverImage();
-            }
-        });
 
-        binding.addProfilePic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                profileImage();
-            }
-        });
+        binding.addCoverPic.setOnClickListener(view -> coverImage());
+
+        binding.addProfilePic.setOnClickListener(view -> profileImage());
 
 
-        binding.btEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(ProfileActivity.this, Edit_Profile_Activity.class));
-            }
-        });
+        binding.btEditProfile.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, Edit_Profile_Activity.class)));
 
     }
 

@@ -1,41 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/splash_screen_cl"
+   android:background="@color/white"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/cover_pic"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200_dsa"
+        android:src="@drawable/place_holder"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
 
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_width="@dimen/dp_120_dsa"
+        android:id="@+id/profile_pic"
+        android:layout_width="@dimen/dp_115_dsa"
         android:layout_height="@dimen/dp_119_dsa"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp_10_dsa"
         android:src="@drawable/place_holder"
         app:civ_border_color="@color/white"
         app:civ_shadow="true"
         app:civ_shadow_color="#0D41A5"
-        app:civ_shadow_radius="@dimen/dp_5_dsa" />
+        app:layout_constraintVertical_bias="0.6"
+        app:civ_shadow_radius="@dimen/dp_5_dsa"
+        app:layout_constraintTop_toTopOf="@id/cover_pic"
+        app:layout_constraintStart_toStartOf="@id/cover_pic"
+        app:layout_constraintEnd_toEndOf="@id/cover_pic"
+        app:layout_constraintBottom_toBottomOf="@id/cover_pic"
+        />
 
     <TextView
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/user_name"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
+        android:textColorHint="@color/light_black_color"
+        android:textColor="@color/light_black_color"
         android:fontFamily="@font/ubuntu"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp_10_dsa"
-        android:textSize="@dimen/sp_19_dsa"/>
+        android:textSize="@dimen/sp_19_dsa"
+        android:layout_marginTop="@dimen/dp_10_minus_dsa"
+        app:layout_constraintTop_toBottomOf="@id/profile_pic"
+        app:layout_constraintStart_toStartOf="@id/profile_pic"
+        app:layout_constraintEnd_toEndOf="@id/profile_pic"
+        />
 
     <TextView
+        android:id="@+id/profession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/profession"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
+        android:textColorHint="@color/light_black_color"
+        android:textColor="@color/light_black_color"
         android:textSize="@dimen/sp_17_dsa"
-        android:layout_marginTop="@dimen/dp_5_dsa"
-        android:layout_gravity="center_horizontal"/>
-</LinearLayout>
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/username"
+        app:layout_constraintStart_toStartOf="@id/username"
+        app:layout_constraintEnd_toEndOf="@id/username"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

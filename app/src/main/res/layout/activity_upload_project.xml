@@ -209,13 +209,11 @@
 
 
 
-            <com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/VideoPlayer"
+            <VideoView
+                android:id="@+id/videoView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_250_dsa"
-                android:layout_marginTop="@dimen/dp_20_dsa"
-
-                />
+                android:layout_height="@dimen/dp_230_dsa"
+                android:layout_marginTop="@dimen/dp_20_dsa"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/add_pdf"
@@ -281,13 +279,14 @@
             <EditText
                 android:id="@+id/et_conclusion"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_height="@dimen/dp_100_dsa"
                 android:elevation="@dimen/dp_8_dsa"
                 android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textSize="@dimen/sp_18_dsa"
+                android:gravity="top|start"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black"
                 android:importantForAutofill="no" />

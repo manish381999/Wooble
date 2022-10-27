@@ -16,10 +16,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.view.View;
-
-
-import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.MediaItem;
+import android.widget.MediaController;
 
 
 import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
@@ -38,11 +35,14 @@ public class Upload_Project_Activity extends AppCompatActivity {
     final int REQ_imageView4 = 40;
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
-    Uri image_Uri,  pdf_Uri;;
+    Uri image_Uri,  pdf_Uri, video_Uri;
     private String pdfName ;
     private Bitmap bitmap;
 
     final int REQ_pdf = 5;
+    final int REQ_video = 80;
+
+    MediaController mediaController;
 
 
     @Override
@@ -52,6 +52,10 @@ public class Upload_Project_Activity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Upload Project");
+
+        mediaController=new MediaController(this);
+        binding.videoView.setMediaController(mediaController);
+        binding.videoView.start();
 
 
         binding.imageView1.setOnClickListener(view -> imageView1());
@@ -70,36 +74,18 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding.addPdf.setOnClickListener(view -> openDocument());
 
 
-        ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
-
-        binding.VideoPlayer.setPlayer(exoPlayer);
-        MediaItem mediaItem = MediaItem.fromUri("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4");
-        exoPlayer.addMediaItem(mediaItem);
-        exoPlayer.prepare();
-
-//        exoPlayer.play();
+        binding.videoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                videoVideo();
+            }
+        });
 
 
-//        binding.VideoPlayer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//                intent.setType("video/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(Intent.createChooser(intent,"Select Video"),1);
-//            }
-//        });
-//
-//    }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode==1 && resultCode==RESULT_OK && data!=null){
-//          uri=data.getData();
-//          binding.VideoPlayer.setPlayer((Player) uri);
-//
-//        }
+
+
+
 
 
     }
@@ -139,6 +125,11 @@ public class Upload_Project_Activity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.setType("application/pdf");
         startActivityForResult(Intent.createChooser(intent,"Select Pdf File"),REQ_pdf);
+    }
+
+    private void videoVideo(){
+        Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, REQ_video);
     }
 
     @SuppressLint("Range")
@@ -226,6 +217,10 @@ public class Upload_Project_Activity extends AppCompatActivity {
             binding.pdfTextview.setText(pdfName);
 
 
+        }else if (requestCode==REQ_video && resultCode==RESULT_OK && data!=null){
+            video_Uri=data.getData();
+
+            binding.videoView.setVideoURI(video_Uri);
         }
 
 
