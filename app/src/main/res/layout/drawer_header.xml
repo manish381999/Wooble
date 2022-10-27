@@ -17,8 +17,6 @@
         android:scaleType="centerCrop"
         android:contentDescription="@null" />
 
-
-
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_pic"
         android:layout_width="@dimen/dp_115_dsa"
@@ -67,7 +65,5 @@
         app:layout_constraintStart_toStartOf="@id/username"
         app:layout_constraintEnd_toEndOf="@id/username"
         />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

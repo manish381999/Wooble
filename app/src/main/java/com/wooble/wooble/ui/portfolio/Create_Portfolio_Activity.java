@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -197,7 +198,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                             //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
                             profileImage = jObj.getString("image");
-                            //Log.d("image",profileImage);
+                            Log.d("image",profileImage);
                             Glide.with(Create_Portfolio_Activity.this)
                                     .load(profileImage)
                                     .centerCrop()

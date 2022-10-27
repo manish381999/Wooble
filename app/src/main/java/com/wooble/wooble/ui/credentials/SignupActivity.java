@@ -33,7 +33,7 @@ ActivitySignupBinding binding;
 
     private EditText etname, etemail,etmobileNumber,etpassword;
     private Button btnSignup;
-    private String URL="http://172.168.2.86/api/register.php";
+    private String URL="http://172.168.0.182/wooble-api/register.php";
 //    private String URL="https://test.wooble.org/android_connection.php";
     private String name, email, mobile_no, password;
     @Override
