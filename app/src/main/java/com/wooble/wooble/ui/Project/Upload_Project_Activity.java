@@ -82,12 +82,6 @@ public class Upload_Project_Activity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
     }
 
     private void imageView1() {
@@ -132,7 +126,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         startActivityForResult(intent, REQ_video);
     }
 
-    @SuppressLint("Range")
+    @SuppressLint({"Range", "Recycle"})
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

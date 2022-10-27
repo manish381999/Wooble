@@ -19,14 +19,14 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profile_pic"
-        android:layout_width="@dimen/dp_115_dsa"
-        android:layout_height="@dimen/dp_119_dsa"
+        android:layout_width="@dimen/dp_120_dsa"
+        android:layout_height="@dimen/dp_120_dsa"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/place_holder"
         app:civ_border_color="@color/white"
         app:civ_shadow="true"
         app:civ_shadow_color="#0D41A5"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="1.1"
         app:civ_shadow_radius="@dimen/dp_5_dsa"
         app:layout_constraintTop_toTopOf="@id/cover_pic"
         app:layout_constraintStart_toStartOf="@id/cover_pic"
