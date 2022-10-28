@@ -19,6 +19,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.Gallery.Full_ImageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.Project.Upload_Project_Activity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize">
@@ -56,9 +63,9 @@
         <activity
             android:name=".ui.Blogs.Create_BlogsActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-        </activity>
+
         <activity
             android:name=".ui.credentials.Reset_PasswordActivity"
             android:exported="false"

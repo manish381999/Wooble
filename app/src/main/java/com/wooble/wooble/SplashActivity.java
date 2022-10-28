@@ -11,6 +11,7 @@ import android.os.Handler;
 
 
 import com.bumptech.glide.Glide;
+
 import com.wooble.wooble.databinding.ActivitySplashBinding;
 import com.wooble.wooble.ui.credentials.LoginActivity;
 
@@ -25,16 +26,21 @@ ActivitySplashBinding binding;
         binding=ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         Glide.with(this).asGif().load(R.raw.app_logo).into(binding.appLogo);
+
+
 
           new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
-        }, 4000);
+        }, 3000);
     }
 }

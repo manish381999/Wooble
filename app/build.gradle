@@ -48,10 +48,11 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:4.3.1' // Adv circular image
     implementation 'com.github.aabhasr1:OtpView:v1.1.2' //otp
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"// drawer layout
-//    implementation 'com.github.bumptech.glide:glide:4.14.2'  //glide
-//    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2' //glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'  //glide
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2' //glide
     implementation 'com.makeramen:roundedimageview:2.3.0' //rounded image view
     implementation 'com.squareup.picasso:picasso:2.71828' // picasso
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0' // PhotoViewer
 
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
 
