@@ -26,13 +26,9 @@ ActivitySplashBinding binding;
         binding=ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         Glide.with(this).asGif().load(R.raw.app_logo).into(binding.appLogo);
-
-
 
           new Handler().postDelayed(new Runnable() {
             @Override
