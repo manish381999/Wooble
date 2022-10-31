@@ -11,24 +11,43 @@
         android:id="@+id/navigation_portfolio"
         android:name="com.wooble.wooble.ui.portfolio.PortfolioFragment"
         android:label="Portfolio"
-        tools:layout="@layout/fragment_portfolio"/>
+        tools:layout="@layout/fragment_portfolio">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/navigation_resume" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/navigation_resume"
         android:name="com.wooble.wooble.ui.Resume.ResumeFragment"
         android:label="Resume"
-        tools:layout="@layout/fragment_resume"/>
+        tools:layout="@layout/fragment_resume">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/navigation_blogs" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_blogs"
         android:name="com.wooble.wooble.ui.Blogs.BlogsFragment"
-        tools:layout="@layout/fragment_blogs"/>
+        tools:layout="@layout/fragment_blogs">
+
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/navigation_gallery" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_gallery"
         android:name="com.wooble.wooble.ui.Gallery.GalleryFragment"
         android:label="Gallery"
-        tools:layout="@layout/fragment_gallery"/>
+        tools:layout="@layout/fragment_gallery">
+
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/navigation_project" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_project"

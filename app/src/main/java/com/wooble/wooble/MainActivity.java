@@ -1,5 +1,7 @@
 package com.wooble.wooble;
 
+import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,7 +64,9 @@ ActivityMainBinding binding;
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+
         View headerView = navigationView.getHeaderView(0);
         navUsername = (TextView) headerView.findViewById(R.id.username);
         navProfession = (TextView) headerView.findViewById(R.id.profession);
@@ -71,10 +75,15 @@ ActivityMainBinding binding;
         loadProfileImage();
         loadProfileData();
         loadCoverImage();
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         NavController navController= Navigation.findNavController(MainActivity.this,R.id.frame_layout);
-        NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+
+//        NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+
+
+
 
         toggle=new ActionBarDrawerToggle(this,binding.drawerLayout,R.string.start, R.string.close);
         binding.drawerLayout.addDrawerListener(toggle);
@@ -87,6 +96,8 @@ ActivityMainBinding binding;
 
 
     }
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         toggle.onOptionsItemSelected(item);
