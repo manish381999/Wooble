@@ -1,6 +1,7 @@
 package com.wooble.wooble.ui.Gallery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
                 .into(holder.binding.gllImage);
 
         holder.binding.imageTitle.setText(gallery.getTitle());
+
+        holder.binding.gllImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, Full_ImageActivity.class);
+                intent.putExtra("image",gallery.getImage_url());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

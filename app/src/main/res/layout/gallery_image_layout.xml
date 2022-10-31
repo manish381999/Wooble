@@ -25,9 +25,10 @@
 
         <TextView
             android:id="@+id/image_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:layout_gravity="center_horizontal"
             android:textColor="@color/light_black_color"
             android:fontFamily="@font/ubuntu"
             android:textSize="@dimen/sp_18_dsa"/>

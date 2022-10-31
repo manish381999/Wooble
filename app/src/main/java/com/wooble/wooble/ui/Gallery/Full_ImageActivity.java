@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.wooble.wooble.databinding.ActivityFullImageBinding;
 
 public class Full_ImageActivity extends AppCompatActivity {
@@ -16,6 +17,13 @@ String data;
         super.onCreate(savedInstanceState);
         binding= ActivityFullImageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        data=getIntent().getStringExtra("image");
+
+        Glide.with(getApplicationContext())
+                .load(data)
+                .centerCrop()
+                .into(binding.imageView);
 
 
     }
