@@ -39,7 +39,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
     private String pdfName ;
     private Bitmap bitmap;
 
-    final int REQ_pdf = 5;
+    final int REQ_pdf = 70;
     final int REQ_video = 80;
 
     MediaController mediaController;

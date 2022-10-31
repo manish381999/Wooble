@@ -94,7 +94,7 @@ FragmentGalleryBinding binding;
                                 JSONObject product = array.getJSONObject(i);
 
                                 //adding the product to product list
-                                galleryList.add(new Gallery(
+                                galleryList.add(0,new Gallery(
                                         product.getString("image"),
                                         product.getString("title"),
                                         product.getString("caption")
