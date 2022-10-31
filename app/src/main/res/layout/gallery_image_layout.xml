@@ -23,14 +23,14 @@
             android:scaleType="fitCenter"
             android:contentDescription="@null" />
 
-        <TextView
-            android:id="@+id/image_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:textColor="@color/light_black_color"
-            android:fontFamily="@font/ubuntu"
-            android:textSize="@dimen/sp_18_dsa"/>
+<!--        <TextView-->
+<!--            android:id="@+id/image_title"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="@color/light_black_color"-->
+<!--            android:fontFamily="@font/ubuntu"-->
+<!--            android:textSize="@dimen/sp_18_dsa"/>-->
 
 
     </LinearLayout>

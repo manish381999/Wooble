@@ -10,4 +10,8 @@ public class EndPoints {
     public static final String GET_ONLY_COVER_PIC = ROOT_URL +"editshowcoverpic.php?apicall="+"getcoverpic";
     public static final String GET_ONLY_PROFILE_DATA = ROOT_URL +"showeditprofile.php?apicall="+"getprofile";
     public static final String UPDATE_ONLY_PROFILE_DATA = ROOT_URL +"showeditprofile.php?apicall="+"updateprofile";
+    public static final String INSERT_ONLY_GALLERY_PIC = ROOT_URL +"insertgetgallerypic.php?apicall="+"insertgallerypic";
+    public static final String GET_ONLY_GALLERY_PIC = ROOT_URL +"insertgetgallerypic.php?apicall="+"getgallerypic";
+    public static final String UPDATE_ONLY_GALLERY_DATA = ROOT_URL +"insertgetgallerydata.php?apicall="+"updategallerydata";
+
 }
