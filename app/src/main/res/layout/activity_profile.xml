@@ -165,6 +165,7 @@
                 android:background="@drawable/login_edit_text_bg"
                 android:layout_marginTop="@dimen/dp_15_dsa"
                 android:hint="@string/pass"
+                android:textColorHint="@color/light_black_color"
                 android:textSize="@dimen/sp_18_dsa"
                 android:textColor="@color/black"
                 android:padding="@dimen/dp_15_dsa"/>
@@ -184,7 +185,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ti_image_caption"
-                android:layout_marginBottom="@dimen/dp_180_dsa"/>
+                android:layout_marginBottom="@dimen/dp_20_dsa"/>
 
 
         </LinearLayout>

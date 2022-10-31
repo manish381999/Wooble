@@ -34,7 +34,7 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment:2.5.3'
     implementation 'androidx.navigation:navigation-ui:2.5.3'
@@ -53,6 +53,9 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0' //rounded image view
     implementation 'com.squareup.picasso:picasso:2.71828' // picasso
     implementation 'com.github.chrisbanes:PhotoView:2.3.0' // PhotoViewer
+
+
+
 
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
 

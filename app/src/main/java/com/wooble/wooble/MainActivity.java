@@ -1,9 +1,12 @@
 package com.wooble.wooble;
 
+import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -30,8 +33,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
+
 import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
@@ -62,7 +67,11 @@ ActivityMainBinding binding;
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+
         View headerView = navigationView.getHeaderView(0);
         navUsername = (TextView) headerView.findViewById(R.id.username);
         navProfession = (TextView) headerView.findViewById(R.id.profession);
@@ -71,10 +80,16 @@ ActivityMainBinding binding;
         loadProfileImage();
         loadProfileData();
         loadCoverImage();
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+
+
+
 
         NavController navController= Navigation.findNavController(MainActivity.this,R.id.frame_layout);
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
+
+
+
 
         toggle=new ActionBarDrawerToggle(this,binding.drawerLayout,R.string.start, R.string.close);
         binding.drawerLayout.addDrawerListener(toggle);
@@ -87,6 +102,10 @@ ActivityMainBinding binding;
 
 
     }
+
+
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         toggle.onOptionsItemSelected(item);
