@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.wooble.wooble.SessionManagement;
 
+
 import com.wooble.wooble.databinding.FragmentGalleryBinding;
 import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
@@ -94,7 +95,9 @@ FragmentGalleryBinding binding;
 
                                 //adding the product to product list
                                 galleryList.add(new Gallery(
-                                        product.getString("image")
+                                        product.getString("image"),
+                                        product.getString("title"),
+                                        product.getString("caption")
                                 ));
                             }
 
@@ -112,12 +115,6 @@ FragmentGalleryBinding binding;
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();

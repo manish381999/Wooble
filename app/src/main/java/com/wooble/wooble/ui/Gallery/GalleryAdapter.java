@@ -43,6 +43,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
                 .load(gallery.getImage_url())
                 .centerCrop()
                 .into(holder.binding.gllImage);
+
+        holder.binding.imageTitle.setText(gallery.getTitle());
     }
 
     @Override
