@@ -1,6 +1,6 @@
 package com.wooble.wooble.ui.Gallery;
 
-public class Gallery {
+public class GalleryModel {
     public String image_url;
     public  String title;
     public String caption;
@@ -30,7 +30,7 @@ public class Gallery {
         this.caption = caption;
     }
 
-    public Gallery(String image_url, String title, String caption) {
+    public GalleryModel(String image_url, String title, String caption) {
         this.image_url = image_url;
         this.title = title;
         this.caption = caption;

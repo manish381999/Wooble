@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -19,12 +18,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.wooble.wooble.SessionManagement;
 
 
 import com.wooble.wooble.databinding.FragmentGalleryBinding;
-import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -40,7 +37,7 @@ import java.util.Map;
 public class GalleryFragment extends Fragment {
 FragmentGalleryBinding binding;
 
-    List<Gallery> galleryList;
+    List<GalleryModel> galleryList;
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -94,7 +91,7 @@ FragmentGalleryBinding binding;
                                 JSONObject product = array.getJSONObject(i);
 
                                 //adding the product to product list
-                                galleryList.add(0,new Gallery(
+                                galleryList.add(0,new GalleryModel(
                                         product.getString("image"),
                                         product.getString("title"),
                                         product.getString("caption")

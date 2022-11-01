@@ -9,7 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Toast;
 
@@ -52,7 +52,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
 
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Image Uploader");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         binding.btUpload.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +61,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
                 updateGalleryData();
                 Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
                 startActivity(intent);
+
             }
         });
    binding.galleryImage.setOnClickListener(new View.OnClickListener() {

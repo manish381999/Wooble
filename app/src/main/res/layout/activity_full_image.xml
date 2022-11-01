@@ -7,15 +7,60 @@
     android:background="@color/black"
     tools:context=".ui.Gallery.Full_ImageActivity">
 
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="@dimen/dp_32_dsa"
+        android:layout_height="@dimen/dp_32_dsa"
+        android:src="@drawable/ic_delete"
+        android:elevation="@dimen/dp_10_dsa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/dp_20_dsa"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/edit"
+        android:layout_width="@dimen/dp_32_dsa"
+        android:layout_height="@dimen/dp_32_dsa"
+        android:src="@drawable/edit_2"
+        android:elevation="@dimen/dp_10_dsa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/delete"
+       android:layout_margin="@dimen/dp_20_dsa"
+        android:contentDescription="@null" />
+
+
+
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:scaleType="fitCenter"/>
+        android:scaleType="fitCenter"
+        />
+
+
+
+    <TextView
+        android:id="@+id/cation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="@dimen/dp_24_dsa"
+        android:textStyle="bold"
+        android:hint="efefegeegg"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/ubuntu"
+        app:layout_constraintVertical_bias="0.98"
+        android:textSize="@dimen/sp_18_dsa"
+        android:textColor="@color/light_white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 
 

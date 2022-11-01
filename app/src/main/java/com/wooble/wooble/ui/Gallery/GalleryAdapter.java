@@ -2,11 +2,11 @@ package com.wooble.wooble.ui.Gallery;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,9 +20,9 @@ import java.util.List;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>{
 
     Context context;
-    List<Gallery> Gallerylist;
+    List<GalleryModel> Gallerylist;
 
-    public GalleryAdapter(Context context, List<Gallery> Gallerylist) {
+    public GalleryAdapter(Context context, List<GalleryModel> Gallerylist) {
         this.context = context;
         this.Gallerylist = Gallerylist;
     }
@@ -37,7 +37,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
 
-        Gallery gallery = Gallerylist.get(position);
+        GalleryModel gallery = Gallerylist.get(position);
 
         //loading the image
         Glide.with(context)
@@ -47,14 +47,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
         holder.binding.imageTitle.setText(gallery.getTitle());
 
-        holder.binding.gllImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, Full_ImageActivity.class);
-                intent.putExtra("image",gallery.getImage_url());
-                context.startActivity(intent);
-            }
+        holder.binding.gllImage.setOnClickListener(v -> {
+            Intent intent=new Intent(context, Full_ImageActivity.class);
+            intent.putExtra("image",gallery.getImage_url());
+            intent.putExtra("caption",gallery.getCaption());
+            context.startActivity(intent);
         });
+
+
     }
 
     @Override
