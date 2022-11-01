@@ -42,7 +42,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
     final int REQ=12;
     private Bitmap bitmap;
 
-    Integer return_id;
+    String return_id;
     String profileEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ private void openGallery(){
                             JSONArray array = new JSONArray(new String(response.data));
                             //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
-                            return_id = jObj.getInt("return_id");
+                            return_id = jObj.getString("return_id");
                             System.out.println("return_id");
                             System.out.println(return_id);
                         } catch (JSONException e) {
