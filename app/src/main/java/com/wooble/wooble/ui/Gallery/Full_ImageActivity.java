@@ -15,6 +15,7 @@ public class Full_ImageActivity extends AppCompatActivity {
 ActivityFullImageBinding binding;
 
 String data;
+String titleData;
 String captionData;
 
     @Override
@@ -26,6 +27,7 @@ String captionData;
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         data=getIntent().getStringExtra("image");
+        titleData=getIntent().getStringExtra("title");
         captionData=getIntent().getStringExtra("caption");
 
 
@@ -37,12 +39,14 @@ String captionData;
                 .into(binding.imageView);
 
 
-        binding.edit.setOnClickListener(new View.OnClickListener() {
+        binding.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                Intent intent=new Intent(Full_ImageActivity.this, EditGalleryActivity.class);
-               startActivity(intent);
-
+                intent.putExtra("image",data);
+                intent.putExtra("title",titleData);
+                intent.putExtra("caption",captionData);
+                startActivity(intent);
             }
         });
 

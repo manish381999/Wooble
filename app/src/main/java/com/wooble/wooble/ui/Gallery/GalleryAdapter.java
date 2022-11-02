@@ -50,6 +50,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         holder.binding.gllImage.setOnClickListener(v -> {
             Intent intent=new Intent(context, Full_ImageActivity.class);
             intent.putExtra("image",gallery.getImage_url());
+            intent.putExtra("title",gallery.getTitle());
             intent.putExtra("caption",gallery.getCaption());
             context.startActivity(intent);
         });

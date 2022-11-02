@@ -8,7 +8,7 @@
     tools:context=".ui.Gallery.Full_ImageActivity">
 
     <ImageView
-        android:id="@+id/delete"
+        android:id="@+id/iv_delete"
         android:layout_width="@dimen/dp_32_dsa"
         android:layout_height="@dimen/dp_32_dsa"
         android:src="@drawable/ic_delete"
@@ -19,13 +19,13 @@
         android:contentDescription="@null" />
 
     <ImageView
-        android:id="@+id/edit"
+        android:id="@+id/iv_edit"
         android:layout_width="@dimen/dp_32_dsa"
         android:layout_height="@dimen/dp_32_dsa"
-        android:src="@drawable/edit_2"
+        android:src="@drawable/edit"
         android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/delete"
+        app:layout_constraintEnd_toStartOf="@id/iv_delete"
        android:layout_margin="@dimen/dp_20_dsa"
         android:contentDescription="@null" />
 
