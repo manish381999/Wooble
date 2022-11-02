@@ -1,26 +1,25 @@
 package com.wooble.wooble.ui.portfolio;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
-import android.provider.Settings;
+
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
+
+
 import android.widget.Toast;
 
 
@@ -31,10 +30,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.wooble.wooble.R;
+
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreatePortfolioBinding;
-import com.wooble.wooble.ui.Profile.ProfileActivity;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,14 +53,14 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
      String profileEmail;
      String profileImage;
     String designation;
-    private  String userName, fullName, backGround, fb_Link, insta_Link, linkedin_Link, twitter_Link, whatsapp_Link, desigNation ;
+//    private  String userName, fullName, backGround, fb_Link, insta_Link, linkedin_Link, twitter_Link, whatsapp_Link, desigNation ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityCreatePortfolioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         loadProfileImage();
         Objects.requireNonNull(getSupportActionBar()).setTitle("Create Portfolio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -309,5 +308,14 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
 
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+        }
+        return true;
     }
 }

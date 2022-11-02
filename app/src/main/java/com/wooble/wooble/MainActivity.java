@@ -1,12 +1,10 @@
 package com.wooble.wooble;
 
-import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -17,7 +15,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,6 +37,7 @@ import com.wooble.wooble.databinding.ActivityMainBinding;
 
 import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
+import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -95,11 +94,7 @@ ActivityMainBinding binding;
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-
-
         binding.navigationDrawer.setNavigationItemSelectedListener(this);
-
-
 
     }
 
@@ -116,8 +111,15 @@ ActivityMainBinding binding;
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.navigation_profile:
-               Intent intent=new Intent(MainActivity.this, ProfileActivity.class);
-               startActivity(intent);
+                 startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                 break;
+
+            case R.id.navigation_template:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.navigation_edit_portfolio:
+                startActivity(new Intent(MainActivity.this, Edit_Portfolio_Activity.class));
                 break;
 
             case R.id.navigation_email_signature:

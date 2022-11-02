@@ -50,7 +50,7 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/navigation_drawer"
         app:headerLayout="@layout/drawer_header"
-        app:itemIconSize="@dimen/dp_28_dsa"
+        app:itemIconSize="@dimen/dp_26_dsa"
         app:itemIconTint="@color/splash_screen_cl"
         android:layout_gravity="start"
         app:itemTextAppearance="?attr/textAppearanceBodyMedium">

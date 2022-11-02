@@ -1,6 +1,7 @@
 package com.wooble.wooble.ui.Gallery;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -52,7 +54,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
 
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Image Uploader");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         binding.btUpload.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +200,16 @@ private void openGallery(){
 
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+
+        }
+        return true;
     }
 }
 

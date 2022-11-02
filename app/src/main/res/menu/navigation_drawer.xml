@@ -10,14 +10,27 @@
         android:icon="@drawable/ic_account"/>
 
     <item
+
+        android:id="@+id/navigation_template"
+        android:title="@string/template"
+        android:icon="@drawable/ic_template"
+        />
+
+    <item
+
+        android:id="@+id/navigation_edit_portfolio"
+        android:title="@string/edit_portfolio"
+        android:icon="@drawable/ic_portfolio"
+        />
+
+
+
+    <item
         android:id="@+id/navigation_email_signature"
         android:title="@string/email_signature"
         android:icon="@drawable/ic_email_signature"/>
 
-    <item
-        android:id="@+id/navigation_setting"
-        android:title="@string/setting"
-        android:icon="@drawable/ic_settings"/>
+
 
 
 
@@ -27,16 +40,24 @@
         <item android:title="@string/communicate">
         <menu>
 
+
+
             <item
-                android:id="@+id/navigation_social_media"
-                android:title="@string/social_media"
-                android:icon="@drawable/ic_connect_without_contact_"/>
+                android:id="@+id/navigation_setting"
+                android:title="@string/setting"
+                android:icon="@drawable/ic_settings"/>
+
 
             <item
                 android:id="@+id/navigation_share"
                 android:title="@string/share"
                 android:icon="@drawable/ic_baseline_share_24"/>
 
+
+            <item
+                android:id="@+id/navigation_social_media"
+                android:title="@string/social_media"
+                android:icon="@drawable/ic_connect_without_contact_"/>
         </menu>
 
 

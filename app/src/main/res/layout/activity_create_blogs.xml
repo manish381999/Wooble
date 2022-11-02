@@ -33,7 +33,6 @@
                 android:textSize="@dimen/sp_19_dsa"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-
                 android:layout_marginEnd="@dimen/dp_15_dsa"
                 android:text="@string/publish"/>
 

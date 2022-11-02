@@ -78,6 +78,9 @@
     <string name="select_pdf">Select PDF</string>
     <string name="no_file_selected">No file selected</string>
     <string name="conclusion">Conclusion</string>
+    <string name="template">Template</string>
+    <string name="edit_portfolio">Edit Portfolio</string>
+    <string name="update">Update</string>
 
 
 </resources>

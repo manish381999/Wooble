@@ -1,6 +1,7 @@
 package com.wooble.wooble.ui.Project;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.MediaController;
 
@@ -35,7 +37,9 @@ public class Upload_Project_Activity extends AppCompatActivity {
     final int REQ_imageView4 = 40;
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
+
     Uri image_Uri,  pdf_Uri, video_Uri;
+
     private String pdfName ;
     private Bitmap bitmap;
 
@@ -53,7 +57,10 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Upload Project");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mediaController=new MediaController(this);
+        mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
         binding.videoView.start();
 
@@ -194,7 +201,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
             pdf_Uri=data.getData();
 
             if (pdf_Uri.toString().startsWith("content://")){
-                Cursor cursor=null;
+                Cursor cursor;
                 try {
                     cursor = Upload_Project_Activity.this.getContentResolver().query(pdf_Uri, null, null, null, null);
                     if (cursor!=null && cursor.moveToFirst()){
@@ -221,6 +228,12 @@ public class Upload_Project_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+        }
+        return true;
+    }
 }

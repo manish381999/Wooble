@@ -12,6 +12,7 @@
     android:layout_height="0dp"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +25,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="dp8"
-            android:elevation="@dimen/dp_10_dsa"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +43,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:maxImageSize="@dimen/dp_52_dsa"
+
             android:contentDescription="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

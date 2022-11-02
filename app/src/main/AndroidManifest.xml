@@ -19,6 +19,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.portfolio.Edit_Portfolio_Activity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.Gallery.EditGalleryActivity"
             android:exported="false">
             <meta-data
@@ -34,8 +43,7 @@
         </activity>
         <activity
             android:name=".ui.Project.Upload_Project_Activity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

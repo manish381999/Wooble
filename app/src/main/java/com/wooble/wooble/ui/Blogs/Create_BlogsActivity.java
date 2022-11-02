@@ -1,16 +1,21 @@
 package com.wooble.wooble.ui.Blogs;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 
 import android.os.Bundle;
 
+import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
+
+
+import java.util.Objects;
 
 
 public class Create_BlogsActivity extends AppCompatActivity {
@@ -23,6 +28,7 @@ ActivityCreateBlogsBinding binding;
 
 
         setContentView(binding.getRoot());
+
 
 
 

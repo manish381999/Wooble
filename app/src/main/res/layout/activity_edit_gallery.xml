@@ -107,7 +107,7 @@
 
 
             <Button
-                android:id="@+id/bt_upload"
+                android:id="@+id/bt_update"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
                 android:layout_marginStart="@dimen/dp_15_dsa"
@@ -115,7 +115,7 @@
                 android:layout_marginBottom="@dimen/dp_20_dsa"
                 android:background="@drawable/login_button_bg"
                 android:gravity="center_horizontal"
-                android:text="@string/upload"
+                android:text="@string/update"
                 android:textAllCaps="false"
                 android:textSize="@dimen/sp_18_dsa"
                 app:layout_constraintBottom_toBottomOf="parent"
