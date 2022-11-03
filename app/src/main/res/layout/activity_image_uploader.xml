@@ -8,7 +8,9 @@
     android:id="@+id/container"
     tools:context=".ui.Gallery.ImageUploaderActivity">
 
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,11 +41,11 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+
                     <ImageView
                         android:id="@+id/gallery_image"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_300_dsa"
-                        android:contentDescription="@null"
                         android:scaleType="centerCrop"
                         android:src="@drawable/place_holder" />
                 </LinearLayout>
@@ -89,14 +91,14 @@
                 app:layout_constraintTop_toBottomOf="@id/ti_image_title">
 
                 <EditText
-                    android:id="@+id/image_caption"
+                    android:id="@+id/image_description"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_150_dsa"
                     android:autofillHints=""
                     android:background="@drawable/login_edit_text_bg"
                     android:fontFamily="@font/ubuntu"
                     android:gravity="top|start"
-                    android:hint="@string/caption"
+                    android:hint="Description"
                     android:inputType="textMultiLine|textEmailAddress"
                     android:padding="@dimen/dp_10_dsa"
                     android:singleLine="true"

@@ -11,8 +11,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -43,15 +45,17 @@ public class ImageUploaderActivity extends AppCompatActivity {
 
     final int REQ=12;
     private Bitmap bitmap;
-
     String return_id;
     String profileEmail;
+
+    String title, description;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityImageUploaderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Image Uploader");
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,9 +64,8 @@ public class ImageUploaderActivity extends AppCompatActivity {
         binding.btUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateGalleryData();
-                Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
-                startActivity(intent);
+                uploadGalleryData();
+
 
             }
         });
@@ -86,10 +89,8 @@ private void openGallery(){
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQ && resultCode==RESULT_OK && data!=null){
          Uri uri=   data.getData();
-
          try {
              bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
-             insertGalleryPic(bitmap);
          } catch (IOException e) {
              e.printStackTrace();
          }
@@ -97,27 +98,33 @@ private void openGallery(){
         }
     }
 
-    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
-    }
 
-    private void insertGalleryPic(final Bitmap bitmap) {
+//    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+//        return byteArrayOutputStream.toByteArray();
+//    }
+
+
+    private void uploadGalleryData() {
+        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+        profileEmail = sessionManagement.getSessionEmail();
+        String title = binding.imageTitle.getText().toString().trim();
+        String description = binding.imageDescription.getText().toString().trim();
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 5, byteArrayOutputStream);
+        byte[] fileImage = byteArrayOutputStream.toByteArray();
         //our custom volley request
-        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.INSERT_ONLY_GALLERY_PIC,
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_ONLY_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
-                            //JSONObject obj = new JSONObject(new String(response.data));
-                            //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            JSONArray array = new JSONArray(new String(response.data));
-                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
-                            JSONObject jObj = array.getJSONObject(0);
-                            return_id = jObj.getString("return_id");
-                            System.out.println("return_id");
-                            System.out.println(return_id);
+                            JSONObject obj = new JSONObject(new String(response.data));
+                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
+                            startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -126,7 +133,7 @@ private void openGallery(){
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
 
@@ -139,6 +146,11 @@ private void openGallery(){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
+                params.put("title", title);
+                params.put("description", description);
+                params.put("email_id", profileEmail);
+
+                System.out.println("mail "+profileEmail);
                 return params;
             }
 
@@ -148,8 +160,8 @@ private void openGallery(){
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                long imagename = System.currentTimeMillis();
-                params.put("pic", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                long imageName = System.currentTimeMillis();
+                params.put("pic", new DataPart(imageName + ".png", fileImage));
                 return params;
             }
         };
@@ -158,49 +170,14 @@ private void openGallery(){
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
-    private void updateGalleryData() {
-
-        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-        profileEmail = sessionManagement.getSessionEmail();
-        String title = binding.imageTitle.getText().toString().trim();
-        String caption = binding.imageCaption.getText().toString().trim();
 
 
-        //our custom volley request
-        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_ONLY_GALLERY_DATA,
-                new Response.Listener<NetworkResponse>() {
-                    @Override
-                    public void onResponse(NetworkResponse response) {
-                        try {
-                            JSONObject obj = new JSONObject(new String(response.data));
-                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }) {
 
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("email_id", profileEmail);
-                params.put("title", title);
-                params.put("caption", caption);
-                params.put("return_id", return_id.toString());
-                return params;
-            }
 
-        };
 
-        //adding the request to volley
-        Volley.newRequestQueue(this).add(volleyMultipartRequest);
-    }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

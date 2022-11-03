@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -52,16 +53,17 @@ FragmentGalleryBinding binding;
 
         requireActivity().setTitle("Gallery");
 
-        recyclerView = binding.RvGallery;
+        recyclerView = binding.RvGallery1;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
-
         galleryList = new ArrayList<>();
+
 
         //this method will fetch and parse json
         //to display it in recyclerview
         loadGalleryImage();
+
 
         binding.addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +79,7 @@ FragmentGalleryBinding binding;
     public void loadGalleryImage() {
         SessionManagement sessionManagement = new SessionManagement(getContext());
         profileEmail = sessionManagement.getSessionEmail();
-        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.GET_ONLY_GALLERY_PIC,
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.GET_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
@@ -97,7 +99,6 @@ FragmentGalleryBinding binding;
                                         product.getString("description")
                                 ));
                             }
-
                             GalleryAdapter adapter = new GalleryAdapter(getContext(), galleryList);
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {

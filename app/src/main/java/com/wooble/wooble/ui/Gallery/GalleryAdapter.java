@@ -22,15 +22,16 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     Context context;
     List<GalleryModel> Gallerylist;
 
-    public GalleryAdapter(Context context, List<GalleryModel> Gallerylist) {
+    public GalleryAdapter(Context context, List<GalleryModel> gallerylist) {
         this.context = context;
-        this.Gallerylist = Gallerylist;
+        Gallerylist = gallerylist;
     }
 
-    @NonNull
+
+
     @Override
-    public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.gallery_image_layout,parent,false);
+    public GalleryViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(context).inflate(R.layout.gallery_image_layout,null);
         return new GalleryViewHolder(view);
     }
 

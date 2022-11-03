@@ -5,8 +5,6 @@ public class GalleryModel {
     public  String title;
     public String description;
 
-    public GalleryModel() {
-    }
 
 
     public String getImage_url() {
