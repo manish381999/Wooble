@@ -94,7 +94,7 @@ FragmentGalleryBinding binding;
                                 galleryList.add(0,new GalleryModel(
                                         product.getString("image"),
                                         product.getString("title"),
-                                        product.getString("caption")
+                                        product.getString("description")
                                 ));
                             }
 
