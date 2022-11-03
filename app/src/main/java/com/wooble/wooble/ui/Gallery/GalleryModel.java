@@ -3,7 +3,10 @@ package com.wooble.wooble.ui.Gallery;
 public class GalleryModel {
     public String image_url;
     public  String title;
-    public String caption;
+    public String description;
+
+    public GalleryModel() {
+    }
 
 
     public String getImage_url() {
@@ -22,17 +25,22 @@ public class GalleryModel {
         this.title = title;
     }
 
-    public String getCaption() {
-        return caption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCaption(String caption) {
-        this.caption = caption;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public GalleryModel(String image_url, String title, String caption) {
+    public GalleryModel(String image_url, String title, String description) {
         this.image_url = image_url;
         this.title = title;
-        this.caption = caption;
+        this.description = description;
     }
+
+
+
+
+
 }
