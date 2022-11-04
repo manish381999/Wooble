@@ -1,11 +1,20 @@
 package com.wooble.wooble.ui.Gallery;
 
 public class GalleryModel {
+
+    public  Integer id;
     public String image_url;
     public  String title;
     public String description;
 
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getImage_url() {
         return image_url;
@@ -31,14 +40,10 @@ public class GalleryModel {
         this.description = description;
     }
 
-    public GalleryModel(String image_url, String title, String description) {
+    public GalleryModel(Integer id, String image_url, String title, String description) {
+        this.id = id;
         this.image_url = image_url;
         this.title = title;
         this.description = description;
     }
-
-
-
-
-
 }

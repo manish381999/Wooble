@@ -13,7 +13,9 @@ public class EndPoints {
 
     public static final String INSERT_ONLY_GALLERY_PIC = ROOT_URL + "insertgetgallerypic.php?apicall=" + "insertgallerypic";
     public static final String GET_GALLERY_DATA = ROOT_URL + "insertgetgallerypic.php?apicall=" + "getgallerydata";
-    public static final String UPDATE_ONLY_GALLERY_DATA = ROOT_URL + "insertgetgallerydata.php?apicall=" + "insertgallerydata";
+    public static final String INSERT_GALLERY_DATA = ROOT_URL + "insertgetgallerydata.php?apicall=" + "insertgallerydata";
+    public static final String DELETE_GALLERY_DATA = ROOT_URL + "deletegallerydata.php?apicall=" + "deletegallerydata";
+    public static final String UPDATE_GALLERY_DATA = ROOT_URL + "updategallerydata.php?apicall=" + "updategallerydata";
 
     public static final String INSERT_ONLY_PROJECT_DATA = ROOT_URL + "project.php?apicall=" + "insertprojectdata";
     public static final String INSERT_ONLY_PROJECT_IMAGE_1 = ROOT_URL + "project.php?apicall=" + "insertprojectimage_1";

@@ -27,8 +27,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         Gallerylist = gallerylist;
     }
 
-
-
     @Override
     public GalleryViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.gallery_image_layout,null);
@@ -50,12 +48,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
         holder.binding.gllImage.setOnClickListener(v -> {
             Intent intent=new Intent(context, Full_ImageActivity.class);
+            intent.putExtra("id",gallery.getId().toString());
             intent.putExtra("image",gallery.getImage_url());
             intent.putExtra("title",gallery.getTitle());
             intent.putExtra("description",gallery.getDescription());
+
             context.startActivity(intent);
         });
-
 
     }
 
