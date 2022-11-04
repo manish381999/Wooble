@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     String profileEmail;
     String profileImage;
 
-    ActivityResultLauncher<String> pickImage;
+    ActivityResultLauncher<String> pickProfile ,pickCover ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        pickProfile=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 Intent intent=new Intent(ProfileActivity.this, CircularImageCropperActivity.class);
@@ -81,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        pickCover =registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
                 Intent intent=new Intent(ProfileActivity.this, Gallery_Image_CropperActivity.class);
@@ -94,11 +94,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void coverImage() {
-        pickImage.launch("image/*");
+        pickCover.launch("image/*");
     }
 
     private void profileImage(){
-        pickImage.launch("image/*");
+        pickProfile.launch("image/*");
     }
 
     @Override
