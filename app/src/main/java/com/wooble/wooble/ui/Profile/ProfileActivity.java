@@ -1,5 +1,8 @@
 package com.wooble.wooble.ui.Profile;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,8 +22,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.wooble.wooble.CircularImageCropperActivity;
+import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityProfileBinding;
+import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -41,6 +47,8 @@ public class ProfileActivity extends AppCompatActivity {
     private Bitmap bitmap;
     String profileEmail;
     String profileImage;
+
+    ActivityResultLauncher<String> pickImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,39 +70,66 @@ public class ProfileActivity extends AppCompatActivity {
 
         binding.btEditProfile.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, Edit_Profile_Activity.class)));
 
+
+
+        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                Intent intent=new Intent(ProfileActivity.this, CircularImageCropperActivity.class);
+                intent.putExtra("DATA", result.toString());
+                startActivityForResult(intent, REQ_PROFILE_PIC);
+            }
+        });
+
+        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                Intent intent=new Intent(ProfileActivity.this, Gallery_Image_CropperActivity.class);
+                intent.putExtra("DATA", result.toString());
+                startActivityForResult(intent, REQ_COVER_PIC);
+            }
+        });
+
+
     }
 
     private void coverImage() {
-        Intent pickImg1 = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickImg1, REQ_COVER_PIC);
+        pickImage.launch("image/*");
     }
 
     private void profileImage(){
-        Intent picImg2=new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(picImg2, REQ_PROFILE_PIC);
+        pickImage.launch("image/*");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_COVER_PIC && resultCode == RESULT_OK && data != null) {
-            Uri uri1 = data.getData();
+        if (requestCode == REQ_COVER_PIC){
+            String result=data.getStringExtra("RESULT");
+            Uri resultUri=null;
+            if (result!=null){
+                resultUri=Uri.parse(result);
+            }
 
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri1);
-                uploadCoverBitmap(bitmap);
+                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.coverPic.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_PROFILE_PIC && resultCode== RESULT_OK && data!=null){
-            Uri uri2 = data.getData();
+        }else if (requestCode == REQ_PROFILE_PIC){
+            String result=data.getStringExtra("RESULT");
+            Uri resultUri=null;
+            if (result!=null){
+                resultUri=Uri.parse(result);
+            }
 
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri2);
-                uploadProfileBitmap(bitmap);
-            }catch (IOException e){
+                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.profilePic.setImageBitmap(bitmap);
@@ -226,6 +261,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 //Log.d("image",profileImage);
                                 Glide.with(ProfileActivity.this)
                                         .load(profileImage)
+                                        .placeholder(R.drawable.place_holder)
                                         .centerCrop()
                                         .into(binding.profilePic);
                                 //Log.d("image",date);
@@ -276,6 +312,7 @@ public class ProfileActivity extends AppCompatActivity {
                             //Log.d("image",profileImage);
                             Glide.with(ProfileActivity.this)
                                     .load(profileImage)
+                                    .placeholder(R.drawable.place_holder)
                                     .centerCrop()
                                     .into(binding.coverPic);
                             //Log.d("image",date);

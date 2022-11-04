@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.GalleryImageLayoutBinding;
 
+
 import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>{
@@ -29,9 +30,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
 
 
+
+    @NonNull
     @Override
-    public GalleryViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.gallery_image_layout,null);
+    public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(context).inflate(R.layout.gallery_image_layout,parent,false);
         return new GalleryViewHolder(view);
     }
 
