@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +53,7 @@ FragmentGalleryBinding binding;
         requireActivity().setTitle("Gallery");
 
         recyclerView = binding.RvGallery;
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         galleryList = new ArrayList<>();
@@ -95,11 +93,9 @@ FragmentGalleryBinding binding;
 
                                 //adding the product to product list
                                 galleryList.add(0,new GalleryModel(
-                                        product.getInt("id"),
                                         product.getString("image"),
                                         product.getString("title"),
                                         product.getString("description")
-
                                 ));
                             }
                             GalleryAdapter adapter = new GalleryAdapter(getContext(), galleryList);
