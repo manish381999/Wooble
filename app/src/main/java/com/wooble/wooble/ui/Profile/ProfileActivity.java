@@ -113,6 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+                uploadCoverBitmap(bitmap);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,10 +126,9 @@ public class ProfileActivity extends AppCompatActivity {
             if (result!=null){
                 resultUri=Uri.parse(result);
             }
-
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
-
+                uploadProfileBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -181,6 +181,7 @@ ActivityMainBinding binding;
                             //Log.d("image",profileImage);
                             Glide.with(MainActivity.this)
                                     .load(profileImage)
+                                    .placeholder(R.drawable.place_holder)
                                     .centerCrop()
                                     .into(circularImageView);
                             //Log.d("image",date);
@@ -269,6 +270,7 @@ ActivityMainBinding binding;
                             //Log.d("image",profileImage);
                             Glide.with(MainActivity.this)
                                     .load(profileImage)
+                                    .placeholder(R.drawable.place_holder)
                                     .centerCrop()
                                     .into(coverPic);
                             //Log.d("image",date);

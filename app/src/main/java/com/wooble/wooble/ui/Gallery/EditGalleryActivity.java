@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -31,6 +32,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -59,7 +62,6 @@ ActivityEditGalleryBinding binding;
         titleData = getIntent().getStringExtra("title");
         captionData = getIntent().getStringExtra("description");
 
-
         Glide.with(getApplicationContext())
                 .load(data)
                 .centerCrop()
@@ -67,6 +69,22 @@ ActivityEditGalleryBinding binding;
 
         binding.imageTitle.setText(titleData);
         binding.imageCaption.setText(captionData);
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL(data);
+                    Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    image.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                    fileImage = byteArrayOutputStream.toByteArray();
+                } catch(IOException e) {
+                    System.out.println(e);
+                }
+            }
+        });
+        thread.start();
 
         binding.galleryImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,13 +111,22 @@ ActivityEditGalleryBinding binding;
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQ && resultCode==RESULT_OK && data!=null){
             Uri uri=   data.getData();
-
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                    fileImage = byteArrayOutputStream.toByteArray();
+                }
+            });
+
+            thread.start();
+
             binding.galleryImage.setImageBitmap(bitmap);
         }
     }
@@ -110,9 +137,6 @@ ActivityEditGalleryBinding binding;
         String description = binding.imageCaption.getText().toString().trim();
 
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
-        fileImage = byteArrayOutputStream.toByteArray();
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {

@@ -35,6 +35,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
 import com.wooble.wooble.CircularImageCropperActivity;
+import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreatePortfolioBinding;
 
@@ -68,7 +69,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
         binding = ActivityCreatePortfolioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        loadProfileImage();
+        //loadProfileImage();
         Objects.requireNonNull(getSupportActionBar()).setTitle("Create Portfolio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -136,7 +137,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             }
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
-                uploadProfileBitmap(bitmap);
+                //uploadProfileBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -220,6 +221,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                             Log.d("image",profileImage);
                             Glide.with(Create_Portfolio_Activity.this)
                                     .load(profileImage)
+                                    .placeholder(R.drawable.place_holder)
                                     .centerCrop()
                                     .into(binding.profilePic);
                             //Log.d("image",date);
@@ -302,12 +304,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
