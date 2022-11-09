@@ -64,6 +64,7 @@ String id;
             intent.putExtra("title",titleData);
             intent.putExtra("description",captionData);
             startActivity(intent);
+            finish();
         });
 
         binding.ivDelete.setOnClickListener(view -> {
