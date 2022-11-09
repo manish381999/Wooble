@@ -77,10 +77,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateFullProfileData();
-                Intent intent = new Intent(Create_Portfolio_Activity.this, PortfolioFragment.class);
-                startActivity(intent);
-                finish();
-
             }
         });
 
@@ -213,12 +209,10 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
-                            //Log.d("image","image");
                             JSONArray array = new JSONArray(new String(response.data));
                             //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
                             profileImage = jObj.getString("image");
-                            Log.d("image",profileImage);
                             Glide.with(Create_Portfolio_Activity.this)
                                     .load(profileImage)
                                     .placeholder(R.drawable.place_holder)
@@ -292,6 +286,9 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                         try {
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Create_Portfolio_Activity.this, PortfolioFragment.class);
+                            startActivity(intent);
+                            finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -317,6 +314,14 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                 params.put("linkedin_link", linkedinlink);
                 params.put("twitter_link", twitterlink);
                 params.put("whatsapp_link", whatsapplink);
+                return params;
+            }
+
+            @Override
+            protected Map<String, DataPart> getByteData() {
+                Map<String, DataPart> params = new HashMap<>();
+                long imagename = System.currentTimeMillis();
+                params.put("pic", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
                 return params;
             }
 

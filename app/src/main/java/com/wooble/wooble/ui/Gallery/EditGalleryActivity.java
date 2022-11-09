@@ -124,18 +124,15 @@ ActivityEditGalleryBinding binding;
                     fileImage = byteArrayOutputStream.toByteArray();
                 }
             });
-
             thread.start();
 
             binding.galleryImage.setImageBitmap(bitmap);
         }
     }
 
-
     private void updateGalleryData() {
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageCaption.getText().toString().trim();
-
 
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_GALLERY_DATA,
