@@ -1,5 +1,8 @@
 package com.wooble.wooble.ui.portfolio;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
+import com.wooble.wooble.CircularImageCropperActivity;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreatePortfolioBinding;
 
@@ -41,6 +45,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -53,6 +58,8 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
      String profileEmail;
      String profileImage;
     String designation;
+
+    ActivityResultLauncher<String> pickImage;
 //    private  String userName, fullName, backGround, fb_Link, insta_Link, linkedin_Link, twitter_Link, whatsapp_Link, desigNation ;
 
     @Override
@@ -101,29 +108,43 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             }
         });
 
+
+
+        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+               Intent intent=new Intent(Create_Portfolio_Activity.this, CircularImageCropperActivity.class);
+               intent.putExtra("DATA", result.toString());
+               startActivityForResult(intent, REQ);
+            }
+        });
     }
 
     private void openGallery() {
-        Intent pickImage = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickImage, REQ);
+        pickImage.launch("image/*");
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ && resultCode == RESULT_OK && data != null) {
-            Uri uri = data.getData();
+        if (requestCode == REQ){
+            String result=data.getStringExtra("RESULT");
+            Uri resultUri=null;
+            if (result!=null){
+                resultUri=Uri.parse(result);
+            }
 
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                uploadProfileBitmap(bitmap);
+                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.profilePic.setImageBitmap(bitmap);
-
         }
+
+
     }
 
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {

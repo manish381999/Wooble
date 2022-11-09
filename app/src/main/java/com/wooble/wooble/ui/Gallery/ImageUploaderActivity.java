@@ -1,6 +1,9 @@
 package com.wooble.wooble.ui.Gallery;
 
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +14,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 
-import android.util.Log;
+
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -30,7 +32,6 @@ import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,7 +50,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
     String profileEmail;
 
     String title, description;
-
+    ActivityResultLauncher<String> pickImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +78,39 @@ public class ImageUploaderActivity extends AppCompatActivity {
    });
 
 
+        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+               Intent intent=new Intent(ImageUploaderActivity.this, Gallery_Image_CropperActivity.class);
+               intent.putExtra("DATA", result.toString());
+               startActivityForResult(intent, REQ);
+            }
+        });
+
     }
 
 private void openGallery(){
-    Intent pickImage=new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-    startActivityForResult(pickImage,REQ);
+    pickImage.launch("image/*");
 }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==REQ && resultCode==RESULT_OK && data!=null){
-         Uri uri=   data.getData();
-         try {
-             bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-         binding.galleryImage.setImageBitmap(bitmap);
+
+        if (requestCode == REQ){
+            String result=data.getStringExtra("RESULT");
+            Uri resultUri=null;
+            if (result!=null){
+                resultUri=Uri.parse(result);
+            }
+
+            try {
+                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            binding.galleryImage.setImageBitmap(bitmap);
         }
     }
 

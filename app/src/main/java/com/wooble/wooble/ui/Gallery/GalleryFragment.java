@@ -31,7 +31,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,11 +94,10 @@ FragmentGalleryBinding binding;
 
                                 //adding the product to product list
                                 galleryList.add(0,new GalleryModel(
-                                        product.getInt("id"),
+                                        product.getString("id"),
                                         product.getString("image"),
                                         product.getString("title"),
                                         product.getString("description")
-
                                 ));
                             }
                             GalleryAdapter adapter = new GalleryAdapter(getContext(), galleryList);

@@ -59,7 +59,7 @@ String id;
 
         binding.ivEdit.setOnClickListener(view -> {
            Intent intent=new Intent(Full_ImageActivity.this, EditGalleryActivity.class);
-            intent.putExtra("id",id).toString();
+            intent.putExtra("id",id);
             intent.putExtra("image",data);
             intent.putExtra("title",titleData);
             intent.putExtra("description",captionData);

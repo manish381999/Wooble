@@ -1,4 +1,4 @@
-package com.wooble.wooble;
+package com.wooble.wooble.ui.Gallery;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.wooble.wooble.CircularImageCropperActivity;
+import com.wooble.wooble.R;
 import com.yalantis.ucrop.UCrop;
 
 import java.io.File;
 import java.util.UUID;
 
-public class CircularImageCropperActivity extends AppCompatActivity {
+public class Gallery_Image_CropperActivity extends AppCompatActivity {
 
     String result;
     Uri fileUri;
@@ -20,21 +22,17 @@ public class CircularImageCropperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_circular_image_cropper);
-
+        setContentView(R.layout.activity_gallery_image_cropper);
 
         readIntent();
 
-        String dest_uri=new StringBuilder(UUID.randomUUID().toString()).append(".jgp").toString();
+        String dest_uri=new StringBuilder(UUID.randomUUID().toString()).append(".jpg").toString();
 
-        UCrop.Options options=new UCrop.Options();
-        options.setCircleDimmedLayer(true);
         UCrop.of(fileUri,Uri.fromFile(new File(getCacheDir(),dest_uri)))
-                .withOptions(options)
                 .withAspectRatio(0,0)
                 .useSourceImageAspectRatio()
                 .withMaxResultSize(2000,2000)
-                .start(CircularImageCropperActivity.this);
+                .start(Gallery_Image_CropperActivity.this);
     }
 
     private void readIntent() {
@@ -48,15 +46,17 @@ public class CircularImageCropperActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==RESULT_OK &&requestCode==UCrop.REQUEST_CROP){
-            final  Uri resultUri=UCrop.getOutput(data);
+
+
+        if (resultCode==RESULT_OK && requestCode==UCrop.REQUEST_CROP){
+            final Uri resultUri=UCrop.getOutput(data);
             Intent returnIntent=new Intent();
             returnIntent.putExtra("RESULT", resultUri+"");
-            setResult( -1,returnIntent);
+            setResult(-1, returnIntent);
             finish();
-        }else if (resultCode==UCrop.RESULT_ERROR){
-            final  Throwable cropError=UCrop.getError(data);
 
+        }else if (requestCode==UCrop.REQUEST_CROP){
+            final Throwable cropError=UCrop.getError(data);
         }
     }
 }

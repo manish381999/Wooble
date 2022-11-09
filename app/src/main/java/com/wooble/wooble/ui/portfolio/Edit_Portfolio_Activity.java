@@ -2,7 +2,6 @@ package com.wooble.wooble.ui.portfolio;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -102,7 +101,7 @@ ActivityEditPortfolioBinding binding;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == REQ){
+            if (requestCode == REQ && resultCode==RESULT_OK && data!=null){
                 String result=data.getStringExtra("RESULT");
                 Uri resultUri=null;
                 if (result!=null){
