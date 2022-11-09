@@ -134,10 +134,9 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             if (result!=null){
                 resultUri=Uri.parse(result);
             }
-
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
-
+                uploadProfileBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
