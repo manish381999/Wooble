@@ -89,12 +89,12 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
         binding.boldBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
+                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
                 spannableString.setSpan(new StyleSpan(Typeface.BOLD),
-                        binding.createBlogs.getSelectionStart(),
-                        binding.createBlogs.getSelectionEnd(),0);
+                        binding.createDescription.getSelectionStart(),
+                        binding.createDescription.getSelectionEnd(),0);
 
-                binding.createBlogs.setText(spannableString);
+                binding.createDescription.setText(spannableString);
             }
         });
 
@@ -104,12 +104,12 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
         binding.italicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
+                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
                 spannableString.setSpan(new StyleSpan(Typeface.ITALIC),
-                        binding.createBlogs.getSelectionStart(),
-                        binding.createBlogs.getSelectionEnd(),0);
+                        binding.createDescription.getSelectionStart(),
+                        binding.createDescription.getSelectionEnd(),0);
 
-                binding.createBlogs.setText(spannableString);
+                binding.createDescription.setText(spannableString);
             }
         });
     }
@@ -118,39 +118,39 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
         binding.underlineBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
+                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
                 spannableString.setSpan(new UnderlineSpan(),
-                        binding.createBlogs.getSelectionStart(),
-                        binding.createBlogs.getSelectionEnd(),0);
+                        binding.createDescription.getSelectionStart(),
+                        binding.createDescription.getSelectionEnd(),0);
 
-                binding.createBlogs.setText(spannableString);
+                binding.createDescription.setText(spannableString);
             }
         });
     }
 
     public void default_btn(View view) {
 
-        String stringText=binding.createBlogs.getText().toString();
-        binding.createBlogs.setText(stringText);
+        String stringText=binding.createDescription.getText().toString();
+        binding.createDescription.setText(stringText);
     }
 
     public void left_btn(View view) {
-        binding.createBlogs.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-        Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
-        binding.createBlogs.setText(spannableString);
+        binding.createDescription.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+        Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+        binding.createDescription.setText(spannableString);
 
     }
 
     public void center_btn(View view) {
-        binding.createBlogs.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
-        binding.createBlogs.setText(spannableString);
+        binding.createDescription.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+        binding.createDescription.setText(spannableString);
     }
 
     public void right_btn(View view) {
-        binding.createBlogs.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-        Spannable spannableString=new SpannableStringBuilder(binding.createBlogs.getText());
-        binding.createBlogs.setText(spannableString);
+        binding.createDescription.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+        Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+        binding.createDescription.setText(spannableString);
     }
 
 

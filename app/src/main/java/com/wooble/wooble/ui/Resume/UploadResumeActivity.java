@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.view.MenuItem;
+import android.view.View;
 
 
 import com.wooble.wooble.databinding.ActivityUploadResumeBinding;
@@ -34,6 +35,14 @@ ActivityUploadResumeBinding binding;
 Objects.requireNonNull(getSupportActionBar()).setTitle("Resume Uploader");
 
 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+binding.uploadPdfBtn.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(UploadResumeActivity.this, ResumeFragment.class);
+        startActivity(intent);
+    }
+});
 
         binding.addPdf.setOnClickListener(view -> openDocument());
 

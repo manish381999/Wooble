@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/dp_24_dsa"
+    android:id="@+id/constraint_layout"
     tools:context=".ui.Resume.UploadResumeActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/dp_50_dsa"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/add_pdf"
             android:layout_width="@dimen/dp_130_dsa"
-            android:layout_height="@dimen/dp_150_dsa"
-            android:elevation="@dimen/dp_10_dsa"
+            android:layout_height="@dimen/dp_180_dsa"
+            app:cardElevation="@dimen/dp_15_dsa"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_80_dsa"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="@dimen/dp_10_dsa"
-            android:layout_margin="@dimen/dp_10_dsa">
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:background="@color/light_white"
-                android:gravity="center">
+                android:gravity="center"
+               >
 
                 <ImageView
                     android:layout_width="@dimen/dp_64_dsa"
@@ -56,6 +55,8 @@
                     android:layout_marginTop="@dimen/dp_10_dsa"
                     android:textColor="@color/light_black_color"/>
             </LinearLayout>
+
+
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -64,43 +65,51 @@
             android:layout_height="wrap_content"
             android:text="@string/no_file_selected"
             android:textSize="@dimen/sp_16_dsa"
-            android:layout_marginTop="@dimen/dp_16_dsa"
+            android:layout_marginTop="@dimen/dp_20_dsa"
+            app:layout_constraintTop_toBottomOf="@id/add_pdf"
+            app:layout_constraintStart_toStartOf="@id/add_pdf"
+            app:layout_constraintEnd_toEndOf="@id/add_pdf"
             android:layout_gravity="center"/>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+            android:id="@+id/tiy"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:layout_marginTop="@dimen/dp_24_dsa"
+            android:layout_height="@dimen/dp_53_dsa"
+            android:layout_marginTop="@dimen/dp_30_dsa"
             android:background="@drawable/login_edit_text_bg"
             app:boxBackgroundMode="outline"
+            app:layout_constraintTop_toBottomOf="@id/pdf_textview"
+            app:layout_constraintStart_toStartOf="@id/pdf_textview"
+            app:layout_constraintEnd_toEndOf="@id/pdf_textview"
             >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/pdf_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-              android:background="@android:color/transparent"
+                android:background="@android:color/transparent"
                 android:padding="@dimen/dp_10_dsa"
                 android:hint="@string/pdf_title"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/upload_ebook_btn"
+            android:id="@+id/upload_pdf_btn"
             android:layout_width="@dimen/dp_250_dsa"
             android:layout_height="@dimen/dp_55_dsa"
             android:text="@string/upload_pdf"
-            android:layout_marginTop="@dimen/dp_24_dsa"
+            android:layout_marginTop="@dimen/dp_30_dsa"
             android:background="@drawable/login_button_bg"
             android:layout_gravity="center_horizontal"
             android:textSize="@dimen/sp_18_dsa"
+            app:layout_constraintTop_toBottomOf="@id/tiy"
+            app:layout_constraintStart_toStartOf="@id/tiy"
+            app:layout_constraintEnd_toEndOf="@id/tiy"
             android:textAllCaps="false"/>
 
 
 
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>

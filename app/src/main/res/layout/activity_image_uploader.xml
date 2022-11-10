@@ -60,23 +60,27 @@
                 android:layout_marginTop="@dimen/dp_10_dsa"
                 app:boxBackgroundMode="none"
                 app:hintTextColor="@color/splash_screen_cl"
+                app:counterMaxLength="80"
+                app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@id/cardView">
 
                 <EditText
                     android:id="@+id/image_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints=""
+                    android:autofillHints="@null"
                     android:background="@drawable/login_edit_text_bg"
                     android:fontFamily="@font/ubuntu"
                     android:hint="@string/image_title"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textAutoCorrect"
                     android:padding="@dimen/dp_20_dsa"
                     android:singleLine="true"
                     android:textColor="@color/light_black_color"
                     android:textColorHint="#202020"
                     android:textSize="@dimen/sp_18_dsa"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:maxLength="80"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -88,24 +92,28 @@
                 android:layout_marginTop="@dimen/dp_10_dsa"
                 app:boxBackgroundMode="none"
                 app:hintTextColor="@color/splash_screen_cl"
+                app:counterMaxLength="450"
+                app:counterEnabled="true"
                 app:layout_constraintTop_toBottomOf="@id/ti_image_title">
 
                 <EditText
                     android:id="@+id/image_description"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_150_dsa"
-                    android:autofillHints=""
+                    android:autofillHints="@null"
                     android:background="@drawable/login_edit_text_bg"
                     android:fontFamily="@font/ubuntu"
                     android:gravity="top|start"
-                    android:hint="Description"
-                    android:inputType="textMultiLine|textEmailAddress"
+                    android:hint="@string/caption"
+                    android:inputType="textMultiLine|textAutoCorrect"
                     android:padding="@dimen/dp_10_dsa"
                     android:singleLine="true"
                     android:textColor="@color/light_black_color"
                     android:textColorHint="#202020"
                     android:textSize="@dimen/sp_18_dsa"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:maxLength="450"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 

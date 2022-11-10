@@ -83,6 +83,8 @@
     <string name="update">Update</string>
     <string name="pdf_title">Pdf Title</string>
     <string name="upload_pdf">Upload Pdf </string>
+    <string name="last_updated">Last Updated:</string>
+    <string name="read">Read</string>
 
 
 </resources>

@@ -7,6 +7,15 @@
     android:background="@color/light_white"
     tools:context=".ui.Blogs.BlogsFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Rv_blog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_blogs"
         android:layout_width="wrap_content"

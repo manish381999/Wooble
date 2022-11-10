@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/dp_15_dsa"
+    app:cardCornerRadius="@dimen/dp_20_dsa"
+    android:layout_margin="@dimen/dp_15_dsa"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:fontFamily="@font/ubuntu"
+            android:maxLength="70"
+            android:layout_marginHorizontal="@dimen/dp_18_dsa"
+            android:layout_marginVertical="@dimen/dp_10_dsa"
+            android:textSize="@dimen/sp_18_dsa"/>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/light_black_color"
+            android:fontFamily="@font/ubuntu"
+            android:layout_marginHorizontal="@dimen/dp_18_dsa"
+            android:layout_marginVertical="@dimen/dp_10_dsa"
+            android:maxLength="240"
+            android:textSize="@dimen/sp_18_dsa"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1_dsa"
+            android:background="@drawable/view_background"
+            android:layout_marginTop="@dimen/dp_10_dsa"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/dp_18_dsa"
+            android:layout_marginVertical="@dimen/dp_10_dsa"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_updated"
+                android:textSize="@dimen/sp_18_dsa"
+                android:textColor="@color/light_black_color"
+                android:layout_marginVertical="@dimen/dp_10_dsa"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_18_dsa"
+                android:textColor="@color/light_black_color"
+                android:layout_marginStart="@dimen/dp_5_dsa"
+                android:layout_marginVertical="@dimen/dp_10_dsa"/>
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/read_btn"
+            android:layout_width="@dimen/dp_150_dsa"
+            android:layout_height="@dimen/dp_55_dsa"
+            android:text="@string/read"
+            android:layout_marginTop="@dimen/dp_8_dsa"
+            android:background="@drawable/login_button_bg"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/sp_18_dsa"
+            android:layout_marginBottom="@dimen/dp_8_dsa"
+            android:elevation="@dimen/dp_10_dsa"
+            android:textAllCaps="false"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
