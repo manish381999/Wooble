@@ -1,5 +1,6 @@
 package com.wooble.wooble.ui.Gallery;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -55,6 +57,8 @@ ActivityEditGalleryBinding binding;
         binding = ActivityEditGalleryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Gallery");
 
         id = getIntent().getStringExtra("id");
@@ -69,6 +73,7 @@ ActivityEditGalleryBinding binding;
 
         binding.imageTitle.setText(titleData);
         binding.imageCaption.setText(captionData);
+
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -176,5 +181,14 @@ ActivityEditGalleryBinding binding;
 
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+
+        }
+        return true;
     }
 }

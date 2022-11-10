@@ -25,6 +25,7 @@
     <style name="CreateBlogs.Toolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/splash_screen_cl</item>
 
+
     </style>
 
     <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">

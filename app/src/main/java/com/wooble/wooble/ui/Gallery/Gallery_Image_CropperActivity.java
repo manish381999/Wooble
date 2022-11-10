@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.wooble.wooble.CircularImageCropperActivity;
 import com.wooble.wooble.R;
 import com.yalantis.ucrop.UCrop;
 
@@ -26,9 +25,14 @@ public class Gallery_Image_CropperActivity extends AppCompatActivity {
 
         readIntent();
 
-        String dest_uri=new StringBuilder(UUID.randomUUID().toString()).append(".jpg").toString();
+        String dest_uri= UUID.randomUUID().toString() + ".jpg";
+
+        UCrop.Options options=new UCrop.Options();
+        options.setSharpnessEnabled(true);
+
 
         UCrop.of(fileUri,Uri.fromFile(new File(getCacheDir(),dest_uri)))
+                .withOptions(options)
                 .withAspectRatio(0,0)
                 .useSourceImageAspectRatio()
                 .withMaxResultSize(2000,2000)

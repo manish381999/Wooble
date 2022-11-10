@@ -249,7 +249,7 @@ ActivityEditPortfolioBinding binding;
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Edit_Portfolio_Activity.this, MainActivity.class);
                             startActivity(intent);
-                            finish();
+                            finishAffinity();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

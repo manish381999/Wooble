@@ -114,19 +114,19 @@
                 android:layout_weight="3"
                 android:layout_marginTop="@dimen/dp_15_dsa">
 
+
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/imageView1"
+                    android:layout_width="@dimen/dp_0_dsa"
+                    android:layout_height="@dimen/dp_150_dsa"
                     android:layout_weight="1"
                     android:scaleType="centerCrop"
                     android:src="@drawable/place_holder"
-                    app:riv_corner_radius="@dimen/dp_10_dsa"
-                    app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:layout_height="@dimen/dp_150_dsa"
+                    app:riv_border_width="2dip"
+                    app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_mutate_background="true"
-                    android:layout_width="@dimen/dp_0_dsa"
                     tools:ignore="NestedWeights" />
-
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/imageView2"

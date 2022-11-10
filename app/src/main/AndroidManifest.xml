@@ -11,24 +11,33 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="false"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:hardwareAccelerated="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wooble"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Gallery.Gallery_Image_CropperActivity"
+            android:name=".ui.Resume.UploadResumeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
+            android:name=".ui.Gallery.Gallery_Image_CropperActivity"
+            android:exported="false"
+            android:screenOrientation="locked">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CircularImageCropperActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -36,28 +45,32 @@
         <activity
             android:name=".ui.portfolio.Edit_Portfolio_Activity"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Gallery.EditGalleryActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Gallery.Full_ImageActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Project.Upload_Project_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -65,7 +78,8 @@
         <activity
             android:name=".ui.Profile.Edit_Profile_Activity"
             android:exported="false"
-            android:parentActivityName=".ui.Profile.Edit_Profile_Activity">
+            android:parentActivityName=".ui.Profile.Edit_Profile_Activity"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -73,14 +87,16 @@
         <activity
             android:name=".ui.Profile.ProfileActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Gallery.ImageUploaderActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -88,36 +104,47 @@
         <activity
             android:name=".ui.portfolio.Create_Portfolio_Activity"
             android:exported="false"
+            android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.Blogs.Create_BlogsActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".ui.credentials.Reset_PasswordActivity"
             android:exported="false"
+            android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.credentials.OtpActivity"
             android:exported="false"
+            android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.credentials.Forgot_PasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".ui.credentials.SignupActivity"
             android:exported="false"
+            android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.credentials.LoginActivity"
             android:exported="false"
+            android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
+            android:screenOrientation="locked"
             android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -132,7 +159,7 @@
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="locked"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 

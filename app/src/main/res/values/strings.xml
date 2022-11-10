@@ -81,6 +81,8 @@
     <string name="template">Template</string>
     <string name="edit_portfolio">Edit Portfolio</string>
     <string name="update">Update</string>
+    <string name="pdf_title">Pdf Title</string>
+    <string name="upload_pdf">Upload Pdf </string>
 
 
 </resources>

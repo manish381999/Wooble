@@ -46,7 +46,7 @@
                         android:id="@+id/gallery_image"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_300_dsa"
-                        android:scaleType="centerCrop"
+                        android:scaleType="fitXY"
                         android:src="@drawable/place_holder" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

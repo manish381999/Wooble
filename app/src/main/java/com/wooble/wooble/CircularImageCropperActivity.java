@@ -25,7 +25,7 @@ public class CircularImageCropperActivity extends AppCompatActivity {
 
         readIntent();
 
-        String dest_uri=new StringBuilder(UUID.randomUUID().toString()).append(".jgp").toString();
+        String dest_uri= UUID.randomUUID().toString() + ".jgp";
 
         UCrop.Options options=new UCrop.Options();
         options.setCircleDimmedLayer(true);

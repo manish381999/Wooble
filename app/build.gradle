@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -20,6 +21,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
         }
         buildFeatures {
             viewBinding true
@@ -51,12 +53,13 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2' //glide
     implementation 'com.makeramen:roundedimageview:2.3.0' //rounded image view
     implementation 'com.github.chrisbanes:PhotoView:2.3.0' // PhotoViewer
-    implementation 'com.github.krokyze:ucropnedit:2.2.6-2'
+    implementation 'com.github.krokyze:ucropnedit:2.2.6-2' // Ucrop
 
 
 
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+
+
 
 
 
