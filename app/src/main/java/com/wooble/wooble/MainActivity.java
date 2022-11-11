@@ -36,6 +36,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
 
 import com.wooble.wooble.ui.Profile.ProfileActivity;
+import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
@@ -56,10 +57,12 @@ ActivityMainBinding binding;
 
     String profileEmail;
     String profileImage;
+    String coverImage;
     CircularImageView circularImageView;
     ImageView coverPic;
     TextView navUsername;
     TextView navProfession;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,29 +130,18 @@ ActivityMainBinding binding;
                 break;
 
             case R.id.navigation_setting:
-                Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.navigation_social_media:
-                Toast.makeText(this, "Social Media", Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(MainActivity.this, SettingActivity.class);
+                intent.putExtra("image",profileImage);
+                startActivity(intent);
                 break;
 
             case R.id.navigation_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.navigation_rate_us:
-                Toast.makeText(this, "Rate Us", Toast.LENGTH_SHORT).show();
+            case R.id.navigation_social_media:
+                Toast.makeText(this, "Social Media", Toast.LENGTH_SHORT).show();
                 break;
-
-            case  R.id.navigation_logout:
-                SessionManagement sessionManagement = new SessionManagement(MainActivity.this);
-                sessionManagement.removeSession();
-                Intent i = new Intent(MainActivity.this, LoginActivity.class );
-                startActivity(i);
-                finish();
-                break;
-
         }
         return true;
     }
@@ -266,10 +258,10 @@ ActivityMainBinding binding;
                             JSONArray array = new JSONArray(new String(response.data));
                             //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
-                            profileImage = jObj.getString("image");
+                            coverImage = jObj.getString("image");
                             //Log.d("image",profileImage);
                             Glide.with(MainActivity.this)
-                                    .load(profileImage)
+                                    .load(coverImage)
                                     .placeholder(R.drawable.place_holder)
                                     .centerCrop()
                                     .into(coverPic);

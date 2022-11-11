@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Setting.Privacy_Policy_Activity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_16_dsa"
+                android:text="@string/we_wooble_software_private_limited_are_registered_at_1c_102_kaushlaya_enclave_rajeev_nagar_patia_bhubaneswar_751024_hereinafter_referred_to_as_wooble_at_wooble_we_value_your_trust_amp_respect_your_privacy_this_privacy_policy_provides_you_with_details_about_the_manner_in_which_your_data_is_collected_stored_amp_used_by_us_you_are_advised_to_read_this_privacy_policy_carefully_by_downloading_and_using_the_application_website_wap_site_you_expressly_give_us_consent_to_use_amp_disclose_your_personal_information_in_accordance_with_this_privacy_policy_if_you_do_not_agree_to_the_terms_of_the_policy_please_do_not_use_or_access_our_website"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/note_our_privacy_policy_may_change_at_any_time_without_prior_notification_to_make_sure_that_you_are_aware_of_any_changes_kindly_review_the_policy_periodically_this_privacy_policy_shall_apply_uniformly_to_all_wooble_applications_desktop_website_amp_mobile_wap_site"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/general"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/we_will_not_sell_share_or_rent_your_personal_information_to_any_3rd_party_or_use_your_email_address_mobile_number_for_unsolicited_emails_and_or_sms_any_emails_and_or_sms_sent_by_wooble_will_only_be_in_connection_with_the_provision_of_agreed_services_amp_products_and_this_privacy_policy_periodically_we_may_reveal_general_statistical_information_about_wooble_amp_its_users_such_as_number_of_visitors_number_and_type_of_goods_and_services_purchased_etc_we_reserve_the_right_to_communicate_your_personal_information_to_any_third_party_that_makes_a_legally_compliant_request_for_its_disclosure"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/personal_information"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/personal_information_means_and_includes_all_information_that_can_be_linked_to_a_specific_individual_or_to_identify_any_individual_such_as_name_address_mailing_address_telephone_number_email_id_credit_card_number_cardholder_name_card_expiration_date_information_about_your_mobile_phone_and_any_details_that_may_have_been_voluntarily_provide_by_the_user_in_connection_with_availing_any_of_the_services_on_wooble_when_you_browse_through_wooble_we_may_collect_information_regarding_the_mobile_tab_device_details_domain_and_host_from_which_you_access_the_internet_the_internet_protocol_ip_address_of_the_computer_or_internet_service_provider_isp_you_are_using_and_anonymous_site_statistical_data"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/use_of_personal_information"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/we_use_personal_information_to_provide_you_with_services_amp_products_you_explicitly_requested_for_to_resolve_disputes_troubleshoot_concerns_help_promote_safe_services_collect_money_measure_consumer_interest_in_our_services_inform_you_about_offers_products_services_updates_customize_your_experience_detect_amp_protect_us_against_error_fraud_and_other_criminal_activity_enforce_our_terms_and_conditions_etc_we_also_use_your_contact_information_to_send_you_offers_based_on_your_previous_orders_and_interests_we_may_occasionally_ask_you_to_complete_optional_online_surveys_these_surveys_may_ask_you_for_contact_information_and_demographic_information_like_zip_code_age_gender_etc_we_use_this_data_to_customize_your_experience_providing_you_with_content_that_we_think_you_might_be_interested_in_and_to_display_content_according_to_your_preferences"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/cookies"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/a_cookie_is_a_small_piece_of_information_stored_by_a_web_server_on_a_web_browser_so_it_can_be_later_read_back_from_that_browser_wooble_uses_cookie_and_tracking_technology_depending_on_the_features_offered_no_personal_information_will_be_collected_via_cookies_and_other_tracking_technology_however_if_you_previously_provided_personally_identifiable_information_cookies_may_be_tied_to_such_information"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/links_to_other_sites"/>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/our_site_links_to_other_websites_that_may_collect_personally_identifiable_information_about_you_wooble_is_not_responsible_for_the_privacy_practices_or_the_content_of_those_linked_websites"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/security"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/wooble_has_stringent_security_measures_in_place_to_protect_the_loss_misuse_and_alteration_of_the_information_under_our_control_whenever_you_change_or_access_your_account_information_we_offer_the_use_of_a_secure_server_once_your_information_is_in_our_possession_we_adhere_to_strict_security_guidelines_protecting_it_against_unauthorized_access"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/consent"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/by_using_wooble_and_or_by_providing_your_information_you_consent_to_the_collection_and_use_of_the_information_you_disclose_on_wooble_in_accordance_with_this_privacy_policy_including_but_not_limited_to_your_consent_for_sharing_your_information_as_per_this_privacy_policy"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_7_dsa"
+                android:textSize="@dimen/sp_16_dsa"
+                android:textStyle="bold"
+                android:text="@string/online_queries_in_wooble_first_response_time_1_working_day_final_resolution_time_2_working_days_helpline_connect_wooble_org_final_resolution_time_4_working_days_if_wooble_needs_additional_time_for_any_case_same_will_be_informed_to_customer_along_with_reason_of_delay_and_expected_resolution_timelines_level_2_complaints_if_customer_s_issue_is_not_resolved_even_after_contacting_various_complaint_resolution_channels_he_she_can_reach_out_to_our_grievance_officer_at_grievance_officer_wooble_pvt_ltd_1c_102_rajeev_nagar_patia_railway_station_road_bhubaneswar_odisha_751024_email_connect_wooble_org"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
