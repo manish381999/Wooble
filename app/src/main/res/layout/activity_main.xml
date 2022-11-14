@@ -7,6 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint_layout"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -54,8 +55,6 @@
         app:itemIconTint="@color/splash_screen_cl"
         android:layout_gravity="start"
         app:itemTextAppearance="?attr/textAppearanceBodyMedium">
-
-
 
     </com.google.android.material.navigation.NavigationView>
 

@@ -7,6 +7,9 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,6 +29,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.wooble.wooble.MainActivity;
+import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityImageUploaderBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
@@ -49,6 +54,7 @@ public class ImageUploaderActivity extends AppCompatActivity {
     String return_id;
     String profileEmail;
 
+    byte[] fileImage;
     String title, description;
     ActivityResultLauncher<String> pickImage;
 
@@ -66,8 +72,6 @@ public class ImageUploaderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 uploadGalleryData();
-
-
             }
         });
    binding.galleryImage.setOnClickListener(new View.OnClickListener() {
@@ -128,9 +132,17 @@ private void openGallery(){
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageDescription.getText().toString().trim();
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
-        byte[] fileImage = byteArrayOutputStream.toByteArray();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                fileImage = byteArrayOutputStream.toByteArray();
+            }
+        });
+        thread.start();
+
+
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.INSERT_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
@@ -141,6 +153,8 @@ private void openGallery(){
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
                             startActivity(intent);
+                            finish();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -174,14 +188,6 @@ private void openGallery(){
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
-
-
-
-
-
-
-
-
 
 
     @Override

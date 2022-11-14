@@ -149,6 +149,7 @@ ActivityEditGalleryBinding binding;
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(EditGalleryActivity.this, GalleryFragment.class);
                             startActivity(intent);
+                            finish();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
