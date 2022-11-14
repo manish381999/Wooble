@@ -33,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,8 +89,11 @@ public class BlogsFragment extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<BlogModel>> call, Response<ArrayList<BlogModel>> response) {
                 blogList = response.body();
+                Collections.reverse(blogList);
                 for (int i = 0; i < blogList.size(); i++) {
+
                     BlogAdapter blogAdapter = new BlogAdapter(getContext(),blogList);
+
                     binding.RvBlog.setAdapter(blogAdapter);
                 }
             }
