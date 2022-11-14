@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.BlogItemLayoutBinding;
+import com.wooble.wooble.ui.Gallery.GalleryModel;
 
 import java.util.List;
 
@@ -17,11 +18,11 @@ import java.util.List;
 public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogViewHolder>{
 
     Context context;
-    List list;
+    List<BlogModel> BlogList;
 
-    public BlogAdapter(Context context, List list) {
+    public BlogAdapter(Context context, List<BlogModel> blogList) {
         this.context = context;
-        this.list = list;
+        this.BlogList = blogList;
     }
 
     @NonNull
@@ -34,11 +35,15 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogViewHolder
     @Override
     public void onBindViewHolder(@NonNull BlogViewHolder holder, int position) {
 
+        BlogModel blogModel = BlogList.get(position);
+        holder.binding.tvTitle.setText(blogModel.getTitle());
+        holder.binding.tvDescription.setText(blogModel.getTitle());
+        holder.binding.datetime.setText(blogModel.getCreated_date());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return BlogList.size();
     }
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder{

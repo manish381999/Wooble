@@ -35,6 +35,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
 
+import com.wooble.wooble.ui.Gallery.GalleryFragment;
 import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
@@ -83,14 +84,8 @@ ActivityMainBinding binding;
         loadProfileData();
         loadCoverImage();
 
-
-
-
-
         NavController navController= Navigation.findNavController(MainActivity.this,R.id.frame_layout);
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
-
-
 
 
         toggle=new ActionBarDrawerToggle(this,binding.drawerLayout,R.string.start, R.string.close);

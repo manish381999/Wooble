@@ -85,6 +85,7 @@ String id;
                             //Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(Full_ImageActivity.this, GalleryFragment.class);
                             startActivity(intent);
+                            finishAffinity();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
