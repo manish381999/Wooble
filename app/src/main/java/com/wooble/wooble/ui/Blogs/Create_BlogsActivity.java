@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Spannable;
@@ -14,13 +15,33 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.R;
+import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
+import com.wooble.wooble.ui.portfolio.EndPoints;
+import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 
 public class Create_BlogsActivity extends AppCompatActivity {
@@ -29,15 +50,14 @@ public class Create_BlogsActivity extends AppCompatActivity {
 
 //    String imageView;
     Bitmap bitmap;
+    private String profileEmail;
 
+    String image = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateBlogsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
-
 
         setSupportActionBar(binding.appBar);
 
@@ -49,11 +69,27 @@ public class Create_BlogsActivity extends AppCompatActivity {
 binding.publish.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Intent intent=new Intent(Create_BlogsActivity.this,BlogsFragment.class);
-        startActivity(intent);
+//        insertBlogData();
+        insertData();
     }
 });
 
+    }
+
+
+    private String getBase64String(Bitmap bitmap)
+    {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+        byte[] imageBytes = baos.toByteArray();
+
+        String base64String = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            base64String = Base64.getEncoder().encodeToString(imageBytes);
+        }
+        return base64String;
     }
 
     @Override
@@ -71,6 +107,7 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
             ImageView imageView=new ImageView(Create_BlogsActivity.this);
             imageView.setImageBitmap(bitmap);
             addView(imageView, 400, 400);
+            image = getBase64String(bitmap);
 
         }
 
@@ -163,5 +200,78 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+
+    private void insertBlogData() {
+
+        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+        profileEmail = sessionManagement.getSessionEmail();
+        String title = binding.createTitle.getText().toString().trim();
+        String content = binding.createDescription.getText().toString().trim();
+
+        //our custom volley request
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.INSERT_BLOG_DATA,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+                            JSONObject obj = new JSONObject(new String(response.data));
+                            Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(Create_BlogsActivity.this,BlogsFragment.class);
+                            startActivity(intent);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("email_id", profileEmail);
+                params.put("title", title);
+                params.put("content", content);
+                return params;
+            }
+
+        };
+
+        //adding the request to volley
+        Volley.newRequestQueue(this).add(volleyMultipartRequest);
+    }
+
+    void insertData(){
+        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+        String email_id = sessionManagement.getSessionEmail();
+        String title = binding.createTitle.getText().toString().trim();
+        String content = binding.createDescription.getText().toString().trim();
+        String name = String.valueOf(System.currentTimeMillis());
+
+        Call<ResponseModel> call = Controller.getInstance()
+                .getApiInterface()
+                .insertBlog(email_id,title,content,image,name);
+
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                ResponseModel responseModel = response.body();
+                String output = responseModel.getMessage();
+                Toast.makeText(Create_BlogsActivity.this, output, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Create_BlogsActivity.this,BlogsFragment.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toast.makeText(Create_BlogsActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
