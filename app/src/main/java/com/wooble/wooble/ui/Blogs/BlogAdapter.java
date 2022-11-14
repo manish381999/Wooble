@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.BlogItemLayoutBinding;
-import com.wooble.wooble.ui.Gallery.GalleryModel;
 
 import java.util.List;
 

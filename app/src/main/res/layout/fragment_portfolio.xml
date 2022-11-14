@@ -39,11 +39,11 @@
             android:layout_marginEnd="@dimen/dp_30_dsa"
             android:layout_marginBottom="@dimen/dp_30_dsa"
             android:backgroundTint="@color/white"
-            android:src="@drawable/ic_blogs"
+            android:src="@drawable/ic_portfolio"
+            app:tint="@color/splash_screen_cl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="@dimen/dp_52_dsa"
-
+            app:maxImageSize="@dimen/dp_48_dsa"
             android:contentDescription="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

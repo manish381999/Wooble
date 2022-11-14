@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Blogs.Blog_Viewer_Activity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_15_dsa"
+            >
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:fontFamily="@font/ubuntu"
+                android:layout_marginHorizontal="@dimen/dp_18_dsa"
+                android:layout_marginVertical="@dimen/dp_10_dsa"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="@dimen/sp_25_dsa"/>
+
+            <TextView
+                android:id="@+id/tv_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:text="@string/by"
+                android:textColor="@color/light_black_color"
+                android:fontFamily="@font/ubuntu"
+                android:textSize="@dimen/sp_18_dsa"/>
+
+            <TextView
+                android:id="@+id/tv_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_18_dsa"
+                android:textColor="@color/light_black_color"
+                android:fontFamily="@font/ubuntu"
+                android:layout_marginStart="@dimen/dp_5_dsa"
+                app:layout_constraintStart_toEndOf="@id/tv_by"
+                app:layout_constraintTop_toTopOf="@id/tv_by"/>
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_18_dsa"
+                android:textColor="@color/light_black_color"
+                android:fontFamily="@font/ubuntu"
+                android:layout_marginStart="@dimen/dp_5_dsa"
+                app:layout_constraintStart_toEndOf="@id/tv_full_name"
+                app:layout_constraintTop_toTopOf="@id/tv_full_name"/>
+
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_2_dsa"
+                android:background="@color/light_white"
+                app:layout_constraintTop_toBottomOf="@id/tv_full_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp_10_dsa"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/light_black_color"
+                android:fontFamily="@font/ubuntu"
+                android:layout_marginHorizontal="@dimen/dp_18_dsa"
+                android:layout_marginVertical="@dimen/dp_10_dsa"
+                android:textSize="@dimen/sp_20_dsa"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Rv_blog_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:orientation="horizontal"
+                app:reverseLayout="true"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                 />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

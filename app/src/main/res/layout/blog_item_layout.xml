@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="@dimen/dp_15_dsa"
-    app:cardCornerRadius="@dimen/dp_20_dsa"
+    app:cardElevation="@dimen/dp_10_dsa"
+    app:cardCornerRadius="@dimen/dp_15_dsa"
     android:layout_margin="@dimen/dp_15_dsa"
     >
 
@@ -30,7 +30,6 @@
 
 
 
-
         <TextView
             android:id="@+id/tv_description"
             android:layout_width="wrap_content"
@@ -46,8 +45,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_1_dsa"
-            android:background="@drawable/view_background"
+            android:layout_height="@dimen/dp_2_dsa"
+            android:background="@color/light_white"
             android:layout_marginTop="@dimen/dp_10_dsa"/>
 
         <LinearLayout
@@ -56,7 +55,7 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:layout_marginHorizontal="@dimen/dp_18_dsa"
-            android:layout_marginVertical="@dimen/dp_10_dsa"
+            android:layout_marginTop="@dimen/dp_10_dsa"
             >
 
             <TextView
@@ -81,13 +80,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/read_btn"
-            android:layout_width="@dimen/dp_150_dsa"
-            android:layout_height="@dimen/dp_55_dsa"
+            android:layout_width="@dimen/dp_120_dsa"
+            android:layout_height="@dimen/dp_40_dsa"
             android:text="@string/read"
             android:layout_marginTop="@dimen/dp_8_dsa"
             android:background="@drawable/login_button_bg"
             android:layout_gravity="center_horizontal"
             android:textSize="@dimen/sp_18_dsa"
+            android:gravity="center"
             android:layout_marginBottom="@dimen/dp_8_dsa"
             android:elevation="@dimen/dp_10_dsa"
             android:textAllCaps="false"/>
