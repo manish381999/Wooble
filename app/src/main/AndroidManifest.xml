@@ -27,7 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.Setting.Term_and_conditions_Activity"
+            android:name=".ui.Setting.Terms_and_conditions_Activity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

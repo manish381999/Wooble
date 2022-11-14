@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivitySettingBinding;
@@ -53,7 +52,7 @@ binding.dataPrivacy.setOnClickListener(new View.OnClickListener() {
 binding.terms.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(SettingActivity.this, Term_and_conditions_Activity.class));
+        startActivity(new Intent(SettingActivity.this, Terms_and_conditions_Activity.class));
     }
 });
 
