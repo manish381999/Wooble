@@ -25,7 +25,7 @@ public class Controller {
         return clientobject;
     }
 
-    apiInterface getApiInterface(){
+    public apiInterface getApiInterface(){
         return  retrofit.create(apiInterface.class);
     }
 }

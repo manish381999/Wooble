@@ -78,9 +78,7 @@ public class BlogsFragment extends Fragment {
                 blogList = response.body();
                 Collections.reverse(blogList);
                 for (int i = 0; i < blogList.size(); i++) {
-
                     BlogAdapter blogAdapter = new BlogAdapter(getContext(),blogList);
-
                     binding.RvBlog.setAdapter(blogAdapter);
                 }
             }

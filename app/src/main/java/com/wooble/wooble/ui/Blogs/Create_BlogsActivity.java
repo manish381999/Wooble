@@ -89,6 +89,7 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
             base64String = Base64.getEncoder().encodeToString(imageBytes);
         }
         return base64String;
+
     }
 
     @Override
