@@ -35,7 +35,7 @@
                 android:layout_weight="0.7"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:text="project name :"
+                android:text="project aim :"
                 android:padding="@dimen/dp_10_dsa"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/light_black_color"

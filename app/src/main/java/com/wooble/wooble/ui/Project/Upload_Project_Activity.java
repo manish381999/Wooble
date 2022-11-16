@@ -7,26 +7,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.annotation.SuppressLint;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.MediaController;
+import android.widget.Toast;
 
 
+import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
+import com.wooble.wooble.ui.Blogs.Controller;
+import com.wooble.wooble.ui.Blogs.ResponseModel;
+import com.wooble.wooble.ui.Resume.ResumeFragment;
+import com.wooble.wooble.ui.Resume.UploadResumeActivity;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Upload_Project_Activity extends AppCompatActivity {
     ActivityUploadProjectBinding binding;
@@ -42,6 +56,16 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
     private String pdfName ;
     private Bitmap bitmap;
+
+    private String image_1;
+    private String image_2;
+    private String image_3;
+    private String image_4;
+    private String image_5;
+    private String image_6;
+    private String project_pdf;
+    private String video;
+
 
     final int REQ_pdf = 70;
     final int REQ_video = 80;
@@ -63,7 +87,6 @@ public class Upload_Project_Activity extends AppCompatActivity {
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
         binding.videoView.start();
-
 
         binding.imageView1.setOnClickListener(view -> imageView1());
 
@@ -88,7 +111,48 @@ public class Upload_Project_Activity extends AppCompatActivity {
             }
         });
 
+        binding.btUploadProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertData();
+            }
+        });
 
+
+    }
+
+    public static String fileUriToBase64(Uri uri, ContentResolver resolver) {
+        String encodedBase64 = "";
+        try {
+            byte[] bytes = readBytes(uri, resolver);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                encodedBase64 = Base64.getEncoder().encodeToString(bytes);
+            }
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        return encodedBase64;
+    }
+
+    private static byte[] readBytes(Uri uri, ContentResolver resolver)
+            throws IOException {
+        // this dynamically extends to take the bytes you read
+        InputStream inputStream = resolver.openInputStream(uri);
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+
+        // this is storage overwritten on each iteration with bytes
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        // we need to know how may bytes were read to write them to the
+        // byteBuffer
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+
+        // and then we can return your byte array.
+        return byteBuffer.toByteArray();
     }
 
     private void imageView1() {
@@ -140,6 +204,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         if (requestCode == REQ_imageView1 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
+            image_1 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             } catch (IOException e) {
@@ -150,6 +215,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_imageView2 && resultCode==RESULT_OK && data!=null){
             image_Uri = data.getData();
 
+            image_2 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             }catch (IOException e){
@@ -160,6 +226,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_imageView3 && resultCode==RESULT_OK && data!=null){
             image_Uri = data.getData();
 
+            image_3 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             }catch (IOException e){
@@ -170,6 +237,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_imageView4 && resultCode==RESULT_OK && data!=null){
             image_Uri=data.getData();
 
+            image_4 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             }catch (IOException e){
@@ -180,6 +248,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_imageView5 && resultCode==RESULT_OK && data!=null){
             image_Uri=data.getData();
 
+            image_5 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             }catch (IOException e){
@@ -189,6 +258,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         }else if (requestCode==REQ_imageView6 && resultCode==RESULT_OK && data!=null){
             image_Uri=data.getData();
+            image_6 =  fileUriToBase64(image_Uri, getContentResolver());
 
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
@@ -200,6 +270,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_pdf && resultCode==RESULT_OK &&data!=null){
             pdf_Uri=data.getData();
 
+            project_pdf =  fileUriToBase64(pdf_Uri, getContentResolver());
             if (pdf_Uri.toString().startsWith("content://")){
                 Cursor cursor;
                 try {
@@ -220,6 +291,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         }else if (requestCode==REQ_video && resultCode==RESULT_OK && data!=null){
             video_Uri=data.getData();
+            video =  fileUriToBase64(video_Uri, getContentResolver());
 
             binding.videoView.setVideoURI(video_Uri);
         }
@@ -227,6 +299,35 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
     }
 
+
+    void insertData(){
+        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+        String email_id = sessionManagement.getSessionEmail();
+        String project_name = binding.etProjectName.getText().toString().trim();
+        String aim_of_project = binding.etProjectAim.getText().toString().trim();
+        String description = binding.aboutYourself.getText().toString().trim();
+        String conclusion = binding.etConclusion.getText().toString().trim();
+
+        Call<ResponseModel> call = Controller.getInstance()
+                .getApiInterface()
+                .insertProject(email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,project_pdf,conclusion);
+
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                ResponseModel responseModel = response.body();
+                String output = responseModel.getMessage();
+                Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                Toast.makeText(Upload_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

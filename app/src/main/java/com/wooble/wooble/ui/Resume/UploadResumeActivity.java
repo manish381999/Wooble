@@ -60,8 +60,6 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 binding.uploadPdfBtn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-//        Intent intent=new Intent(UploadResumeActivity.this, ResumeFragment.class);
-//        startActivity(intent);
         insertData();
     }
 });
@@ -75,7 +73,6 @@ binding.uploadPdfBtn.setOnClickListener(new View.OnClickListener() {
         intent.setType("application/pdf");
         startActivityForResult(Intent.createChooser(intent,"Select Pdf File"),REQ_pdf);
     }
-
 
     public static String fileUriToBase64(Uri uri, ContentResolver resolver) {
         String encodedBase64 = "";

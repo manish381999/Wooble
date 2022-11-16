@@ -295,7 +295,7 @@
 
 
             <Button
-                android:id="@+id/bt_editProfile"
+                android:id="@+id/bt_uploadProject"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
                 android:text="@string/publish"

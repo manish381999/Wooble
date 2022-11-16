@@ -42,7 +42,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
         GalleryModel gallery = Gallerylist.get(position);
 
-        //loading the image
         Glide.with(context)
                 .load(gallery.getImage_url())
                 .centerCrop()
