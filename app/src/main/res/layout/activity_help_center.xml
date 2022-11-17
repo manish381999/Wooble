@@ -168,21 +168,18 @@
           </com.google.android.material.textfield.TextInputLayout>
 
           <com.google.android.material.button.MaterialButton
-              android:id="@+id/bt_editProfile"
+              android:id="@+id/btn_submit"
               android:layout_width="@dimen/dp_200_dsa"
               android:layout_height="wrap_content"
-              android:text="@string/submit"
-              android:textAllCaps="false"
               android:layout_gravity="center_horizontal"
-              android:textSize="@dimen/sp_18_dsa"
               android:layout_marginTop="@dimen/dp_24_dsa"
-              app:icon="@drawable/ic_send"
-              app:iconGravity="textStart"
               android:background="@drawable/login_button_bg"
               android:gravity="center_horizontal|center_vertical"
-              />
-
-
+              android:text="@string/submit"
+              android:textAllCaps="false"
+              android:textSize="@dimen/sp_18_dsa"
+              app:icon="@drawable/ic_send"
+              app:iconGravity="textStart" />
 
 
       </LinearLayout>

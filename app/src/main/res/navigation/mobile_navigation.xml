@@ -30,8 +30,8 @@
 
     <fragment
         android:id="@+id/navigation_blogs"
-        android:name="com.wooble.wooble.ui.Blogs.BlogsFragment"
-        tools:layout="@layout/fragment_blogs">
+        android:name="com.wooble.wooble.ui.Blogs.BlogFragment"
+        tools:layout="@layout/fragment_blog">
 
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"

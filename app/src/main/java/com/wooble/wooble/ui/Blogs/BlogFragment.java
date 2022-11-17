@@ -16,22 +16,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wooble.wooble.SessionManagement;
-import com.wooble.wooble.databinding.FragmentBlogsBinding;
+import com.wooble.wooble.databinding.FragmentBlogBinding;
 
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class BlogsFragment extends Fragment {
-    FragmentBlogsBinding binding;
+public class BlogFragment extends Fragment {
+    FragmentBlogBinding binding;
 
     ArrayList<BlogModel> blogList;
 
@@ -43,7 +40,7 @@ public class BlogsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = FragmentBlogsBinding.inflate(inflater, container, false);
+        binding = FragmentBlogBinding.inflate(inflater, container, false);
 
       requireActivity().setTitle("Blogs");
 

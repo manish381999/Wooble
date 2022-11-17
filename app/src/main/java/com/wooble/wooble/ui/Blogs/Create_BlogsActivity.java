@@ -218,7 +218,7 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
                         try {
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(Create_BlogsActivity.this,BlogsFragment.class);
+                            Intent intent=new Intent(Create_BlogsActivity.this, BlogFragment.class);
                             startActivity(intent);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -264,7 +264,7 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
                 Toast.makeText(Create_BlogsActivity.this, output, Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Create_BlogsActivity.this,BlogsFragment.class);
+                Intent intent=new Intent(Create_BlogsActivity.this, BlogFragment.class);
                 startActivity(intent);
             }
 

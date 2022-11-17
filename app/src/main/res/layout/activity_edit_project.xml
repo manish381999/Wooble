@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Project.Upload_Project_Activity">
+    tools:context=".ui.Project.Edit_Project_Activity">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,9 +13,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:scrollbars="none"
-       >
+        app:layout_constraintEnd_toEndOf="parent">
 
 
 
@@ -45,7 +45,7 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:inputType="textAutoCorrect"
+                android:inputType="textPersonName"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black"
                 android:importantForAutofill="no" />
@@ -68,7 +68,7 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:inputType="textAutoCorrect"
+                android:inputType="textPersonName"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black"
                 android:importantForAutofill="no" />
@@ -177,31 +177,31 @@
                     tools:ignore="NestedWeights" />
 
 
-               <com.makeramen.roundedimageview.RoundedImageView
-                   android:id="@+id/imageView5"
-                   android:layout_weight="1"
-                   android:layout_width="@dimen/dp_0_dsa"
-                   android:layout_height="@dimen/dp_150_dsa"
-                   android:src="@drawable/place_holder"
-                   app:riv_corner_radius="@dimen/dp_10_dsa"
-                   app:riv_border_width="2dip"
-                   app:riv_border_color="#333333"
-                   android:layout_marginStart="@dimen/dp_10_dsa"
-                   android:scaleType="centerCrop"
-                   app:riv_mutate_background="true"/>
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imageView5"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dp_0_dsa"
+                    android:layout_height="@dimen/dp_150_dsa"
+                    android:src="@drawable/place_holder"
+                    app:riv_corner_radius="@dimen/dp_10_dsa"
+                    app:riv_border_width="2dip"
+                    app:riv_border_color="#333333"
+                    android:layout_marginStart="@dimen/dp_10_dsa"
+                    android:scaleType="centerCrop"
+                    app:riv_mutate_background="true"/>
 
-               <com.makeramen.roundedimageview.RoundedImageView
-                   android:id="@+id/imageView6"
-                   android:layout_weight="1"
-                   android:layout_width="@dimen/dp_0_dsa"
-                   android:layout_height="@dimen/dp_150_dsa"
-                   android:src="@drawable/place_holder"
-                   app:riv_corner_radius="@dimen/dp_10_dsa"
-                   app:riv_border_width="2dip"
-                   app:riv_border_color="#333333"
-                   android:layout_marginStart="@dimen/dp_10_dsa"
-                   android:scaleType="centerCrop"
-                   app:riv_mutate_background="true"/>
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imageView6"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dp_0_dsa"
+                    android:layout_height="@dimen/dp_150_dsa"
+                    android:src="@drawable/place_holder"
+                    app:riv_corner_radius="@dimen/dp_10_dsa"
+                    app:riv_border_width="2dip"
+                    app:riv_border_color="#333333"
+                    android:layout_marginStart="@dimen/dp_10_dsa"
+                    android:scaleType="centerCrop"
+                    app:riv_mutate_background="true"/>
 
 
             </LinearLayout>
@@ -220,7 +220,7 @@
                 android:layout_height="@dimen/dp_170_dsa"
                 android:elevation="@dimen/dp_8_dsa"
                 android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dp_20_dsa">
+                android:layout_marginTop="@dimen/dp_20_dsa">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -247,7 +247,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/select_pdf"
+                        android:text="@string/show_pdf"
                         android:textStyle="bold"
                         android:padding="@dimen/dp_5_dsa"
                         android:layout_marginTop="@dimen/dp_10_dsa"
@@ -285,14 +285,14 @@
                 android:gravity="top|start"
                 android:background="@drawable/login_edit_text_bg"
                 android:hint="@string/Wooble"
-                android:inputType="textMultiLine|textAutoCorrect"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black"
                 android:importantForAutofill="no" />
 
 
             <Button
-                android:id="@+id/bt_uploadProject"
+                android:id="@+id/bt_editProfile"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
                 android:text="@string/publish"

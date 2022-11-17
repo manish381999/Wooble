@@ -37,7 +37,8 @@ public class BlogImageAdapter extends RecyclerView.Adapter<BlogImageAdapter.Blog
     }
 
     public static class BlogImageViewHolder extends RecyclerView.ViewHolder{
-BlogImageItemLayoutBinding binding;
+        BlogImageItemLayoutBinding binding;
+
         public BlogImageViewHolder(@NonNull View itemView) {
             super(itemView);
             binding=BlogImageItemLayoutBinding.bind(itemView);

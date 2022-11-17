@@ -139,7 +139,8 @@
                         android:onClick="bold_btn"
                         android:background="@android:color/transparent"
                         android:padding="5dp"
-                        tools:ignore="OnClick" />
+                        tools:ignore="OnClick"
+                        android:contentDescription="@null" />
 
                     <View
                         android:layout_width="1dp"
@@ -154,7 +155,8 @@
                         android:onClick="italic_btn"
                         android:padding="5dp"
                         android:background="@android:color/transparent"
-                        tools:ignore="OnClick" />
+                        tools:ignore="OnClick"
+                        android:contentDescription="@null" />
 
                     <View
                         android:layout_width="1dp"
@@ -168,6 +170,7 @@
                         android:src="@drawable/ic_underline"
                         android:onClick="underline_btn"
                         android:background="@android:color/transparent"
+                        android:contentDescription="TODO"
                         tools:ignore="OnClick" />
 
                     <View
@@ -183,6 +186,7 @@
                         android:padding="5dp"
                         android:onClick="default_btn"
                         android:background="@android:color/transparent"
+                        android:contentDescription="TODO"
                         tools:ignore="OnClick" />
 
                     <View
@@ -198,6 +202,7 @@
                         android:padding="5dp"
                         android:onClick="left_btn"
                         android:background="@android:color/transparent"
+                        android:contentDescription="TODO"
                         tools:ignore="OnClick" />
 
                     <View
@@ -215,6 +220,7 @@
                         android:background="@android:color/transparent"
                         android:padding="5dp"
                         android:onClick="center_btn"
+                        android:contentDescription="TODO"
                         tools:ignore="OnClick" />
 
                     <View
@@ -231,6 +237,7 @@
                         android:background="@android:color/transparent"
                         android:padding="5dp"
                         android:onClick="right_btn"
+                        android:contentDescription="@null"
                         tools:ignore="OnClick" />
 
                     <View
@@ -247,6 +254,7 @@
                         android:padding="5dp"
                         android:background="@android:color/transparent"
                         android:onClick="add_image_btn"
+                        android:contentDescription="@null"
                         tools:ignore="OnClick" />
 
                 </LinearLayout>

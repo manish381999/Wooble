@@ -21,57 +21,93 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Blogs.Blog_Viewer_Activity"
+            android:name=".ui.Project.Edit_Project_Activity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Resume.Resume_Viewer_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Social_media_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Project.Project_Viewer_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Blogs.Blog_Viewer_Activity"
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.End_User_License_AgreementActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.Terms_and_conditions_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.Data_Privacy_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.Privacy_Policy_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.SettingActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Setting.Help_Center_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Resume.UploadResumeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

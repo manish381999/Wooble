@@ -7,58 +7,66 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/pdf_viewer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_100_dsa"
-        app:cardElevation="@dimen/dp_15_dsa"
-        android:layout_marginHorizontal="@dimen/dp_10_dsa"
+        android:layout_height="@dimen/dp_400_dsa"
+        app:cardElevation="@dimen/dp_5_dsa"
+        android:layout_marginHorizontal="@dimen/dp_50_dsa"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dp_80_dsa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="@dimen/dp_10_dsa"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:background="@color/light_white"
+            android:orientation="vertical"
+            android:background="@color/light_black_color"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="@dimen/dp_64_dsa"
-                android:layout_height="@dimen/dp_64_dsa"
-                android:background="@drawable/circle_red"
+                android:layout_width="@dimen/dp_74_dsa"
+                android:layout_height="@dimen/dp_74_dsa"
+                android:background="@drawable/circle_white"
                 android:padding="@dimen/dp_15_dsa"
-                android:layout_marginStart="@dimen/dp_10_dsa"
-                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/dp_60_dsa"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:src="@drawable/ic_resume"/>
 
 
             <View
-                android:layout_width="@dimen/dp_1_dsa"
-                android:layout_height="match_parent"
-                android:background="@drawable/view_background"
-                android:layout_marginStart="@dimen/dp_10_dsa"/>
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_1_dsa"
+                android:background="@color/light_white"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                />
 
             <TextView
                 android:id="@+id/tv_pdf_title"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_50_dsa"
-                android:textColor="@color/light_black_color"
+                android:textColor="@color/light_white"
                 android:fontFamily="@font/ubuntu"
-                android:textSize="@dimen/sp_18_dsa"
+                android:textSize="@dimen/sp_22_dsa"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/dp_10_dsa"
+                android:layout_marginTop="@dimen/dp_50_dsa"
                 android:layout_gravity="center_vertical"
                 android:padding="@dimen/dp_10_dsa"/>
 
             <ImageView
                 android:id="@+id/pdf_download"
-                android:layout_width="@dimen/dp_35_dsa"
-                android:layout_height="@dimen/dp_35_dsa"
+                android:layout_width="@dimen/dp_50_dsa"
+                android:layout_height="@dimen/dp_50_dsa"
                 android:src="@drawable/ic_downloading"
-                android:layout_gravity="center"
-                android:layout_marginStart="-40dp"
-                android:contentDescription="@null" />
+                android:elevation="@dimen/sp_20_dsa"
+                android:background="@drawable/circle_white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_40_dsa"
+                android:contentDescription="@null"
+                />
         </LinearLayout>
 
 

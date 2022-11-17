@@ -121,7 +121,7 @@ ActivityMainBinding binding;
                 break;
 
             case R.id.navigation_email_signature:
-                Toast.makeText(this,"Email signature", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.navigation_setting:
@@ -131,11 +131,11 @@ ActivityMainBinding binding;
                 break;
 
             case R.id.navigation_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.navigation_social_media:
-                Toast.makeText(this, "Social Media", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(MainActivity.this, Social_media_Activity.class));
                 break;
         }
         return true;

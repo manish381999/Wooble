@@ -47,7 +47,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dp_300_dsa"
                         android:scaleType="fitXY"
-                        android:src="@drawable/place_holder" />
+                        android:src="@drawable/place_holder"
+                        android:contentDescription="@null"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
