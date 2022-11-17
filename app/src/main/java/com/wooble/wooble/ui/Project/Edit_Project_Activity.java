@@ -1,7 +1,9 @@
 package com.wooble.wooble.ui.Project;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wooble.wooble.R;
@@ -18,6 +20,17 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Project");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+        }
+        return true;
+    }
 }
