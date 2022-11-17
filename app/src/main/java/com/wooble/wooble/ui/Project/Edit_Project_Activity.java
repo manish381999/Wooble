@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wooble.wooble.R;
 
+import java.util.Objects;
+
 public class Edit_Project_Activity extends AppCompatActivity {
 
     @Override
@@ -13,6 +15,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_project);
 
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Project");
 
     }
 

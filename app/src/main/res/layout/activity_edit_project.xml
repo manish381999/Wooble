@@ -16,7 +16,10 @@
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent">
 
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -295,7 +298,7 @@
                 android:id="@+id/bt_editProfile"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
-                android:text="@string/publish"
+                android:text="@string/update"
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/sp_18_dsa"
@@ -306,6 +309,7 @@
                 />
 
         </LinearLayout>
+    </LinearLayout>
 
 
     </ScrollView>

@@ -13,16 +13,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="parent">
+        >
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_20_dsa"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
 
 
@@ -264,59 +269,16 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:layout_marginBottom="@dimen/dp_30_dsa"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginTop="@dimen/dp_20_dsa"
 
-                >
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_editProject"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="@dimen/dp_50_dsa"
-                    android:text="@string/edit"
-                    android:textAllCaps="false"
-                    app:icon="@drawable/ic_edit_3"
-                    app:iconGravity="textStart"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/sp_18_dsa"
-                    android:layout_marginTop="@dimen/dp_24_dsa"
-                    android:background="@drawable/login_button_bg"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/dp_30_dsa"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/bt_delete"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="@dimen/dp_50_dsa"
-                    android:text="@string/delete"
-                    android:textAllCaps="false"
-                    app:icon="@drawable/ic_delete"
-                    app:iconTint="@color/red"
-                    app:iconGravity="textStart"
-                    android:layout_marginStart="@dimen/dp_20_dsa"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/sp_18_dsa"
-                    android:layout_marginTop="@dimen/dp_24_dsa"
-                    android:background="@drawable/login_button_bg"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/dp_30_dsa"
-                    />
-
-            </LinearLayout>
 
 
 
         </LinearLayout>
 
+    </LinearLayout>
 
     </ScrollView>
 

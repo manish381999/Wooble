@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.wooble.wooble.R;
 
+import java.util.Objects;
+
 public class Project_Viewer_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_viewer);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
     }
 }
