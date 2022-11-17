@@ -82,9 +82,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
 
 
-
-
-            binding.imageView2.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_2)
                     .centerCrop()

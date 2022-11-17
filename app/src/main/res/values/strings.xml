@@ -71,7 +71,7 @@
     <string name="others">Others</string>
     <string name="rate_us">Rate Us</string>
     <string name="logout">Sign Out</string>
-    <string name="project_name">Project name</string>
+    <string name="project_name">Project name:</string>
     <string name="aim_of_project">Aim of project</string>
     <string name="description">Description</string>
     <string name="about_project">About Project</string>
@@ -117,8 +117,8 @@
     <string name="twitter">Twitter</string>
     <string name="linkedin">Linkedin</string>
     <string name="connect_with_us">Connect with us</string>
-    <string name="project_aim">Project aim :</string>
-    <string name="description1">Description :</string>
+    <string name="project_aim">Project aim:</string>
+    <string name="description1">Description:</string>
     <string name="show_pdf">Show pdf</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>

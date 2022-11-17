@@ -57,7 +57,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             context.startActivity(intent);
         });
 
-        holder.binding.ivEdit.setOnClickListener(v -> {
+        holder.binding.readBtn.setOnClickListener(v -> {
             Intent intent=new Intent(context, Project_Viewer_Activity.class);
             intent.putExtra("file_id",projectModel.getFile_id());
             intent.putExtra("email_id",projectModel.getEmail_id());

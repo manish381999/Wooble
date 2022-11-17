@@ -25,7 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_20_dsa"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
 
 
@@ -102,10 +103,31 @@
                 android:inputType="textAutoCorrect|textMultiLine"
                 android:padding="@dimen/dp_10_dsa"
                 android:textColor="@color/light_black_color"
+                android:textSize="@dimen/sp_18_dsa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/conclusion"
                 android:textSize="@dimen/sp_18_dsa"
-                android:textStyle="bold" />
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                android:fontFamily="@font/ubuntu"
+                android:textColor="@color/light_black_color"/>
 
-
+            <EditText
+                android:id="@+id/et_conclusion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100_dsa"
+                android:elevation="@dimen/dp_8_dsa"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:gravity="top|start"
+                android:background="@drawable/login_edit_text_bg"
+                android:hint="@string/Wooble"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/dp_15_dsa"
+                android:textColor="@color/black"
+                android:importantForAutofill="no" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,7 +147,6 @@
                     app:riv_border_color="#333333"
                     app:riv_border_width="2dip"
                     app:riv_corner_radius="@dimen/dp_10_dsa"
-                    android:visibility="visible"
                     app:riv_mutate_background="true"
                     tools:ignore="NestedWeights" />
 
@@ -138,7 +159,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -152,7 +172,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -178,7 +197,6 @@
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
                     android:layout_height="@dimen/dp_150_dsa"
-                    android:visibility="visible"
                     app:riv_mutate_background="true"
                     android:layout_width="@dimen/dp_0_dsa"
                     tools:ignore="NestedWeights" />
@@ -193,7 +211,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -207,7 +224,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -257,7 +273,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/show_pdf"
+                        android:text="@string/select_pdf"
                         android:textStyle="bold"
                         android:padding="@dimen/dp_5_dsa"
                         android:layout_marginTop="@dimen/dp_10_dsa"
@@ -275,32 +291,6 @@
                 android:layout_gravity="center"/>
 
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/conclusion"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_20_dsa"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_black_color"/>
-
-            <EditText
-                android:id="@+id/et_conclusion"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100_dsa"
-                android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:gravity="top|start"
-                android:background="@drawable/login_edit_text_bg"
-                android:hint="@string/Wooble"
-                android:inputType="textMultiLine"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black"
-                android:importantForAutofill="no" />
-
-
             <Button
                 android:id="@+id/bt_editProfile"
                 android:layout_width="@dimen/dp_150_dsa"
@@ -309,10 +299,10 @@
                 android:textAllCaps="false"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_24_dsa"
+                android:layout_marginTop="@dimen/dp_34_dsa"
                 android:background="@drawable/login_button_bg"
                 android:gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/dp_30_dsa"
+                android:layout_marginBottom="@dimen/dp_20_dsa"
                 />
 
         </LinearLayout>

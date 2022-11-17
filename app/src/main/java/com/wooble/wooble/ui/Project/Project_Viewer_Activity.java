@@ -1,5 +1,6 @@
 package com.wooble.wooble.ui.Project;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ ActivityProjectViewerBinding binding;
     MediaController mediaController;
     String file_id,email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,pdf_file,conclusion;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,7 @@ ActivityProjectViewerBinding binding;
             binding.imageView1.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_1)
-                    .centerCrop()
+
                     .into(binding.imageView1);
         }
 
@@ -67,7 +69,6 @@ ActivityProjectViewerBinding binding;
             binding.imageView2.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_2)
-                    .centerCrop()
                     .into(binding.imageView2);
         }
 
@@ -77,7 +78,6 @@ ActivityProjectViewerBinding binding;
             binding.imageView3.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_3)
-                    .centerCrop()
                     .into(binding.imageView3);
         }
 
@@ -87,7 +87,6 @@ ActivityProjectViewerBinding binding;
             binding.imageView4.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_4)
-                    .centerCrop()
                     .into(binding.imageView4);
         }
 
@@ -97,7 +96,6 @@ ActivityProjectViewerBinding binding;
             binding.imageView5.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_5)
-                    .centerCrop()
                     .into(binding.imageView5);
         }
 
@@ -108,7 +106,6 @@ ActivityProjectViewerBinding binding;
             binding.imageView6.setVisibility(View.VISIBLE);
             Glide.with(getApplicationContext())
                     .load(image_6)
-                    .centerCrop()
                     .into(binding.imageView6);
         }
 
@@ -125,6 +122,9 @@ ActivityProjectViewerBinding binding;
 
 
         binding.tvConclusion.setText(conclusion);
+
+
+        binding.pdfTitle.setText(project_name+ "pdf");
 
 
     }
