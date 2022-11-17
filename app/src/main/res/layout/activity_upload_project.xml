@@ -44,11 +44,11 @@
                 android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:hint="@string/Wooble"
                 android:inputType="textAutoCorrect"
                 android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black"
-                android:importantForAutofill="no" />
+                android:textColor="@color/light_black_color"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,11 +67,11 @@
                 android:layout_marginTop="@dimen/dp_15_dsa"
                 android:textSize="@dimen/sp_18_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:hint="@string/Wooble"
                 android:inputType="textAutoCorrect"
                 android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black"
-                android:importantForAutofill="no" />
+                android:textColor="@color/light_black_color"
+                android:autofillHints=""
+                tools:ignore="LabelFor" />
 
 
 
@@ -100,7 +100,7 @@
                 android:padding="@dimen/dp_10_dsa"
                 android:textColor="@color/light_black_color"
                 android:textSize="@dimen/sp_18_dsa"
-                android:textStyle="bold" />
+                 />
 
 
 
@@ -275,20 +275,22 @@
                 android:fontFamily="@font/ubuntu"
                 android:textColor="@color/light_black_color"/>
 
+
             <EditText
                 android:id="@+id/et_conclusion"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_100_dsa"
-                android:elevation="@dimen/dp_8_dsa"
                 android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:gravity="top|start"
+                android:autofillHints=""
+                android:elevation="@dimen/dp_8_dsa"
                 android:background="@drawable/login_edit_text_bg"
-                android:hint="@string/Wooble"
-                android:inputType="textMultiLine|textAutoCorrect"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black"
-                android:importantForAutofill="no" />
+                android:fontFamily="@font/ubuntu"
+                android:gravity="top|start"
+                android:inputType="textAutoCorrect|textMultiLine"
+                android:padding="@dimen/dp_10_dsa"
+                android:textColor="@color/light_black_color"
+                android:textSize="@dimen/sp_18_dsa"
+                />
 
 
             <Button
