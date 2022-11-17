@@ -2,21 +2,18 @@ package com.wooble.wooble.ui.Project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.FragmentProjectBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
-import com.wooble.wooble.ui.Resume.ResumeAdapter;
-import com.wooble.wooble.ui.Resume.ResumeModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,6 +69,7 @@ FragmentProjectBinding binding;
             @Override
             public void onResponse(Call<ArrayList<ProjectModel>> call, Response<ArrayList<ProjectModel>> response) {
                 projectList = response.body();
+                Collections.reverse(projectList);
                 for (int i = 0; i < projectList.size(); i++) {
                     ProjectAdapter projectAdapter = new ProjectAdapter(getContext(),projectList);
                     binding.RvProject.setAdapter(projectAdapter);
