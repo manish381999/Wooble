@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Project.Edit_Project_Activity">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +26,26 @@
             android:layout_margin="@dimen/dp_20_dsa"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dp_10_dsa"
+                android:layout_marginEnd="@dimen/dp_10_dsa"
+                android:orientation="horizontal">
 
+
+                <ImageView
+                    android:id="@+id/iv_delete"
+                    android:layout_width="@dimen/dp_30_dsa"
+                    android:layout_height="@dimen/dp_30_dsa"
+                    android:src="@drawable/ic_delete"
+                    android:elevation="@dimen/dp_10_dsa"
+                    android:layout_marginStart="@dimen/dp_10_dsa"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contentDescription="@null" />
+            </LinearLayout>
 
 
 
@@ -89,7 +107,7 @@
 
 
             <EditText
-                android:id="@+id/et_description"
+                android:id="@+id/about_yourself"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_180_dsa"
                 android:layout_marginTop="@dimen/dp_15_dsa"
@@ -125,7 +143,6 @@
                     app:riv_border_color="#333333"
                     app:riv_border_width="2dip"
                     app:riv_corner_radius="@dimen/dp_10_dsa"
-                    android:visibility="visible"
                     app:riv_mutate_background="true"
                     tools:ignore="NestedWeights" />
 
@@ -138,7 +155,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -152,7 +168,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -178,7 +193,6 @@
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
                     android:layout_height="@dimen/dp_150_dsa"
-                    android:visibility="visible"
                     app:riv_mutate_background="true"
                     android:layout_width="@dimen/dp_0_dsa"
                     tools:ignore="NestedWeights" />
@@ -193,7 +207,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -207,7 +220,6 @@
                     app:riv_corner_radius="@dimen/dp_10_dsa"
                     app:riv_border_width="2dip"
                     app:riv_border_color="#333333"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/dp_10_dsa"
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
@@ -216,13 +228,19 @@
             </LinearLayout>
 
 
-
-            <VideoView
-                android:id="@+id/videoView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_230_dsa"
-                android:visibility="visible"
-                android:layout_marginTop="@dimen/dp_20_dsa"/>
+                android:layout_height="230dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_15_dsa">
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_230_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"/>
+            </LinearLayout>
+
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/add_pdf"
@@ -302,7 +320,7 @@
 
 
             <Button
-                android:id="@+id/bt_editProfile"
+                android:id="@+id/bt_updateProject"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
                 android:text="@string/update"
@@ -321,4 +339,4 @@
 
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

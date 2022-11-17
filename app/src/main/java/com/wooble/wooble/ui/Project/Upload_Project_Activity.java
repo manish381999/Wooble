@@ -57,14 +57,15 @@ public class Upload_Project_Activity extends AppCompatActivity {
     private String pdfName ;
     private Bitmap bitmap;
 
-    private String image_1;
-    private String image_2;
-    private String image_3;
-    private String image_4;
-    private String image_5;
-    private String image_6;
-    private String project_pdf;
-    private String video;
+    private String image_1=null;
+    private String image_2=null;
+    private String image_3=null;
+    private String image_4=null;
+    private String image_5=null;
+    String image_6=null;
+    String project_pdf=null;
+    String video=null;
+    String output;
 
 
     final int REQ_pdf = 70;
@@ -316,7 +317,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
                 ResponseModel responseModel = response.body();
-                String output = responseModel.getMessage();
+                output = responseModel.getMessage();
                 Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                 startActivity(intent);

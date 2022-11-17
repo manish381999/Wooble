@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityProjectViewerBinding;
 
 import java.util.Objects;
@@ -50,67 +51,85 @@ ActivityProjectViewerBinding binding;
         binding.tvDescription.setText(description);
 
 
-        if (image_1 == null) {
-            binding.imageView1.setVisibility(View.GONE);
-        } else if (image_1 != null) {
-            binding.imageView1.setVisibility(View.VISIBLE);
+        if(image_1!=null){
             Glide.with(getApplicationContext())
                     .load(image_1)
                     .centerCrop()
                     .into(binding.imageView1);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView1);
+            binding.imageView1.setVisibility(View.INVISIBLE);
         }
 
-
-        if (image_2 == null) {
-            binding.imageView2.setVisibility(View.GONE);
-        } else if (image_2 != null) {
-            binding.imageView2.setVisibility(View.VISIBLE);
+        if(image_2!=null){
             Glide.with(getApplicationContext())
                     .load(image_2)
                     .centerCrop()
                     .into(binding.imageView2);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView2);
+            binding.imageView2.setVisibility(View.INVISIBLE);
         }
 
-        if (image_3 == null) {
-            binding.imageView3.setVisibility(View.GONE);
-        } else if (image_3 != null) {
-            binding.imageView3.setVisibility(View.VISIBLE);
+        if(image_3!=null){
             Glide.with(getApplicationContext())
                     .load(image_3)
                     .centerCrop()
                     .into(binding.imageView3);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView3);
+            binding.imageView3.setVisibility(View.INVISIBLE);
         }
 
-        if (image_4 == null) {
-            binding.imageView4.setVisibility(View.GONE);
-        } else if (image_4 != null) {
-            binding.imageView4.setVisibility(View.VISIBLE);
+
+        if(image_4!=null){
             Glide.with(getApplicationContext())
                     .load(image_4)
                     .centerCrop()
                     .into(binding.imageView4);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView4);
+            binding.imageView4.setVisibility(View.INVISIBLE);
         }
 
-        if (image_5 == null) {
-            binding.imageView5.setVisibility(View.GONE);
-        } else if (image_5 != null) {
-            binding.imageView5.setVisibility(View.VISIBLE);
+        if(image_5!=null){
             Glide.with(getApplicationContext())
                     .load(image_5)
                     .centerCrop()
                     .into(binding.imageView5);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView5);
+            binding.imageView5.setVisibility(View.INVISIBLE);
         }
 
-
-        if (image_6 == null) {
-            binding.imageView6.setVisibility(View.GONE);
-        } else if (image_6 != null) {
-            binding.imageView6.setVisibility(View.VISIBLE);
+        if(image_6!=null){
             Glide.with(getApplicationContext())
                     .load(image_6)
                     .centerCrop()
                     .into(binding.imageView6);
+        }else {
+            Glide.with(getApplicationContext())
+                    .load(R.drawable.place_holder)
+                    .centerCrop()
+                    .into(binding.imageView6);
+            binding.imageView6.setVisibility(View.INVISIBLE);
         }
+
 
         if (video == null) {
             binding.videoView.setVisibility(View.GONE);
@@ -122,11 +141,7 @@ ActivityProjectViewerBinding binding;
             binding.videoView.start();
             binding.videoView.setVideoURI(Uri.parse(video));
         }
-
-
         binding.tvConclusion.setText(conclusion);
-
-
     }
 
     @Override

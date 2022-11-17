@@ -105,33 +105,6 @@
                 android:textSize="@dimen/sp_18_dsa"
                  />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/conclusion"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_20_dsa"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_black_color"/>
-
-
-            <EditText
-                android:id="@+id/et_conclusion"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:autofillHints=""
-                android:elevation="@dimen/dp_8_dsa"
-                android:background="@drawable/login_edit_text_bg"
-                android:fontFamily="@font/ubuntu"
-                android:gravity="top|start"
-                android:inputType="textAutoCorrect|textMultiLine"
-                android:padding="@dimen/dp_10_dsa"
-                android:textColor="@color/light_black_color"
-                android:textSize="@dimen/sp_18_dsa"
-                />
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_0_dsa"
@@ -236,11 +209,18 @@
 
 
 
-            <VideoView
-                android:id="@+id/videoView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_230_dsa"
-                android:layout_marginTop="@dimen/dp_20_dsa"/>
+                android:layout_height="230dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_15_dsa">
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_230_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"/>
+            </LinearLayout>
+
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/add_pdf"
@@ -291,6 +271,30 @@
                 android:textSize="@dimen/sp_16_dsa"
                 android:layout_marginTop="@dimen/dp_16_dsa"
                 android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/conclusion"
+                android:textSize="@dimen/sp_18_dsa"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                android:fontFamily="@font/ubuntu"
+                android:textColor="@color/light_black_color"/>
+
+            <EditText
+                android:id="@+id/et_conclusion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100_dsa"
+                android:elevation="@dimen/dp_8_dsa"
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:gravity="top|start"
+                android:background="@drawable/login_edit_text_bg"
+                android:hint="@string/Wooble"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/dp_15_dsa"
+                android:textColor="@color/black"
+                android:importantForAutofill="no" />
 
 
 

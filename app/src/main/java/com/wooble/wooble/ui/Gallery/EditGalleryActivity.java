@@ -115,7 +115,7 @@ ActivityEditGalleryBinding binding;
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==REQ && resultCode==RESULT_OK && data!=null){
-            Uri uri=   data.getData();
+            Uri uri=data.getData();
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
             } catch (IOException e) {

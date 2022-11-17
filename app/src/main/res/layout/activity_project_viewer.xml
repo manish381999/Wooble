@@ -29,10 +29,6 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
-
-
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,8 +66,6 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:padding="@dimen/dp_15_dsa"
                 android:textColor="@color/black" />
-
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -147,9 +141,7 @@
                     android:scaleType="centerCrop"
                     app:riv_mutate_background="true"/>
 
-
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -206,13 +198,16 @@
             </LinearLayout>
 
 
-
-            <VideoView
-                android:id="@+id/videoView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_230_dsa"
-                android:visibility="visible"
-                android:layout_marginTop="@dimen/dp_20_dsa"/>
+                android:layout_height="230dp"
+                android:layout_marginTop="@dimen/dp_15_dsa">
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_230_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"/>
+            </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/show_pdf"

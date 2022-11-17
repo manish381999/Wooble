@@ -9,6 +9,7 @@
     app:cardElevation="@dimen/dp_10_dsa">
 
     <LinearLayout
+        android:id="@+id/Rv_project_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -31,16 +32,6 @@
                 app:layout_constraintEnd_toStartOf="@id/iv_delete"
                 android:contentDescription="@null" />
 
-            <ImageView
-                android:id="@+id/iv_delete"
-                android:layout_width="@dimen/dp_25_dsa"
-                android:layout_height="@dimen/dp_25_dsa"
-                android:src="@drawable/ic_delete"
-                android:elevation="@dimen/dp_10_dsa"
-                android:layout_marginStart="@dimen/dp_10_dsa"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:contentDescription="@null" />
         </LinearLayout>
 
 
