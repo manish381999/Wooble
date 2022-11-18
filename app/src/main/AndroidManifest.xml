@@ -6,7 +6,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="false"
@@ -23,6 +24,7 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.Project.Edit_Project_Activity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -157,6 +159,7 @@
         <activity
             android:name=".ui.Project.Upload_Project_Activity"
             android:exported="false"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"

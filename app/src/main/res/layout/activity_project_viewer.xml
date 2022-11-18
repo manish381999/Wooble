@@ -18,16 +18,14 @@
         android:scrollbars="none"
         >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_20_dsa"
+            android:padding="@dimen/dp_10_dsa"
             android:orientation="vertical"
+            android:layout_margin="@dimen/dp_15_dsa"
             tools:ignore="UselessParent">
 
             <TextView
@@ -44,9 +42,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:layout_marginTop="@dimen/dp_5_dsa"
                 android:textSize="@dimen/sp_18_dsa"
-                android:padding="@dimen/dp_15_dsa"
+                android:padding="@dimen/dp_10_dsa"
                 android:textColor="@color/black"
                />
 
@@ -64,11 +62,11 @@
                 android:id="@+id/tv_project_aim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5_dsa"
                 android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black" />
+                android:padding="@dimen/dp_10_dsa"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18_dsa" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -85,7 +83,7 @@
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:layout_marginTop="@dimen/dp_5_dsa"
                 android:elevation="@dimen/dp_8_dsa"
                 android:fontFamily="@font/ubuntu"
                 android:padding="@dimen/dp_10_dsa"
@@ -207,11 +205,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_marginTop="@dimen/dp_15_dsa">
-                <VideoView
-                    android:id="@+id/videoView"
+
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/exo_play"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_230_dsa"
-                    android:layout_marginTop="@dimen/dp_20_dsa"/>
+                    android:layout_height="@dimen/dp_200_dsa"/>
+
+
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -283,9 +284,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:layout_marginTop="@dimen/dp_5_dsa"
                 android:textSize="@dimen/sp_18_dsa"
-                android:padding="@dimen/dp_15_dsa"
+                android:padding="@dimen/dp_10_dsa"
                 android:textColor="@color/black"
                 android:importantForAutofill="no"
                 android:layout_marginBottom="@dimen/dp_30_dsa"/>
@@ -297,7 +298,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+
 
     </ScrollView>
 

@@ -60,6 +60,8 @@ dependencies {
     implementation 'com.github.krokyze:ucropnedit:2.2.6-2' // Ucrop
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
+
 
 
 
