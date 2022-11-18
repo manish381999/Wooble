@@ -5,24 +5,14 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wooble.wooble.R;
-import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ProjectItemLayoutBinding;
-import com.wooble.wooble.ui.Blogs.Controller;
-import com.wooble.wooble.ui.Blogs.ResponseModel;
-import com.wooble.wooble.ui.Gallery.Full_ImageActivity;
-import com.wooble.wooble.ui.Resume.ResumeModel;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
 
 public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectViewHolder>{
     Context context;
@@ -67,7 +57,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             context.startActivity(intent);
         });
 
-        holder.binding.RvProjectLayout.setOnClickListener(new View.OnClickListener() {
+        holder.binding.readBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, Project_Viewer_Activity.class);
