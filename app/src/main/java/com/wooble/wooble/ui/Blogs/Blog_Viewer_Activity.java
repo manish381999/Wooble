@@ -35,9 +35,6 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.tvDate.setText(created_date);
 
 
-
-
-
     }
 
     @Override

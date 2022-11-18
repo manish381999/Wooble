@@ -68,7 +68,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
         mediaController=new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
-        binding.videoView.start();
+        binding.videoView.stopPlayback();
+
 
         binding.imageView1.setOnClickListener(view -> imageView1());
 

@@ -1,12 +1,13 @@
 package com.wooble.wooble.ui.Setting;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.wooble.wooble.databinding.ActivityHelpCenterBinding;
 
@@ -29,14 +30,20 @@ public class Help_Center_Activity extends AppCompatActivity {
         binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Help_Center_Activity.this, SettingActivity.class));
+                Intent intent=new Intent(Help_Center_Activity.this, SettingActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
     }
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+
+        }
         return true;
     }
 }

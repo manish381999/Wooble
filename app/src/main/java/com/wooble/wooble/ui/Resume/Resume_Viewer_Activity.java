@@ -58,7 +58,6 @@ return  inputStream;
     @Override
     protected void onPostExecute(InputStream inputStream) {
         binding.pdfView.fromStream(inputStream)
-                .password(null)
                 .defaultPage(0)
                 .enableSwipe(true)
                 .swipeHorizontal(false)

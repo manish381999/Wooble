@@ -125,7 +125,7 @@
                 android:layout_marginStart="@dimen/dp_15_dsa"
                 android:layout_marginTop="@dimen/dp_20_dsa"
                 android:layout_marginBottom="@dimen/dp_20_dsa"
-                android:background="@drawable/login_button_bg"
+                android:background="@drawable/read_btn_bg"
                 android:gravity="center_horizontal"
                 android:text="@string/upload"
                 android:textAllCaps="false"

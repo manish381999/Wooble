@@ -1,9 +1,11 @@
 package com.wooble.wooble.ui.Setting;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
@@ -73,7 +75,9 @@ binding.rateUs.setOnClickListener(new View.OnClickListener() {
         binding.helpCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SettingActivity.this, Help_Center_Activity.class));
+                Intent intent=new Intent(SettingActivity.this, Help_Center_Activity.class);
+                startActivity(intent);
+
             }
         });
 

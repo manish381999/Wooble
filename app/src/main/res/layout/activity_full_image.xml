@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/iv_delete"
-        android:layout_width="@dimen/dp_32_dsa"
-        android:layout_height="@dimen/dp_32_dsa"
+        android:layout_width="@dimen/dp_25_dsa"
+        android:layout_height="@dimen/dp_25_dsa"
         android:src="@drawable/ic_delete"
         android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,13 +20,13 @@
 
     <ImageView
         android:id="@+id/iv_edit"
-        android:layout_width="@dimen/dp_32_dsa"
-        android:layout_height="@dimen/dp_32_dsa"
+        android:layout_width="@dimen/dp_25_dsa"
+        android:layout_height="@dimen/dp_25_dsa"
         android:src="@drawable/edit"
         android:elevation="@dimen/dp_10_dsa"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/iv_delete"
-       android:layout_margin="@dimen/dp_20_dsa"
+        android:layout_margin="@dimen/dp_20_dsa"
         android:contentDescription="@null" />
 
 
@@ -34,12 +34,11 @@
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/image_view"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:scaleType="fitCenter"
         />
 
 
@@ -51,13 +50,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="@dimen/dp_24_dsa"
+        android:layout_marginHorizontal="@dimen/dp_14_dsa"
         android:textStyle="bold"
-        android:gravity="center_horizontal"
+        android:gravity="start"
         android:fontFamily="@font/ubuntu"
         app:layout_constraintVertical_bias="0.98"
-        android:textSize="@dimen/sp_18_dsa"
-        android:textColor="@color/light_white"
+        android:textSize="@dimen/sp_16_dsa"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 
