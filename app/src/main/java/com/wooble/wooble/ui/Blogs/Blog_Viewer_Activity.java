@@ -1,7 +1,9 @@
 package com.wooble.wooble.ui.Blogs;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wooble.wooble.databinding.ActivityBlogViewerBinding;
@@ -20,6 +22,7 @@ String id,title,content,created_date,image;
         setContentView(binding.getRoot());
 
 Objects.requireNonNull(getSupportActionBar()).setTitle("Blog viewer");
+getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         id = getIntent().getStringExtra("id");
         title=getIntent().getStringExtra("title");
@@ -32,5 +35,14 @@ Objects.requireNonNull(getSupportActionBar()).setTitle("Blog viewer");
         binding.tvDate.setText(created_date);
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+        }
+        return true;
     }
 }
