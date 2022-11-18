@@ -205,14 +205,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
                 android:layout_marginTop="@dimen/dp_15_dsa">
-
-
                 <com.google.android.exoplayer2.ui.PlayerView
                     android:id="@+id/exo_play"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_200_dsa"/>
-
-
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView

@@ -5,7 +5,6 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,7 +23,6 @@ import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityEditProjectBinding;
-import com.wooble.wooble.databinding.ActivityFullImageBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 import com.wooble.wooble.ui.Blogs.ResponseModel;
 
@@ -32,7 +30,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.Base64;
 import java.util.Objects;
 
@@ -217,26 +214,26 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         binding.ivDelete.setOnClickListener(v -> {
 
-                Call<ResponseModel> call = Controller.getInstance()
-                        .getApiInterface()
-                        .deleteProject(email_id,file_id);
+            Call<ResponseModel> call = Controller.getInstance()
+                    .getApiInterface()
+                    .deleteProject(email_id,file_id);
 
-                call.enqueue(new Callback<ResponseModel>() {
-                    @Override
-                    public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
-                        ResponseModel responseModel = response.body();
-                        String output = responseModel.getMessage();
-                        Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
-                        startActivity(intent);
-                    }
+            call.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                    ResponseModel responseModel = response.body();
+                    String output = responseModel.getMessage();
+                    Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                    startActivity(intent);
+                }
 
-                    @Override
-                    public void onFailure(Call<ResponseModel> call, Throwable t) {
-                        Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
             });
+        });
 
         binding.btUpdateProject.setOnClickListener(new View.OnClickListener() {
             @Override
