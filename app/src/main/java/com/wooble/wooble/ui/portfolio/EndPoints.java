@@ -1,7 +1,7 @@
 package com.wooble.wooble.ui.portfolio;
 
 public class EndPoints {
-    public static final String ROOT_URL = "http://10.0.2.2/wooble-api/";
+    public static final String ROOT_URL = "http://172.168.0.182/wooble-api/";
     public static final String UPLOAD_FULL_PROFILE = ROOT_URL + "profile.php?apicall=" + "updatefullprofile";
     public static final String GET_FULL_PROFILE = ROOT_URL + "profile.php?apicall=" + "getfullprofile";
     public static final String UPLOAD_ONLY_PROFILE_PIC = ROOT_URL + "editshowprofilepic.php?apicall=" + "updateprofilepic";
