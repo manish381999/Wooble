@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,9 +21,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityEditProjectBinding;
+import com.wooble.wooble.databinding.ActivityFullImageBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 import com.wooble.wooble.ui.Blogs.ResponseModel;
 
@@ -30,6 +33,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Base64;
 import java.util.Objects;
 
@@ -48,7 +54,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
 
-    Uri image_Uri,  pdf_Uri, video_Uri;
+    Uri image_Uri,  pdf_Uri, video_Uri,uri;
 
     private String pdfName ;
     private Bitmap bitmap;
@@ -111,6 +117,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
         pdf_file = getIntent().getStringExtra("pdf_file");
         conclusion = getIntent().getStringExtra("conclusion");
 
+
         binding.etProjectName.setText(project_name);
         binding.etProjectAim.setText(aim_of_project);
         binding.aboutYourself.setText(description);
@@ -118,105 +125,110 @@ public class Edit_Project_Activity extends AppCompatActivity {
         binding.videoView.setVideoURI(Uri.parse(video));
         video= fileUriToBase64(Uri.parse(video),getContentResolver());
 
-
-        if(image_1!=null){
-
-            Glide.with(getApplicationContext())
+        if (image_1 != null) {
+            Picasso.get()
                     .load(image_1)
-                    .centerCrop()
                     .into(binding.imageView1);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView1);
+            binding.imageView1.setVisibility(View.INVISIBLE);
         }
 
-        if(image_2!=null){
-            Glide.with(getApplicationContext())
+        if (image_2 != null) {
+            Picasso.get()
                     .load(image_2)
-                    .centerCrop()
                     .into(binding.imageView2);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView2);
+            binding.imageView2.setVisibility(View.INVISIBLE);
         }
 
-        if(image_3!=null){
-            Glide.with(getApplicationContext())
+        if (image_3 != null) {
+            Picasso.get()
                     .load(image_3)
-                    .centerCrop()
                     .into(binding.imageView3);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView3);
+            binding.imageView3.setVisibility(View.INVISIBLE);
         }
 
 
-        if(image_4!=null){
-            Glide.with(getApplicationContext())
+        if (image_4 != null) {
+            Picasso.get()
                     .load(image_4)
-                    .centerCrop()
                     .into(binding.imageView4);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView4);
+            binding.imageView4.setVisibility(View.INVISIBLE);
         }
 
-        if(image_5!=null){
-            Glide.with(getApplicationContext())
+        if (image_5 != null) {
+            Picasso.get()
                     .load(image_5)
-                    .centerCrop()
                     .into(binding.imageView5);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView5);
+            binding.imageView5.setVisibility(View.INVISIBLE);
         }
 
-        if(image_6!=null){
-            Glide.with(getApplicationContext())
+        if (image_6 != null) {
+            Picasso.get()
                     .load(image_6)
-                    .centerCrop()
                     .into(binding.imageView6);
-        }else {
-            Glide.with(getApplicationContext())
+        } else {
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView6);
+            binding.imageView6.setVisibility(View.INVISIBLE);
         }
-
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    URL url = new URL(image_1);
-//                    Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-//                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                    image.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                        image_1 = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-//                    }
-//                } catch(IOException e) {
-//                    System.out.println(e);
-//                }
-//            }
-//        });
-//        thread.start();
 
 
         binding.ivDelete.setOnClickListener(v -> {
 
+                Call<ResponseModel> call = Controller.getInstance()
+                        .getApiInterface()
+                        .deleteProject(email_id,file_id);
+
+                call.enqueue(new Callback<ResponseModel>() {
+                    @Override
+                    public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                        ResponseModel responseModel = response.body();
+                        String output = responseModel.getMessage();
+                        Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
+
+        binding.btUpdateProject.setOnClickListener(v -> {
+            SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+            String email_id = sessionManagement.getSessionEmail();
+            String project_name = binding.etProjectName.getText().toString().trim();
+            String aim_of_project = binding.etProjectAim.getText().toString().trim();
+            String description = binding.aboutYourself.getText().toString().trim();
+            String conclusion = binding.etConclusion.getText().toString().trim();
+
             Call<ResponseModel> call = Controller.getInstance()
                     .getApiInterface()
-                    .deleteProject(email_id,file_id);
+                    .updateProject(file_id,email_id,project_name,aim_of_project,
+                            description,image_1,image_2,image_3,image_4,image_5,
+                            image_6,video,pdf_file,conclusion);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
@@ -226,6 +238,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
                     Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
                     startActivity(intent);
+                    finish();
                 }
 
                 @Override
@@ -233,13 +246,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
                     Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                 }
             });
-        });
-
-        binding.btUpdateProject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateData();
-            }
         });
     }
 
@@ -338,9 +344,9 @@ public class Edit_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_imageView2 && resultCode==RESULT_OK && data!=null){
             image_Uri = data.getData();
 
-            image_2 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                image_2 = fileUriToBase64(image_Uri, getContentResolver());
             }catch (IOException e){
                 e.printStackTrace();
             }
@@ -370,7 +376,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         }else if (requestCode==REQ_imageView5 && resultCode==RESULT_OK && data!=null){
             image_Uri=data.getData();
-
             image_5 =  fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
@@ -392,7 +397,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         }else if (requestCode==REQ_pdf && resultCode==RESULT_OK &&data!=null){
             pdf_Uri=data.getData();
-
             pdf_file =  fileUriToBase64(pdf_Uri, getContentResolver());
             if (pdf_Uri.toString().startsWith("content://")){
                 Cursor cursor;
@@ -421,32 +425,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
     }
 
     void updateData(){
-        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-        String email_id = sessionManagement.getSessionEmail();
-        String project_name = binding.etProjectName.getText().toString().trim();
-        String aim_of_project = binding.etProjectAim.getText().toString().trim();
-        String description = binding.aboutYourself.getText().toString().trim();
-        String conclusion = binding.etConclusion.getText().toString().trim();
 
-        Call<ResponseModel> call = Controller.getInstance()
-                .getApiInterface()
-                .updateProject(file_id,email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,pdf_file,conclusion);
-
-        call.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
-                ResponseModel responseModel = response.body();
-                String output = responseModel.getMessage();
-                Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

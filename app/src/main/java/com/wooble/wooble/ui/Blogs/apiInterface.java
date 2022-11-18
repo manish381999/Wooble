@@ -2,6 +2,7 @@ package com.wooble.wooble.ui.Blogs;
 
 import com.wooble.wooble.ui.Project.ProjectModel;
 import com.wooble.wooble.ui.Resume.ResumeModel;
+import com.wooble.wooble.ui.portfolio.EndPoints;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public interface apiInterface {
     );
 
     @FormUrlEncoded
-    @POST("resume.php?apicall=insertresumedata")
+    @POST(EndPoints.INSERT_RESUME_DATA)
     Call<ResponseModel> insertResume(
             @Field("email_id") String email_id,
             @Field("title") String title,
