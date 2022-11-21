@@ -44,12 +44,9 @@ FragmentProjectBinding binding;
         projectList = new ArrayList<>();
 
         loadProjectData();
-        binding.addProject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Intent intent=new Intent(getActivity(), Upload_Project_Activity.class);
-              startActivity(intent);
-            }
+        binding.addProject.setOnClickListener(view -> {
+          Intent intent=new Intent(getActivity(), Upload_Project_Activity.class);
+          startActivity(intent);
         });
 
         return binding.getRoot();
@@ -73,13 +70,28 @@ FragmentProjectBinding binding;
                 for (int i = 0; i < projectList.size(); i++) {
                     ProjectAdapter projectAdapter = new ProjectAdapter(getContext(),projectList);
                     binding.RvProject.setAdapter(projectAdapter);
+                    binding.shimmerViewContainer.stopShimmer();
+                    binding.shimmerLayout.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<ProjectModel>> call, Throwable t) {
-
+                binding.shimmerViewContainer.stopShimmer();
+                binding.shimmerLayout.setVisibility(View.GONE);
             }
         });
+    }
+
+    @Override
+    public void onPause(){
+        binding.shimmerViewContainer.stopShimmer();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume(){
+        binding.shimmerViewContainer.startShimmer();
+        super.onResume();
     }
 }
