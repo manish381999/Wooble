@@ -41,7 +41,6 @@ private class pdfDownload extends AsyncTask<String, Void, InputStream>{
     @Override
     protected InputStream doInBackground(String... strings) {
         InputStream inputStream=null;
-
         try {
             URL url= new URL(strings[0]);
             HttpURLConnection httpURLConnection= (HttpURLConnection) url.openConnection();

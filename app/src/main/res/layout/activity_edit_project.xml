@@ -233,13 +233,11 @@
                 android:layout_height="230dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/dp_15_dsa">
-
                 <VideoView
                     android:id="@+id/videoView"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_230_dsa"
                     android:layout_marginTop="@dimen/dp_20_dsa"/>
-
             </LinearLayout>
 
 

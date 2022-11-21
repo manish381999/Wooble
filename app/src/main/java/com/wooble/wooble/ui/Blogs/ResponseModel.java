@@ -1,8 +1,16 @@
 package com.wooble.wooble.ui.Blogs;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+
 public class ResponseModel {
 
+    @SerializedName("error")
+    @Expose
     String error;
+    @SerializedName("message")
+    @Expose
     String message;
 
     public String getError() {

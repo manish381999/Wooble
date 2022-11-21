@@ -153,9 +153,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
             binding.exoPlay.setVisibility(View.GONE);
         } else {
             ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
-
             binding.exoPlay.setPlayer(exoPlayer);
-
             MediaItem mediaItem = MediaItem.fromUri(video);
 
             exoPlayer.addMediaItem(mediaItem);

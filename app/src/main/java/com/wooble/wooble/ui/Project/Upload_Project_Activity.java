@@ -57,14 +57,6 @@ public class Upload_Project_Activity extends AppCompatActivity {
     private String pdfName ;
     private Bitmap bitmap;
 
-    private String image_1=null;
-    private String image_2=null;
-    private String image_3=null;
-    private String image_4=null;
-    private String image_5=null;
-    String image_6=null;
-    String project_pdf=null;
-    String video=null;
     String output;
 
 
@@ -72,6 +64,9 @@ public class Upload_Project_Activity extends AppCompatActivity {
     final int REQ_video = 80;
 
     MediaController mediaController;
+
+
+    String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion;
 
 
     @Override
@@ -84,6 +79,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        file_id= email_id= project_name= aim_of_project= description= image_1= image_2= image_3= image_4= image_5= image_6= video= pdf_file= conclusion="TlVMTA==";
         mediaController=new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
@@ -101,7 +97,6 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         binding.imageView6.setOnClickListener(view -> imageView6());
 
-
         binding.addPdf.setOnClickListener(view -> openDocument());
 
 
@@ -115,7 +110,68 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding.btUploadProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertData();
+                SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    email_id = Base64.getEncoder().encodeToString(sessionManagement.getSessionEmail().getBytes());
+                }
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    if(binding.etProjectName.getText().toString().trim()!=null){
+                        project_name = Base64.getEncoder().encodeToString(binding.etProjectName.getText().toString().trim().getBytes());
+                    }
+                }
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    if(binding.etProjectAim.getText().toString().trim()!=null){
+                        aim_of_project = Base64.getEncoder().encodeToString(binding.etProjectAim.getText().toString().trim().getBytes());
+                    }
+
+                }
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    if(binding.aboutYourself.getText().toString().trim()!=null){
+                        description = Base64.getEncoder().encodeToString(binding.aboutYourself.getText().toString().trim().getBytes());
+                    }
+                }
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    if(binding.etConclusion.getText().toString().trim()!=null){
+                        conclusion = Base64.getEncoder().encodeToString(binding.etConclusion.getText().toString().trim().getBytes());
+                    }
+                }
+
+                Call<ResponseModel> call = Controller.getInstance()
+                        .getApiInterface()
+                        .insertProject(email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,pdf_file,conclusion);
+
+//                System.out.println("email_id "+email_id);
+//                System.out.println(project_name+"project_name");
+//                System.out.println(aim_of_project+"aim_of_project");
+//                System.out.println(description+"description");
+//                System.out.println(image_1+"image_1");
+//                System.out.println(image_2+"image_2");
+//                System.out.println(image_3+"image_3");
+//                System.out.println(image_4+"image_4");
+//                System.out.println(image_5+"image_5");
+//                System.out.println(image_6+"image_6");
+//                System.out.println(video+"video");
+//                System.out.println(pdf_file+"pdf_file");
+//                System.out.println(conclusion+"conclusion");
+                call.enqueue(new Callback<ResponseModel>() {
+                    @Override
+                    public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                        ResponseModel responseModel = response.body();
+                        output = responseModel.getMessage();
+                        Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        Toast.makeText(Upload_Project_Activity.this, "Some thing went wrong", Toast.LENGTH_SHORT).show();
+                        t.printStackTrace();
+                        Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
 
@@ -271,7 +327,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_pdf && resultCode==RESULT_OK &&data!=null){
             pdf_Uri=data.getData();
 
-            project_pdf =  fileUriToBase64(pdf_Uri, getContentResolver());
+            pdf_file =  fileUriToBase64(pdf_Uri, getContentResolver());
             if (pdf_Uri.toString().startsWith("content://")){
                 Cursor cursor;
                 try {
@@ -293,41 +349,10 @@ public class Upload_Project_Activity extends AppCompatActivity {
         }else if (requestCode==REQ_video && resultCode==RESULT_OK && data!=null){
             video_Uri=data.getData();
             video =  fileUriToBase64(video_Uri, getContentResolver());
-
             binding.videoView.setVideoURI(video_Uri);
         }
 
 
-    }
-
-
-    void insertData(){
-        SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-        String email_id = sessionManagement.getSessionEmail();
-        String project_name = binding.etProjectName.getText().toString().trim();
-        String aim_of_project = binding.etProjectAim.getText().toString().trim();
-        String description = binding.aboutYourself.getText().toString().trim();
-        String conclusion = binding.etConclusion.getText().toString().trim();
-
-        Call<ResponseModel> call = Controller.getInstance()
-                .getApiInterface()
-                .insertProject(email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,project_pdf,conclusion);
-
-        call.enqueue(new Callback<ResponseModel>() {
-            @Override
-            public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
-                ResponseModel responseModel = response.body();
-                output = responseModel.getMessage();
-                Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFailure(Call<ResponseModel> call, Throwable t) {
-                Toast.makeText(Upload_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

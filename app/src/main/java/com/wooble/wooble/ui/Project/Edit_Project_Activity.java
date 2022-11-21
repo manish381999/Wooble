@@ -21,6 +21,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.MediaItem;
 import com.squareup.picasso.Picasso;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
@@ -28,24 +30,28 @@ import com.wooble.wooble.databinding.ActivityEditProjectBinding;
 import com.wooble.wooble.databinding.ActivityFullImageBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 import com.wooble.wooble.ui.Blogs.ResponseModel;
+import com.wooble.wooble.ui.Resume.Resume_Viewer_Activity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Base64;
 import java.util.Objects;
 
+import kotlinx.coroutines.Delay;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Edit_Project_Activity extends AppCompatActivity {
     ActivityEditProjectBinding binding;
 
-    String file_id,email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,pdf_file,conclusion=null;
+    String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion;
 
     final int REQ_imageView1 = 10;
     final int REQ_imageView2 = 20;
@@ -54,28 +60,28 @@ public class Edit_Project_Activity extends AppCompatActivity {
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
 
-    Uri image_Uri,  pdf_Uri, video_Uri,uri;
+    Uri image_Uri, pdf_Uri, video_Uri, uri;
 
-    private String pdfName ;
+    private String pdfName;
     private Bitmap bitmap;
 
 
     final int REQ_pdf = 70;
     final int REQ_video = 80;
     MediaController mediaController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= ActivityEditProjectBinding.inflate(getLayoutInflater());
+        binding = ActivityEditProjectBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Project");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        file_id = email_id = project_name = aim_of_project = description = image_1 = image_2 = image_3 = image_4 = image_5 = image_6 = video = pdf_file = conclusion = "TlVMTA==";
         mediaController=new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
         binding.videoView.start();
-
         binding.imageView1.setOnClickListener(view -> imageView1());
 
         binding.imageView2.setOnClickListener(view -> imageView2());
@@ -106,13 +112,9 @@ public class Edit_Project_Activity extends AppCompatActivity {
         image_1 = getIntent().getStringExtra("image_1");
         image_2 = getIntent().getStringExtra("image_2");
         image_3 = getIntent().getStringExtra("image_3");
-
         image_4 = getIntent().getStringExtra("image_4");
-
         image_5 = getIntent().getStringExtra("image_5");
-
         image_6 = getIntent().getStringExtra("image_6");
-
         video = getIntent().getStringExtra("video");
         pdf_file = getIntent().getStringExtra("pdf_file");
         conclusion = getIntent().getStringExtra("conclusion");
@@ -122,40 +124,59 @@ public class Edit_Project_Activity extends AppCompatActivity {
         binding.etProjectAim.setText(aim_of_project);
         binding.aboutYourself.setText(description);
         binding.etConclusion.setText(conclusion);
-        binding.videoView.setVideoURI(Uri.parse(video));
-        video= fileUriToBase64(Uri.parse(video),getContentResolver());
-
+        //binding.videoView.setVideoURI(Uri.parse(video));
+        //video= fileUriToBase64(Uri.parse(video),getContentResolver());
+        //binding.addPdf.set
         if (image_1 != null) {
+            System.out.println("IMAGE1 " + image_1);
             Picasso.get()
                     .load(image_1)
                     .into(binding.imageView1);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_1 = Base64.getEncoder().encodeToString(image_1.getBytes());
+            }
+
+        } else if (image_1 == null) {
+            image_1 = "TlVMTA==";
+
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView1);
-            binding.imageView1.setVisibility(View.INVISIBLE);
         }
 
         if (image_2 != null) {
             Picasso.get()
                     .load(image_2)
                     .into(binding.imageView2);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_2 = Base64.getEncoder().encodeToString(image_2.getBytes());
+            }
+        } else if (image_2 == null) {
+            image_2 = "TlVMTA==";
+
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView2);
-            binding.imageView2.setVisibility(View.INVISIBLE);
         }
 
+        System.out.println(image_3 + "image_3");
         if (image_3 != null) {
             Picasso.get()
                     .load(image_3)
                     .into(binding.imageView3);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_3 = Base64.getEncoder().encodeToString(image_3.getBytes());
+            }
+        } else if (image_3 == null) {
+            image_3 = "TlVMTA==";
+
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView3);
-            binding.imageView3.setVisibility(View.INVISIBLE);
         }
 
 
@@ -163,80 +184,149 @@ public class Edit_Project_Activity extends AppCompatActivity {
             Picasso.get()
                     .load(image_4)
                     .into(binding.imageView4);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_4 = Base64.getEncoder().encodeToString(image_4.getBytes());
+            }
+        } else if (image_4 == null) {
+            image_4 = "TlVMTA==";
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView4);
-            binding.imageView4.setVisibility(View.INVISIBLE);
         }
 
         if (image_5 != null) {
             Picasso.get()
                     .load(image_5)
                     .into(binding.imageView5);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_5 = Base64.getEncoder().encodeToString(image_5.getBytes());
+            }
+        } else if (image_5 == null) {
+            image_5 = "TlVMTA==";
+
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView5);
-            binding.imageView5.setVisibility(View.INVISIBLE);
         }
 
         if (image_6 != null) {
             Picasso.get()
                     .load(image_6)
                     .into(binding.imageView6);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                image_6 = Base64.getEncoder().encodeToString(image_6.getBytes());
+            }
+        } else if (image_6 == null) {
+            image_6 = "TlVMTA==";
+
         } else {
             Picasso.get()
                     .load(R.drawable.place_holder)
                     .into(binding.imageView6);
-            binding.imageView6.setVisibility(View.INVISIBLE);
+        }
+
+        if (video != null) {
+            binding.videoView.setVideoURI(Uri.parse(video));
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                video = Base64.getEncoder().encodeToString(video.getBytes());
+            }
+        } else if (video == null) {
+            video = "TlVMTA==";
+        } else {
+
+        }
+
+        if (pdf_file != null) {
+            binding.pdfTextview.setText(project_name + ".pdf");
+        } else if (image_6 == null) {
+            image_6 = "TlVMTA==";
+
+        } else {
+
         }
 
 
         binding.ivDelete.setOnClickListener(v -> {
 
-                Call<ResponseModel> call = Controller.getInstance()
-                        .getApiInterface()
-                        .deleteProject(email_id,file_id);
-
-                call.enqueue(new Callback<ResponseModel>() {
-                    @Override
-                    public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
-                        ResponseModel responseModel = response.body();
-                        String output = responseModel.getMessage();
-                        Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailure(Call<ResponseModel> call, Throwable t) {
-                        Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            });
-
-        binding.btUpdateProject.setOnClickListener(v -> {
-            SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-            String email_id = sessionManagement.getSessionEmail();
-            String project_name = binding.etProjectName.getText().toString().trim();
-            String aim_of_project = binding.etProjectAim.getText().toString().trim();
-            String description = binding.aboutYourself.getText().toString().trim();
-            String conclusion = binding.etConclusion.getText().toString().trim();
-
             Call<ResponseModel> call = Controller.getInstance()
                     .getApiInterface()
-                    .updateProject(file_id,email_id,project_name,aim_of_project,
-                            description,image_1,image_2,image_3,image_4,image_5,
-                            image_6,video,pdf_file,conclusion);
+                    .deleteProject(email_id, file_id);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
-                public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     ResponseModel responseModel = response.body();
                     String output = responseModel.getMessage();
                     Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                    Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+        binding.btUpdateProject.setOnClickListener(v -> {
+            SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                email_id = Base64.getEncoder().encodeToString(sessionManagement.getSessionEmail().getBytes());
+            }
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (binding.etProjectName.getText().toString().trim() != null) {
+                    project_name = Base64.getEncoder().encodeToString(binding.etProjectName.getText().toString().trim().getBytes());
+                }
+            }
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (binding.etProjectAim.getText().toString().trim() != null) {
+                    aim_of_project = Base64.getEncoder().encodeToString(binding.etProjectAim.getText().toString().trim().getBytes());
+                }
+            }
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (binding.aboutYourself.getText().toString().trim() != null) {
+                    description = Base64.getEncoder().encodeToString(binding.aboutYourself.getText().toString().trim().getBytes());
+                }
+            }
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (binding.etConclusion.getText().toString().trim() != null) {
+                    conclusion = Base64.getEncoder().encodeToString(binding.etConclusion.getText().toString().trim().getBytes());
+                }
+            }
+
+            Call<ResponseModel> call = Controller.getInstance()
+                    .getApiInterface()
+                    .updateProject(file_id, email_id, project_name, aim_of_project,
+                            description, image_1, image_2, image_3, image_4, image_5,
+                            image_6, video, pdf_file, conclusion);
+
+            System.out.println(file_id + "file_id");
+            System.out.println(email_id + "email_id");
+            System.out.println(project_name + "project_name");
+            System.out.println(aim_of_project + "aim_of_project");
+            System.out.println(description + "description");
+            System.out.println("image_1" + image_1);
+            System.out.println(image_2 + "image_2");
+            System.out.println(image_3 + "image_3");
+            System.out.println(image_4 + "image_4");
+            System.out.println(image_5 + "image_5");
+            System.out.println(image_6 + "image_6");
+            System.out.println(video + "video");
+            System.out.println(pdf_file + "pdf_file");
+            System.out.println(conclusion + "conclusion");
+
+            call.enqueue(new Callback<ResponseModel>() {
+                @Override
+                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                    ResponseModel responseModel = response.body();
+                    String output = responseModel.getMessage();
+                    Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
                     startActivity(intent);
                     finish();
                 }
@@ -248,7 +338,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
             });
         });
     }
-
 
 
     public static String fileUriToBase64(Uri uri, ContentResolver resolver) {
@@ -315,15 +404,15 @@ public class Edit_Project_Activity extends AppCompatActivity {
         startActivityForResult(pickImage6, REQ_imageView6);
     }
 
-    private void openDocument(){
-        Intent intent=new Intent();
+    private void openDocument() {
+        Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.setType("application/pdf");
-        startActivityForResult(Intent.createChooser(intent,"Select Pdf File"),REQ_pdf);
+        startActivityForResult(Intent.createChooser(intent, "Select Pdf File"), REQ_pdf);
     }
 
-    private void videoVideo(){
-        Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+    private void videoVideo() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, REQ_video);
     }
 
@@ -333,7 +422,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQ_imageView1 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
-            image_1 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_1 = fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             } catch (IOException e) {
@@ -341,99 +430,96 @@ public class Edit_Project_Activity extends AppCompatActivity {
             }
             binding.imageView1.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView2 && resultCode==RESULT_OK && data!=null){
+        } else if (requestCode == REQ_imageView2 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
                 image_2 = fileUriToBase64(image_Uri, getContentResolver());
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView2.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView3 && resultCode==RESULT_OK && data!=null){
+        } else if (requestCode == REQ_imageView3 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
-            image_3 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_3 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView3.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView4 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
+        } else if (requestCode == REQ_imageView4 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
 
-            image_4 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_4 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView4.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView5 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
-            image_5 =  fileUriToBase64(image_Uri, getContentResolver());
+        } else if (requestCode == REQ_imageView5 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
+            image_5 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView5.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView6 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
-            image_6 =  fileUriToBase64(image_Uri, getContentResolver());
+        } else if (requestCode == REQ_imageView6 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
+            image_6 = fileUriToBase64(image_Uri, getContentResolver());
 
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView6.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_pdf && resultCode==RESULT_OK &&data!=null){
-            pdf_Uri=data.getData();
-            pdf_file =  fileUriToBase64(pdf_Uri, getContentResolver());
-            if (pdf_Uri.toString().startsWith("content://")){
+        } else if (requestCode == REQ_pdf && resultCode == RESULT_OK && data != null) {
+            pdf_Uri = data.getData();
+            pdf_file = fileUriToBase64(pdf_Uri, getContentResolver());
+            if (pdf_Uri.toString().startsWith("content://")) {
                 Cursor cursor;
                 try {
                     cursor = Edit_Project_Activity.this.getContentResolver().query(pdf_Uri, null, null, null, null);
-                    if (cursor!=null && cursor.moveToFirst()){
-                        pdfName=cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    if (cursor != null && cursor.moveToFirst()) {
+                        pdfName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-            }else if (pdf_Uri.toString().startsWith("file://")){
-                pdfName=new File(pdf_Uri.toString()).getName();
+            } else if (pdf_Uri.toString().startsWith("file://")) {
+                pdfName = new File(pdf_Uri.toString()).getName();
             }
 
             binding.pdfTextview.setText(pdfName);
 
 
-        }else if (requestCode==REQ_video && resultCode==RESULT_OK && data!=null){
-            video_Uri=data.getData();
-            video =  fileUriToBase64(video_Uri, getContentResolver());
-
+        } else if (requestCode == REQ_video && resultCode == RESULT_OK && data != null) {
+            video_Uri = data.getData();
+            video = fileUriToBase64(video_Uri, getContentResolver());
             binding.videoView.setVideoURI(video_Uri);
         }
-    }
-
-    void updateData(){
-
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
         }
         return true;
     }
+
+
 }
