@@ -2,9 +2,11 @@ package com.wooble.wooble.ui.Setting;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -36,6 +38,17 @@ String  data;
                 .placeholder(R.drawable.place_holder)
                 .centerCrop()
                 .into(binding.profilePic);
+
+
+        binding.helpCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              Intent intent=new Intent(SettingActivity.this, Help_Center_Activity.class);
+                intent.putExtra("image",data);
+                startActivity(intent);
+
+            }
+        });
 
 binding.privacyPolicy.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -72,14 +85,6 @@ binding.rateUs.setOnClickListener(new View.OnClickListener() {
     }
 });
 
-        binding.helpCenter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(SettingActivity.this, Help_Center_Activity.class);
-                startActivity(intent);
-
-            }
-        });
 
         binding.signOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +100,12 @@ binding.rateUs.setOnClickListener(new View.OnClickListener() {
 
     }
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId()==android.R.id.home){
+            onBackPressed();
+
+        }
         return true;
     }
 }

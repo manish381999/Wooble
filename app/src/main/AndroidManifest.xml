@@ -32,21 +32,24 @@
         </activity>
         <activity
             android:name=".ui.Resume.Resume_Viewer_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Social_media_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Project.Project_Viewer_Activity"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
