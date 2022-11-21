@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
+import com.squareup.picasso.Picasso;
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityProjectViewerBinding;
 import com.wooble.wooble.ui.Resume.Resume_Viewer_Activity;
@@ -22,7 +23,7 @@ import java.util.Objects;
 public class Project_Viewer_Activity extends AppCompatActivity {
     ActivityProjectViewerBinding binding;
     MediaController mediaController;
-    String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion;
+    String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion=null;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -57,80 +58,81 @@ public class Project_Viewer_Activity extends AppCompatActivity {
 
 
         if (image_1 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_1)
-                    .centerCrop()
                     .into(binding.imageView1);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView1);
             binding.imageView1.setVisibility(View.INVISIBLE);
         }
 
+//        if (image_1 != null) {
+//            Glide.with(getApplicationContext())
+//                    .load(image_1)
+//                    .centerCrop()
+//                    .into(binding.imageView1);
+//        } else {
+//            Glide.with(getApplicationContext())
+//                    .load(R.drawable.place_holder)
+//                    .centerCrop()
+//                    .into(binding.imageView1);
+//            binding.imageView1.setVisibility(View.INVISIBLE);
+//        }
+
         if (image_2 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_2)
-                    .centerCrop()
                     .into(binding.imageView2);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView2);
             binding.imageView2.setVisibility(View.INVISIBLE);
         }
 
         if (image_3 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_3)
-                    .centerCrop()
                     .into(binding.imageView3);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView3);
             binding.imageView3.setVisibility(View.INVISIBLE);
         }
 
 
         if (image_4 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_4)
-                    .centerCrop()
                     .into(binding.imageView4);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView4);
             binding.imageView4.setVisibility(View.INVISIBLE);
         }
 
         if (image_5 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_5)
-                    .centerCrop()
                     .into(binding.imageView5);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView5);
             binding.imageView5.setVisibility(View.INVISIBLE);
         }
 
         if (image_6 != null) {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(image_6)
-                    .centerCrop()
                     .into(binding.imageView6);
         } else {
-            Glide.with(getApplicationContext())
+            Picasso.get()
                     .load(R.drawable.place_holder)
-                    .centerCrop()
                     .into(binding.imageView6);
             binding.imageView6.setVisibility(View.INVISIBLE);
         }
@@ -169,9 +171,9 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         binding.tvConclusion.setText(conclusion);
 
 
-        if (pdf_file==null){
+        if (pdf_file == null) {
             binding.showPdf.setVisibility(View.GONE);
-        }else {
+        } else {
             binding.pdfTitle.setText(project_name + ".pdf");
             binding.showPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
