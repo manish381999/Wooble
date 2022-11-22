@@ -86,6 +86,7 @@ public class BlogFragment extends Fragment {
             }
         });
     }
+
 @Override
 public void onPause(){
         binding.shimmerViewContainer.startShimmer();
@@ -96,5 +97,8 @@ public void onPause(){
     public void onResume(){
         binding.shimmerViewContainer.startShimmer();
         super.onResume();
+
 }
+
+
 }

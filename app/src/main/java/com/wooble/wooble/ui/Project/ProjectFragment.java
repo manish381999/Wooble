@@ -82,10 +82,9 @@ FragmentProjectBinding binding;
             }
         });
     }
-
     @Override
     public void onPause(){
-        binding.shimmerViewContainer.stopShimmer();
+        binding.shimmerViewContainer.startShimmer();
         super.onPause();
     }
 
@@ -93,5 +92,6 @@ FragmentProjectBinding binding;
     public void onResume(){
         binding.shimmerViewContainer.startShimmer();
         super.onResume();
+
     }
 }

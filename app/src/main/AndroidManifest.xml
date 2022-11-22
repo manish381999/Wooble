@@ -13,7 +13,7 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="false"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,6 +25,7 @@
         <activity
             android:name=".ui.Project.Edit_Project_Activity"
             android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="locked"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

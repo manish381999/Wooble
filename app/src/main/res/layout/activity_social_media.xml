@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,9 +50,11 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/dp_200_dsa"
-                app:cardElevation="@dimen/dp_8_dsa"
+                app:cardElevation="@dimen/dp_4_dsa"
                 android:layout_marginHorizontal="@dimen/dp_10_dsa"
                 android:layout_gravity="center"
+                android:hardwareAccelerated="true"
+
                 app:cardCornerRadius="@dimen/dp_10_dsa"
                 android:layout_margin="@dimen/dp_20_dsa"
                 >
@@ -100,7 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/dp_200_dsa"
-                app:cardElevation="@dimen/dp_8_dsa"
+                app:cardElevation="@dimen/dp_4_dsa"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/dp_10_dsa"
                 app:cardCornerRadius="@dimen/dp_10_dsa"
@@ -164,7 +167,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/dp_200_dsa"
-                app:cardElevation="@dimen/dp_8_dsa"
+                app:cardElevation="@dimen/dp_4_dsa"
                 android:layout_marginHorizontal="@dimen/dp_10_dsa"
                 android:layout_gravity="center"
                 app:cardCornerRadius="@dimen/dp_10_dsa"
@@ -215,7 +218,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/dp_200_dsa"
-                app:cardElevation="@dimen/dp_8_dsa"
+                app:cardElevation="@dimen/dp_4_dsa"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/dp_10_dsa"
                 app:cardCornerRadius="@dimen/dp_10_dsa"
