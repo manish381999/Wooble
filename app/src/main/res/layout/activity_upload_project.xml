@@ -31,13 +31,6 @@
         android:scrollbars="none"
         >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-
 
 
             <LinearLayout
@@ -119,6 +112,23 @@
                     android:textColor="@color/light_black_color"
                     android:textSize="@dimen/sp_18_dsa"
                     />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/dp_20_dsa">
+
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_230_dsa"
+                        android:layout_marginBottom="@dimen/dp_20_dsa"/>
+
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,20 +233,6 @@
                 </LinearLayout>
 
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/dp_15_dsa">
-                    <VideoView
-                        android:id="@+id/videoView"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_230_dsa"
-                        android:layout_marginTop="@dimen/dp_20_dsa"/>
-                </LinearLayout>
-
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/add_pdf"
                     android:layout_width="@dimen/dp_130_dsa"
@@ -330,7 +326,7 @@
                     />
 
             </LinearLayout>
-        </LinearLayout>
+
 
     </ScrollView>
 

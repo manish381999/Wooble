@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.SessionManagement;
 
+
 import com.wooble.wooble.databinding.ActivityImageUploaderBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -41,7 +42,7 @@ import java.util.Objects;
 public class ImageUploaderActivity extends AppCompatActivity {
     ActivityImageUploaderBinding binding;
 
-    final int REQ=12;
+    final int REQ = 12;
     private Bitmap bitmap;
     String return_id;
     String profileEmail;
@@ -57,57 +58,42 @@ public class ImageUploaderActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Image Uploader");
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        binding.btUpload.setOnClickListener(view -> uploadGalleryData());
+
+        binding.galleryImage.setOnClickListener(view -> openGallery());
 
 
-
-        binding.btUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                uploadGalleryData();
-            }
-        });
-   binding.galleryImage.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View view) {
-           openGallery();
-
-       }
-   });
-
-
-
-
-        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+        pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-               Intent intent=new Intent(ImageUploaderActivity.this, Gallery_Image_CropperActivity.class);
-               intent.putExtra("DATA", result.toString());
-               startActivityForResult(intent, REQ);
+                Intent intent = new Intent(ImageUploaderActivity.this, Gallery_Image_CropperActivity.class);
+                intent.putExtra("DATA", result.toString());
+                startActivityForResult(intent, REQ);
             }
         });
 
     }
 
-private void openGallery(){
-    pickImage.launch("image/*");
-}
+    private void openGallery() {
+        pickImage.launch("image/*");
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQ){
-            String result=data.getStringExtra("RESULT");
-            Uri resultUri=null;
-            if (result!=null){
-                resultUri=Uri.parse(result);
+        if (requestCode == REQ) {
+            String result = data.getStringExtra("RESULT");
+            Uri resultUri = null;
+            if (result != null) {
+                resultUri = Uri.parse(result);
             }
 
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,22 +111,16 @@ private void openGallery(){
 
 
     private void uploadGalleryData() {
+        binding.btUpload.setEnabled(false);
         binding.spinKit.setVisibility(View.VISIBLE);
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageDescription.getText().toString().trim();
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
-                fileImage = byteArrayOutputStream.toByteArray();
-            }
-        });
-        thread.start();
-
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+        fileImage = byteArrayOutputStream.toByteArray();
 
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.INSERT_GALLERY_DATA,
@@ -151,7 +131,7 @@ private void openGallery(){
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             binding.spinKit.setVisibility(View.GONE);
-                            Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
+                            Intent intent = new Intent(ImageUploaderActivity.this, GalleryFragment.class);
                             startActivity(intent);
                             finish();
 
@@ -188,13 +168,14 @@ private void openGallery(){
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
 
+
     }
 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
 
         }
