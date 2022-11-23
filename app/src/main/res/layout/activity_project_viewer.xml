@@ -87,7 +87,7 @@
                 android:elevation="@dimen/dp_8_dsa"
                 android:fontFamily="@font/ubuntu"
                 android:padding="@dimen/dp_10_dsa"
-                android:textColor="@color/light_black_color"
+                android:textColor="@color/black"
                 android:textSize="@dimen/sp_18_dsa"
                />
 
