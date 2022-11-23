@@ -273,6 +273,7 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:layout_marginTop="@dimen/dp_20_dsa"
                 android:fontFamily="@font/ubuntu"
+                android:textStyle="bold"
                 android:textColor="@color/light_black_color"/>
 
             <TextView

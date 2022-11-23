@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -53,17 +53,6 @@ FragmentGalleryBinding binding;
 
         requireActivity().setTitle("Gallery");
 
-        recyclerView = binding.RvGallery;
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-
-        galleryList = new ArrayList<>();
-
-
-        //this method will fetch and parse json
-        //to display it in recyclerview
-        loadGalleryImage();
-
 
         binding.addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +61,20 @@ FragmentGalleryBinding binding;
                 startActivity(intent);
             }
         });
+
+
+        recyclerView = binding.RvGallery;
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+        galleryList = new ArrayList<>();
+
+
+
+        //this method will fetch and parse json
+        //to display it in recyclerview
+        loadGalleryImage();
+
 
         return binding.getRoot();
     }
@@ -102,15 +105,20 @@ FragmentGalleryBinding binding;
                             }
                             GalleryAdapter adapter = new GalleryAdapter(getContext(), galleryList);
                             recyclerView.setAdapter(adapter);
+                            binding.shimmerViewContainer.stopShimmer();
+                            binding.shimmerLayout.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        binding.shimmerViewContainer.stopShimmer();
+                        binding.shimmerLayout.setVisibility(View.GONE);
                     }
                 }) {
 
@@ -125,5 +133,17 @@ FragmentGalleryBinding binding;
 
         //adding the request to volley
         Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
+    }
+
+    @Override
+    public void onPause() {
+        binding.shimmerViewContainer.startShimmer();
+        super.onPause();
+    }
+
+    @Override
+    public void onResume(){
+        binding.shimmerViewContainer.startShimmer();
+        super.onResume();
     }
 }

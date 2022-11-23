@@ -2,11 +2,9 @@ package com.wooble.wooble.ui.Gallery;
 
 import android.content.Context;
 import android.content.Intent;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.GalleryImageLayoutBinding;
-
 
 import java.util.List;
 
@@ -44,7 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
         Glide.with(context)
                 .load(gallery.getImage_url())
-                .centerCrop()
+                .placeholder(R.drawable.place_holder)
                 .into(holder.binding.gllImage);
 
         holder.binding.imageTitle.setText(gallery.getTitle());

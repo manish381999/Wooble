@@ -122,6 +122,8 @@
     <string name="show_pdf">Show pdf</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="please_fill_out_the_form_below_and_we_will_get">Please fill out the form below and we will get</string>
+    <string name="back_to_you_as_soon_as_possible">back to you as soon as possible</string>
 
 
 </resources>

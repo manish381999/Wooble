@@ -18,7 +18,7 @@
             android:id="@+id/gll_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_200_dsa"
-            android:scaleType="fitCenter"
+            android:scaleType="matrix"
             android:contentDescription="@null" />
 
         <TextView
