@@ -51,12 +51,9 @@ public class BlogFragment extends Fragment {
         blogList = new ArrayList<>();
 
         loadBlogData();
-        binding.addBlogs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            Intent intent=new Intent(getActivity(),Create_BlogsActivity.class);
-                startActivity(intent);
-            }
+        binding.addBlogs.setOnClickListener(view -> {
+        Intent intent=new Intent(getActivity(),Create_BlogsActivity.class);
+            startActivity(intent);
         });
 
         return binding.getRoot();
@@ -77,16 +74,31 @@ public class BlogFragment extends Fragment {
                 for (int i = 0; i < blogList.size(); i++) {
                     BlogAdapter blogAdapter = new BlogAdapter(getContext(),blogList);
                     binding.RvBlog.setAdapter(blogAdapter);
+                    binding.shimmerViewContainer.stopShimmer();
+                    binding.shimmerLayout.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<BlogModel>> call, Throwable t) {
-
+                binding.shimmerViewContainer.stopShimmer();
+                binding.shimmerLayout.setVisibility(View.GONE);
             }
         });
     }
 
+@Override
+public void onPause(){
+        binding.shimmerViewContainer.startShimmer();
+        super.onPause();
+}
+
+@Override
+    public void onResume(){
+        binding.shimmerViewContainer.startShimmer();
+        super.onResume();
+
+}
 
 
 }
