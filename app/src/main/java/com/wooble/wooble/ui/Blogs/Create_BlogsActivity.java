@@ -65,7 +65,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_);
 
 
-binding.publish.setOnClickListener(new View.OnClickListener() {
+binding.btnPublish.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
 //        insertBlogData();
@@ -247,7 +247,9 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
-    void insertData(){
+   void insertData(){
+        binding.btnPublish.setEnabled(false);
+        binding.spinKit.setVisibility(View.VISIBLE);
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         String email_id = sessionManagement.getSessionEmail();
         String title = binding.createTitle.getText().toString().trim();
@@ -264,12 +266,14 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
                 Toast.makeText(Create_BlogsActivity.this, output, Toast.LENGTH_SHORT).show();
+                binding.spinKit.setVisibility(View.GONE);
                 Intent intent=new Intent(Create_BlogsActivity.this, BlogFragment.class);
                 startActivity(intent);
             }
 
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
+                binding.spinKit.setVisibility(View.GONE);
                 Toast.makeText(Create_BlogsActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
