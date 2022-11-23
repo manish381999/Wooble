@@ -139,6 +139,7 @@
             android:name=".ui.portfolio.Edit_Portfolio_Activity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"

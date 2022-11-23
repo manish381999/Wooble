@@ -55,6 +55,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         binding.tvProjectName.setText(project_name);
         binding.tvProjectAim.setText(aim_of_project);
         binding.tvDescription.setText(description);
+        binding.tvConclusion.setText(conclusion);
 
 
         if (image_1 != null) {
@@ -155,9 +156,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
             ExoPlayer exoPlayer = new ExoPlayer.Builder(this).build();
             binding.exoPlay.setPlayer(exoPlayer);
             MediaItem mediaItem = MediaItem.fromUri(video);
-
             exoPlayer.addMediaItem(mediaItem);
-
             exoPlayer.prepare();
             exoPlayer.stop();
             exoPlayer.play();
@@ -166,12 +165,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         }
 
 
-        binding.tvConclusion.setText(conclusion);
-
-
-        if (pdf_file == null) {
-            binding.showPdf.setVisibility(View.GONE);
-        } else {
+        if (pdf_file != null) {
             binding.pdfTitle.setText(project_name + ".pdf");
             binding.showPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -181,6 +175,9 @@ public class Project_Viewer_Activity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+        } else {
+            binding.showPdf.setVisibility(View.GONE);
         }
 
     }

@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:scrollbars="none"
-       >
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,298 +38,298 @@
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_20_dsa"
-            android:orientation="vertical">
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/ubuntu"
-                android:text="@string/project_name"
-                android:textColor="@color/light_black_color"
-                android:textSize="@dimen/sp_18_dsa" />
-
-            <EditText
-                android:id="@+id/et_project_name"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_50_dsa"
-                android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:background="@drawable/login_edit_text_bg"
-                android:inputType="textAutoCorrect"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/light_black_color"
-                android:autofillHints=""
-                tools:ignore="LabelFor" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/aim_of_project"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_black_color"/>
-
-            <EditText
-                android:id="@+id/et_project_aim"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_50_dsa"
-                android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:background="@drawable/login_edit_text_bg"
-                android:inputType="textAutoCorrect"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/light_black_color"
-                android:autofillHints=""
-                tools:ignore="LabelFor" />
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_black_color"/>
-
-
-            <EditText
-                android:id="@+id/about_yourself"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_180_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:autofillHints=""
-                android:elevation="@dimen/dp_8_dsa"
-                android:background="@drawable/login_edit_text_bg"
-                android:fontFamily="@font/ubuntu"
-                android:gravity="top|start"
-                android:hint="@string/about_project"
-                android:inputType="textAutoCorrect|textMultiLine"
-                android:padding="@dimen/dp_10_dsa"
-                android:textColor="@color/light_black_color"
-                android:textSize="@dimen/sp_18_dsa"
-                 />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_0_dsa"
-                android:orientation="horizontal"
-                android:layout_weight="3"
-                android:layout_marginTop="@dimen/dp_15_dsa">
-
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="@dimen/dp_0_dsa"
-                    android:layout_height="@dimen/dp_150_dsa"
-                    android:layout_weight="1"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/place_holder"
-                    app:riv_border_color="#333333"
-                    app:riv_border_width="2dip"
-                    app:riv_corner_radius="@dimen/dp_10_dsa"
-                    app:riv_mutate_background="true"
-                    tools:ignore="NestedWeights" />
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageView2"
-                    android:layout_weight="1"
-                    android:layout_width="@dimen/dp_0_dsa"
-                    android:layout_height="@dimen/dp_150_dsa"
-                    android:src="@drawable/place_holder"
-                    app:riv_corner_radius="@dimen/dp_10_dsa"
-                    app:riv_border_width="2dip"
-                    app:riv_border_color="#333333"
-                    android:layout_marginStart="@dimen/dp_10_dsa"
-                    android:scaleType="centerCrop"
-                    app:riv_mutate_background="true"/>
-
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageView3"
-                    android:layout_weight="1"
-                    android:layout_width="@dimen/dp_0_dsa"
-                    android:layout_height="@dimen/dp_150_dsa"
-                    android:src="@drawable/place_holder"
-                    app:riv_corner_radius="@dimen/dp_10_dsa"
-                    app:riv_border_width="2dip"
-                    app:riv_border_color="#333333"
-                    android:layout_marginStart="@dimen/dp_10_dsa"
-                    android:scaleType="centerCrop"
-                    app:riv_mutate_background="true"/>
-
-
-            </LinearLayout>
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_0_dsa"
-                android:orientation="horizontal"
-                android:layout_weight="3"
-                android:layout_marginTop="@dimen/dp_15_dsa">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_20_dsa"
+                android:orientation="vertical">
 
-                <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/imageView4"
-                    android:layout_weight="1"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/place_holder"
-                    app:riv_corner_radius="@dimen/dp_10_dsa"
-                    app:riv_border_width="2dip"
-                    app:riv_border_color="#333333"
-                    android:layout_height="@dimen/dp_150_dsa"
-                    app:riv_mutate_background="true"
-                    android:layout_width="@dimen/dp_0_dsa"
-                    tools:ignore="NestedWeights" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ubuntu"
+                    android:text="@string/project_name"
+                    android:textColor="@color/light_black_color"
+                    android:textSize="@dimen/sp_18_dsa" />
 
-
-               <com.makeramen.roundedimageview.RoundedImageView
-                   android:id="@+id/imageView5"
-                   android:layout_weight="1"
-                   android:layout_width="@dimen/dp_0_dsa"
-                   android:layout_height="@dimen/dp_150_dsa"
-                   android:src="@drawable/place_holder"
-                   app:riv_corner_radius="@dimen/dp_10_dsa"
-                   app:riv_border_width="2dip"
-                   app:riv_border_color="#333333"
-                   android:layout_marginStart="@dimen/dp_10_dsa"
-                   android:scaleType="centerCrop"
-                   app:riv_mutate_background="true"/>
-
-               <com.makeramen.roundedimageview.RoundedImageView
-                   android:id="@+id/imageView6"
-                   android:layout_weight="1"
-                   android:layout_width="@dimen/dp_0_dsa"
-                   android:layout_height="@dimen/dp_150_dsa"
-                   android:src="@drawable/place_holder"
-                   app:riv_corner_radius="@dimen/dp_10_dsa"
-                   app:riv_border_width="2dip"
-                   app:riv_border_color="#333333"
-                   android:layout_marginStart="@dimen/dp_10_dsa"
-                   android:scaleType="centerCrop"
-                   app:riv_mutate_background="true"/>
-
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="230dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/dp_15_dsa">
-                <VideoView
-                    android:id="@+id/videoView"
+                <EditText
+                    android:id="@+id/et_project_name"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_230_dsa"
-                    android:layout_marginTop="@dimen/dp_20_dsa"/>
-            </LinearLayout>
+                    android:layout_height="@dimen/dp_50_dsa"
+                    android:elevation="@dimen/dp_8_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:background="@drawable/login_edit_text_bg"
+                    android:inputType="textAutoCorrect"
+                    android:padding="@dimen/dp_15_dsa"
+                    android:textColor="@color/light_black_color"
+                    android:autofillHints=""
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/aim_of_project"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/light_black_color"/>
+
+                <EditText
+                    android:id="@+id/et_project_aim"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_50_dsa"
+                    android:elevation="@dimen/dp_8_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:background="@drawable/login_edit_text_bg"
+                    android:inputType="textAutoCorrect"
+                    android:padding="@dimen/dp_15_dsa"
+                    android:textColor="@color/light_black_color"
+                    android:autofillHints=""
+                    tools:ignore="LabelFor" />
 
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/add_pdf"
-                android:layout_width="@dimen/dp_130_dsa"
-                android:layout_height="@dimen/dp_170_dsa"
-                android:elevation="@dimen/dp_8_dsa"
-                android:layout_gravity="center"
-              android:layout_marginTop="@dimen/dp_20_dsa">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/light_black_color"/>
+
+
+                <EditText
+                    android:id="@+id/about_yourself"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_180_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:autofillHints=""
+                    android:elevation="@dimen/dp_8_dsa"
+                    android:background="@drawable/login_edit_text_bg"
+                    android:fontFamily="@font/ubuntu"
+                    android:gravity="top|start"
+                    android:hint="@string/about_project"
+                    android:inputType="textAutoCorrect|textMultiLine"
+                    android:padding="@dimen/dp_10_dsa"
+                    android:textColor="@color/light_black_color"
+                    android:textSize="@dimen/sp_18_dsa"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/light_white"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_64_dsa"
-                        android:layout_height="@dimen/dp_64_dsa"
-                        android:background="@drawable/circle_red"
-                        android:padding="@dimen/dp_15_dsa"
-                        android:src="@drawable/ic_pdf"
-                        android:contentDescription="@null" />
+                    android:layout_height="@dimen/dp_0_dsa"
+                    android:orientation="horizontal"
+                    android:layout_weight="3"
+                    android:layout_marginTop="@dimen/dp_15_dsa">
 
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_1_dsa"
-                        android:background="@drawable/view_background"
-                        android:layout_marginTop="@dimen/dp_10_dsa"/>
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/place_holder"
+                        app:riv_border_color="#333333"
+                        app:riv_border_width="2dip"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_mutate_background="true"
+                        tools:ignore="NestedWeights" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/select_pdf"
-                        android:textStyle="bold"
-                        android:padding="@dimen/dp_5_dsa"
-                        android:layout_marginTop="@dimen/dp_10_dsa"
-                        android:textColor="@color/black"/>
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView2"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        android:src="@drawable/place_holder"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        android:layout_marginStart="@dimen/dp_10_dsa"
+                        android:scaleType="centerCrop"
+                        app:riv_mutate_background="true"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView3"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        android:src="@drawable/place_holder"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        android:layout_marginStart="@dimen/dp_10_dsa"
+                        android:scaleType="centerCrop"
+                        app:riv_mutate_background="true"/>
+
+
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/pdf_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/no_file_selected"
-                android:textSize="@dimen/sp_16_dsa"
-                android:layout_marginTop="@dimen/dp_16_dsa"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/conclusion"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_20_dsa"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_black_color"/>
-
-            <EditText
-                android:id="@+id/et_conclusion"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100_dsa"
-                android:elevation="@dimen/dp_8_dsa"
-                android:layout_marginTop="@dimen/dp_15_dsa"
-                android:textSize="@dimen/sp_18_dsa"
-                android:gravity="top|start"
-                android:background="@drawable/login_edit_text_bg"
-                android:hint="@string/Wooble"
-                android:inputType="textMultiLine"
-                android:padding="@dimen/dp_15_dsa"
-                android:textColor="@color/black"
-                android:importantForAutofill="no" />
 
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0_dsa"
+                    android:orientation="horizontal"
+                    android:layout_weight="3"
+                    android:layout_marginTop="@dimen/dp_15_dsa">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView4"
+                        android:layout_weight="1"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/place_holder"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        app:riv_mutate_background="true"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        tools:ignore="NestedWeights" />
 
 
-            <Button
-                android:id="@+id/bt_uploadProject"
-                android:layout_width="@dimen/dp_150_dsa"
-                android:layout_height="@dimen/dp_50_dsa"
-                android:text="@string/publish"
-                android:textAllCaps="false"
-                android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/sp_18_dsa"
-                android:layout_marginTop="@dimen/dp_24_dsa"
-                android:background="@drawable/login_button_bg"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/dp_30_dsa"
-                />
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView5"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        android:src="@drawable/place_holder"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        android:layout_marginStart="@dimen/dp_10_dsa"
+                        android:scaleType="centerCrop"
+                        app:riv_mutate_background="true"/>
 
-        </LinearLayout>
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/imageView6"
+                        android:layout_weight="1"
+                        android:layout_width="@dimen/dp_0_dsa"
+                        android:layout_height="@dimen/dp_150_dsa"
+                        android:src="@drawable/place_holder"
+                        app:riv_corner_radius="@dimen/dp_10_dsa"
+                        app:riv_border_width="2dip"
+                        app:riv_border_color="#333333"
+                        android:layout_marginStart="@dimen/dp_10_dsa"
+                        android:scaleType="centerCrop"
+                        app:riv_mutate_background="true"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/dp_15_dsa">
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_230_dsa"
+                        android:layout_marginTop="@dimen/dp_20_dsa"/>
+                </LinearLayout>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/add_pdf"
+                    android:layout_width="@dimen/dp_130_dsa"
+                    android:layout_height="@dimen/dp_170_dsa"
+                    android:elevation="@dimen/dp_8_dsa"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_20_dsa">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@color/light_white"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_64_dsa"
+                            android:layout_height="@dimen/dp_64_dsa"
+                            android:background="@drawable/circle_red"
+                            android:padding="@dimen/dp_15_dsa"
+                            android:src="@drawable/ic_pdf"
+                            android:contentDescription="@null" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_1_dsa"
+                            android:background="@drawable/view_background"
+                            android:layout_marginTop="@dimen/dp_10_dsa"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select_pdf"
+                            android:textStyle="bold"
+                            android:padding="@dimen/dp_5_dsa"
+                            android:layout_marginTop="@dimen/dp_10_dsa"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/pdf_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_file_selected"
+                    android:textSize="@dimen/sp_16_dsa"
+                    android:layout_marginTop="@dimen/dp_16_dsa"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/conclusion"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:layout_marginTop="@dimen/dp_20_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/light_black_color"/>
+
+                <EditText
+                    android:id="@+id/et_conclusion"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100_dsa"
+                    android:elevation="@dimen/dp_8_dsa"
+                    android:layout_marginTop="@dimen/dp_15_dsa"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:gravity="top|start"
+                    android:background="@drawable/login_edit_text_bg"
+                    android:hint="@string/Wooble"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/dp_15_dsa"
+                    android:textColor="@color/black"
+                    android:importantForAutofill="no" />
+
+
+
+
+
+                <Button
+                    android:id="@+id/bt_uploadProject"
+                    android:layout_width="@dimen/dp_150_dsa"
+                    android:layout_height="@dimen/dp_50_dsa"
+                    android:text="@string/publish"
+                    android:textAllCaps="false"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:layout_marginTop="@dimen/dp_24_dsa"
+                    android:background="@drawable/login_button_bg"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dp_30_dsa"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

@@ -237,6 +237,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
         } else if (video == null) {
             video = "TlVMTA==";
         } else {
+            binding.videoView.setVideoURI(Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
 
         }
 
@@ -306,20 +307,20 @@ public class Edit_Project_Activity extends AppCompatActivity {
                             description, image_1, image_2, image_3, image_4, image_5,
                             image_6, video, pdf_file, conclusion);
 
-            System.out.println(file_id + "file_id");
-            System.out.println(email_id + "email_id");
-            System.out.println(project_name + "project_name");
-            System.out.println(aim_of_project + "aim_of_project");
-            System.out.println(description + "description");
+            System.out.println("file_id " + file_id);
+            System.out.println("email_id " + email_id);
+            System.out.println("project_name "+project_name);
+            System.out.println("aim_of_project "+aim_of_project);
+            System.out.println("description" + description);
             System.out.println("image_1" + image_1);
-            System.out.println(image_2 + "image_2");
-            System.out.println(image_3 + "image_3");
-            System.out.println(image_4 + "image_4");
-            System.out.println(image_5 + "image_5");
-            System.out.println(image_6 + "image_6");
-            System.out.println(video + "video");
-            System.out.println(pdf_file + "pdf_file");
-            System.out.println(conclusion + "conclusion");
+            System.out.println("image_2" + image_2);
+            System.out.println("image_3" + image_3);
+            System.out.println("image_4" + image_4);
+            System.out.println("image_5" + image_5);
+            System.out.println("image_6" + image_6);
+            System.out.println("video" + video);
+            System.out.println("pdf_file" + pdf_file);
+            System.out.println("conclusion" + conclusion);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
