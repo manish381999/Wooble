@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.SessionManagement;
+
 import com.wooble.wooble.databinding.ActivityImageUploaderBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -59,6 +60,9 @@ public class ImageUploaderActivity extends AppCompatActivity {
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
+
+
         binding.btUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,8 +73,11 @@ public class ImageUploaderActivity extends AppCompatActivity {
        @Override
        public void onClick(View view) {
            openGallery();
+
        }
    });
+
+
 
 
         pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
@@ -118,6 +125,7 @@ private void openGallery(){
 
 
     private void uploadGalleryData() {
+        binding.spinKit.setVisibility(View.VISIBLE);
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
         String title = binding.imageTitle.getText().toString().trim();
@@ -142,6 +150,7 @@ private void openGallery(){
                         try {
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+                            binding.spinKit.setVisibility(View.GONE);
                             Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
                             startActivity(intent);
                             finish();
@@ -178,6 +187,7 @@ private void openGallery(){
 
         //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
+
     }
 
 

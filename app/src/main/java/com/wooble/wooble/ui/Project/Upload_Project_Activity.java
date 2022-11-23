@@ -25,11 +25,12 @@ import android.widget.Toast;
 
 
 import com.wooble.wooble.SessionManagement;
-import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
+
 import com.wooble.wooble.ui.Blogs.ResponseModel;
 import com.wooble.wooble.ui.Resume.ResumeFragment;
 import com.wooble.wooble.ui.Resume.UploadResumeActivity;
+import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
 
 
 import java.io.ByteArrayOutputStream;
@@ -83,7 +84,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         mediaController = new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
-        binding.videoView.start();
+        binding.videoView.stopPlayback();
 
         binding.imageView1.setOnClickListener(view -> imageView1());
 
@@ -110,6 +111,8 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding.btUploadProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.btUploadProject.setEnabled(false);
+                binding.spinKit.setVisibility(View.VISIBLE);
                 SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
                 email_id = sessionManagement.getSessionEmail();
                 project_name = binding.etProjectName.getText().toString().trim();
@@ -145,12 +148,14 @@ public class Upload_Project_Activity extends AppCompatActivity {
                         ResponseModel responseModel = response.body();
                         output = responseModel.getMessage();
                         Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                        binding.spinKit.setVisibility(View.GONE);
                         Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                         startActivity(intent);
                     }
 
                     @Override
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        binding.spinKit.setVisibility(View.GONE);
                         Toast.makeText(Upload_Project_Activity.this, "Some thing went wrong", Toast.LENGTH_SHORT).show();
                         t.printStackTrace();
                         Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);

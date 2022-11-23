@@ -70,9 +70,10 @@ FragmentProjectBinding binding;
                 for (int i = 0; i < projectList.size(); i++) {
                     ProjectAdapter projectAdapter = new ProjectAdapter(getContext(),projectList);
                     binding.RvProject.setAdapter(projectAdapter);
-                    binding.shimmerViewContainer.stopShimmer();
-                    binding.shimmerLayout.setVisibility(View.GONE);
+
                 }
+                binding.shimmerViewContainer.stopShimmer();
+                binding.shimmerLayout.setVisibility(View.GONE);
             }
 
             @Override
