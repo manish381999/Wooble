@@ -131,15 +131,9 @@ private void openGallery(){
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageDescription.getText().toString().trim();
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
                 fileImage = byteArrayOutputStream.toByteArray();
-            }
-        });
-        thread.start();
 
 
         //our custom volley request

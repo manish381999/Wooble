@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -26,6 +28,8 @@ import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
+import com.wooble.wooble.ui.Project.Edit_Project_Activity;
+import com.wooble.wooble.ui.Project.ProjectFragment;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -34,6 +38,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,6 +57,8 @@ public class Create_BlogsActivity extends AppCompatActivity {
     Bitmap bitmap;
     private String profileEmail;
 
+
+    ArrayList<String> arr = new ArrayList<String>();
     String image = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,8 +114,11 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
             }
             ImageView imageView=new ImageView(Create_BlogsActivity.this);
             imageView.setImageBitmap(bitmap);
-            addView(imageView, 400, 400);
             image = getBase64String(bitmap);
+            //String i="1jfuhghgjyhjkyhu";
+            //image.substring(0, 4)
+            arr.add(image);
+            addView(imageView, 400, 400);
 
         }
 
@@ -256,16 +267,22 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
 
         Call<ResponseModel> call = Controller.getInstance()
                 .getApiInterface()
-                .insertBlog(email_id,title,content,image,name);
+                .insertBlog(email_id,title,content,arr);
 
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
-                Toast.makeText(Create_BlogsActivity.this, output, Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Create_BlogsActivity.this, BlogFragment.class);
-                startActivity(intent);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(getApplicationContext(), BlogFragment.class);
+                        startActivity(intent);
+                    }
+                }, 2000);
+
             }
 
             @Override

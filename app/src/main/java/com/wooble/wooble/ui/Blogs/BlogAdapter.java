@@ -40,17 +40,16 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogViewHolder
         holder.binding.tvDescription.setText(blogModel.getContent());
         holder.binding.datetime.setText(blogModel.getCreated_date());
 
-        holder.binding.readBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(context, Blog_Viewer_Activity.class);
-                intent.putExtra("id",blogModel.getId());
-                intent.putExtra("title",blogModel.getTitle());
-                intent.putExtra("content",blogModel.getContent());
-                intent.putExtra("created_date",blogModel.getCreated_date());
-                intent.putExtra("image",blogModel.getImage());
-                context.startActivity(intent);
-            }
+        holder.binding.readBtn.setOnClickListener(v -> {
+            Intent intent=new Intent(context, Blog_Viewer_Activity.class);
+            intent.putExtra("id",blogModel.getFile_id());
+            //System.out.println("id "+blogModel.getId());
+            intent.putExtra("full_name",blogModel.getFull_name());
+            intent.putExtra("title",blogModel.getTitle());
+            intent.putExtra("content",blogModel.getContent());
+            intent.putExtra("created_date",blogModel.getCreated_date());
+            intent.putExtra("image",blogModel.getImage());
+            context.startActivity(intent);
         });
     }
 
