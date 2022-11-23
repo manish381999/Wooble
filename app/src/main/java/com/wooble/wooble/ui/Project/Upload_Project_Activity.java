@@ -52,9 +52,9 @@ public class Upload_Project_Activity extends AppCompatActivity {
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
 
-    Uri image_Uri,  pdf_Uri, video_Uri;
+    Uri image_Uri, pdf_Uri, video_Uri;
 
-    private String pdfName ;
+    private String pdfName;
     private Bitmap bitmap;
 
     String output;
@@ -79,8 +79,8 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        file_id= email_id= project_name= aim_of_project= description= image_1= image_2= image_3= image_4= image_5= image_6= video= pdf_file= conclusion="TlVMTA==";
-        mediaController=new MediaController(this);
+        file_id = email_id = project_name = aim_of_project = description = image_1 = image_2 = image_3 = image_4 = image_5 = image_6 = video = pdf_file = conclusion = "TlVMTA==";
+        mediaController = new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
         binding.videoView.start();
@@ -111,35 +111,20 @@ public class Upload_Project_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    email_id = Base64.getEncoder().encodeToString(sessionManagement.getSessionEmail().getBytes());
+                email_id = sessionManagement.getSessionEmail();
+                project_name = binding.etProjectName.getText().toString().trim();
+                if (binding.etProjectAim.getText().toString().trim() != null) {
+                    aim_of_project = binding.etProjectAim.getText().toString().trim();
                 }
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    if(binding.etProjectName.getText().toString().trim()!=null){
-                        project_name = Base64.getEncoder().encodeToString(binding.etProjectName.getText().toString().trim().getBytes());
-                    }
+                if (binding.aboutYourself.getText().toString().trim() != null) {
+                    description = binding.aboutYourself.getText().toString().trim();
                 }
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    if(binding.etProjectAim.getText().toString().trim()!=null){
-                        aim_of_project = Base64.getEncoder().encodeToString(binding.etProjectAim.getText().toString().trim().getBytes());
-                    }
-
+                if (binding.etConclusion.getText().toString().trim() != null) {
+                    conclusion = binding.etConclusion.getText().toString().trim();
                 }
-
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    if(binding.aboutYourself.getText().toString().trim()!=null){
-                        description = Base64.getEncoder().encodeToString(binding.aboutYourself.getText().toString().trim().getBytes());
-                    }
-                }
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    if(binding.etConclusion.getText().toString().trim()!=null){
-                        conclusion = Base64.getEncoder().encodeToString(binding.etConclusion.getText().toString().trim().getBytes());
-                    }
-                }
-
                 Call<ResponseModel> call = Controller.getInstance()
                         .getApiInterface()
-                        .insertProject(email_id,project_name,aim_of_project,description,image_1,image_2,image_3,image_4,image_5,image_6,video,pdf_file,conclusion);
+                        .insertProject(email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion);
 
 //                System.out.println("email_id "+email_id);
 //                System.out.println(project_name+"project_name");
@@ -160,7 +145,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
                         ResponseModel responseModel = response.body();
                         output = responseModel.getMessage();
                         Toast.makeText(Upload_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                        Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                         startActivity(intent);
                     }
 
@@ -168,7 +153,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
                         Toast.makeText(Upload_Project_Activity.this, "Some thing went wrong", Toast.LENGTH_SHORT).show();
                         t.printStackTrace();
-                        Intent intent=new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                        Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                         startActivity(intent);
                     }
                 });
@@ -242,15 +227,15 @@ public class Upload_Project_Activity extends AppCompatActivity {
         startActivityForResult(pickImage6, REQ_imageView6);
     }
 
-    private void openDocument(){
-        Intent intent=new Intent();
+    private void openDocument() {
+        Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.setType("application/pdf");
-        startActivityForResult(Intent.createChooser(intent,"Select Pdf File"),REQ_pdf);
+        startActivityForResult(Intent.createChooser(intent, "Select Pdf File"), REQ_pdf);
     }
 
-    private void videoVideo(){
-        Intent intent=new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+    private void videoVideo() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, REQ_video);
     }
 
@@ -261,7 +246,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         if (requestCode == REQ_imageView1 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
-            image_1 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_1 = fileUriToBase64(image_Uri, getContentResolver());
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
             } catch (IOException e) {
@@ -269,86 +254,86 @@ public class Upload_Project_Activity extends AppCompatActivity {
             }
             binding.imageView1.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView2 && resultCode==RESULT_OK && data!=null){
+        } else if (requestCode == REQ_imageView2 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
-            image_2 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_2 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView2.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView3 && resultCode==RESULT_OK && data!=null){
+        } else if (requestCode == REQ_imageView3 && resultCode == RESULT_OK && data != null) {
             image_Uri = data.getData();
 
-            image_3 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_3 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView3.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView4 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
+        } else if (requestCode == REQ_imageView4 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
 
-            image_4 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_4 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView4.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView5 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
+        } else if (requestCode == REQ_imageView5 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
 
-            image_5 =  fileUriToBase64(image_Uri, getContentResolver());
+            image_5 = fileUriToBase64(image_Uri, getContentResolver());
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView5.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_imageView6 && resultCode==RESULT_OK && data!=null){
-            image_Uri=data.getData();
-            image_6 =  fileUriToBase64(image_Uri, getContentResolver());
+        } else if (requestCode == REQ_imageView6 && resultCode == RESULT_OK && data != null) {
+            image_Uri = data.getData();
+            image_6 = fileUriToBase64(image_Uri, getContentResolver());
 
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-            }catch (IOException e){
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView6.setImageBitmap(bitmap);
 
-        }else if (requestCode==REQ_pdf && resultCode==RESULT_OK &&data!=null){
-            pdf_Uri=data.getData();
+        } else if (requestCode == REQ_pdf && resultCode == RESULT_OK && data != null) {
+            pdf_Uri = data.getData();
 
-            pdf_file =  fileUriToBase64(pdf_Uri, getContentResolver());
-            if (pdf_Uri.toString().startsWith("content://")){
+            pdf_file = fileUriToBase64(pdf_Uri, getContentResolver());
+            if (pdf_Uri.toString().startsWith("content://")) {
                 Cursor cursor;
                 try {
                     cursor = Upload_Project_Activity.this.getContentResolver().query(pdf_Uri, null, null, null, null);
-                    if (cursor!=null && cursor.moveToFirst()){
-                        pdfName=cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    if (cursor != null && cursor.moveToFirst()) {
+                        pdfName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-            }else if (pdf_Uri.toString().startsWith("file://")){
-                pdfName=new File(pdf_Uri.toString()).getName();
+            } else if (pdf_Uri.toString().startsWith("file://")) {
+                pdfName = new File(pdf_Uri.toString()).getName();
             }
 
             binding.pdfTextview.setText(pdfName);
 
 
-        }else if (requestCode==REQ_video && resultCode==RESULT_OK && data!=null){
-            video_Uri=data.getData();
-            video =  fileUriToBase64(video_Uri, getContentResolver());
+        } else if (requestCode == REQ_video && resultCode == RESULT_OK && data != null) {
+            video_Uri = data.getData();
+            video = fileUriToBase64(video_Uri, getContentResolver());
             binding.videoView.setVideoURI(video_Uri);
         }
 
@@ -358,7 +343,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
         }
         return true;
