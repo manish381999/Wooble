@@ -16,4 +16,5 @@
     <color name="red">#FF0000</color>
     <color name="grey2">#d6d6d6</color>
     <color name="grey">#EBEBEB</color>
+    <color name="progress_bar_color">#1cf28c</color>
 </resources>

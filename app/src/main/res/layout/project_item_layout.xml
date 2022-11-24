@@ -4,9 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/dp_10_dsa"
-    android:layout_marginHorizontal="@dimen/dp_15_dsa"
-    android:layout_marginVertical="@dimen/dp_15_dsa"
+    android:layout_marginHorizontal="@dimen/dp_10_dsa"
+    android:layout_marginTop="@dimen/dp_10_dsa"
+    android:layout_marginBottom="@dimen/dp_10_dsa"
     app:cardElevation="@dimen/dp_8_dsa">
+
 
     <LinearLayout
         android:id="@+id/Rv_project_Layout"

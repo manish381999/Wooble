@@ -21,7 +21,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityEditGalleryBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -31,11 +30,9 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
+
 import java.net.URL;
-import java.net.URLConnection;
-import java.nio.ByteBuffer;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -91,19 +88,9 @@ ActivityEditGalleryBinding binding;
         });
         thread.start();
 
-        binding.galleryImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openGallery();
-            }
-        });
+        binding.galleryImage.setOnClickListener(view -> openGallery());
 
-        binding.btUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateGalleryData();
-            }
-        });
+        binding.btUpdate.setOnClickListener(v -> updateGalleryData());
     }
 
     private void openGallery() {

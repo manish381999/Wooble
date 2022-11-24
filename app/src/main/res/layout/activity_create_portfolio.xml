@@ -99,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -125,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -174,6 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -200,6 +203,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:boxBackgroundMode="none"
                     app:hintTextColor="@color/splash_screen_cl">
 
@@ -229,6 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -257,6 +262,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -285,6 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_15_dsa"
                     app:boxBackgroundMode="none"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
                     app:hintTextColor="@color/splash_screen_cl">
 
                     <EditText
@@ -314,10 +321,11 @@
                     android:layout_height="@dimen/dp_50_dsa"
                     android:layout_marginStart="@dimen/dp_15_dsa"
                     android:layout_marginTop="@dimen/dp_20_dsa"
-                    android:layout_marginBottom="@dimen/dp_20_dsa"
-                    android:background="@drawable/login_button_bg"
+                    android:layout_marginBottom="@dimen/dp_30_dsa"
+                    android:background="@drawable/read_btn_bg"
                     android:text="@string/save"
                     android:textAllCaps="false"
+                    android:layout_gravity="center"
                     android:textSize="@dimen/sp_18_dsa" />
 
 

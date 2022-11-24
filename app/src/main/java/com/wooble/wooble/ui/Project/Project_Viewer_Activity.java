@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.MediaController;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
+
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
 import com.squareup.picasso.Picasso;
@@ -22,7 +21,7 @@ import java.util.Objects;
 
 public class Project_Viewer_Activity extends AppCompatActivity {
     ActivityProjectViewerBinding binding;
-    MediaController mediaController;
+
     String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion=null;
 
     @SuppressLint("SetTextI18n")
@@ -69,18 +68,6 @@ public class Project_Viewer_Activity extends AppCompatActivity {
             binding.imageView1.setVisibility(View.INVISIBLE);
         }
 
-//        if (image_1 != null) {
-//            Glide.with(getApplicationContext())
-//                    .load(image_1)
-//                    .centerCrop()
-//                    .into(binding.imageView1);
-//        } else {
-//            Glide.with(getApplicationContext())
-//                    .load(R.drawable.place_holder)
-//                    .centerCrop()
-//                    .into(binding.imageView1);
-//            binding.imageView1.setVisibility(View.INVISIBLE);
-//        }
 
         if (image_2 != null) {
             Picasso.get()
@@ -139,16 +126,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         }
 
 
-//        if (video == null) {
-//            binding.videoView.setVisibility(View.GONE);
-//        } else if (video != null) {
-//            binding.videoView.setVisibility(View.VISIBLE);
-//            mediaController = new MediaController(this);
-//            mediaController.setAnchorView(binding.videoView);
-//            binding.videoView.setMediaController(mediaController);
-//            binding.videoView.start();
-//            binding.videoView.setVideoURI(Uri.parse(video));
-//        }
+
 
         if (video == null) {
             binding.exoPlay.setVisibility(View.GONE);
@@ -167,13 +145,10 @@ public class Project_Viewer_Activity extends AppCompatActivity {
 
         if (pdf_file != null) {
             binding.pdfTitle.setText(project_name + ".pdf");
-            binding.showPdf.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Project_Viewer_Activity.this, Resume_Viewer_Activity.class);
-                    intent.putExtra("pdfUrl", pdf_file);
-                    startActivity(intent);
-                }
+            binding.showPdf.setOnClickListener(v -> {
+                Intent intent = new Intent(Project_Viewer_Activity.this, Resume_Viewer_Activity.class);
+                intent.putExtra("pdfUrl", pdf_file);
+                startActivity(intent);
             });
 
         } else {
