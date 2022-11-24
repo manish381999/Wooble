@@ -103,6 +103,7 @@ FragmentGalleryBinding binding;
                                         product.getString("description")
                                 ));
                             }
+
                             GalleryAdapter adapter = new GalleryAdapter(getContext(), galleryList);
                             recyclerView.setAdapter(adapter);
                             binding.shimmerViewContainer.stopShimmer();

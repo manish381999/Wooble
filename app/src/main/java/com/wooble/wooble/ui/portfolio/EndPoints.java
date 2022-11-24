@@ -21,6 +21,8 @@ public class EndPoints {
 
     public static final String INSERT_RESUME_DATA = "resume.php?apicall=" + "insertresumedata";
 
+    public static final String GET_BLOG_IMAGES = ROOT_URL+"blog.php?apicall=" + "getblogimages";
+
 
 
 

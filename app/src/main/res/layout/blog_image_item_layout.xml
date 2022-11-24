@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    app:cardCornerRadius="@dimen/dp_10_dsa"
     android:elevation="@dimen/dp_5_dsa"
-    app:cardCornerRadius="@dimen/dp_10_dsa">
+    android:layout_margin="10dp">
 
 
     <LinearLayout
@@ -17,8 +18,8 @@
             android:id="@+id/blog_image"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_200_dsa"
-            android:contentDescription="@null"
-            android:scaleType="fitCenter" />
+            android:scaleType="matrix"
+            android:contentDescription="@null" />
 
 
     </LinearLayout>
