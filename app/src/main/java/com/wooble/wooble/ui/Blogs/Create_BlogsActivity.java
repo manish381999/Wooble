@@ -73,7 +73,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_);
 
 
-binding.publish.setOnClickListener(new View.OnClickListener() {
+binding.btnPublish.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
 //        insertBlogData();
@@ -82,7 +82,6 @@ binding.publish.setOnClickListener(new View.OnClickListener() {
 });
 
     }
-
 
     private String getBase64String(Bitmap bitmap)
     {

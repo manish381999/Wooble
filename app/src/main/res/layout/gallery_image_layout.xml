@@ -29,6 +29,7 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/light_black_color"
             android:fontFamily="@font/ubuntu"
+            android:padding="@dimen/dp_5_dsa"
             android:textSize="@dimen/sp_18_dsa"/>
 
         </LinearLayout>

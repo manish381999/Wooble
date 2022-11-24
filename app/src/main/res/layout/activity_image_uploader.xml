@@ -38,7 +38,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:SpinKit_Color="@color/teal_200" />
+                app:SpinKit_Color="@color/progress_bar_color" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardView"
@@ -138,11 +138,10 @@
                 android:id="@+id/bt_upload"
                 android:layout_width="@dimen/dp_150_dsa"
                 android:layout_height="@dimen/dp_50_dsa"
-                android:layout_marginStart="@dimen/dp_15_dsa"
                 android:layout_marginTop="@dimen/dp_20_dsa"
                 android:layout_marginBottom="@dimen/dp_20_dsa"
                 android:background="@drawable/read_btn_bg"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="@string/upload"
                 android:textAllCaps="false"
                 android:textSize="@dimen/sp_18_dsa"

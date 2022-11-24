@@ -245,6 +245,9 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (pdf_file != null) {
             binding.pdfTextview.setText(project_name + ".pdf");
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                pdf_file = Base64.getEncoder().encodeToString(pdf_file.getBytes());
+            }
         } else if (image_6 == null) {
             image_6 = "TlVMTA==";
 
@@ -283,6 +286,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
         });
 
         binding.btUpdateProject.setOnClickListener(v -> {
+            binding.btUpdateProject.setEnabled(false);
+            binding.spinKit.setVisibility(View.VISIBLE);
             SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 email_id = Base64.getEncoder().encodeToString(sessionManagement.getSessionEmail().getBytes());
@@ -336,6 +341,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
                     ResponseModel responseModel = response.body();
                     String output = responseModel.getMessage();
                     Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                    binding.spinKit.setVisibility(View.GONE);
                     Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
                     startActivity(intent);
                     finish();
@@ -343,7 +349,10 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<ResponseModel> call, Throwable t) {
+                    binding.spinKit.setVisibility(View.GONE);
                     Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                    startActivity(intent);
                 }
             });
         });
