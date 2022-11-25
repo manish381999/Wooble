@@ -36,6 +36,12 @@ public interface apiInterface {
     );
 
     @FormUrlEncoded
+    @POST("blog.php?apicall=getblogimages")
+    Call<ArrayList<BlogImageModel>> getBlogImages(
+            @Field("file_id") String file_id
+    );
+
+    @FormUrlEncoded
     @POST(EndPoints.INSERT_RESUME_DATA)
     Call<ResponseModel> insertResume(
             @Field("email_id") String email_id,

@@ -11,13 +11,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
+import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityBlogViewerBinding;
 import com.wooble.wooble.ui.Project.Edit_Project_Activity;
+import com.wooble.wooble.ui.Project.ProjectAdapter;
 import com.wooble.wooble.ui.Project.ProjectFragment;
+import com.wooble.wooble.ui.Project.ProjectModel;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -29,7 +36,8 @@ public class Blog_Viewer_Activity extends AppCompatActivity {
 ActivityBlogViewerBinding binding;
     TextToSpeech  textToSpeech;
 
-String id,title,content,created_date,image,full_name;
+String file_id,title,content,created_date,image,full_name;
+    private ArrayList<BlogImageModel> blogImageList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +48,7 @@ String id,title,content,created_date,image,full_name;
 Objects.requireNonNull(getSupportActionBar()).setTitle("Blog viewer");
 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        id = getIntent().getStringExtra("id");
+        file_id = getIntent().getStringExtra("id");
         full_name=getIntent().getStringExtra("full_name");
         title=getIntent().getStringExtra("title");
 //        System.out.println("ID "+file_id);
@@ -52,16 +60,16 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.tvDate.setText(created_date);
         binding.tvFullName.setText(full_name);
 
+        binding.RvBlogImage.setHasFixedSize(true);
+        binding.RvBlogImage.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
         textToSpeech();
+        blogImageList = new ArrayList<>();
 
-
-
-
-
+        loadBlogImage();
         binding.ivDelete.setOnClickListener(v -> {
             Call<ResponseModel> call = Controller.getInstance()
                     .getApiInterface()
-                    .deleteBlog(id);
+                    .deleteBlog(file_id);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
@@ -85,6 +93,32 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             });
         });
 
+    }
+
+    private void loadBlogImage() {
+
+        Call<ArrayList<BlogImageModel>> call = Controller.getInstance()
+                .getApiInterface()
+                .getBlogImages(file_id);
+
+
+        call.enqueue(new Callback<ArrayList<BlogImageModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<BlogImageModel>> call, Response<ArrayList<BlogImageModel>> response) {
+                blogImageList = response.body();
+                Collections.reverse(blogImageList);
+                for (int i = 0; i < blogImageList.size(); i++) {
+                    BlogImageAdapter blogImageAdapter = new BlogImageAdapter(getApplicationContext(),blogImageList);
+                    binding.RvBlogImage.setAdapter(blogImageAdapter);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<BlogImageModel>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void textToSpeech() {

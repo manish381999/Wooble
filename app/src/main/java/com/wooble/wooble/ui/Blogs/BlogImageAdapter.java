@@ -8,19 +8,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.BlogImageItemLayoutBinding;
+import com.wooble.wooble.ui.Project.ProjectModel;
 
 import java.util.List;
 
 public class BlogImageAdapter extends RecyclerView.Adapter<BlogImageAdapter.BlogImageViewHolder> {
 Context context;
-List list;
+    List<BlogImageModel> blogImageModelList;
 
-    public BlogImageAdapter(Context context, List list) {
+    public BlogImageAdapter(Context context, List<BlogImageModel> blogImageModelList) {
         this.context = context;
-        this.list = list;
+        this.blogImageModelList = blogImageModelList;
     }
+
 
     @NonNull
     @Override
@@ -32,12 +35,18 @@ List list;
     @Override
     public void onBindViewHolder(@NonNull BlogImageViewHolder holder, int position) {
 
+        BlogImageModel blogImageModel = blogImageModelList.get(position);
+        Glide.with(context)
+                .load(blogImageModel.getImage())
+                .placeholder(R.drawable.place_holder)
+                .into(holder.binding.blogImage);
+
 
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return blogImageModelList.size();
     }
 
     public static class BlogImageViewHolder extends RecyclerView.ViewHolder{
