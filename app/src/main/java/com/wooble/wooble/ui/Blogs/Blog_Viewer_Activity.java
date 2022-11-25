@@ -94,11 +94,8 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 if (status!= TextToSpeech.ERROR){
                     textToSpeech.setLanguage(Locale.UK);
 
-
                     textToSpeech.setSpeechRate(0.6f);
                 }
-
-
 
             }
         });
@@ -116,14 +113,8 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 }
 
-
-
-
-
             }
         });
-
-
 
     }
 
