@@ -45,7 +45,6 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         file_id = getIntent().getStringExtra("id");
         full_name=getIntent().getStringExtra("full_name");
         title=getIntent().getStringExtra("title");
-//        System.out.println("ID "+file_id);
         content=getIntent().getStringExtra("content");
         created_date=getIntent().getStringExtra("created_date");
         image=getIntent().getStringExtra("image");

@@ -36,17 +36,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-
         GalleryModel gallery = Gallerylist.get(position);
-
         Glide.with(context)
                 .load(gallery.getImage_url())
                 .placeholder(R.drawable.place_holder)
                 .into(holder.binding.gllImage);
-
         holder.binding.imageTitle.setText(gallery.getTitle());
         System.out.println(gallery);
-
         holder.binding.gllImage.setOnClickListener(v -> {
             Intent intent=new Intent(context, Full_ImageActivity.class);
             intent.putExtra("id",gallery.getId());

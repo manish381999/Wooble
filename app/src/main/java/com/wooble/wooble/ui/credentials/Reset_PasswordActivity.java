@@ -16,11 +16,6 @@ ActivityResetPasswordBinding binding;
         super.onCreate(savedInstanceState);
         binding=ActivityResetPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Objects.requireNonNull(getSupportActionBar()).hide();
-
-
-
-
     }
 }

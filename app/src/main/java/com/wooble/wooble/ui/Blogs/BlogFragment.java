@@ -32,7 +32,6 @@ public class BlogFragment extends Fragment {
 
     ArrayList<BlogModel> blogList;
 
-    //the recyclerview
     RecyclerView recyclerView;
     private String profileEmail;
 

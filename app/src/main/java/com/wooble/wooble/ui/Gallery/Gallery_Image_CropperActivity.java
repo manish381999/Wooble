@@ -22,15 +22,10 @@ public class Gallery_Image_CropperActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_image_cropper);
-
         readIntent();
-
         String dest_uri= UUID.randomUUID().toString() + ".jpg";
-
         UCrop.Options options=new UCrop.Options();
         options.setSharpnessEnabled(true);
-
-
         UCrop.of(fileUri,Uri.fromFile(new File(getCacheDir(),dest_uri)))
                 .withOptions(options)
                 .withAspectRatio(0,0)

@@ -53,16 +53,12 @@ ActivityEditGalleryBinding binding;
         super.onCreate(savedInstanceState);
         binding = ActivityEditGalleryBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Gallery");
-
         id = getIntent().getStringExtra("id");
         data = getIntent().getStringExtra("image");
         titleData = getIntent().getStringExtra("title");
         captionData = getIntent().getStringExtra("description");
-
         Glide.with(getApplicationContext())
                 .load(data)
                 .centerCrop()
@@ -155,6 +151,7 @@ ActivityEditGalleryBinding binding;
                 params.put("title", title);
                 params.put("description", description);
                 params.put("file_id", id);
+                params.put("image_path", data.substring(data.lastIndexOf('/') + 1));
                 return params;
             }
 

@@ -41,7 +41,7 @@ import java.util.Objects;
 public class ImageUploaderActivity extends AppCompatActivity {
     ActivityImageUploaderBinding binding;
 
-    final int REQ=12;
+    final int REQ = 12;
     private Bitmap bitmap;
     String return_id;
     String profileEmail;
@@ -55,59 +55,49 @@ public class ImageUploaderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityImageUploaderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Objects.requireNonNull(getSupportActionBar()).setTitle("Image Uploader");
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.btUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 uploadGalleryData();
             }
         });
-   binding.galleryImage.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View view) {
-           openGallery();
+        binding.galleryImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGallery();
 
-       }
-   });
-
-
-
-
-        pickImage=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            }
+        });
+        pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-               Intent intent=new Intent(ImageUploaderActivity.this, Gallery_Image_CropperActivity.class);
-               intent.putExtra("DATA", result.toString());
-               startActivityForResult(intent, REQ);
+                Intent intent = new Intent(ImageUploaderActivity.this, Gallery_Image_CropperActivity.class);
+                intent.putExtra("DATA", result.toString());
+                startActivityForResult(intent, REQ);
             }
         });
 
     }
 
-private void openGallery(){
-    pickImage.launch("image/*");
-}
+    private void openGallery() {
+        pickImage.launch("image/*");
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQ){
-            String result=data.getStringExtra("RESULT");
-            Uri resultUri=null;
-            if (result!=null){
-                resultUri=Uri.parse(result);
+        if (requestCode == REQ) {
+            String result = data.getStringExtra("RESULT");
+            Uri resultUri = null;
+            if (result != null) {
+                resultUri = Uri.parse(result);
             }
 
             try {
-                bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), resultUri);
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -117,13 +107,6 @@ private void openGallery(){
     }
 
 
-//    public byte[] getFileDataFromDrawable(Bitmap bitmap) {
-//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
-//        return byteArrayOutputStream.toByteArray();
-//    }
-
-
     private void uploadGalleryData() {
         binding.spinKit.setVisibility(View.VISIBLE);
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
@@ -131,9 +114,9 @@ private void openGallery(){
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageDescription.getText().toString().trim();
 
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
-                fileImage = byteArrayOutputStream.toByteArray();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+        fileImage = byteArrayOutputStream.toByteArray();
 
 
         //our custom volley request
@@ -145,7 +128,7 @@ private void openGallery(){
                             JSONObject obj = new JSONObject(new String(response.data));
                             Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
                             binding.spinKit.setVisibility(View.GONE);
-                            Intent intent=new Intent(ImageUploaderActivity.this, GalleryFragment.class);
+                            Intent intent = new Intent(ImageUploaderActivity.this, GalleryFragment.class);
                             startActivity(intent);
                             finish();
 
@@ -188,7 +171,7 @@ private void openGallery(){
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
 
         }

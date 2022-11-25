@@ -17,10 +17,7 @@ ActivityOtpBinding binding;
         super.onCreate(savedInstanceState);
         binding=ActivityOtpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
         Objects.requireNonNull(getSupportActionBar()).hide();
-
         binding.btnVerify.setOnClickListener(view -> {
             Intent intent=new Intent(OtpActivity.this, Reset_PasswordActivity.class);
             startActivity(intent);

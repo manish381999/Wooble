@@ -20,6 +20,8 @@ import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -38,18 +40,12 @@ String id;
         super.onCreate(savedInstanceState);
         binding= ActivityFullImageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Objects.requireNonNull(getSupportActionBar()).hide();
-
         id = getIntent().getStringExtra("id");
         data=getIntent().getStringExtra("image");
         titleData=getIntent().getStringExtra("title");
         captionData=getIntent().getStringExtra("description");
-
-
-
         binding.cation.setText(captionData);
-
         Glide.with(getApplicationContext())
                 .load(data)
                 .into(binding.imageView);
@@ -71,8 +67,6 @@ String id;
     }
 
     private void deleteImage() {
-
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.DELETE_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -99,6 +93,7 @@ String id;
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("file_id", id);
+                params.put("image_path", data.substring(data.lastIndexOf('/') + 1));
                 return params;
             }
 

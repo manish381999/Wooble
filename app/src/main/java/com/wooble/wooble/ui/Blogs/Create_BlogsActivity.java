@@ -1,6 +1,5 @@
 package com.wooble.wooble.ui.Blogs;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -18,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -28,8 +29,6 @@ import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
-import com.wooble.wooble.ui.Project.Edit_Project_Activity;
-import com.wooble.wooble.ui.Project.ProjectFragment;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -39,7 +38,6 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -58,7 +56,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
     private String profileEmail;
 
 
-    ArrayList<String> arr = new ArrayList<String>();
+    ArrayList<String> arr = new ArrayList<>();
     String image = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +71,9 @@ public class Create_BlogsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_);
 
 
-binding.btnPublish.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
+binding.btnPublish.setOnClickListener(view -> {
 //        insertBlogData();
-        insertData();
-    }
+    insertData();
 });
 
     }
@@ -114,8 +109,6 @@ binding.btnPublish.setOnClickListener(new View.OnClickListener() {
             ImageView imageView=new ImageView(Create_BlogsActivity.this);
             imageView.setImageBitmap(bitmap);
             image = getBase64String(bitmap);
-            //String i="1jfuhghgjyhjkyhu";
-            //image.substring(0, 4)
             arr.add(image);
             addView(imageView, 400, 400);
 
@@ -133,45 +126,36 @@ binding.btnPublish.setOnClickListener(new View.OnClickListener() {
 
 
     public void bold_btn(View view) {
-        binding.boldBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
-                spannableString.setSpan(new StyleSpan(Typeface.BOLD),
-                        binding.createDescription.getSelectionStart(),
-                        binding.createDescription.getSelectionEnd(),0);
+        binding.boldBtn.setOnClickListener(view1 -> {
+            Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+            spannableString.setSpan(new StyleSpan(Typeface.BOLD),
+                    binding.createDescription.getSelectionStart(),
+                    binding.createDescription.getSelectionEnd(),0);
 
-                binding.createDescription.setText(spannableString);
-            }
+            binding.createDescription.setText(spannableString);
         });
 
     }
 
     public void italic_btn(View view) {
-        binding.italicBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
-                spannableString.setSpan(new StyleSpan(Typeface.ITALIC),
-                        binding.createDescription.getSelectionStart(),
-                        binding.createDescription.getSelectionEnd(),0);
+        binding.italicBtn.setOnClickListener(view1 -> {
+            Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+            spannableString.setSpan(new StyleSpan(Typeface.ITALIC),
+                    binding.createDescription.getSelectionStart(),
+                    binding.createDescription.getSelectionEnd(),0);
 
-                binding.createDescription.setText(spannableString);
-            }
+            binding.createDescription.setText(spannableString);
         });
     }
 
     public void underline_btn(View view) {
-        binding.underlineBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
-                spannableString.setSpan(new UnderlineSpan(),
-                        binding.createDescription.getSelectionStart(),
-                        binding.createDescription.getSelectionEnd(),0);
+        binding.underlineBtn.setOnClickListener(view1 -> {
+            Spannable spannableString=new SpannableStringBuilder(binding.createDescription.getText());
+            spannableString.setSpan(new UnderlineSpan(),
+                    binding.createDescription.getSelectionStart(),
+                    binding.createDescription.getSelectionEnd(),0);
 
-                binding.createDescription.setText(spannableString);
-            }
+            binding.createDescription.setText(spannableString);
         });
     }
 
@@ -253,7 +237,6 @@ binding.btnPublish.setOnClickListener(new View.OnClickListener() {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 

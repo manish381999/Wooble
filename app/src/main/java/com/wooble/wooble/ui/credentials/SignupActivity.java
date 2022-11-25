@@ -27,32 +27,28 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
-ActivitySignupBinding binding;
+    ActivitySignupBinding binding;
 
 
-
-    private EditText etname, etemail,etmobileNumber,etpassword;
+    private EditText etname, etemail, etmobileNumber, etpassword;
     private Button btnSignup;
-    private String URL="http://172.168.0.182/wooble-api/register.php";
-//    private String URL="https://test.wooble.org/android_connection.php";
+    private String URL = "http://172.168.0.182/wooble-api/register.php";
+    //    private String URL="https://test.wooble.org/android_connection.php";
     private String name, email, mobile_no, password;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivitySignupBinding.inflate(getLayoutInflater());
+        binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         Objects.requireNonNull(getSupportActionBar()).hide();
         gotoLogin();
-
         etname = (EditText) findViewById(R.id.signup_name);
         etemail = (EditText) findViewById(R.id.signup_email);
         etmobileNumber = (EditText) findViewById(R.id.signup_mobile_no);
         etpassword = (EditText) findViewById(R.id.signup_password);
         btnSignup = (Button) findViewById(R.id.sign_btn);
-        name=email=mobile_no=password="";
-
-
+        name = email = mobile_no = password = "";
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,8 +57,7 @@ ActivitySignupBinding binding;
                 mobile_no = etmobileNumber.getText().toString().trim();
                 password = etpassword.getText().toString().trim();
 
-                if(!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals(""))
-                {
+                if (!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("")) {
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -74,7 +69,7 @@ ActivitySignupBinding binding;
                                 finish();
                             } else if (response.equals("failure")) {
                                 Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            }else if(response.equals("exist")){
+                            } else if (response.equals("exist")) {
                                 Toast.makeText(SignupActivity.this, "Email already Exist Please Login", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                 startActivity(intent);
@@ -85,18 +80,18 @@ ActivitySignupBinding binding;
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(SignupActivity.this, error.toString().trim(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();
 
                         }
-                    }){
+                    }) {
                         @Nullable
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
 
-                            Map<String,String> data = new HashMap<>();
-                            data.put("name",name);
-                            data.put("mobile",mobile_no);
-                            data.put("email",email);
+                            Map<String, String> data = new HashMap<>();
+                            data.put("name", name);
+                            data.put("mobile", mobile_no);
+                            data.put("email", email);
                             data.put("password", password);
                             return data;
                         }
@@ -105,7 +100,7 @@ ActivitySignupBinding binding;
                     RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                     requestQueue.add(stringRequest);
 
-                }else{
+                } else {
                     Toast.makeText(SignupActivity.this, "fields can not be empty", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -113,9 +108,8 @@ ActivitySignupBinding binding;
 
     }
 
-    public static boolean isValidEmail(String email)
-    {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+    public static boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
                 "A-Z]{2,7}$";
@@ -128,7 +122,7 @@ ActivitySignupBinding binding;
 
     private void gotoLogin() {
         binding.gotoLogin.setOnClickListener(view -> {
-            Intent intent=new Intent(SignupActivity.this, LoginActivity.class);
+            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         });
