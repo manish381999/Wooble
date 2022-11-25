@@ -30,12 +30,6 @@ public interface apiInterface {
     );
 
     @FormUrlEncoded
-    @POST("blog.php?apicall=getblogimages")
-    Call<ArrayList<BlogImageModel>> getBlogImages(
-            @Field("file_id") String file_id
-    );
-
-    @FormUrlEncoded
     @POST("blog.php?apicall=deleteblogdata")
     Call<ResponseModel> deleteBlog(
             @Field("file_id") String file_id
