@@ -12,16 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.bumptech.glide.Glide;
+
 import com.wooble.wooble.R;
-import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityBlogViewerBinding;
-import com.wooble.wooble.ui.Project.Edit_Project_Activity;
-import com.wooble.wooble.ui.Project.ProjectAdapter;
-import com.wooble.wooble.ui.Project.ProjectFragment;
-import com.wooble.wooble.ui.Project.ProjectModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
