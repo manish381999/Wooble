@@ -92,8 +92,13 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             @Override
             public void onInit(int status) {
                 if (status!= TextToSpeech.ERROR){
-                    textToSpeech.setLanguage(Locale.ENGLISH);
+                    textToSpeech.setLanguage(Locale.UK);
+
+
+                    textToSpeech.setSpeechRate(0.6f);
                 }
+
+
 
             }
         });
@@ -101,11 +106,38 @@ getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.mic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textToSpeech.speak(content,TextToSpeech.QUEUE_FLUSH,null);
+
+                if (textToSpeech.isSpeaking()){
+                    textToSpeech.stop();
+                    binding.mic.setImageResource(R.drawable.ic_play);
+                }else {
+                    textToSpeech.speak(content,TextToSpeech.QUEUE_FLUSH,null, null);
+                    binding.mic.setImageResource(R.drawable.ic_pause);
+
+                }
+
+
+
+
+
             }
         });
 
+
+
     }
+
+
+    @Override
+    public void onDestroy() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+
+        }
+        super.onDestroy();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
