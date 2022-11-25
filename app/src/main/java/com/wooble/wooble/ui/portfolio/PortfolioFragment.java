@@ -37,11 +37,12 @@ public class PortfolioFragment extends Fragment {
             }
         });
 
+        String a="https://wooble.org/RakeshKumarSutar";
         // Find the WebView by its unique ID
       //  WebView webView = findViewById(R.id.web);
 
         // loading http://www.google.com url in the WebView.
-        binding.web.loadUrl("https://wooble.org/RakeshKumarSutar");
+        binding.web.loadUrl(a);
 
 
         // this will enable the javascript.

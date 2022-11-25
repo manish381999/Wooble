@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.view.MenuItem;
@@ -60,7 +62,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
     final int REQ_imageView5 = 50;
     final int REQ_imageView6 = 60;
 
-    Uri image_Uri, pdf_Uri, video_Uri, uri;
+    Uri image_Uri_1, pdf_Uri, video_Uri, image_Uri_2,image_Uri_3,image_Uri_4,image_Uri_5,image_Uri_6;
 
     private String pdfName;
     private Bitmap bitmap;
@@ -243,6 +245,9 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (pdf_file != null) {
             binding.pdfTextview.setText(project_name + ".pdf");
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                pdf_file = Base64.getEncoder().encodeToString(pdf_file.getBytes());
+            }
         } else if (image_6 == null) {
             image_6 = "TlVMTA==";
 
@@ -262,9 +267,15 @@ public class Edit_Project_Activity extends AppCompatActivity {
                 public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
                     ResponseModel responseModel = response.body();
                     String output = responseModel.getMessage();
-                    Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
-                    startActivity(intent);
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                            startActivity(intent);
+                        }
+                    }, 2000);
+
                 }
 
                 @Override
@@ -309,20 +320,20 @@ public class Edit_Project_Activity extends AppCompatActivity {
                             description, image_1, image_2, image_3, image_4, image_5,
                             image_6, video, pdf_file, conclusion);
 
-            System.out.println("file_id " + file_id);
-            System.out.println("email_id " + email_id);
-            System.out.println("project_name "+project_name);
-            System.out.println("aim_of_project "+aim_of_project);
-            System.out.println("description" + description);
-            System.out.println("image_1" + image_1);
-            System.out.println("image_2" + image_2);
-            System.out.println("image_3" + image_3);
-            System.out.println("image_4" + image_4);
-            System.out.println("image_5" + image_5);
-            System.out.println("image_6" + image_6);
-            System.out.println("video" + video);
-            System.out.println("pdf_file" + pdf_file);
-            System.out.println("conclusion" + conclusion);
+//            System.out.println("file_id " + file_id);
+//            System.out.println("email_id " + email_id);
+//            System.out.println("project_name "+project_name);
+//            System.out.println("aim_of_project "+aim_of_project);
+//            System.out.println("description" + description);
+//            System.out.println("image_1" + image_1);
+//            System.out.println("image_2" + image_2);
+//            System.out.println("image_3" + image_3);
+//            System.out.println("image_4" + image_4);
+//            System.out.println("image_5" + image_5);
+//            System.out.println("image_6" + image_6);
+//            System.out.println("video" + video);
+//            System.out.println("pdf_file" + pdf_file);
+//            System.out.println("conclusion" + conclusion);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
@@ -429,64 +440,64 @@ public class Edit_Project_Activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQ_imageView1 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
-            image_1 = fileUriToBase64(image_Uri, getContentResolver());
+            image_Uri_1 = data.getData();
+            image_1 = fileUriToBase64(image_Uri_1, getContentResolver());
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_1);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView1.setImageBitmap(bitmap);
 
         } else if (requestCode == REQ_imageView2 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
+            image_Uri_2 = data.getData();
 
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
-                image_2 = fileUriToBase64(image_Uri, getContentResolver());
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_2);
+                image_2 = fileUriToBase64(image_Uri_2, getContentResolver());
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView2.setImageBitmap(bitmap);
 
         } else if (requestCode == REQ_imageView3 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
+            image_Uri_3 = data.getData();
 
-            image_3 = fileUriToBase64(image_Uri, getContentResolver());
+            image_3 = fileUriToBase64(image_Uri_3, getContentResolver());
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_3);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView3.setImageBitmap(bitmap);
 
         } else if (requestCode == REQ_imageView4 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
+            image_Uri_4 = data.getData();
 
-            image_4 = fileUriToBase64(image_Uri, getContentResolver());
+            image_4 = fileUriToBase64(image_Uri_4, getContentResolver());
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_4);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView4.setImageBitmap(bitmap);
 
         } else if (requestCode == REQ_imageView5 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
-            image_5 = fileUriToBase64(image_Uri, getContentResolver());
+            image_Uri_5 = data.getData();
+            image_5 = fileUriToBase64(image_Uri_5, getContentResolver());
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_5);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             binding.imageView5.setImageBitmap(bitmap);
 
         } else if (requestCode == REQ_imageView6 && resultCode == RESULT_OK && data != null) {
-            image_Uri = data.getData();
-            image_6 = fileUriToBase64(image_Uri, getContentResolver());
+            image_Uri_6 = data.getData();
+            image_6 = fileUriToBase64(image_Uri_6, getContentResolver());
 
             try {
-                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), image_Uri_6);
             } catch (IOException e) {
                 e.printStackTrace();
             }

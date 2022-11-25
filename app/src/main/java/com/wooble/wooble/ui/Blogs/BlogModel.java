@@ -2,27 +2,29 @@ package com.wooble.wooble.ui.Blogs;
 
 public class BlogModel {
 
-    String id;
+    String file_id;
+    String full_name;
     String title;
+
+    public String getFile_id() {
+        return file_id;
+    }
+
+    public void setFile_id(String file_id) {
+        this.file_id = file_id;
+    }
+
     String content;
     String created_date;
     String image;
 
 
-    public BlogModel(String id, String title, String content, String created_date, String image) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.created_date = created_date;
-        this.image = image;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getTitle() {
@@ -56,4 +58,17 @@ public class BlogModel {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public BlogModel(String file_id, String full_name, String title, String content, String created_date, String image) {
+        this.file_id = file_id;
+        this.full_name = full_name;
+        this.title = title;
+        this.content = content;
+        this.created_date = created_date;
+        this.image = image;
+    }
+
+
+
+
 }
