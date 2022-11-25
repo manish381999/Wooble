@@ -74,7 +74,6 @@ public class BlogFragment extends Fragment {
                 for (int i = 0; i < blogList.size(); i++) {
                     BlogAdapter blogAdapter = new BlogAdapter(getContext(),blogList);
                     binding.RvBlog.setAdapter(blogAdapter);
-
                 }
                 binding.shimmerViewContainer.stopShimmer();
                 binding.shimmerLayout.setVisibility(View.GONE);

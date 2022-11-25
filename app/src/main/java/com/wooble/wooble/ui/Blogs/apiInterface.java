@@ -20,13 +20,19 @@ public interface apiInterface {
             @Field("email_id") String email_id,
             @Field("title") String title,
             @Field("content") String content,
-            @Field("pic") String image,
-            @Field("name") String name);
+            @Field("pic[]") ArrayList<String> image);
+
 
     @FormUrlEncoded
     @POST("blog.php?apicall=getblogdata")
     Call<ArrayList<BlogModel>> getAllBlogs(
             @Field("email_id") String email_id
+    );
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=deleteblogdata")
+    Call<ResponseModel> deleteBlog(
+            @Field("file_id") String file_id
     );
 
     @FormUrlEncoded
