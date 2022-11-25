@@ -28,8 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
-import com.wooble.wooble.ui.Project.Edit_Project_Activity;
-import com.wooble.wooble.ui.Project.ProjectFragment;
+
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -39,7 +38,6 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -287,6 +285,8 @@ binding.btnPublish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 Toast.makeText(Create_BlogsActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getApplicationContext(), BlogFragment.class);
+                startActivity(intent);
             }
         });
     }

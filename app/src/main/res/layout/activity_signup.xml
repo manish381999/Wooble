@@ -9,6 +9,8 @@
     tools:context=".ui.credentials.SignupActivity">
 
 
+
+
     <ScrollView
         android:id="@+id/signup_scroll_view"
         android:layout_width="match_parent"
