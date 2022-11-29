@@ -22,8 +22,9 @@ public class EndPoints {
     public static final String INSERT_RESUME_DATA = "resume.php?apicall=" + "insertresumedata";
 
     public static final String GET_BLOG_IMAGES = ROOT_URL+"blog.php?apicall=" + "getblogimages";
+    public static final String CHECK_EMAIL = ROOT_URL+"checkemail.php";
 
 
-
-
+    public static final String CHECK_OTP = ROOT_URL+"checkotp.php";
+    public static final String RESET_PASSWORD = ROOT_URL+"resetpassword.php";
 }

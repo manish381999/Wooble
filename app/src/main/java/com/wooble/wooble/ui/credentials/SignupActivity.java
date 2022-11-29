@@ -24,14 +24,13 @@ import com.wooble.wooble.databinding.ActivitySignupBinding;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignupActivity extends AppCompatActivity {
     ActivitySignupBinding binding;
 
 
-    private EditText etname, etemail, etmobileNumber, etpassword;
-    private Button btnSignup;
     private String URL = "http://172.168.0.182/wooble-api/register.php";
     //    private String URL="https://test.wooble.org/android_connection.php";
     private String name, email, mobile_no, password;
@@ -43,21 +42,31 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
         gotoLogin();
-        etname = (EditText) findViewById(R.id.signup_name);
-        etemail = (EditText) findViewById(R.id.signup_email);
-        etmobileNumber = (EditText) findViewById(R.id.signup_mobile_no);
-        etpassword = (EditText) findViewById(R.id.signup_password);
-        btnSignup = (Button) findViewById(R.id.sign_btn);
         name = email = mobile_no = password = "";
-        btnSignup.setOnClickListener(new View.OnClickListener() {
+        binding.signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name = etname.getText().toString().trim();
-                email = etemail.getText().toString().trim();
-                mobile_no = etmobileNumber.getText().toString().trim();
-                password = etpassword.getText().toString().trim();
+                name = binding.signupName.getText().toString().trim();
+                email = binding.signupEmail.getText().toString().trim();
+                mobile_no = binding.signupMobileNo.getText().toString().trim();
+                password = binding.signupPassword.getText().toString().trim();
 
                 if (!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("")) {
+
+                    if(isValidEmail(email)==false){
+                        Toast.makeText(SignupActivity.this, "Please Enter valid Email", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if(isValidMobile(mobile_no)==false){
+                        Toast.makeText(SignupActivity.this, "Please Enter valid Mobile No", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if(isValidPassword(password)==false){
+                        Toast.makeText(SignupActivity.this, "Please Enter Strong Password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -70,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
                             } else if (response.equals("failure")) {
                                 Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                             } else if (response.equals("exist")) {
-                                Toast.makeText(SignupActivity.this, "Email already Exist Please Login", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this, "Email already Exist! Please Login", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -119,6 +128,28 @@ public class SignupActivity extends AppCompatActivity {
             return false;
         return pat.matcher(email).matches();
     }
+
+    public static boolean isValidMobile(String s)
+    {
+        Pattern p = Pattern.compile("(0|91)?[6-9][0-9]{9}");
+        Matcher m = p.matcher(s);
+        return (m.find() && m.group().equals(s));
+    }
+
+    public static boolean isValidPassword(String password)
+    {
+        String regex = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
+        Pattern p = Pattern.compile(regex);
+        if (password == null) {
+            return false;
+        }
+        Matcher m = p.matcher(password);
+        return m.matches();
+    }
+
 
     private void gotoLogin() {
         binding.gotoLogin.setOnClickListener(view -> {
