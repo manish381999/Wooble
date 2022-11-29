@@ -3,10 +3,9 @@ package com.wooble.wooble.ui.Profile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
+
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -41,13 +40,10 @@ ActivityEditProfileBinding binding;
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-binding.btUpdate.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        updateProfileData();
-        startActivity(new Intent(Edit_Profile_Activity.this, ProfileActivity.class));
-        finish();
-    }
+binding.btUpdate.setOnClickListener(view -> {
+    updateProfileData();
+    startActivity(new Intent(Edit_Profile_Activity.this, ProfileActivity.class));
+    finish();
 });
 
     }

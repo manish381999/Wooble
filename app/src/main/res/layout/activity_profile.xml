@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="10dp"
+    android:scrollbars="none"
     tools:context=".ui.Profile.ProfileActivity">
 
 
@@ -24,6 +24,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:contentDescription="@null" />
+
 
 
 

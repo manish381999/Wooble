@@ -142,6 +142,8 @@ public class Upload_Project_Activity extends AppCompatActivity {
 //                System.out.println(video+"video");
 //                System.out.println(pdf_file+"pdf_file");
 //                System.out.println(conclusion+"conclusion");
+
+
                 call.enqueue(new Callback<ResponseModel>() {
                     @Override
                     public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {

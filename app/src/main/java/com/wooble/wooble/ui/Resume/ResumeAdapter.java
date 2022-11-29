@@ -34,7 +34,7 @@ Context context;
     @Override
     public void onBindViewHolder(@NonNull ResumeViewHolder holder, int position) {
         ResumeModel resumeModel = ResumeList.get(position);
-        holder.binding.tvPdfTitle.setText(resumeModel.getTitle());
+        holder.binding.tvPdfTitle.setText(resumeModel.getTitle()+".pdf");
 //        holder.binding.pdfDownload.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

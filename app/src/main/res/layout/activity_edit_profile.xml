@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/splash_screen_cl"
-    android:elevation="@dimen/dp_10_dsa"
     tools:context=".ui.Profile.Edit_Profile_Activity">
 
     <ScrollView
@@ -23,7 +22,7 @@
 
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardElevation="@dimen/dp_10_dsa"
-        app:cardCornerRadius="@dimen/dp_30_dsa"
+        app:cardCornerRadius="@dimen/dp_15_dsa"
         android:layout_margin="@dimen/dp_20_dsa"
         >
     <LinearLayout
@@ -58,11 +57,11 @@
             android:layout_marginTop="@dimen/dp_15_dsa"
             android:textSize="@dimen/sp_18_dsa"
             android:background="@drawable/login_edit_text_bg"
-            android:hint="@string/Wooble"
             android:inputType="textPersonName"
             android:padding="@dimen/dp_15_dsa"
             android:textColor="@color/black"
-            android:importantForAutofill="no" />
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,9 +80,10 @@
             android:layout_marginTop="@dimen/dp_15_dsa"
             android:textSize="@dimen/sp_18_dsa"
             android:inputType="number"
-            android:hint="9123456789"
             android:textColor="@color/black"
-            android:padding="@dimen/dp_15_dsa"/>
+            android:padding="@dimen/dp_15_dsa"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
 
 
@@ -104,9 +104,10 @@
             android:layout_marginTop="@dimen/dp_15_dsa"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/sp_18_dsa"
-            android:hint="Woobile@gmail.com"
             android:textColor="@color/black"
-            android:padding="@dimen/dp_12_dsa"/>
+            android:padding="@dimen/dp_12_dsa"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -123,18 +124,20 @@
             android:layout_height="@dimen/dp_50_dsa"
             android:background="@drawable/login_edit_text_bg"
             android:layout_marginTop="@dimen/dp_15_dsa"
-            android:hint="******"
             android:textColorHint="@color/light_black_color"
             android:textSize="@dimen/sp_18_dsa"
+            android:hint="@string/pass"
             android:textColor="@color/black"
-            android:padding="@dimen/dp_15_dsa"/>
+            android:padding="@dimen/dp_15_dsa"
+            android:autofillHints=""
+            android:inputType="textPassword" />
 
 
         <Button
             android:id="@+id/bt_update"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50_dsa"
-            android:text="Update"
+            android:text="@string/update"
             android:textAllCaps="false"
             android:layout_gravity="center_horizontal"
             android:textSize="@dimen/sp_18_dsa"
@@ -148,7 +151,7 @@
 
 
     </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
