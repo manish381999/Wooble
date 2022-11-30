@@ -34,6 +34,7 @@ ActivityOtpBinding binding;
         binding.tv3.setText(email);
 
         binding.btnVerify.setOnClickListener(view -> {
+            binding.btnVerify.setEnabled(false);
             otp = binding.otpView.getOTP();
             if(!email.equals(null) && !otp.equals(null))
             {

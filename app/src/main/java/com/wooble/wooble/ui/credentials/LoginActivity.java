@@ -83,7 +83,6 @@ ActivityLoginBinding binding;
         binding.forgotPasswordTv.setOnClickListener(view -> {
             Intent intent=new Intent(LoginActivity.this,Forgot_PasswordActivity.class);
             startActivity(intent);
-            finish();
         });
     }
 

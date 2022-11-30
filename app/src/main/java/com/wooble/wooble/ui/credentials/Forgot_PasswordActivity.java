@@ -48,6 +48,7 @@ ActivityForgotPasswordBinding binding;
 
    binding.passwordRecoverBtn.setOnClickListener(view -> {
 
+       binding.passwordRecoverBtn.setEnabled(false);
        email = binding.forgotPassword.getText().toString().trim();
        if(!email.equals(""))
        {

@@ -39,6 +39,7 @@ ActivityResetPasswordBinding binding;
         binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                binding.btnSubmit.setEnabled(false);
                 password = binding.etNewPassword.getText().toString().trim();
                 confirm_password = binding.etConfirmNewPassword.getText().toString().trim();
 
