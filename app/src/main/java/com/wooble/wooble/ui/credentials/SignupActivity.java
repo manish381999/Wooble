@@ -31,9 +31,9 @@ public class SignupActivity extends AppCompatActivity {
     ActivitySignupBinding binding;
 
 
-    private String URL = "http://172.168.0.182/wooble-api/register.php";
+    private final String URL = "http://172.168.0.182/wooble-api/register.php";
     //    private String URL="https://test.wooble.org/android_connection.php";
-    private String name, email, mobile_no, password;
+    private String name, email, mobile_no, password="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,18 +63,18 @@ public class SignupActivity extends AppCompatActivity {
                         return;
                     }
 
+
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-//                            System.out.println("Response" + response);
-                            if (response.equals("success")) {
+                            if (response.contains("success")) {
                                 Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
-                            } else if (response.equals("failure")) {
+                            } else if (response.contains("failure")) {
                                 Toast.makeText(SignupActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                            } else if (response.equals("exist")) {
+                            } else if (response.contains("exist")) {
                                 Toast.makeText(SignupActivity.this, "Email already Exist! Please Login", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                 startActivity(intent);

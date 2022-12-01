@@ -71,13 +71,13 @@ ActivityMainBinding binding;
         setContentView(binding.getRoot());
 
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_drawer);
+        NavigationView navigationView = findViewById(R.id.navigation_drawer);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
         View headerView = navigationView.getHeaderView(0);
-        navUsername = (TextView) headerView.findViewById(R.id.username);
-        navProfession = (TextView) headerView.findViewById(R.id.profession);
+        navUsername = headerView.findViewById(R.id.username);
+        navProfession = headerView.findViewById(R.id.profession);
         circularImageView = headerView.findViewById(R.id.profile_pic);
         coverPic = headerView.findViewById(R.id.cover_pic);
         loadProfileImage();

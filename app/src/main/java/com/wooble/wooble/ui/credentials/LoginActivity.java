@@ -36,9 +36,9 @@ ActivityLoginBinding binding;
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
-        etEmail = (EditText) findViewById(R.id.login_email);
-        etPassword = (EditText) findViewById(R.id.login_password);
-        Button loginButton = (Button) findViewById(R.id.login_btn);
+        etEmail = findViewById(R.id.login_email);
+        etPassword = findViewById(R.id.login_password);
+        Button loginButton = findViewById(R.id.login_btn);
         gotoSignup();
         gotoForgot_Password();
         loginButton.setOnClickListener(view -> {

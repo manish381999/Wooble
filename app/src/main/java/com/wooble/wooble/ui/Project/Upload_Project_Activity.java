@@ -129,21 +129,6 @@ public class Upload_Project_Activity extends AppCompatActivity {
                         .getApiInterface()
                         .insertProject(email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion);
 
-//                System.out.println("email_id "+email_id);
-//                System.out.println(project_name+"project_name");
-//                System.out.println(aim_of_project+"aim_of_project");
-//                System.out.println(description+"description");
-//                System.out.println(image_1+"image_1");
-//                System.out.println(image_2+"image_2");
-//                System.out.println(image_3+"image_3");
-//                System.out.println(image_4+"image_4");
-//                System.out.println(image_5+"image_5");
-//                System.out.println(image_6+"image_6");
-//                System.out.println(video+"video");
-//                System.out.println(pdf_file+"pdf_file");
-//                System.out.println(conclusion+"conclusion");
-
-
                 call.enqueue(new Callback<ResponseModel>() {
                     @Override
                     public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
@@ -153,6 +138,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
                         binding.spinKit.setVisibility(View.GONE);
                         Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                         startActivity(intent);
+                        finish();
                     }
 
                     @Override
@@ -162,6 +148,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
                         t.printStackTrace();
                         Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
                         startActivity(intent);
+                        finish();
                     }
                 });
             }
