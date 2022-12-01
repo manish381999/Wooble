@@ -51,7 +51,7 @@ public class SignupActivity extends AppCompatActivity {
                 mobile_no = binding.signupMobileNo.getText().toString().trim();
                 password = binding.signupPassword.getText().toString().trim();
 
-                if (!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("")) {
+                if (!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("") && !name.equals("")) {
 
                     if(isValidEmail(email)==false){
                         Toast.makeText(SignupActivity.this, "Please Enter valid Email", Toast.LENGTH_SHORT).show();
