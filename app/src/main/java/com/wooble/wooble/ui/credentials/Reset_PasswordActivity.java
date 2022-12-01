@@ -50,10 +50,6 @@ ActivityResetPasswordBinding binding;
                         return;
                     }
 
-                    if(isValidPassword(password)==false){
-                        Toast.makeText(Reset_PasswordActivity.this, "Please Enter Strong Password", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, EndPoints.RESET_PASSWORD, response -> {
                         if (response.equals("success")) {
@@ -86,17 +82,4 @@ ActivityResetPasswordBinding binding;
 
     }
 
-    public static boolean isValidPassword(String password)
-    {
-        String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
-        Pattern p = Pattern.compile(regex);
-        if (password == null) {
-            return false;
-        }
-        Matcher m = p.matcher(password);
-        return m.matches();
-    }
 }

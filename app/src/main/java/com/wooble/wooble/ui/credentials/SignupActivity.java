@@ -63,10 +63,6 @@ public class SignupActivity extends AppCompatActivity {
                         return;
                     }
 
-                    if(isValidPassword(password)==false){
-                        Toast.makeText(SignupActivity.this, "Please Enter Strong Password", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -136,19 +132,6 @@ public class SignupActivity extends AppCompatActivity {
         return (m.find() && m.group().equals(s));
     }
 
-    public static boolean isValidPassword(String password)
-    {
-        String regex = "^(?=.*[0-9])"
-                + "(?=.*[a-z])(?=.*[A-Z])"
-                + "(?=.*[@#$%^&+=])"
-                + "(?=\\S+$).{8,20}$";
-        Pattern p = Pattern.compile(regex);
-        if (password == null) {
-            return false;
-        }
-        Matcher m = p.matcher(password);
-        return m.matches();
-    }
 
 
     private void gotoLogin() {
