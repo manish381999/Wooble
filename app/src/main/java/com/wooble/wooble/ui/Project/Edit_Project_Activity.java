@@ -2,6 +2,7 @@ package com.wooble.wooble.ui.Project;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
@@ -32,6 +34,7 @@ import com.wooble.wooble.databinding.ActivityEditProjectBinding;
 import com.wooble.wooble.databinding.ActivityFullImageBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 import com.wooble.wooble.ui.Blogs.ResponseModel;
+import com.wooble.wooble.ui.Gallery.Full_ImageActivity;
 import com.wooble.wooble.ui.Resume.Resume_Viewer_Activity;
 
 import java.io.ByteArrayOutputStream;
@@ -71,6 +74,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
     final int REQ_pdf = 70;
     final int REQ_video = 80;
     MediaController mediaController;
+    //String url="http://172.168.0.182/wooble_api/upload/";
+    String url="https://app.wooble.org/works/upload/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +127,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
         pdf_file = getIntent().getStringExtra("pdf_file");
         conclusion = getIntent().getStringExtra("conclusion");
 
+        System.out.println("Hii "+image_3);
+        System.out.println("Hii "+image_2);
 
         binding.etProjectName.setText(project_name);
         binding.etProjectAim.setText(aim_of_project);
@@ -131,9 +138,8 @@ public class Edit_Project_Activity extends AppCompatActivity {
         //video= fileUriToBase64(Uri.parse(video),getContentResolver());
         //binding.addPdf.set
         if (image_1 != null) {
-            System.out.println("IMAGE1 " + image_1);
             Picasso.get()
-                    .load(image_1)
+                    .load(url+image_1)
                     .into(binding.imageView1);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 image_1 = Base64.getEncoder().encodeToString(image_1.getBytes());
@@ -150,7 +156,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (image_2 != null) {
             Picasso.get()
-                    .load(image_2)
+                    .load(url+image_2)
                     .into(binding.imageView2);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -168,7 +174,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
         System.out.println(image_3 + "image_3");
         if (image_3 != null) {
             Picasso.get()
-                    .load(image_3)
+                    .load(url+image_3)
                     .into(binding.imageView3);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 image_3 = Base64.getEncoder().encodeToString(image_3.getBytes());
@@ -185,7 +191,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (image_4 != null) {
             Picasso.get()
-                    .load(image_4)
+                    .load(url+image_4)
                     .into(binding.imageView4);
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -201,7 +207,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (image_5 != null) {
             Picasso.get()
-                    .load(image_5)
+                    .load(url+image_5)
                     .into(binding.imageView5);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 image_5 = Base64.getEncoder().encodeToString(image_5.getBytes());
@@ -217,7 +223,7 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         if (image_6 != null) {
             Picasso.get()
-                    .load(image_6)
+                    .load(url+image_6)
                     .into(binding.imageView6);
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 image_6 = Base64.getEncoder().encodeToString(image_6.getBytes());
@@ -232,14 +238,14 @@ public class Edit_Project_Activity extends AppCompatActivity {
         }
 
         if (video != null) {
-            binding.videoView.setVideoURI(Uri.parse(video));
+            binding.videoView.setVideoURI(Uri.parse(url+video));
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 video = Base64.getEncoder().encodeToString(video.getBytes());
             }
         } else if (video == null) {
             video = "TlVMTA==";
         } else {
-            binding.videoView.setVideoURI(Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+            binding.videoView.setVideoURI(Uri.parse(""));
 
         }
 
@@ -258,31 +264,49 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
         binding.ivDelete.setOnClickListener(v -> {
 
-            Call<ResponseModel> call = Controller.getInstance()
-                    .getApiInterface()
-                    .deleteProject(email_id, file_id);
 
-            call.enqueue(new Callback<ResponseModel>() {
-                @Override
-                public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
-                    ResponseModel responseModel = response.body();
-                    String output = responseModel.getMessage();
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
-                            startActivity(intent);
-                        }
-                    }, 2000);
+            AlertDialog.Builder builder = new AlertDialog.Builder(Edit_Project_Activity.this);
+            builder.setMessage("Do you want to delete ?");
+            builder.setTitle("");
+            builder.setCancelable(false);
+            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                Call<ResponseModel> call = Controller.getInstance()
+                        .getApiInterface()
+                        .deleteProject(email_id, file_id);
 
-                }
+                call.enqueue(new Callback<ResponseModel>() {
+                    @Override
+                    public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                        ResponseModel responseModel = response.body();
+                        String output = responseModel.getMessage();
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(Edit_Project_Activity.this, output, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                                startActivity(intent);
+                            }
+                        }, 2000);
 
-                @Override
-                public void onFailure(Call<ResponseModel> call, Throwable t) {
-                    Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseModel> call, Throwable t) {
+                        Toast.makeText(Edit_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Edit_Project_Activity.this, ProjectFragment.class);
+                        startActivity(intent);
+                    }
+                });            });
+            builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                dialog.cancel();
             });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+
+
+
+
         });
 
         binding.btUpdateProject.setOnClickListener(v -> {
@@ -319,21 +343,6 @@ public class Edit_Project_Activity extends AppCompatActivity {
                     .updateProject(file_id, email_id, project_name, aim_of_project,
                             description, image_1, image_2, image_3, image_4, image_5,
                             image_6, video, pdf_file, conclusion);
-
-//            System.out.println("file_id " + file_id);
-//            System.out.println("email_id " + email_id);
-//            System.out.println("project_name "+project_name);
-//            System.out.println("aim_of_project "+aim_of_project);
-//            System.out.println("description" + description);
-//            System.out.println("image_1" + image_1);
-//            System.out.println("image_2" + image_2);
-//            System.out.println("image_3" + image_3);
-//            System.out.println("image_4" + image_4);
-//            System.out.println("image_5" + image_5);
-//            System.out.println("image_6" + image_6);
-//            System.out.println("video" + video);
-//            System.out.println("pdf_file" + pdf_file);
-//            System.out.println("conclusion" + conclusion);
 
             call.enqueue(new Callback<ResponseModel>() {
                 @Override
@@ -374,22 +383,17 @@ public class Edit_Project_Activity extends AppCompatActivity {
 
     private static byte[] readBytes(Uri uri, ContentResolver resolver)
             throws IOException {
-        // this dynamically extends to take the bytes you read
         InputStream inputStream = resolver.openInputStream(uri);
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
 
-        // this is storage overwritten on each iteration with bytes
         int bufferSize = 1024;
         byte[] buffer = new byte[bufferSize];
 
-        // we need to know how may bytes were read to write them to the
-        // byteBuffer
         int len = 0;
         while ((len = inputStream.read(buffer)) != -1) {
             byteBuffer.write(buffer, 0, len);
         }
 
-        // and then we can return your byte array.
         return byteBuffer.toByteArray();
     }
 

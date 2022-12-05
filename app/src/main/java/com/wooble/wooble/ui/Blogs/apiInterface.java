@@ -8,6 +8,7 @@ import com.wooble.wooble.ui.portfolio.EndPoints;
 import java.util.ArrayList;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -15,15 +16,63 @@ import retrofit2.http.POST;
 
 public interface apiInterface {
 
-
     @FormUrlEncoded
-    @POST("blog.php?apicall=insertblogdata")
-    Call<ResponseModel> insertBlog(
+    @POST("blog.php?apicall=publishblog")
+    Call<ResponseModel> publishBlog(
+            @Field("blog_id") String blog_id,
             @Field("email_id") String email_id,
             @Field("title") String title,
-            @Field("content") String content,
-            @Field("pic[]") ArrayList<String> image);
+            @Field("content") String content);
 
+    @FormUrlEncoded
+    @POST("blog.php?apicall=publishdraft")
+    Call<ResponseModel> publishDraft(
+            @Field("blog_id") String blog_id,
+            @Field("email_id") String email_id,
+            @Field("title") String title,
+            @Field("content") String content);
+
+
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=startblog")
+    Call<ResponseModel> startBlog(
+            @Field("email_id") String email_id
+    );
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=uploadblogimage")
+    Call<ResponseModel> uploadBlogImage(
+            @Field("blog_id") String blog_id,
+            @Field("email_id") String email_id,
+            @Field("image") String image
+
+    );
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=uploadblogvideo")
+    Call<ResponseModel> uploadBlogVideo(
+            @Field("blog_id") String blog_id,
+            @Field("email_id") String email_id,
+            @Field("video") String video
+
+    );
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=uploadblogaudio")
+    Call<ResponseModel> uploadBlogAudio(
+            @Field("blog_id") String blog_id,
+            @Field("email_id") String email_id,
+            @Field("audio") String audio
+
+    );
+
+    @FormUrlEncoded
+    @POST("blog.php?apicall=deleterow")
+    Call<ResponseModel> deleteRow(
+            @Field("blog_id") String blog_id,
+            @Field("email_id") String email_id
+    );
 
     @FormUrlEncoded
     @POST("blog.php?apicall=getblogdata")
@@ -31,23 +80,11 @@ public interface apiInterface {
             @Field("email_id") String email_id
     );
 
-    @FormUrlEncoded
-    @POST("blog.php?apicall=deleteblogdata")
-    Call<ResponseModel> deleteBlog(
-            @Field("file_id") String file_id
-    );
-
-    @FormUrlEncoded
-    @POST("blog.php?apicall=getblogimages")
-    Call<ArrayList<BlogImageModel>> getBlogImages(
-            @Field("file_id") String file_id
-    );
 
     @FormUrlEncoded
     @POST(EndPoints.INSERT_RESUME_DATA)
     Call<ResponseModel> insertResume(
             @Field("email_id") String email_id,
-            @Field("title") String title,
             @Field("resume") String resume
     );
 
@@ -60,10 +97,9 @@ public interface apiInterface {
     @FormUrlEncoded
     @POST("project.php?apicall=insertprojectdata")
     Call<ResponseModel> insertProject(
+            @Field("work_title") String project_name,
+            @Field("work_description") String description,
             @Field("email_id") String email_id,
-            @Field("project_name") String project_name,
-            @Field("aim_of_project") String aim_of_project,
-            @Field("description") String description,
             @Field("image_1") String image_1,
             @Field("image_2") String image_2,
             @Field("image_3") String image_3,
@@ -71,8 +107,9 @@ public interface apiInterface {
             @Field("image_5") String image_5,
             @Field("image_6") String image_6,
             @Field("video") String video,
+            @Field("conclusion") String conclusion,
             @Field("project_pdf") String project_pdf,
-            @Field("conclusion") String conclusion
+             @Field("aim_of_work") String aim_of_project
 
     );
 
@@ -86,17 +123,17 @@ public interface apiInterface {
     @POST("project.php?apicall=deleteprojectdata")
     Call<ResponseModel> deleteProject(
             @Field("email_id") String email_id,
-            @Field("file_id") String file_id
+            @Field("entry_id") String file_id
     );
 
     @FormUrlEncoded
     @POST("project.php?apicall=updateprojectdata")
     Call<ResponseModel> updateProject(
-            @Field("file_id") String file_id,
+            @Field("entry_id") String file_id,
             @Field("email_id") String email_id,
-            @Field("project_name") String project_name,
-            @Field("aim_of_project") String aim_of_project,
-            @Field("description") String description,
+            @Field("work_title") String project_name,
+            @Field("aim_of_work") String aim_of_project,
+            @Field("work_description") String description,
             @Field("image_1") String image_1,
             @Field("image_2") String image_2,
             @Field("image_3") String image_3,

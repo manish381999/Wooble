@@ -35,7 +35,6 @@ public class Forgot_PasswordActivity extends AppCompatActivity {
 ActivityForgotPasswordBinding binding;
     private String email;
     String output="hii";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +93,6 @@ ActivityForgotPasswordBinding binding;
 
    });
     }
-
     private void gotoLogin(){
         binding.gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +104,4 @@ ActivityForgotPasswordBinding binding;
         });
 
     }
-
-
 }

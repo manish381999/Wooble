@@ -68,7 +68,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
         binding = ActivityCreatePortfolioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //loadProfileImage();
+        loadProfileImage();
         Objects.requireNonNull(getSupportActionBar()).setTitle("Create Portfolio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -132,7 +132,7 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             }
             try {
                 bitmap=MediaStore.Images.Media.getBitmap(getContentResolver(),resultUri);
-                //uploadProfileBitmap(bitmap);
+                uploadProfileBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -171,12 +171,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -184,9 +178,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                 return params;
             }
 
-            /*
-             * Here we are passing image by renaming it with a unique name
-             * */
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
@@ -196,7 +187,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
             }
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
@@ -230,12 +220,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -245,7 +229,6 @@ public class Create_Portfolio_Activity extends AppCompatActivity {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 

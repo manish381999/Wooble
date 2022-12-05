@@ -22,7 +22,6 @@ import java.util.Objects;
 public class OtpActivity extends AppCompatActivity {
 ActivityOtpBinding binding;
     private String email,otp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu"
-                android:text="@string/project_name"
+                android:text="@string/work_name"
                 android:textColor="@color/light_black_color"
                 android:textStyle="bold"
                 android:textSize="@dimen/sp_18_dsa" />
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/aim_of_project"
+                android:text="@string/aim_of_work"
                 android:textSize="@dimen/sp_18_dsa"
                 android:layout_marginTop="@dimen/dp_15_dsa"
                 android:fontFamily="@font/ubuntu"

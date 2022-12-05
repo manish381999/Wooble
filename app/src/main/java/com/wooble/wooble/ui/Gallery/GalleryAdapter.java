@@ -26,7 +26,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     }
 
 
-
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,7 +41,6 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
                 .placeholder(R.drawable.place_holder)
                 .into(holder.binding.gllImage);
         holder.binding.imageTitle.setText(gallery.getTitle());
-        System.out.println(gallery);
         holder.binding.gllImage.setOnClickListener(v -> {
             Intent intent=new Intent(context, Full_ImageActivity.class);
             intent.putExtra("id",gallery.getId());

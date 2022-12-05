@@ -48,12 +48,8 @@ FragmentGalleryBinding binding;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         binding=FragmentGalleryBinding.inflate(inflater, container, false);
-
         requireActivity().setTitle("Gallery");
-
-
         binding.addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,20 +58,11 @@ FragmentGalleryBinding binding;
             }
         });
 
-
         recyclerView = binding.RvGallery;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-
         galleryList = new ArrayList<>();
-
-
-
-        //this method will fetch and parse json
-        //to display it in recyclerview
         loadGalleryImage();
-
-
         return binding.getRoot();
     }
 
@@ -131,8 +118,6 @@ FragmentGalleryBinding binding;
             }
 
         };
-
-        //adding the request to volley
         Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
     }
 

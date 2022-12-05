@@ -26,15 +26,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class SignupActivity extends AppCompatActivity {
     ActivitySignupBinding binding;
-
-
-    private final String URL = "http://172.168.0.182/wooble-api/register.php";
-    //    private String URL="https://test.wooble.org/android_connection.php";
+    //private final String URL = "http://172.168.0.182/wooble-api/register.php";
+    private String URL="https://app.wooble.org/android_dir/register.php";
     private String name, email, mobile_no, password="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +48,6 @@ public class SignupActivity extends AppCompatActivity {
                 password = binding.signupPassword.getText().toString().trim();
 
                 if (!email.equals("") && !password.equals("") && !mobile_no.equals("") && !email.equals("") && !name.equals("")) {
-
                     if(isValidEmail(email)==false){
                         Toast.makeText(SignupActivity.this, "Please Enter valid Email", Toast.LENGTH_SHORT).show();
                         return;
@@ -112,7 +107,6 @@ public class SignupActivity extends AppCompatActivity {
         });
 
     }
-
     public static boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
@@ -124,16 +118,12 @@ public class SignupActivity extends AppCompatActivity {
             return false;
         return pat.matcher(email).matches();
     }
-
     public static boolean isValidMobile(String s)
     {
         Pattern p = Pattern.compile("(0|91)?[6-9][0-9]{9}");
         Matcher m = p.matcher(s);
         return (m.find() && m.group().equals(s));
     }
-
-
-
     private void gotoLogin() {
         binding.gotoLogin.setOnClickListener(view -> {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
@@ -141,6 +131,4 @@ public class SignupActivity extends AppCompatActivity {
             finish();
         });
     }
-
-
 }

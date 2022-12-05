@@ -35,7 +35,7 @@ FragmentProjectBinding binding;
 
         binding = FragmentProjectBinding.inflate(inflater, container, false);
 
-        requireActivity().setTitle("Project");
+        requireActivity().setTitle("Works");
 
         recyclerView = binding.RvProject;
         recyclerView.setHasFixedSize(true);
@@ -67,6 +67,7 @@ FragmentProjectBinding binding;
             public void onResponse(Call<ArrayList<ProjectModel>> call, Response<ArrayList<ProjectModel>> response) {
                 projectList = response.body();
                 Collections.reverse(projectList);
+                System.out.println("Hii"+projectList);
                 for (int i = 0; i < projectList.size(); i++) {
                     ProjectAdapter projectAdapter = new ProjectAdapter(getContext(),projectList);
                     binding.RvProject.setAdapter(projectAdapter);

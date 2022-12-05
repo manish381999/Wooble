@@ -67,8 +67,7 @@ ActivityEditPortfolioBinding binding;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         loadProfileData();
-
-
+        
         binding.btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,10 +158,8 @@ ActivityEditPortfolioBinding binding;
                     public void onResponse(NetworkResponse response) {
                         try {
                             JSONArray array = new JSONArray(new String(response.data));
-                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
                             binding.username.setText(jObj.getString("username"));
-                            System.out.println("Hiiiii"+jObj.getString("username"));
                             binding.fullName.setText(jObj.getString("fullname"));
                             binding.aboutYourself.setText(jObj.getString("background"));
                             binding.etFbLink.setText(jObj.getString("fb_link"));
@@ -191,7 +188,7 @@ ActivityEditPortfolioBinding binding;
                                         URL url = new URL(data);
                                         Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
                                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                        image.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                                        image.compress(Bitmap.CompressFormat.WEBP, 20, byteArrayOutputStream);
                                         fileImage = byteArrayOutputStream.toByteArray();
                                     } catch(IOException e) {
                                         System.out.println(e);
@@ -221,7 +218,6 @@ ActivityEditPortfolioBinding binding;
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
@@ -233,7 +229,6 @@ ActivityEditPortfolioBinding binding;
         String username = binding.username.getText().toString().trim();
         String fullname = binding.fullName.getText().toString().trim();
         String about_your_self = binding.aboutYourself.getText().toString().trim();
-        //String designation = binding.professionCategory.getSelectedItem().toString().trim();
         String fblink = binding.etFbLink.getText().toString().trim();
         String instalink = binding.instagramLink.getText().toString().trim();
         String linkedinlink = binding.etLinkedInLink.getText().toString().trim();
@@ -288,7 +283,6 @@ ActivityEditPortfolioBinding binding;
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
     }

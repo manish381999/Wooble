@@ -22,7 +22,7 @@
     <string name="don_t_worry">Don\'t worry.</string>
     <!-- TODO: Remove or change this placeholder text -->
 
-    <string name="title_that_is_specific">Title that is Specific</string>
+    <string name="title">Title</string>
     <string name="select_date">Select Date</string>
     <string name="select_time">Select Time</string>
     <string name="type_something">Type Something…</string>
@@ -61,7 +61,7 @@
     <string name="resume">Resume</string>
     <string name="blogs">Blogs</string>
     <string name="gallery">Gallery</string>
-    <string name="project">Project</string>
+    <string name="works">Works</string>
     <string name="profile">Profile</string>
     <string name="email_signature">Email signature</string>
     <string name="setting">Setting</string>
@@ -71,10 +71,10 @@
     <string name="others">Others</string>
     <string name="rate_us">Rate Us</string>
     <string name="logout">Sign Out</string>
-    <string name="project_name">Project name:</string>
-    <string name="aim_of_project">Aim of project</string>
+    <string name="work_name">Work name:</string>
+    <string name="aim_of_work">Aim of work</string>
     <string name="description">Description</string>
-    <string name="about_project">About Project</string>
+    <string name="about_project">About Work</string>
     <string name="select_pdf">Select PDF</string>
     <string name="no_file_selected">No file selected</string>
     <string name="conclusion">Conclusion</string>
@@ -117,7 +117,7 @@
     <string name="twitter">Twitter</string>
     <string name="linkedin">Linkedin</string>
     <string name="connect_with_us">Connect with us</string>
-    <string name="project_aim">Project aim:</string>
+    <string name="project_aim">Aim of work:</string>
     <string name="description1">Description:</string>
     <string name="show_pdf">Show pdf</string>
     <string name="edit">Edit</string>

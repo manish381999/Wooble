@@ -113,6 +113,10 @@ ActivityMainBinding binding;
                  break;
 
             case R.id.navigation_template:
+
+            case R.id.navigation_email_signature:
+
+            case R.id.navigation_share:
                 Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
                 break;
 
@@ -120,18 +124,10 @@ ActivityMainBinding binding;
                 startActivity(new Intent(MainActivity.this, Edit_Portfolio_Activity.class));
                 break;
 
-            case R.id.navigation_email_signature:
-                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                break;
-
             case R.id.navigation_setting:
                Intent intent=new Intent(MainActivity.this, SettingActivity.class);
                 intent.putExtra("image",profileImage);
                 startActivity(intent);
-                break;
-
-            case R.id.navigation_share:
-                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.navigation_social_media:
@@ -184,12 +180,6 @@ ActivityMainBinding binding;
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();

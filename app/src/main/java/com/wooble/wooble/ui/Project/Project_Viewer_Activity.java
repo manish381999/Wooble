@@ -24,6 +24,8 @@ public class Project_Viewer_Activity extends AppCompatActivity {
 
     String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion=null;
 
+    //String url="http://172.168.0.182/wooble_api/upload/";
+    String url="https://app.wooble.org/works/upload/";
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         binding = ActivityProjectViewerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Project Viewer");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Work Viewer");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -41,14 +43,14 @@ public class Project_Viewer_Activity extends AppCompatActivity {
         project_name = getIntent().getStringExtra("project_name");
         aim_of_project = getIntent().getStringExtra("aim_of_project");
         description = getIntent().getStringExtra("description");
-        image_1 = getIntent().getStringExtra("image_1");
-        image_2 = getIntent().getStringExtra("image_2");
-        image_3 = getIntent().getStringExtra("image_3");
-        image_4 = getIntent().getStringExtra("image_4");
-        image_5 = getIntent().getStringExtra("image_5");
-        image_6 = getIntent().getStringExtra("image_6");
-        video = getIntent().getStringExtra("video");
-        pdf_file = getIntent().getStringExtra("pdf_file");
+        image_1 = url+getIntent().getStringExtra("image_1");
+        image_2 = url+getIntent().getStringExtra("image_2");
+        image_3 = url+getIntent().getStringExtra("image_3");
+        image_4 = url+getIntent().getStringExtra("image_4");
+        image_5 = url+getIntent().getStringExtra("image_5");
+        image_6 = url+getIntent().getStringExtra("image_6");
+        video = url+getIntent().getStringExtra("video");
+        pdf_file = url+getIntent().getStringExtra("pdf_file");
         conclusion = getIntent().getStringExtra("conclusion");
 
         binding.tvProjectName.setText(project_name);

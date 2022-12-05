@@ -45,9 +45,7 @@ binding.btUpdate.setOnClickListener(view -> {
     startActivity(new Intent(Edit_Profile_Activity.this, ProfileActivity.class));
     finish();
 });
-
     }
-
     public void loadProfileData() {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
@@ -58,12 +56,10 @@ binding.btUpdate.setOnClickListener(view -> {
                         try {
                             //Log.d("image","image");
                             JSONArray array = new JSONArray(new String(response.data));
-                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
                             binding.etFullName.setText(jObj.getString("fullname"));
                             binding.etEmail.setText(jObj.getString("email"));
                             binding.etMobileNo.setText(jObj.getString("mobile"));
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -76,12 +72,6 @@ binding.btUpdate.setOnClickListener(view -> {
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -91,7 +81,6 @@ binding.btUpdate.setOnClickListener(view -> {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
     private void updateProfileData() {
@@ -103,7 +92,6 @@ binding.btUpdate.setOnClickListener(view -> {
         String mobile = binding.etMobileNo.getText().toString().trim();
         String password = binding.etPassword.getText().toString().trim();
 
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_ONLY_PROFILE_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -136,7 +124,6 @@ binding.btUpdate.setOnClickListener(view -> {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 }

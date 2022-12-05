@@ -67,7 +67,6 @@ public class ImageUploaderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openGallery();
-
             }
         });
         pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
@@ -115,11 +114,9 @@ public class ImageUploaderActivity extends AppCompatActivity {
         String description = binding.imageDescription.getText().toString().trim();
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.WEBP, 20, byteArrayOutputStream);
         fileImage = byteArrayOutputStream.toByteArray();
 
-
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.INSERT_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -157,12 +154,11 @@ public class ImageUploaderActivity extends AppCompatActivity {
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
                 long imageName = System.currentTimeMillis();
-                params.put("pic", new DataPart(imageName + ".png", fileImage));
+                params.put("pic", new DataPart(imageName + ".WEBP", fileImage));
                 return params;
             }
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
 
     }

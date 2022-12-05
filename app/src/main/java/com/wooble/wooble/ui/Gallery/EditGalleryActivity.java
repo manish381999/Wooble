@@ -122,7 +122,6 @@ ActivityEditGalleryBinding binding;
         String title = binding.imageTitle.getText().toString().trim();
         String description = binding.imageCaption.getText().toString().trim();
 
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPDATE_GALLERY_DATA,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -159,12 +158,10 @@ ActivityEditGalleryBinding binding;
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
                 long imageName = System.currentTimeMillis();
-                params.put("pic", new DataPart(imageName + ".png", fileImage));
+                params.put("pic", new DataPart(imageName + ".WEBP", fileImage));
                 return params;
             }
         };
-
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
     @Override

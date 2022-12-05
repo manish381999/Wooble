@@ -22,6 +22,8 @@ public class Gallery_Image_CropperActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_image_cropper);
+        System.out.println("Hii Cropping Activity Start");
+
         readIntent();
         String dest_uri= UUID.randomUUID().toString() + ".jpg";
         UCrop.Options options=new UCrop.Options();

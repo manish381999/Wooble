@@ -24,31 +24,30 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogViewHolder
         this.context = context;
         this.BlogList = blogList;
     }
-
     @NonNull
     @Override
     public BlogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View  view= LayoutInflater.from(context).inflate(R.layout.blog_item_layout, parent, false);
         return new BlogViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull BlogViewHolder holder, int position) {
-
         BlogModel blogModel = BlogList.get(position);
         holder.binding.tvTitle.setText(blogModel.getTitle());
-        holder.binding.tvDescription.setText(blogModel.getContent());
-        holder.binding.datetime.setText(blogModel.getCreated_date());
+        holder.binding.tvDescription.setHorizontalScrollBarEnabled(false);
+        holder.binding.tvDescription.setVerticalScrollBarEnabled(false);
+        holder.binding.tvDescription.loadData(blogModel.getContent(),"text/html", "UTF-8");
+        holder.binding.datetime.setText(blogModel.getLast_updated());
 
         holder.binding.readBtn.setOnClickListener(v -> {
             Intent intent=new Intent(context, Blog_Viewer_Activity.class);
-            intent.putExtra("id",blogModel.getFile_id());
-            //System.out.println("id "+blogModel.getId());
-            intent.putExtra("full_name",blogModel.getFull_name());
+            intent.putExtra("id",blogModel.getBlog_id());
+            //intent.putExtra("full_name",blogModel.getFull_name());
+            intent.putExtra("full_name",blogModel.getEmail_id());
             intent.putExtra("title",blogModel.getTitle());
             intent.putExtra("content",blogModel.getContent());
-            intent.putExtra("created_date",blogModel.getCreated_date());
-            intent.putExtra("image",blogModel.getImage());
+            intent.putExtra("created_date",blogModel.getLast_updated());
+            //intent.putExtra("image",blogModel.getImage());
             context.startActivity(intent);
         });
     }

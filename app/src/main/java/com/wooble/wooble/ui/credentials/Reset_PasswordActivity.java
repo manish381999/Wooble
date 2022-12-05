@@ -26,7 +26,6 @@ public class Reset_PasswordActivity extends AppCompatActivity {
 ActivityResetPasswordBinding binding;
     private String email;
     private String password,confirm_password;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,6 @@ ActivityResetPasswordBinding binding;
                         return;
                     }
 
-
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, EndPoints.RESET_PASSWORD, response -> {
                         if (response.equals("success")) {
                             Intent intent=new Intent(Reset_PasswordActivity.this, LoginActivity.class);
@@ -73,7 +71,7 @@ ActivityResetPasswordBinding binding;
                     RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
                     requestQueue.add(stringRequest);
                 }else{
-                    Toast.makeText(Reset_PasswordActivity.this, "Please a put a valid input", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Reset_PasswordActivity.this, "Please put a valid input", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -81,5 +79,4 @@ ActivityResetPasswordBinding binding;
 
 
     }
-
 }

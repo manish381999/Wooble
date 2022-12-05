@@ -2,29 +2,26 @@ package com.wooble.wooble.ui.Blogs;
 
 public class BlogModel {
 
-    String file_id;
-    String full_name;
+    String blog_id;
+    String email_id;
     String title;
-
-    public String getFile_id() {
-        return file_id;
-    }
-
-    public void setFile_id(String file_id) {
-        this.file_id = file_id;
-    }
-
     String content;
-    String created_date;
-    String image;
+    String last_updated;
 
-
-    public String getFull_name() {
-        return full_name;
+    public String getBlog_id() {
+        return blog_id;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setBlog_id(String blog_id) {
+        this.blog_id = blog_id;
+    }
+
+    public String getEmail_id() {
+        return email_id;
+    }
+
+    public void setEmail_id(String email_id) {
+        this.email_id = email_id;
     }
 
     public String getTitle() {
@@ -43,32 +40,19 @@ public class BlogModel {
         this.content = content;
     }
 
-    public String getCreated_date() {
-        return created_date;
+    public String getLast_updated() {
+        return last_updated;
     }
 
-    public void setCreated_date(String created_date) {
-        this.created_date = created_date;
+    public void setLast_updated(String last_updated) {
+        this.last_updated = last_updated;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public BlogModel(String file_id, String full_name, String title, String content, String created_date, String image) {
-        this.file_id = file_id;
-        this.full_name = full_name;
+    public BlogModel(String blog_id, String email_id, String title, String content, String last_updated) {
+        this.blog_id = blog_id;
+        this.email_id = email_id;
         this.title = title;
         this.content = content;
-        this.created_date = created_date;
-        this.image = image;
+        this.last_updated = last_updated;
     }
-
-
-
-
 }

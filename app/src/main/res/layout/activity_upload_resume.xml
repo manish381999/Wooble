@@ -73,26 +73,26 @@
             android:layout_gravity="center"/>
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tiy"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_53_dsa"
-            android:layout_marginTop="@dimen/dp_30_dsa"
-            android:background="@drawable/login_edit_text_bg"
-            app:boxBackgroundMode="outline"
-            app:layout_constraintTop_toBottomOf="@id/pdf_textview"
-            app:layout_constraintStart_toStartOf="@id/pdf_textview"
-            app:layout_constraintEnd_toEndOf="@id/pdf_textview"
-            >
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/tiy"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_53_dsa"-->
+<!--            android:layout_marginTop="@dimen/dp_30_dsa"-->
+<!--            android:background="@drawable/login_edit_text_bg"-->
+<!--            app:boxBackgroundMode="outline"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/pdf_textview"-->
+<!--            app:layout_constraintStart_toStartOf="@id/pdf_textview"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/pdf_textview"-->
+<!--            >-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/pdf_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:padding="@dimen/dp_10_dsa"
-                android:hint="@string/pdf_title"/>
-        </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/pdf_title"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@android:color/transparent"-->
+<!--                android:padding="@dimen/dp_10_dsa"-->
+<!--                android:hint="@string/pdf_title"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/upload_pdf_btn"
@@ -103,9 +103,9 @@
             android:background="@drawable/login_button_bg"
             android:layout_gravity="center_horizontal"
             android:textSize="@dimen/sp_18_dsa"
-            app:layout_constraintTop_toBottomOf="@id/tiy"
-            app:layout_constraintStart_toStartOf="@id/tiy"
-            app:layout_constraintEnd_toEndOf="@id/tiy"
+            app:layout_constraintTop_toBottomOf="@id/pdf_textview"
+            app:layout_constraintStart_toStartOf="@id/pdf_textview"
+            app:layout_constraintEnd_toEndOf="@id/pdf_textview"
             android:textAllCaps="false"/>
 
 

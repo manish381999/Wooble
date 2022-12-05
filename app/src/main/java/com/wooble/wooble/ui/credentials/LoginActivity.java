@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
 ActivityLoginBinding binding;
     private EditText etEmail, etPassword;
     private String email, password;
-    private final String URL="http://172.168.0.182/wooble-api/login.php";
-//    private String URL="https://test.wooble.org/android_dir/login.php";
+    //private final String URL="https://172.168.0.182/wooble-api/login.php";
+    private String URL="https://app.wooble.org/android_dir/login.php";
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,17 +75,12 @@ ActivityLoginBinding binding;
         });
 
     }
-
-
-
-
     private void gotoForgot_Password() {
         binding.forgotPasswordTv.setOnClickListener(view -> {
             Intent intent=new Intent(LoginActivity.this,Forgot_PasswordActivity.class);
             startActivity(intent);
         });
     }
-
     private void gotoSignup(){
         binding.gotoSignup.setOnClickListener(v -> {
             Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
@@ -94,7 +89,6 @@ ActivityLoginBinding binding;
         });
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();

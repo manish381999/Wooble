@@ -24,11 +24,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:contentDescription="@null" />
-
-
-
-
-
     <ImageView
         android:id="@+id/add_cover_pic"
         android:layout_width="@dimen/dp_24_dsa"
@@ -167,8 +162,6 @@
                 android:textSize="@dimen/sp_18_dsa"
                 android:textColor="@color/black"
                 android:padding="@dimen/dp_15_dsa"/>
-
-
             <Button
                 android:id="@+id/bt_editProfile"
                 android:layout_width="match_parent"

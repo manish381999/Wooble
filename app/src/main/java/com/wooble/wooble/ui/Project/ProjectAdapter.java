@@ -34,17 +34,17 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     @Override
     public void onBindViewHolder(@NonNull ProjectViewHolder holder, int position) {
         ProjectModel projectModel = ProjectList.get(position);
-        holder.binding.tvProjectName.setText(projectModel.getProject_name());
-        holder.binding.tvProjectAim.setText(projectModel.getAim_of_project());
-        holder.binding.tvProjectDescription.setText(projectModel.getDescription());
+        holder.binding.tvProjectName.setText(projectModel.getWork_title());
+        holder.binding.tvProjectAim.setText(projectModel.getAim_of_work());
+        holder.binding.tvProjectDescription.setText(projectModel.getWork_description());
 
         holder.binding.ivEdit.setOnClickListener(v -> {
             Intent intent=new Intent(context, Edit_Project_Activity.class);
-            intent.putExtra("file_id",projectModel.getFile_id());
+            intent.putExtra("file_id",projectModel.getEntry_id());
             intent.putExtra("email_id",projectModel.getEmail_id());
-            intent.putExtra("project_name",projectModel.getProject_name());
-            intent.putExtra("aim_of_project",projectModel.getAim_of_project());
-            intent.putExtra("description",projectModel.getDescription());
+            intent.putExtra("project_name",projectModel.getWork_title());
+            intent.putExtra("aim_of_project",projectModel.getAim_of_work());
+            intent.putExtra("description",projectModel.getWork_description());
             intent.putExtra("image_1",projectModel.getImage_1());
             intent.putExtra("image_2",projectModel.getImage_2());
             intent.putExtra("image_3",projectModel.getImage_3());
@@ -61,11 +61,11 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, Project_Viewer_Activity.class);
-                intent.putExtra("file_id",projectModel.getFile_id());
+                intent.putExtra("file_id",projectModel.getEntry_id());
                 intent.putExtra("email_id",projectModel.getEmail_id());
-                intent.putExtra("project_name",projectModel.getProject_name());
-                intent.putExtra("aim_of_project",projectModel.getAim_of_project());
-                intent.putExtra("description",projectModel.getDescription());
+                intent.putExtra("project_name",projectModel.getWork_title());
+                intent.putExtra("aim_of_project",projectModel.getAim_of_work());
+                intent.putExtra("description",projectModel.getWork_description());
                 intent.putExtra("image_1",projectModel.getImage_1());
                 intent.putExtra("image_2",projectModel.getImage_2());
                 intent.putExtra("image_3",projectModel.getImage_3());

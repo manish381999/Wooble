@@ -54,24 +54,14 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         loadProfileImage();
         loadCoverImage();
         loadProfileData();
         Objects.requireNonNull(getSupportActionBar()).setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
         binding.addCoverPic.setOnClickListener(view -> coverImage());
-
         binding.addProfilePic.setOnClickListener(view -> profileImage());
-
-
         binding.btEditProfile.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, Edit_Profile_Activity.class)));
-
-
-
         pickProfile=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -89,8 +79,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQ_COVER_PIC);
             }
         });
-
-
     }
 
     private void coverImage() {
@@ -137,14 +125,13 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.WEBP, 80, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
 
     private void uploadProfileBitmap(final Bitmap bitmap) {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPLOAD_ONLY_PROFILE_PIC,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -171,26 +158,21 @@ public class ProfileActivity extends AppCompatActivity {
                 return params;
             }
 
-            /*
-             * Here we are passing image by renaming it with a unique name
-             * */
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
                 long imagename = System.currentTimeMillis();
-                params.put("pic", new DataPart(imagename + ".png", getFileDataFromDrawable(bitmap)));
+                params.put("pic", new DataPart(imagename + ".WEBP", getFileDataFromDrawable(bitmap)));
                 return params;
             }
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
     private void uploadCoverBitmap(final Bitmap bitmap) {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();
-        //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.UPLOAD_ONLY_COVER_PIC,
                 new Response.Listener<NetworkResponse>() {
                     @Override
@@ -216,10 +198,6 @@ public class ProfileActivity extends AppCompatActivity {
                 params.put("profileEmail", profileEmail);
                 return params;
             }
-
-            /*
-             * Here we are passing image by renaming it with a unique name
-             * */
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
@@ -229,7 +207,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
@@ -241,18 +218,14 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(NetworkResponse response) {
                             try {
-                                //Log.d("image","image");
                                 JSONArray array = new JSONArray(new String(response.data));
-                                //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                                 JSONObject jObj = array.getJSONObject(0);
                                 profileImage = jObj.getString("image");
-                                //Log.d("image",profileImage);
                                 Glide.with(ProfileActivity.this)
                                         .load(profileImage)
                                         .placeholder(R.drawable.place_holder)
                                         .centerCrop()
                                         .into(binding.profilePic);
-                                //Log.d("image",date);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -261,16 +234,9 @@ public class ProfileActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }) {
 
-                /*
-                 * If you want to add more parameters with the image
-                 * you can do it here
-                 * here we have only one parameter with the image
-                 * which is tags
-                 * */
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
@@ -280,7 +246,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             };
 
-            //adding the request to volley
             Volley.newRequestQueue(this).add(volleyMultipartRequest);
         }
 
@@ -294,10 +259,9 @@ public class ProfileActivity extends AppCompatActivity {
                         try {
                             //Log.d("image","image");
                             JSONArray array = new JSONArray(new String(response.data));
-                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
                             profileImage = jObj.getString("image");
-                            //Log.d("image",profileImage);
+                            //Toast.makeText(getApplicationContext(), jObj.getString("image"), Toast.LENGTH_SHORT).show();
                             Glide.with(ProfileActivity.this)
                                     .load(profileImage)
                                     .placeholder(R.drawable.place_holder)
@@ -316,12 +280,6 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -331,7 +289,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 
@@ -363,13 +320,6 @@ public class ProfileActivity extends AppCompatActivity {
                         //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
-
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -379,7 +329,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         };
 
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 }

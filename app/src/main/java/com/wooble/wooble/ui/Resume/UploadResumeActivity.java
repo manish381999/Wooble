@@ -89,22 +89,17 @@ binding.uploadPdfBtn.setOnClickListener(new View.OnClickListener() {
 
     private static byte[] readBytes(Uri uri, ContentResolver resolver)
             throws IOException {
-        // this dynamically extends to take the bytes you read
         InputStream inputStream = resolver.openInputStream(uri);
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
 
-        // this is storage overwritten on each iteration with bytes
         int bufferSize = 1024;
         byte[] buffer = new byte[bufferSize];
 
-        // we need to know how may bytes were read to write them to the
-        // byteBuffer
         int len = 0;
         while ((len = inputStream.read(buffer)) != -1) {
             byteBuffer.write(buffer, 0, len);
         }
 
-        // and then we can return your byte array.
         return byteBuffer.toByteArray();
     }
 
@@ -139,12 +134,10 @@ binding.uploadPdfBtn.setOnClickListener(new View.OnClickListener() {
     void insertData(){
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         String email_id = sessionManagement.getSessionEmail();
-        String title = binding.pdfTitle.getText().toString().trim();
 
         Call<ResponseModel> call = Controller.getInstance()
                 .getApiInterface()
-                .insertResume(email_id,title,resume);
-
+                .insertResume(email_id,resume);
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {

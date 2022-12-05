@@ -33,8 +33,6 @@ public class Resume_Viewer_Activity extends AppCompatActivity {
 
         new pdfDownload().execute(pdfUrl);
 
-
-
     }
 private class pdfDownload extends AsyncTask<String, Void, InputStream>{
 

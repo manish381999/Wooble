@@ -65,10 +65,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
     final int REQ_video = 80;
 
     MediaController mediaController;
-
-
-    String file_id, email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion;
-
+    String  email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +73,11 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding = ActivityUploadProjectBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Upload Project");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Upload Work");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        file_id = email_id = project_name = aim_of_project = description = image_1 = image_2 = image_3 = image_4 = image_5 = image_6 = video = pdf_file = conclusion = "TlVMTA==";
+        email_id = project_name = aim_of_project = description = image_1 = image_2 = image_3 = image_4 = image_5 = image_6 = video = pdf_file = conclusion = "TlVMTA==";
         mediaController = new MediaController(this);
         mediaController.setAnchorView(binding.videoView);
         binding.videoView.setMediaController(mediaController);
@@ -111,7 +108,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding.btUploadProject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.btUploadProject.setEnabled(false);
+                //binding.btUploadProject.setEnabled(false);
                 binding.spinKit.setVisibility(View.VISIBLE);
                 SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
                 email_id = sessionManagement.getSessionEmail();
@@ -127,7 +124,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
                 }
                 Call<ResponseModel> call = Controller.getInstance()
                         .getApiInterface()
-                        .insertProject(email_id, project_name, aim_of_project, description, image_1, image_2, image_3, image_4, image_5, image_6, video, pdf_file, conclusion);
+                        .insertProject(project_name, description, email_id,  image_1, image_2, image_3, image_4, image_5, image_6, video, conclusion, pdf_file, aim_of_project);
 
                 call.enqueue(new Callback<ResponseModel>() {
                     @Override
@@ -144,16 +141,15 @@ public class Upload_Project_Activity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
                         binding.spinKit.setVisibility(View.GONE);
-                        Toast.makeText(Upload_Project_Activity.this, "Some thing went wrong", Toast.LENGTH_SHORT).show();
-                        t.printStackTrace();
-                        Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
-                        startActivity(intent);
-                        finish();
+                        Toast.makeText(Upload_Project_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        //t.printStackTrace();
+                        //Intent intent = new Intent(Upload_Project_Activity.this, ProjectFragment.class);
+                        //startActivity(intent);
+                        //finish();
                     }
                 });
             }
         });
-
 
     }
 
@@ -172,22 +168,17 @@ public class Upload_Project_Activity extends AppCompatActivity {
 
     private static byte[] readBytes(Uri uri, ContentResolver resolver)
             throws IOException {
-        // this dynamically extends to take the bytes you read
         InputStream inputStream = resolver.openInputStream(uri);
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
 
-        // this is storage overwritten on each iteration with bytes
         int bufferSize = 1024;
         byte[] buffer = new byte[bufferSize];
 
-        // we need to know how may bytes were read to write them to the
-        // byteBuffer
         int len = 0;
         while ((len = inputStream.read(buffer)) != -1) {
             byteBuffer.write(buffer, 0, len);
         }
 
-        // and then we can return your byte array.
         return byteBuffer.toByteArray();
     }
 

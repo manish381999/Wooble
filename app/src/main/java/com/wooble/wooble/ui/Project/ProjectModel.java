@@ -2,11 +2,10 @@ package com.wooble.wooble.ui.Project;
 
 public class ProjectModel {
 
-    String file_id;
+    String entry_id;
+    String work_title;
+    String work_description;
     String email_id;
-    String project_name;
-    String aim_of_project;
-    String description;
     String image_1;
     String image_2;
     String image_3;
@@ -14,15 +13,16 @@ public class ProjectModel {
     String image_5;
     String image_6;
     String video;
-    String pdf_file;
     String conclusion;
+    String pdf_file;
+    String aim_of_work;
 
-    public ProjectModel(String file_id, String email_id, String project_name, String aim_of_project, String description, String image_1, String image_2, String image_3, String image_4, String image_5, String image_6, String video, String pdf_file, String conclusion) {
-        this.file_id = file_id;
+
+    public ProjectModel(String entry_id, String work_title, String work_description, String email_id, String image_1, String image_2, String image_3, String image_4, String image_5, String image_6, String video, String conclusion, String pdf_file, String aim_of_work) {
+        this.entry_id = entry_id;
+        this.work_title = work_title;
+        this.work_description = work_description;
         this.email_id = email_id;
-        this.project_name = project_name;
-        this.aim_of_project = aim_of_project;
-        this.description = description;
         this.image_1 = image_1;
         this.image_2 = image_2;
         this.image_3 = image_3;
@@ -30,16 +30,33 @@ public class ProjectModel {
         this.image_5 = image_5;
         this.image_6 = image_6;
         this.video = video;
-        this.pdf_file = pdf_file;
         this.conclusion = conclusion;
+        this.pdf_file = pdf_file;
+        this.aim_of_work = aim_of_work;
     }
 
-    public String getFile_id() {
-        return file_id;
+    public String getEntry_id() {
+        return entry_id;
     }
 
-    public void setFile_id(String file_id) {
-        this.file_id = file_id;
+    public void setEntry_id(String entry_id) {
+        this.entry_id = entry_id;
+    }
+
+    public String getWork_title() {
+        return work_title;
+    }
+
+    public void setWork_title(String work_title) {
+        this.work_title = work_title;
+    }
+
+    public String getWork_description() {
+        return work_description;
+    }
+
+    public void setWork_description(String work_description) {
+        this.work_description = work_description;
     }
 
     public String getEmail_id() {
@@ -48,30 +65,6 @@ public class ProjectModel {
 
     public void setEmail_id(String email_id) {
         this.email_id = email_id;
-    }
-
-    public String getProject_name() {
-        return project_name;
-    }
-
-    public void setProject_name(String project_name) {
-        this.project_name = project_name;
-    }
-
-    public String getAim_of_project() {
-        return aim_of_project;
-    }
-
-    public void setAim_of_project(String aim_of_project) {
-        this.aim_of_project = aim_of_project;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImage_1() {
@@ -130,6 +123,14 @@ public class ProjectModel {
         this.video = video;
     }
 
+    public String getConclusion() {
+        return conclusion;
+    }
+
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
+    }
+
     public String getPdf_file() {
         return pdf_file;
     }
@@ -138,11 +139,11 @@ public class ProjectModel {
         this.pdf_file = pdf_file;
     }
 
-    public String getConclusion() {
-        return conclusion;
+    public String getAim_of_work() {
+        return aim_of_work;
     }
 
-    public void setConclusion(String conclusion) {
-        this.conclusion = conclusion;
+    public void setAim_of_work(String aim_of_work) {
+        this.aim_of_work = aim_of_work;
     }
 }

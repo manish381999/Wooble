@@ -1,9 +1,11 @@
 package com.wooble.wooble.ui.Gallery;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -14,6 +16,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.wooble.wooble.databinding.ActivityFullImageBinding;
+import com.wooble.wooble.ui.Blogs.BlogFragment;
+import com.wooble.wooble.ui.Blogs.Blog_Viewer_Activity;
+import com.wooble.wooble.ui.Blogs.Controller;
+import com.wooble.wooble.ui.Blogs.ResponseModel;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -25,6 +31,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Full_ImageActivity extends AppCompatActivity {
 ActivityFullImageBinding binding;
@@ -61,7 +70,22 @@ String id;
         });
 
         binding.ivDelete.setOnClickListener(view -> {
-            deleteImage();
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(Full_ImageActivity.this);
+            builder.setMessage("Do you want to delete ?");
+            builder.setTitle("");
+            builder.setCancelable(false);
+            builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                deleteImage();
+            });
+            builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                dialog.cancel();
+            });
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+
         });
 
     }
