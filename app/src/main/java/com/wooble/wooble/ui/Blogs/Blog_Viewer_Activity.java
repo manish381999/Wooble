@@ -97,6 +97,7 @@ public class Blog_Viewer_Activity extends AppCompatActivity {
                 //intent.putExtra("created_date",blogModel.getLast_updated());
                 //intent.putExtra("image",blogModel.getImage());
                 startActivity(intent);
+                finish();
 
             }
         });

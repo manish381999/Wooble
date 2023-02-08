@@ -44,13 +44,13 @@ public class PortfolioFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding=FragmentPortfolioBinding.inflate(inflater, container, false);
         requireActivity().setTitle("Portfolio");
-        binding.addPortfolio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), Create_Portfolio_Activity.class);
-                startActivity(intent);
-            }
-        });
+//        binding.addPortfolio.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getActivity(), Create_Portfolio_Activity.class);
+//                startActivity(intent);
+//            }
+//        });
         loadPortfolio();
         return binding.getRoot();
     }

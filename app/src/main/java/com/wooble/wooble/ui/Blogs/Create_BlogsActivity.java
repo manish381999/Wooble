@@ -755,7 +755,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseModel> call, retrofit2.Response<ResponseModel> response) {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
-                Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
                 //String imageURL = "http://172.168.0.182/wooble_api/blog_assets/" + output;
                 String imageURL = fileLocation + output;
                 blogEditor.insertImage(imageURL, "wooble", 300);
@@ -782,7 +782,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
                 String output = responseModel.getMessage();
                 //String videoURL = "http://172.168.0.182/wooble_api/blog_assets/" + output;
                 String videoURL = fileLocation + output;
-                Toast.makeText(getApplicationContext(), videoURL, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), videoURL, Toast.LENGTH_SHORT).show();
                 blogEditor.insertVideo(videoURL, 400);
             }
 
@@ -808,7 +808,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
                 String audioURL = fileLocation + output;
-                Toast.makeText(getApplicationContext(), audioURL, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), audioURL, Toast.LENGTH_SHORT).show();
                 blogEditor.insertAudio(audioURL);
             }
 
