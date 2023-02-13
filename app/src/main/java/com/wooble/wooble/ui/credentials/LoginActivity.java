@@ -85,7 +85,7 @@ ActivityLoginBinding binding;
         binding.gotoSignup.setOnClickListener(v -> {
             Intent intent=new Intent(LoginActivity.this,SignupActivity.class);
             startActivity(intent);
-            finish();
+
         });
 
     }
@@ -101,7 +101,7 @@ ActivityLoginBinding binding;
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-        else{
+            else{
         }
     }
 }

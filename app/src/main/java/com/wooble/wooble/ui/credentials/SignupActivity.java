@@ -77,7 +77,7 @@ public class SignupActivity extends AppCompatActivity {
                             }
 
                         }
-                    }, new Response.ErrorListener() {
+                    }, new Response  .ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             Toast.makeText(SignupActivity.this, error.toString().trim(), Toast.LENGTH_SHORT).show();

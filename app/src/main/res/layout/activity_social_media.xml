@@ -54,7 +54,6 @@
                 android:layout_marginHorizontal="@dimen/dp_10_dsa"
                 android:layout_gravity="center"
                 android:hardwareAccelerated="true"
-
                 app:cardCornerRadius="@dimen/dp_10_dsa"
                 android:layout_margin="@dimen/dp_20_dsa"
                 >

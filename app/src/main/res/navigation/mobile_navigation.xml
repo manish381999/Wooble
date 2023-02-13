@@ -18,6 +18,8 @@
     </fragment>
 
 
+
+
     <fragment
         android:id="@+id/navigation_resume"
         android:name="com.wooble.wooble.ui.Resume.ResumeFragment"
