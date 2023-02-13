@@ -112,7 +112,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
     String fileLocation = "https://app.wooble.org/img/blog_assets/";
     //String fileLocation = "http://172.168.0.182/wooble_api/blog_assets/";
 
-
+//tfyguhiop[[
     ActivityResultLauncher<Intent> videoTrimResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
