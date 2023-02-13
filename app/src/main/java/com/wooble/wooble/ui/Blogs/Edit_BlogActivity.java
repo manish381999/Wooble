@@ -510,8 +510,6 @@ public class Edit_BlogActivity extends AppCompatActivity {
         });
 
 
-
-
     }
 
 

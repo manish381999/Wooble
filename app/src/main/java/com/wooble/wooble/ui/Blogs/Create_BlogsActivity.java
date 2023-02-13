@@ -83,6 +83,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import top.defaults.colorpicker.ColorPickerPopup;
 
+//Hello Rakesh
 
 public class Create_BlogsActivity extends AppCompatActivity {
     ActivityCreateBlogsBinding binding;
@@ -90,6 +91,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
 //    private String profileEmail;
 //    ArrayList<String> arr = new ArrayList<>();
 //    String image = null;
+    //Hello world
 
 
     private Bitmap bitmap;
@@ -207,7 +209,6 @@ public class Create_BlogsActivity extends AppCompatActivity {
                     DeleteBlogRow();
                 } else {
                     PublishBlog();
-                    System.out.println("HTML " + html);
                 }
             }
         });
@@ -504,13 +505,10 @@ public class Create_BlogsActivity extends AppCompatActivity {
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     //Intent intent = result.getData();
                     // Handle the Intent
-                    System.out.println("Hii" + result);
                     Bundle extras = result.getData().getExtras();
                     Bitmap photo = (Bitmap) extras.get("data");
-                    System.out.println("Hii" + photo);
                     String path = MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), photo, "Title", null);
                     Uri uri = Uri.parse(path);
-                    //System.out.println("Hii"+Uri.parse(result.getData().toString()));
                     Intent intent = new Intent(Create_BlogsActivity.this, Gallery_Image_CropperActivity.class);
                     intent.putExtra("DATA", uri.toString());
                     startActivityForResult(intent, REQ);
@@ -1059,11 +1057,11 @@ public class Create_BlogsActivity extends AppCompatActivity {
                 ResponseModel responseModel = response.body();
                 String output = responseModel.getMessage();
                 Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getApplicationContext(), BlogFragment.class);
-//                startActivity(intent);
-//                finish();
-                Intent intent = new Intent().setClassName(getApplicationContext(),"com.wooble.wooble/com.wooble.wooble.ui.Blogs.BlogFragment.class");
-                Create_BlogsActivity.this.startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), BlogFragment.class);
+                startActivity(intent);
+                finish();
+                //Intent intent = new Intent().setClassName(getApplicationContext(),"com.wooble.wooble/com.wooble.wooble.ui.Blogs.BlogFragment.class");
+                //Create_BlogsActivity.this.startActivity(intent);
             }
 
             @Override
@@ -1145,12 +1143,13 @@ public class Create_BlogsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+
         if (html == null || html.equals("<p></p>")) {
             DeleteBlogRow();
         } else {
             PublishDraft();
         }
+        onBackPressed();
         return true;
     }
 //    private void insertBlogData() {
