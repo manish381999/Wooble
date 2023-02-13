@@ -84,16 +84,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import top.defaults.colorpicker.ColorPickerPopup;
 
-//Hello Rakesh
 
 public class Create_BlogsActivity extends AppCompatActivity {
     ActivityCreateBlogsBinding binding;
-//    Bitmap bitmap;
-//    private String profileEmail;
-//    ArrayList<String> arr = new ArrayList<>();
-//    String image = null;
-    //Hello world
-
 
     private Bitmap bitmap;
     final int REQ = 12;
@@ -112,7 +105,6 @@ public class Create_BlogsActivity extends AppCompatActivity {
     String fileLocation = "https://app.wooble.org/img/blog_assets/";
     //String fileLocation = "http://172.168.0.182/wooble_api/blog_assets/";
 
-//tfyguhiop[[
     ActivityResultLauncher<Intent> videoTrimResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
