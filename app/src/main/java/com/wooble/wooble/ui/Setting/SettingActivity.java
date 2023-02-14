@@ -1,6 +1,8 @@
 package com.wooble.wooble.ui.Setting;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,28 +62,34 @@ binding.privacyPolicy.setOnClickListener(new View.OnClickListener() {
 binding.dataPrivacy.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(SettingActivity.this, Data_Privacy_Activity.class));
+        //startActivity(new Intent(SettingActivity.this, Data_Privacy_Activity.class));
     }
 });
 
 binding.terms.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(SettingActivity.this, Terms_and_conditions_Activity.class));
+        //startActivity(new Intent(SettingActivity.this, Terms_and_conditions_Activity.class));
     }
 });
 
 binding.end.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(SettingActivity.this, End_User_License_AgreementActivity.class));
+        //startActivity(new Intent(SettingActivity.this, End_User_License_AgreementActivity.class));
     }
 });
 
 binding.rateUs.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Toast.makeText(SettingActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
+        try{
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+getPackageName())));
+        }
+        catch (ActivityNotFoundException e){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName())));
+        }
+        //Toast.makeText(SettingActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
     }
 });
 

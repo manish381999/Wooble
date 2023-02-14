@@ -115,9 +115,17 @@ ActivityMainBinding binding;
             case R.id.navigation_template:
 
             case R.id.navigation_email_signature:
+                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                break;
 
             case R.id.navigation_share:
-                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "https://play.google.com/store/apps/details?id=com.wooble.wooble";
+                String shareSubject = "Wooble App";
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
                 break;
 
             case R.id.navigation_edit_portfolio:
