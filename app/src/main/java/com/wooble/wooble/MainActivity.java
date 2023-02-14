@@ -263,12 +263,6 @@ ActivityMainBinding binding;
                     }
                 }) {
 
-            /*
-             * If you want to add more parameters with the image
-             * you can do it here
-             * here we have only one parameter with the image
-             * which is tags
-             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -277,8 +271,6 @@ ActivityMainBinding binding;
             }
 
         };
-
-        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 }
