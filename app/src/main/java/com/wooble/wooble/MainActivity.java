@@ -35,11 +35,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.wooble.wooble.databinding.ActivityMainBinding;
 
-import com.wooble.wooble.ui.Gallery.GalleryFragment;
-import com.wooble.wooble.ui.Profile.ProfileActivity;
-import com.wooble.wooble.ui.Setting.SettingActivity;
-import com.wooble.wooble.ui.credentials.LoginActivity;
-import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -52,9 +47,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
-    private ActionBarDrawerToggle toggle;
+
 
     String profileEmail;
     String profileImage;
@@ -70,9 +65,11 @@ ActivityMainBinding binding;
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         NavigationView navigationView = findViewById(R.id.navigation_drawer);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
 
 
         View headerView = navigationView.getHeaderView(0);
@@ -88,62 +85,14 @@ ActivityMainBinding binding;
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController);
 
 
-        toggle=new ActionBarDrawerToggle(this,binding.drawerLayout,R.string.start, R.string.close);
-        binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
 
-        binding.navigationDrawer.setNavigationItemSelectedListener(this);
 
     }
 
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        toggle.onOptionsItemSelected(item);
-        return true;
-    }
 
-    @SuppressLint("NonConstantResourceId")
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.navigation_profile:
-                 startActivity(new Intent(MainActivity.this,ProfileActivity.class));
-                 break;
-
-            case R.id.navigation_template:
-
-            case R.id.navigation_email_signature:
-                Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.navigation_share:
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                String shareBody = "https://play.google.com/store/apps/details?id=com.wooble.wooble";
-                String shareSubject = "Wooble App";
-                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
-                startActivity(Intent.createChooser(sharingIntent, "Share using"));
-                break;
-
-            case R.id.navigation_edit_portfolio:
-                startActivity(new Intent(MainActivity.this, Edit_Portfolio_Activity.class));
-                break;
-
-            case R.id.navigation_setting:
-               Intent intent=new Intent(MainActivity.this, SettingActivity.class);
-                intent.putExtra("image",profileImage);
-                startActivity(intent);
-                break;
-
-            case R.id.navigation_social_media:
-               startActivity(new Intent(MainActivity.this, Social_media_Activity.class));
-                break;
-        }
-        return true;
-    }
 
 
     @Override
@@ -271,6 +220,12 @@ ActivityMainBinding binding;
                     }
                 }) {
 
+            /*
+             * If you want to add more parameters with the image
+             * you can do it here
+             * here we have only one parameter with the image
+             * which is tags
+             * */
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -279,6 +234,8 @@ ActivityMainBinding binding;
             }
 
         };
+
+        //adding the request to volley
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
 }

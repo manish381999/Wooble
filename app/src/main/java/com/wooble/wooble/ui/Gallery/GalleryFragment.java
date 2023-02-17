@@ -49,18 +49,19 @@ FragmentGalleryBinding binding;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentGalleryBinding.inflate(inflater, container, false);
-        requireActivity().setTitle("Gallery");
-        binding.addImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getActivity(),ImageUploaderActivity.class);
-                startActivity(intent);
-            }
-        });
+
+//
+//        binding.addImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(getActivity(),ImageUploaderActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         recyclerView = binding.RvGallery;
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
         galleryList = new ArrayList<>();
         loadGalleryImage();
         return binding.getRoot();

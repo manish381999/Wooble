@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.Profile.ProfileFragment">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:textSize="@dimen/sp_18_dsa"
+                android:lineHeight="@dimen/sp_21_dsa"
+                android:textFontWeight="500"
+                android:layout_marginTop="@dimen/dp_5_dsa"
+                android:fontFamily="@font/ubuntu"
+                android:layout_gravity="start"
+                android:textColor="@color/white"
+                tools:targetApi="p"/>
+
+            <ImageView
+                android:id="@+id/more"
+                android:layout_width="@dimen/dp_24_dsa"
+                android:layout_height="@dimen/dp_24_dsa"
+                android:src="@drawable/ic_more2"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dp_5_dsa"
+                android:layout_marginEnd="@dimen/dp_15_dsa"
+                android:contentDescription="@null" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dp_0_dsa"
+        android:theme="@style/Theme.ProfileAppBar">
+
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            >
+
+
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/cover_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_140_dsa"
+                    android:src="@drawable/place_holder"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/setting"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:src="@drawable/ic_setting"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    android:layout_marginStart="10dp"/>-->
+
+
+
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="@dimen/dp_100_dsa"
+                    android:layout_height="@dimen/dp_100_dsa"
+                    android:src="@drawable/place_holder"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="@dimen/dp_2_dsa"
+                    app:layout_constraintTop_toBottomOf="@id/cover_pic"
+                    app:layout_constraintStart_toStartOf="@id/cover_pic"
+                    app:layout_constraintEnd_toEndOf="@id/cover_pic"
+                    app:layout_constraintHorizontal_bias="0.05"
+                    android:layout_marginTop="@dimen/dp_40_minus_dsa"/>
+
+                <TextView
+                    android:id="@+id/tv_fullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/full_name"
+                    android:textSize="@dimen/sp_18_dsa"
+                    android:lineHeight="@dimen/sp_21_dsa"
+                    android:textFontWeight="500"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/main_textColor"
+                    app:layout_constraintTop_toBottomOf="@id/profile_pic"
+                    app:layout_constraintStart_toStartOf="@id/profile_pic"
+                    app:layout_constraintEnd_toEndOf="@id/profile_pic"
+                    tools:targetApi="p" />
+
+                <TextView
+                    android:id="@+id/tv_profession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profession"
+                    android:textSize="@dimen/sp_15_dsa"
+                    android:lineHeight="@dimen/sp_17_dsa"
+                    android:textFontWeight="400"
+                    android:layout_marginTop="@dimen/dp_5_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/main_textColor"
+                    app:layout_constraintTop_toBottomOf="@id/tv_fullName"
+                    app:layout_constraintStart_toStartOf="@id/tv_fullName"
+                    app:layout_constraintEnd_toEndOf="@id/tv_fullName"
+                    tools:targetApi="p" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bt_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_40_dsa"
+                    android:layout_gravity="center"
+                    android:background="@drawable/share_btn_bg"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/profile_pic"
+                    android:layout_marginTop="@dimen/dp_30_dsa"
+                    android:text="@string/share_portfolio"
+                    android:textColor="@color/main_textColor"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/sp_16_dsa"
+                    android:textFontWeight="500"
+                    android:lineHeight="@dimen/sp_30_dsa"
+                    app:layout_constraintTop_toBottomOf="@id/cover_pic"
+                    tools:targetApi="p"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1_dsa"
+            android:layout_marginBottom="@dimen/dp_8_dsa"
+            android:background="#d3d3d3"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.ProfileAppBar"
+                app:elevation="@dimen/dp_0_dsa">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40_dsa"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="@dimen/dp_5_dsa"
+                    android:layout_marginEnd="@dimen/dp_5_dsa"
+                    app:tabGravity="fill"
+                    app:tabMode="fixed"
+                    app:tabIndicator="@drawable/tab_indicator"
+                    app:tabIndicatorColor="@color/main_textColor"
+                    app:tabTextAppearance="@style/TabLayout"
+                    app:tabRippleColor="@null"
+                    app:tabInlineLabel="true"
+                    app:tabTextColor="@color/main_textColor"
+                    app:tabIconTint="@drawable/tab_selected"
+
+
+                    />
+
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_2_dsa"
+                android:layout_below="@+id/appBarLayout"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

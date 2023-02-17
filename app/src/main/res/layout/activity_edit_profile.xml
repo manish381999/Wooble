@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splash_screen_cl"
+   android:background="@color/white"
     tools:context=".ui.Profile.Edit_Profile_Activity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,138 +20,316 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/cover_pic"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_140_dsa"
+                android:src="@drawable/place_holder"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="@dimen/dp_120_dsa"
+                android:layout_height="@dimen/dp_120_dsa"
+                android:src="@drawable/place_holder"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/dp_2_dsa"
+                app:layout_constraintTop_toBottomOf="@id/cover_pic"
+                app:layout_constraintStart_toStartOf="@id/cover_pic"
+                app:layout_constraintEnd_toEndOf="@id/cover_pic"
+                app:layout_constraintHorizontal_bias="0.05"
+                android:layout_marginTop="@dimen/dp_40_minus_dsa"/>
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:cardElevation="@dimen/dp_10_dsa"
-        app:cardCornerRadius="@dimen/dp_15_dsa"
-        android:layout_margin="@dimen/dp_20_dsa"
-        >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_500_dsa"
-        android:layout_marginHorizontal="@dimen/dp_20_dsa"
-        android:layout_marginTop="@dimen/dp_15_dsa"
-        android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/full_name"
+                android:textSize="@dimen/sp_12_dsa"
+                android:lineHeight="14sp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintTop_toBottomOf="@id/profile_pic"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/light_black_color"
+                tools:targetApi="p" />
+
+            <EditText
+                android:id="@+id/et_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_marginTop="@dimen/dp_8_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:background="@drawable/login_edit_text_bg"
+                android:inputType="textPersonName"
+                android:padding="@dimen/dp_15_dsa"
+                android:textColor="@color/black"
+                android:autofillHints=""
+                app:layout_constraintTop_toBottomOf="@id/tv_full_name"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp_18_dsa"
+                android:layout_marginEnd="@dimen/dp_18_dsa"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:id="@+id/tv_mobileNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mobile_number"
+                android:textSize="@dimen/sp_12_dsa"
+                android:lineHeight="14sp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintTop_toBottomOf="@id/et_full_name"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/light_black_color"
+                tools:targetApi="p" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/full_name"
-            android:textSize="@dimen/sp_18_dsa"
-            android:fontFamily="@font/ubuntu"
-            android:textColor="@color/light_black_color"/>
+            <EditText
+                android:id="@+id/et_mobileNo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_marginTop="@dimen/dp_8_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:background="@drawable/login_edit_text_bg"
+                android:inputType="phone"
+                android:padding="@dimen/dp_15_dsa"
+                android:textColor="@color/black"
+                android:autofillHints=""
+                app:layout_constraintTop_toBottomOf="@id/tv_mobileNo"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp_18_dsa"
+                android:layout_marginEnd="@dimen/dp_18_dsa"
+                tools:ignore="LabelFor" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textSize="@dimen/sp_12_dsa"
+                android:lineHeight="14sp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintTop_toBottomOf="@id/et_mobileNo"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/light_black_color"
+                tools:targetApi="p" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_marginTop="@dimen/dp_8_dsa"
+                android:textSize="@dimen/sp_18_dsa"
+                android:background="@drawable/login_edit_text_bg"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/dp_15_dsa"
+                android:textColor="@color/black"
+                android:autofillHints=""
+                app:layout_constraintTop_toBottomOf="@id/tv_email"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp_18_dsa"
+                android:layout_marginEnd="@dimen/dp_18_dsa"
+                tools:ignore="LabelFor" />
 
 
-        <EditText
-            android:id="@+id/et_full_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textSize="@dimen/sp_18_dsa"
-            android:background="@drawable/login_edit_text_bg"
-            android:inputType="textPersonName"
-            android:padding="@dimen/dp_15_dsa"
-            android:textColor="@color/black"
-            android:autofillHints=""
-            tools:ignore="LabelFor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mobile_number"
-            android:textSize="@dimen/sp_18_dsa"
-            android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textColor="@color/light_black_color"/>
-
-        <EditText
-            android:id="@+id/et_mobileNo"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textSize="@dimen/sp_18_dsa"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:padding="@dimen/dp_15_dsa"
-            android:autofillHints=""
-            tools:ignore="LabelFor" />
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textSize="@dimen/sp_12_dsa"
+                android:lineHeight="14sp"
+                android:textFontWeight="400"
+                android:fontFamily="@font/ubuntu"
+                app:layout_constraintTop_toBottomOf="@id/et_email"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/light_black_color"
+                tools:targetApi="p" />
 
 
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:background="@drawable/login_edit_text_bg"
+                android:layout_marginTop="@dimen/dp_8_dsa"
+                android:textColorHint="@color/light_black_color"
+                android:textSize="@dimen/sp_18_dsa"
+                android:hint="@string/pass"
+                android:textColor="@color/black"
+                android:padding="@dimen/dp_15_dsa"
+                android:autofillHints=""
+                android:inputType="textPassword"
+                app:layout_constraintTop_toBottomOf="@id/tv_password"
+                android:layout_marginStart="@dimen/dp_18_dsa"
+                android:layout_marginEnd="@dimen/dp_18_dsa"
+                />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/enter_email"
-            android:textSize="@dimen/sp_18_dsa"
-            android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textColor="@color/light_black_color"/>
-
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:inputType="textEmailAddress"
-            android:textSize="@dimen/sp_18_dsa"
-            android:textColor="@color/black"
-            android:padding="@dimen/dp_12_dsa"
-            android:autofillHints=""
-            tools:ignore="LabelFor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textSize="@dimen/sp_18_dsa"
-            android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textColor="@color/light_black_color"/>
-
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:background="@drawable/login_edit_text_bg"
-            android:layout_marginTop="@dimen/dp_15_dsa"
-            android:textColorHint="@color/light_black_color"
-            android:textSize="@dimen/sp_18_dsa"
-            android:hint="@string/pass"
-            android:textColor="@color/black"
-            android:padding="@dimen/dp_15_dsa"
-            android:autofillHints=""
-            android:inputType="textPassword" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bt_update"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50_dsa"
+                android:text="@string/update"
+                android:textAllCaps="false"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/sp_18_dsa"
+                android:layout_marginTop="@dimen/dp_30_dsa"
+                android:background="@drawable/login_button_bg"
+                android:backgroundTint="@null"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_password"
+                android:layout_marginEnd="@dimen/dp_18_dsa"
+                android:layout_marginStart="@dimen/dp_18_dsa"
+                android:layout_marginBottom="@dimen/dp_180_dsa"/>
 
 
-        <Button
-            android:id="@+id/bt_update"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50_dsa"
-            android:text="@string/update"
-            android:textAllCaps="false"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/sp_18_dsa"
-            android:layout_marginTop="@dimen/dp_20_dsa"
-            android:background="@drawable/login_button_bg"
-            android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ti_image_caption"
-            android:layout_marginBottom="@dimen/dp_180_dsa"/>
+            <!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:cardElevation="@dimen/dp_10_dsa"-->
+<!--        app:cardCornerRadius="@dimen/dp_15_dsa"-->
+<!--        android:layout_margin="@dimen/dp_20_dsa"-->
+<!--        >-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/dp_500_dsa"-->
+<!--        android:layout_marginHorizontal="@dimen/dp_20_dsa"-->
+<!--        android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--        android:orientation="vertical">-->
 
 
-    </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/full_name"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:fontFamily="@font/ubuntu"-->
+<!--            android:textColor="@color/light_black_color"/>-->
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_full_name"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_50_dsa"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:background="@drawable/login_edit_text_bg"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:padding="@dimen/dp_15_dsa"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:autofillHints=""-->
+<!--            tools:ignore="LabelFor" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/mobile_number"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:fontFamily="@font/ubuntu"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textColor="@color/light_black_color"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_mobileNo"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_50_dsa"-->
+<!--            android:background="@drawable/login_edit_text_bg"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:inputType="number"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="@dimen/dp_15_dsa"-->
+<!--            android:autofillHints=""-->
+<!--            tools:ignore="LabelFor" />-->
+
+
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/enter_email"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:fontFamily="@font/ubuntu"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textColor="@color/light_black_color"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_email"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_50_dsa"-->
+<!--            android:background="@drawable/login_edit_text_bg"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="@dimen/dp_12_dsa"-->
+<!--            android:autofillHints=""-->
+<!--            tools:ignore="LabelFor" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/password"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:fontFamily="@font/ubuntu"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textColor="@color/light_black_color"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_password"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_50_dsa"-->
+<!--            android:background="@drawable/login_edit_text_bg"-->
+<!--            android:layout_marginTop="@dimen/dp_15_dsa"-->
+<!--            android:textColorHint="@color/light_black_color"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:hint="@string/pass"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="@dimen/dp_15_dsa"-->
+<!--            android:autofillHints=""-->
+<!--            android:inputType="textPassword" />-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/bt_update"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/dp_50_dsa"-->
+<!--            android:text="@string/update"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:textSize="@dimen/sp_18_dsa"-->
+<!--            android:layout_marginTop="@dimen/dp_20_dsa"-->
+<!--            android:background="@drawable/login_button_bg"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/ti_image_caption"-->
+<!--            android:layout_marginBottom="@dimen/dp_180_dsa"/>-->
+
+
+<!--    </LinearLayout>-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

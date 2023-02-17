@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.wooble.wooble">
+
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +14,6 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-
 
     <application
         android:allowBackup="false"
@@ -28,6 +30,34 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.portfolio.PortfolioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Onboarding.Onboarding_image_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Onboarding.Onboarding_profession_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.Onboarding.Onboarding_name_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.Blogs.Edit_BlogActivity"
             android:exported="false"
             android:screenOrientation="locked"
@@ -38,7 +68,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.Project.Edit_Project_Activity"
+            android:name=".ui.Work.Edit_Project_Activity"
             android:exported="false"
             android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize">
@@ -63,7 +93,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.Project.Project_Viewer_Activity"
+            android:name=".ui.Work.Project_Viewer_Activity"
             android:exported="false"
             android:screenOrientation="locked">
             <meta-data
@@ -177,7 +207,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.Project.Upload_Project_Activity"
+            android:name=".ui.Work.Upload_Project_Activity"
             android:exported="false"
             android:screenOrientation="locked"
             android:windowSoftInputMode="adjustResize">
@@ -211,8 +241,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".ui.portfolio.Create_Portfolio_Activity"
             android:exported="false"

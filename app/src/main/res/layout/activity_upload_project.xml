@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Project.Upload_Project_Activity">
+    tools:context=".ui.Work.Upload_Project_Activity">
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/spin_kit"

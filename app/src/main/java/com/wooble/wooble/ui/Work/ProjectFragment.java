@@ -1,6 +1,5 @@
-package com.wooble.wooble.ui.Project;
+package com.wooble.wooble.ui.Work;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +33,9 @@ FragmentProjectBinding binding;
                              Bundle savedInstanceState) {
 
         binding = FragmentProjectBinding.inflate(inflater, container, false);
-        requireActivity().setTitle("Works");
+
+
+
         recyclerView = binding.RvProject;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -42,10 +43,8 @@ FragmentProjectBinding binding;
         projectList = new ArrayList<>();
 
         loadProjectData();
-        binding.addProject.setOnClickListener(view -> {
-          Intent intent=new Intent(getActivity(), Upload_Project_Activity.class);
-          startActivity(intent);
-        });
+
+
 
         return binding.getRoot();
 
@@ -65,6 +64,7 @@ FragmentProjectBinding binding;
             public void onResponse(Call<ArrayList<ProjectModel>> call, Response<ArrayList<ProjectModel>> response) {
                 projectList = response.body();
                 Collections.reverse(projectList);
+                System.out.println("Hii"+projectList);
                 for (int i = 0; i < projectList.size(); i++) {
                     ProjectAdapter projectAdapter = new ProjectAdapter(getContext(),projectList);
                     binding.RvProject.setAdapter(projectAdapter);

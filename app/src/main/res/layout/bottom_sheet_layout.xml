@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/sheet"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10_dsa"
+    android:background="@drawable/bottom_sheet_bg"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="@dimen/dp_30_dsa"
+        android:layout_height="@dimen/dp_30_dsa"
+        android:src="@drawable/ic_expand_less"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload"
+        android:textSize="@dimen/sp_18_dsa"
+        android:fontFamily="@font/ubuntu"
+        android:textStyle="bold"
+        android:textFontWeight="700"
+        android:textColor="@color/main_textColor"
+        android:layout_gravity="center_horizontal"
+        tools:targetApi="p" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".8dp"
+        android:layout_marginTop="@dimen/dp_10_dsa"
+        android:layout_marginBottom="@dimen/dp_8_dsa"
+        android:background="#d3d3d3"/>
+
+
+    <LinearLayout
+        android:id="@+id/edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_15_dsa"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/dp_24_dsa"
+            android:layout_height="@dimen/dp_24_dsa"
+            android:src="@drawable/ic_edit_profile"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile"
+            android:textFontWeight="400"
+            android:textSize="@dimen/sp_16_dsa"
+            android:fontFamily="@font/ubuntu"
+            android:textStyle="bold"
+            android:textColor="@color/main_textColor"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_10_dsa"
+            tools:targetApi="p" />
+
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:id="@+id/add_work"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_15_dsa"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="@dimen/dp_24_dsa"
+        android:layout_height="@dimen/dp_24_dsa"
+        android:src="@drawable/ic_work"
+        android:contentDescription="@null"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/works"
+        android:textFontWeight="400"
+        android:textSize="@dimen/sp_16_dsa"
+        android:fontFamily="@font/ubuntu"
+        android:textStyle="bold"
+        android:textColor="@color/main_textColor"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp_10_dsa"
+        tools:targetApi="p" />
+
+
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_blogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_15_dsa"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/dp_24_dsa"
+            android:layout_height="@dimen/dp_24_dsa"
+            android:src="@drawable/ic_blog"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blogs"
+            android:textFontWeight="400"
+            android:textSize="@dimen/sp_16_dsa"
+            android:fontFamily="@font/ubuntu"
+            android:textStyle="bold"
+            android:textColor="@color/main_textColor"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_10_dsa"
+            tools:targetApi="p" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_15_dsa"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/dp_24_dsa"
+            android:layout_height="@dimen/dp_24_dsa"
+            android:src="@drawable/ic_gallery"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gallery"
+            android:textFontWeight="400"
+            android:textSize="@dimen/sp_16_dsa"
+            android:fontFamily="@font/ubuntu"
+            android:textStyle="bold"
+            android:textColor="@color/main_textColor"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp_10_dsa"
+            tools:targetApi="p" />
+
+
+
+    </LinearLayout>
+</LinearLayout>

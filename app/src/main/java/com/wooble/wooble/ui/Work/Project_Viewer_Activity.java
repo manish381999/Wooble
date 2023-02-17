@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.Project;
+package com.wooble.wooble.ui.Work;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
