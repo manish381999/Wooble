@@ -42,7 +42,7 @@ public class BlogFragment extends Fragment {
 
         binding = FragmentBlogBinding.inflate(inflater, container, false);
 
-      requireActivity().setTitle("Blogs");
+
 
         recyclerView = binding.RvBlog;
         recyclerView.setHasFixedSize(true);

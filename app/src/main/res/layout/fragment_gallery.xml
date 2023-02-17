@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/light_white"
     tools:context=".ui.Gallery.GalleryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,18 +41,6 @@ app:layout_constraintBottom_toBottomOf="parent"        >
 </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_30_dsa"
-        android:layout_marginBottom="@dimen/dp_30_dsa"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_blogs"
-        app:tint="@color/splash_screen_cl"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="@dimen/dp_60_dsa"
-        android:contentDescription="@null" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,8 +5,8 @@
 
     <item
 
-        android:id="@+id/navigation_profile"
-        android:title="@string/profile"
+        android:id="@+id/navigation_portfolio"
+        android:title="@string/portfolio"
         android:icon="@drawable/ic_account"/>
 
     <item

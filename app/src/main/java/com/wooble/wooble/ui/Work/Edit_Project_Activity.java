@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.Project;
+package com.wooble.wooble.ui.Work;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,9 +23,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
-import com.google.android.exoplayer2.ExoPlayer;
-import com.google.android.exoplayer2.MediaItem;
 import com.squareup.picasso.Picasso;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
@@ -34,21 +30,14 @@ import com.wooble.wooble.databinding.ActivityEditProjectBinding;
 import com.wooble.wooble.databinding.ActivityFullImageBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 import com.wooble.wooble.ui.Blogs.ResponseModel;
-import com.wooble.wooble.ui.Gallery.Full_ImageActivity;
-import com.wooble.wooble.ui.Resume.Resume_Viewer_Activity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Base64;
 import java.util.Objects;
 
-import kotlinx.coroutines.Delay;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

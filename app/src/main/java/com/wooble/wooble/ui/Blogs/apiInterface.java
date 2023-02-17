@@ -1,17 +1,14 @@
 package com.wooble.wooble.ui.Blogs;
 
-import com.wooble.wooble.ui.Project.ProjectModel;
+import com.wooble.wooble.ui.Work.ProjectModel;
 import com.wooble.wooble.ui.Resume.ResumeModel;
-import com.wooble.wooble.ui.credentials.ForgetPasswordResponseModel;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface apiInterface {

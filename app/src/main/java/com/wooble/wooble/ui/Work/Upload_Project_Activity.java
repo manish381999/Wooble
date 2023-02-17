@@ -1,4 +1,4 @@
-package com.wooble.wooble.ui.Project;
+package com.wooble.wooble.ui.Work;
 
 
 import androidx.annotation.NonNull;
@@ -25,12 +25,10 @@ import android.widget.Toast;
 
 
 import com.wooble.wooble.SessionManagement;
+import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
 import com.wooble.wooble.ui.Blogs.Controller;
 
 import com.wooble.wooble.ui.Blogs.ResponseModel;
-import com.wooble.wooble.ui.Resume.ResumeFragment;
-import com.wooble.wooble.ui.Resume.UploadResumeActivity;
-import com.wooble.wooble.databinding.ActivityUploadProjectBinding;
 
 
 import java.io.ByteArrayOutputStream;

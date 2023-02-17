@@ -126,4 +126,17 @@
     <string name="back_to_you_as_soon_as_possible">back to you as soon as possible</string>
 
 
+    <string name="i_m">I\'m</string>
+    <string name="your_name">Your Name</string>
+    <string name="this_is_your_portfolio_s_name_so_we_can_customize_it_a_nbit_more_no_stress_you_can_change_this_later_anytime">This Is Your Portfolio\'s Name So We Can Customize It A \nBit More. No Stress, You Can Change This Later Anytime</string>
+    <string name="next">Next</string>
+    <string name="your_profile_picture">Your Profile Picture</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="or_choose_any_avatar">Or choose any avatar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="share_portfolio">Share portfolio</string>
+
+
 </resources>

@@ -40,7 +40,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
                 .load(gallery.getImage_url())
                 .placeholder(R.drawable.place_holder)
                 .into(holder.binding.gllImage);
-        holder.binding.imageTitle.setText(gallery.getTitle());
+//        holder.binding.imageTitle.setText(gallery.getTitle());
+
+
         holder.binding.gllImage.setOnClickListener(v -> {
             Intent intent=new Intent(context, Full_ImageActivity.class);
             intent.putExtra("id",gallery.getId());
