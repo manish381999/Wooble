@@ -1,6 +1,8 @@
 package com.wooble.wooble.ui.Profile;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -72,6 +75,9 @@ ViewPagerAdapter viewPagerAdapter;
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         requireActivity().setTitle("Profile");
+
+
+
 
 
         navFullname = binding.tvFullName;
