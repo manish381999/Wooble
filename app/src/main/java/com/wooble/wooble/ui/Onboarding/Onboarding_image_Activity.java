@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.R;
 import com.wooble.wooble.databinding.ActivityOnboardingImageBinding;
+import com.wooble.wooble.ui.credentials.LoginActivity;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -50,7 +51,7 @@ ActivityOnboardingImageBinding binding;
         binding.btNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Onboarding_image_Activity.this, MainActivity.class);
+                Intent intent=new Intent(Onboarding_image_Activity.this, LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
             }
