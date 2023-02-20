@@ -58,7 +58,7 @@ ViewPagerAdapter viewPagerAdapter;
     String coverImage;
     CircularImageView circularImageView;
     ImageView coverPic;
-    TextView navUsername;
+    TextView navFullname;
     TextView navProfession;
 
     private String[] titles=new String[]{"Work", "Blogs", "Gallery"};
@@ -74,7 +74,7 @@ ViewPagerAdapter viewPagerAdapter;
         requireActivity().setTitle("Profile");
 
 
-        navUsername = binding.tvUserName;
+        navFullname = binding.tvFullName;
         navProfession = binding.tvProfession;
         circularImageView = binding.profilePic;
         coverPic = binding.coverPic;
@@ -205,8 +205,10 @@ ViewPagerAdapter viewPagerAdapter;
                             JSONArray array = new JSONArray(new String(response.data));
                             //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
                             JSONObject jObj = array.getJSONObject(0);
-                            navUsername.setText(jObj.getString("fullname"));
-                            navProfession.setText(jObj.getString("designation"));
+                            binding.tvUserName.setText(jObj.getString("username"));
+                            binding.tvFullName.setText(jObj.getString("fullname"));
+                            binding.tvProfession.setText(jObj.getString("designation"));
+
                             //Log.d("fullname",jObj.getString("fullname"));
 
                         } catch (JSONException e) {

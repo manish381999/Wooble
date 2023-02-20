@@ -309,7 +309,7 @@ public class ProfileActivity extends AppCompatActivity {
                             binding.tvFullName.setText(jObj.getString("fullname"));
                             binding.tvEmail.setText(jObj.getString("email"));
                             binding.tvMobileNo.setText(jObj.getString("mobile"));
-                            Log.d("fullname",jObj.getString("fullname"));
+                            //Log.d("fullname",jObj.getString("fullname"));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
