@@ -40,6 +40,7 @@ ActivityLoginBinding binding;
         etPassword = findViewById(R.id.login_password);
         Button loginButton = findViewById(R.id.login_btn);
         gotoSignup();
+
         gotoForgot_Password();
         loginButton.setOnClickListener(view -> {
             email = etEmail.getText().toString().trim();

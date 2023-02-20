@@ -27,6 +27,7 @@ import com.wooble.wooble.databinding.FragmentDiscoverBinding;
 import com.wooble.wooble.ui.Profile.ProfileActivity;
 import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
+import com.wooble.wooble.ui.portfolio.PortfolioActivity;
 
 
 public class DiscoverFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,15 +64,13 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
         @SuppressLint("NonConstantResourceId")
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.navigation_profile:
-                startActivity(new Intent(getActivity(), ProfileActivity.class));
-                 break;
+            case R.id.navigation_portfolio:
+                startActivity(new Intent(getActivity(), PortfolioActivity.class));
+                break;
 
             case R.id.navigation_template:
 
             case R.id.navigation_email_signature:
-
-
 
             case R.id.navigation_share:
                 Toast.makeText(getContext(), "Coming Soon", Toast.LENGTH_SHORT).show();

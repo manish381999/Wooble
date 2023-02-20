@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.wooble.wooble.MainActivity;
 import com.wooble.wooble.R;
+import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityOnboardingNameBinding;
 
 
@@ -50,4 +52,21 @@ ActivityOnboardingNameBinding binding;
             }
         });
     }
+
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        SessionManagement sessionManagement = new SessionManagement(Onboarding_name_Activity.this);
+//        String userEmail = sessionManagement.getSessionEmail();
+//        String userPassword = sessionManagement.getSessionPassword();
+//
+//        if(userEmail != null && userPassword != null){
+//            Intent intent = new Intent(Onboarding_name_Activity.this, MainActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(intent);
+//        }
+//        else{
+//        }
+//    }
 }

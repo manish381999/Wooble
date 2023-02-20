@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.portfolio.PortfolioActivity">
 
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="dp8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteY="dp8"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

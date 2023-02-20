@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
 import com.wooble.wooble.databinding.ActivitySplashBinding;
 import com.wooble.wooble.ui.Onboarding.Onboarding_name_Activity;
 import com.wooble.wooble.ui.credentials.LoginActivity;
-
+import com.wooble.wooble.ui.credentials.SignupActivity;
 
 
 @SuppressLint("CustomSplashScreen")
@@ -66,7 +66,7 @@ ActivitySplashBinding binding;
           new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, Onboarding_name_Activity.class);
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
