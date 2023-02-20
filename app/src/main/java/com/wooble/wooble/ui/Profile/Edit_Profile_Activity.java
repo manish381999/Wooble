@@ -1,6 +1,6 @@
 package com.wooble.wooble.ui.Profile;
 
-import androidx.appcompat.app.AppCompatActivity;
+import   androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 
@@ -37,6 +37,8 @@ ActivityEditProfileBinding binding;
         setContentView(binding.getRoot());
 
         loadProfileData();
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
         Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
