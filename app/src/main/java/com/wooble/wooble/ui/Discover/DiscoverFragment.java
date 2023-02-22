@@ -19,12 +19,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.wooble.wooble.MainActivity;
+
 import com.wooble.wooble.R;
 import com.wooble.wooble.Social_media_Activity;
-import com.wooble.wooble.databinding.BlogItemLayoutBinding;
+
 import com.wooble.wooble.databinding.FragmentDiscoverBinding;
-import com.wooble.wooble.ui.Profile.ProfileActivity;
+
 import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.PortfolioActivity;
@@ -42,10 +42,8 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
         requireActivity().setTitle("Discover");
 
         return binding.getRoot();
+  }
 
-
-
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

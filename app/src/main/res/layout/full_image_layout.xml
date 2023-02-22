@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profile_pic1"
+        android:layout_width="@dimen/dp_40_dsa"
+        android:layout_height="@dimen/dp_40_dsa"
+        android:src="@drawable/place_holder"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="@dimen/dp_1_dsa"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_10_dsa"
+        android:layout_marginStart="@dimen/dp_10_dsa"
+        />
+
+    <TextView
+        android:id="@+id/tv_imageTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/image_title"
+        android:textColor="@color/secondary_textColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/profile_pic1"
+        android:layout_marginTop="@dimen/dp_13_dsa"
+        android:textSize="@dimen/sp_15_dsa"
+        android:lineHeight="@dimen/sp_17_dsa"
+        android:textFontWeight="500"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginStart="@dimen/dp_8_dsa"
+        tools:targetApi="p"/>
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textColor="@color/secondary_textColor"
+        app:layout_constraintTop_toBottomOf="@id/tv_imageTitle1"
+        app:layout_constraintStart_toStartOf="@id/tv_imageTitle1"
+        android:textSize="@dimen/sp_12_dsa"
+        android:lineHeight="@dimen/sp_14_dsa"
+        android:textFontWeight="500"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="@dimen/dp_1_dsa"
+        tools:targetApi="p"/>
+
+    <ImageView
+        android:id="@+id/iv_more1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_16_dsa"
+        android:layout_marginEnd="@dimen/dp_20_dsa"/>
+
+    <ImageView
+        android:id="@+id/iv_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/place_holder"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@id/tv_location"
+        android:layout_marginTop="@dimen/dp_15_dsa"/>
+
+
+    <TextView
+        android:id="@+id/tv_imageCaption1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/image_caption"
+        android:textColor="@color/main_textColor"
+        app:layout_constraintTop_toBottomOf="@id/iv_gallery"
+        android:layout_marginTop="@dimen/dp_10_dsa"
+        android:layout_marginStart="@dimen/dp_10_dsa"
+        android:textFontWeight="500"
+        android:textSize="@dimen/sp_12_dsa"
+        android:fontFamily="@font/ubuntu"
+        android:lineHeight="@dimen/sp_14_dsa"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="p" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dd_mm_yyyy"
+        android:textColor="@color/secondary_textColor"
+        app:layout_constraintTop_toBottomOf="@id/tv_imageCaption1"
+        app:layout_constraintStart_toStartOf="@id/tv_imageCaption1"
+        android:textSize="@dimen/sp_10_dsa"
+        android:lineHeight="@dimen/sp_11_dsa"
+        android:layout_marginTop="@dimen/dp_5_dsa"
+        tools:targetApi="p" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
