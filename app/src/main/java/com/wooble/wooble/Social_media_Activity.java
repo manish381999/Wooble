@@ -46,7 +46,6 @@ binding.instagram.setOnClickListener(new View.OnClickListener() {
     }
 });
 
-
 binding.twitter.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -58,7 +57,6 @@ binding.twitter.setOnClickListener(new View.OnClickListener() {
         startActivity(i);
     }
 });
-
 
 binding.linkedIn.setOnClickListener(new View.OnClickListener() {
     @Override

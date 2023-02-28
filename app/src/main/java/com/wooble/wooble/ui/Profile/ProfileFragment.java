@@ -1,24 +1,35 @@
 package com.wooble.wooble.ui.Profile;
 
+import static android.app.Activity.RESULT_OK;
+
+import static com.wooble.wooble.ui.Work.Upload_Project_Activity.fileUriToBase64;
+
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
+
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -30,13 +41,17 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.wooble.wooble.MainActivity;
+
 import com.wooble.wooble.R;
 
 import com.wooble.wooble.SessionManagement;
+
+
 import com.wooble.wooble.databinding.FragmentProfileBinding;
 import com.wooble.wooble.ui.Blogs.Create_BlogsActivity;
+import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
+import com.wooble.wooble.ui.Gallery.VideoUploaderActivity;
 import com.wooble.wooble.ui.Work.Upload_Project_Activity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -45,10 +60,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
+import java.util.Objects;
 
 
 public class ProfileFragment extends Fragment {
@@ -64,6 +82,13 @@ ViewPagerAdapter viewPagerAdapter;
     TextView navFullname;
     TextView navProfession;
 
+    final int REQ = 12;
+    final int REQ_video = 80;
+ Uri video_Uri;
+ String video;
+
+        ActivityResultLauncher<String> pickImage;
+
     private String[] titles=new String[]{"Work", "Blogs", "Gallery"};
 
     private int[] tabIcons={R.drawable.ic_work, R.drawable.ic_blog, R.drawable.ic_gallery};
@@ -75,10 +100,6 @@ ViewPagerAdapter viewPagerAdapter;
         binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         requireActivity().setTitle("Profile");
-
-
-
-
 
         navFullname = binding.tvFullName;
         navProfession = binding.tvProfession;
@@ -120,6 +141,7 @@ ViewPagerAdapter viewPagerAdapter;
                     }
                 });
 
+
                 view.findViewById(R.id.add_blogs).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -128,11 +150,39 @@ ViewPagerAdapter viewPagerAdapter;
                     }
                 });
 
+
                 view.findViewById(R.id.add_gallery).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(getActivity(), ImageUploaderActivity.class);
-                        startActivity(intent);
+                        bottomSheetDialog=new BottomSheetDialog(getContext(),R.style.BottomSheetStyle);
+
+                        View view1=inflater.inflate(R.layout.gallery_bottom_sheet_layout,null);
+                        LinearLayout linearLayout1=view1.findViewById(R.id.gallery_sheet);
+
+                        view1.findViewById(R.id.iv_addImage).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                openGalleryImage();
+                            }
+                        });
+
+                        view1.findViewById(R.id.iv_addVideo).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                              openGalleryVideo();
+                            }
+                        });
+
+                        view1.findViewById(R.id.iv_addGif).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(getContext(), "GiF", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
+                        bottomSheetDialog.setContentView(view1);
+                        bottomSheetDialog.show();
                     }
                 });
 
@@ -144,14 +194,57 @@ ViewPagerAdapter viewPagerAdapter;
         });
 
 
+                pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            public void onActivityResult(Uri result) {
+                Intent intent = new Intent(getActivity(), Gallery_Image_CropperActivity.class);
+                intent.putExtra("DATA", result.toString());
+                startActivityForResult(intent, REQ);
+            }
+        });
+
         return binding.getRoot();
     }
 
+    private void openGalleryVideo() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, REQ_video);
+    }
+
+
+
+    private void openGalleryImage() {
+        pickImage.launch("image/*");
+    }
+
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQ) {
+            String result = data.getStringExtra("RESULT");
+     //       Uri resultUri = null;
+//            if (result != null) {
+//                resultUri = Uri.parse(result);
+//            }
+           Intent intent=new Intent(getActivity(),ImageUploaderActivity.class);
+            intent.putExtra("image", result);
+//            System.out.println("image"+BitMapToString(bitmap));
+            startActivity(intent);
+        }else if (requestCode == REQ_video && resultCode == RESULT_OK && data != null){
+            video_Uri = data.getData();
+            Intent intent=new Intent(getActivity(),VideoUploaderActivity.class);
+            intent.putExtra("video", video_Uri.toString());
+            startActivity(intent);
+
+//            video = fileUriToBase64(video_Uri, getActivity().getContentResolver());
+        }
+    }
+
     private void setupTabIcons() {
-      binding.tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        binding.tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         binding.tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         binding.tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-
 
     }
 
@@ -284,5 +377,6 @@ ViewPagerAdapter viewPagerAdapter;
         //adding the request to volley
         Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
     }
+
 
 }

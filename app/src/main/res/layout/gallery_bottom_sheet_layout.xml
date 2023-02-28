@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_250_dsa"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bottom_sheet_bg"
+    android:elevation="@dimen/dp_5_dsa"
+    android:orientation="vertical"
+    android:id="@+id/gallery_sheet">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200_dsa"
+        android:layout_margin="@dimen/dp_20_dsa"
+        android:background="@drawable/gallery_bottom_sheet_bg"
+        android:backgroundTint="@null">
+
+            <ImageView
+                android:id="@+id/iv_addImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_60_dsa"
+                android:src="@drawable/ic_image_gallery"
+                app:layout_constraintEnd_toStartOf="@+id/view1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/ubuntu"
+                android:lineHeight="@dimen/sp_11_dsa"
+                android:text="Image"
+                android:textColor="@color/secondary_textColor"
+                android:textSize="@dimen/sp_10_dsa"
+                app:layout_constraintEnd_toEndOf="@id/iv_addImage"
+                app:layout_constraintStart_toStartOf="@id/iv_addImage"
+                app:layout_constraintTop_toBottomOf="@id/iv_addImage" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/dp_1_dsa"
+                android:layout_height="@dimen/dp_80_dsa"
+                android:layout_marginStart="@dimen/dp_20_dsa"
+                android:layout_marginBottom="@dimen/dp_25_dsa"
+                android:background="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_addVideo"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/iv_addImage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/iv_addVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20_dsa"
+                android:layout_marginTop="@dimen/dp_60_dsa"
+                android:src="@drawable/ic_video_files"
+                app:layout_constraintEnd_toStartOf="@+id/view2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/view1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/ubuntu"
+                android:lineHeight="@dimen/sp_11_dsa"
+                android:text="Video"
+                android:textSize="@dimen/sp_10_dsa"
+                android:textColor="@color/secondary_textColor"
+                app:layout_constraintEnd_toEndOf="@id/iv_addVideo"
+                app:layout_constraintStart_toStartOf="@id/iv_addVideo"
+                app:layout_constraintTop_toBottomOf="@id/iv_addVideo" />
+
+            <View
+                android:id="@id/view2"
+                android:layout_width="@dimen/dp_1_dsa"
+                android:layout_height="@dimen/dp_80_dsa"
+                android:layout_marginStart="@dimen/dp_20_dsa"
+                android:layout_marginBottom="@dimen/dp_25_dsa"
+                android:background="@color/colorBlack"
+                android:textColor="@color/secondary_textColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_addGif"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/iv_addVideo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_addGif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_20_dsa"
+                android:layout_marginTop="@dimen/dp_60_dsa"
+                android:src="@drawable/ic_gif"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/ubuntu"
+                android:lineHeight="@dimen/sp_11_dsa"
+                android:text="Gif"
+                android:textColor="@color/secondary_textColor"
+                android:textSize="@dimen/sp_10_dsa"
+                app:layout_constraintEnd_toEndOf="@id/iv_addGif"
+                app:layout_constraintStart_toStartOf="@id/iv_addGif"
+                app:layout_constraintTop_toBottomOf="@id/iv_addGif" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap &amp;  Add images, videos, or Gif"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                android:textSize="@dimen/sp_12_dsa"
+                android:lineHeight="@dimen/sp_14_dsa"
+                android:textColor="#414B54"
+                android:fontFamily="@font/ubuntu"
+                android:textStyle="bold"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</LinearLayout>

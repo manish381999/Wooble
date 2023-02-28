@@ -100,7 +100,7 @@
                     android:background="@drawable/login_edit_text_bg"
                     android:fontFamily="@font/ubuntu"
                     android:gravity="top|start"
-                    android:hint="@string/caption"
+                    android:hint="@string/image_caption"
                     android:inputType="textMultiLine|textEmailAddress"
                     android:maxLength="450"
                     android:padding="@dimen/dp_10_dsa"

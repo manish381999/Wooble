@@ -50,11 +50,13 @@ String id;
         binding= ActivityFullImageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
+
         id = getIntent().getStringExtra("id");
         data=getIntent().getStringExtra("image");
         titleData=getIntent().getStringExtra("title");
         captionData=getIntent().getStringExtra("description");
         binding.cation.setText(captionData);
+
         Glide.with(getApplicationContext())
                 .load(data)
                 .into(binding.imageView);

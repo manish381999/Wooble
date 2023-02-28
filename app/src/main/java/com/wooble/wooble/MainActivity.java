@@ -1,8 +1,7 @@
 package com.wooble.wooble;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.navigation.NavController;
@@ -10,9 +9,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 
-import android.annotation.SuppressLint;
-
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -86,12 +82,6 @@ ActivityMainBinding binding;
 
     }
 
-
-
-
-
-
-
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
@@ -102,6 +92,7 @@ ActivityMainBinding binding;
         bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
+
     public void loadProfileImage() {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         profileEmail = sessionManagement.getSessionEmail();

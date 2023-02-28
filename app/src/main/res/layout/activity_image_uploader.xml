@@ -4,9 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_white"
     android:id="@+id/container"
     tools:context=".ui.Gallery.ImageUploaderActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/im_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:title="New Post"
+            app:navigationIcon="@drawable/ic_back_btn"
+            app:titleTextColor="@color/main_textColor"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+
+         <Button
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Done"
+             android:textAllCaps="false"
+             android:textColor="@color/done_text_color"
+             android:textSize="@dimen/sp_16_dsa"
+             android:lineHeight="@dimen/sp_16_dsa"
+             android:textFontWeight="1000"
+            android:background="@android:color/transparent"
+             android:fontFamily="@font/ubuntu"
+             android:layout_gravity="end"
+             android:layout_marginEnd="@dimen/dp_5_dsa"
+             android:gravity="center"
+             android:textStyle="bold"
+             tools:targetApi="p" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
     <ScrollView
@@ -16,141 +62,128 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            >
 
-
-            <com.github.ybq.android.spinkit.SpinKitView
-                android:id="@+id/spin_kit"
-                style="@style/SpinKitView.Large.Circle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_235_dsa"
+                android:src="@drawable/place_holder"
+                android:scaleType="fitXY"
                 app:layout_constraintTop_toTopOf="parent"
-                android:elevation="@dimen/dp_10_dsa"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:SpinKit_Color="@color/progress_bar_color" />
+                android:layout_marginTop="@dimen/dp_15_dsa"
+                android:layout_marginStart="@dimen/dp_10_dsa"
+                android:layout_marginEnd="@dimen/dp_10_dsa"
+                android:contentDescription="@null" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView"
+
+<EditText
+    android:id="@+id/et_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Add Title"
+    android:textColorHint="@color/main_textColor"
+    android:textSize="@dimen/sp_16_dsa"
+    android:lineHeight="@dimen/sp_18_dsa"
+    android:background="@android:color/transparent"
+    android:fontFamily="@font/ubuntu"
+    android:textFontWeight="500"
+    tools:targetApi="p"
+    android:inputType="text"
+    app:layout_constraintTop_toBottomOf="@id/iv_image"
+    android:layout_marginTop="@dimen/dp_40_dsa"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="@dimen/dp_15_dsa"
+    android:autofillHints="" />
+
+            <View
+                android:id="@+id/view1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_300_dsa"
-                android:layout_margin="@dimen/dp_10_dsa"
-                app:cardCornerRadius="@dimen/dp_10_dsa"
-                app:cardElevation="@dimen/dp_5_dsa"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:id="@+id/gallery_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp_300_dsa"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/place_holder"
-                        android:contentDescription="@null"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_image_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dp_10_dsa"
-                android:layout_marginTop="@dimen/dp_10_dsa"
-                app:boxBackgroundMode="none"
-                app:hintTextColor="@color/splash_screen_cl"
-                app:counterMaxLength="80"
-                app:counterEnabled="true"
-                app:layout_constraintTop_toBottomOf="@id/cardView">
-
-                <EditText
-                    android:id="@+id/image_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="@null"
-                    android:background="@drawable/login_edit_text_bg"
-                    android:fontFamily="@font/ubuntu"
-                    android:hint="@string/image_title"
-                    android:inputType="textAutoCorrect"
-                    android:padding="@dimen/dp_20_dsa"
-                    android:singleLine="true"
-                    android:textColor="@color/light_black_color"
-                    android:textColorHint="#202020"
-                    android:textSize="@dimen/sp_18_dsa"
-                    android:textStyle="bold"
-                    android:maxLength="80"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ti_image_caption"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dp_10_dsa"
-                android:layout_marginTop="@dimen/dp_10_dsa"
-                app:boxBackgroundMode="none"
-                app:hintTextColor="@color/splash_screen_cl"
-                app:counterMaxLength="450"
-                app:counterEnabled="true"
-                app:layout_constraintTop_toBottomOf="@id/ti_image_title">
-
-                <EditText
-                    android:id="@+id/image_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_150_dsa"
-                    android:autofillHints="@null"
-                    android:background="@drawable/login_edit_text_bg"
-                    android:fontFamily="@font/ubuntu"
-                    android:gravity="top|start"
-                    android:hint="@string/caption"
-                    android:inputType="textMultiLine|textAutoCorrect"
-                    android:padding="@dimen/dp_10_dsa"
-                    android:singleLine="true"
-                    android:textColor="@color/light_black_color"
-                    android:textColorHint="#202020"
-                    android:textSize="@dimen/sp_18_dsa"
-                    android:textStyle="bold"
-                    android:maxLength="450"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <Button
-                android:id="@+id/bt_upload"
-                android:layout_width="@dimen/dp_150_dsa"
-                android:layout_height="@dimen/dp_50_dsa"
+                android:layout_height="0.0001dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_title"
                 android:layout_marginTop="@dimen/dp_20_dsa"
-                android:layout_marginBottom="@dimen/dp_20_dsa"
-                android:background="@drawable/read_btn_bg"
-                android:gravity="center"
-                android:text="@string/upload"
-                android:textAllCaps="false"
-                android:textSize="@dimen/sp_18_dsa"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ti_image_caption" />
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <EditText
+                android:id="@+id/et_cation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Write a caption..."
+                android:textColorHint="@color/textColorHint"
+                android:textSize="@dimen/sp_16_dsa"
+                android:lineHeight="@dimen/sp_18_dsa"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubuntu"
+                android:textFontWeight="500"
+                tools:targetApi="p"
+                android:inputType="text"
+                app:layout_constraintTop_toBottomOf="@id/view1"
+                android:layout_marginTop="@dimen/dp_40_dsa"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp_15_dsa"
+                android:autofillHints="" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="0.0001dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_cation"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+            <EditText
+                android:id="@+id/et_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Add Location"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="@dimen/sp_16_dsa"
+                android:lineHeight="@dimen/sp_18_dsa"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubuntu"
+                android:textFontWeight="500"
+                tools:targetApi="p"
+                android:inputType="text"
+                app:layout_constraintTop_toBottomOf="@id/view2"
+                android:layout_marginTop="@dimen/dp_40_dsa"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/dp_15_dsa"
+                android:autofillHints="" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="0.0001dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/et_location"
+                android:layout_marginTop="@dimen/dp_20_dsa"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     </ScrollView>
 

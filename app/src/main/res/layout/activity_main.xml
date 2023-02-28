@@ -35,7 +35,7 @@
         android:elevation="3dp"
         app:menu="@menu/bottom_navigation"
         app:itemRippleColor="@android:color/transparent"
-        app:itemIconSize="28dp"
+        app:itemIconSize="24dp"
         app:itemTextColor="@color/secondary_textColor"
         app:labelVisibilityMode="selected"
         android:background="@drawable/bottom_navigationbar_bg"

@@ -1,9 +1,19 @@
 package com.wooble.wooble.ui.Gallery;
 
+
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +41,7 @@ List list;
 
     @Override
     public void onBindViewHolder(@NonNull FullImageViewHolder holder, int position) {
+
 
     }
 

@@ -20,8 +20,9 @@
     
     <color name="main_textColor">#FF000000</color>
     <color name="secondary_textColor">#1D2226</color>
-    <color name="textColorHint">#66FFFFFF</color>
-    
+    <color name="textColorHint">#414B54</color>
+    <color name="done_text_color">#4067B2</color>
+
     
     
     
