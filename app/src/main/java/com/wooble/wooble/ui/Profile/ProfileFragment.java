@@ -2,12 +2,10 @@ package com.wooble.wooble.ui.Profile;
 
 import static android.app.Activity.RESULT_OK;
 
-import static com.wooble.wooble.ui.Work.Upload_Project_Activity.fileUriToBase64;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 
-import android.graphics.Bitmap;
+
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -20,7 +18,7 @@ import androidx.fragment.app.Fragment;
 
 
 import android.provider.MediaStore;
-import android.util.Base64;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +48,7 @@ import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.FragmentProfileBinding;
 import com.wooble.wooble.ui.Blogs.Create_BlogsActivity;
 import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
+import com.wooble.wooble.ui.Gallery.GifUploaderActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
 import com.wooble.wooble.ui.Gallery.VideoUploaderActivity;
 import com.wooble.wooble.ui.Work.Upload_Project_Activity;
@@ -61,17 +60,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+
 import java.util.HashMap;
 
 import java.util.Map;
-import java.util.Objects;
+
+
 
 
 public class ProfileFragment extends Fragment {
     FragmentProfileBinding binding;
-ViewPagerAdapter viewPagerAdapter;
+    ViewPagerAdapter viewPagerAdapter;
     BottomSheetDialog bottomSheetDialog;
 
     String profileEmail;
@@ -84,14 +83,18 @@ ViewPagerAdapter viewPagerAdapter;
 
     final int REQ = 12;
     final int REQ_video = 80;
- Uri video_Uri;
- String video;
+   final int REQ_gif=70;
+    Uri video_Uri, gif_Uri;
+
 
         ActivityResultLauncher<String> pickImage;
 
     private String[] titles=new String[]{"Work", "Blogs", "Gallery"};
 
     private int[] tabIcons={R.drawable.ic_work, R.drawable.ic_blog, R.drawable.ic_gallery};
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -176,7 +179,7 @@ ViewPagerAdapter viewPagerAdapter;
                         view1.findViewById(R.id.iv_addGif).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(getContext(), "GiF", Toast.LENGTH_SHORT).show();
+                                openGalleryGif();
                             }
                         });
 
@@ -203,6 +206,13 @@ ViewPagerAdapter viewPagerAdapter;
         });
 
         return binding.getRoot();
+    }
+
+    private void openGalleryGif() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,REQ_gif);
     }
 
     private void openGalleryVideo() {
@@ -238,7 +248,14 @@ ViewPagerAdapter viewPagerAdapter;
             startActivity(intent);
 
 //            video = fileUriToBase64(video_Uri, getActivity().getContentResolver());
+        }else if (requestCode==REQ_gif && resultCode==RESULT_OK && data!=null){
+            gif_Uri=data.getData();
+            Intent intent=new Intent(getActivity(), GifUploaderActivity.class);
+            intent.putExtra("gif", gif_Uri.toString());
+            startActivity(intent);
+
         }
+
     }
 
     private void setupTabIcons() {

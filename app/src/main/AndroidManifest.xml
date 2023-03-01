@@ -30,6 +30,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.Gallery.GifUploaderActivity"
+            android:exported="false"
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ui.Gallery.VideoUploaderActivity"
             android:exported="false"
             android:screenOrientation="locked"
@@ -40,40 +49,40 @@
         </activity>
         <activity
             android:name=".ui.Gallery.Full_Image_Activity"
-            android:screenOrientation="locked"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.portfolio.PortfolioActivity"
-            android:screenOrientation="locked"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Onboarding.Onboarding_image_Activity"
-            android:screenOrientation="locked"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Onboarding.Onboarding_profession_Activity"
-            android:screenOrientation="locked"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".ui.Onboarding.Onboarding_name_Activity"
-            android:screenOrientation="locked"
-            android:exported="false">
+            android:exported="false"
+            android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

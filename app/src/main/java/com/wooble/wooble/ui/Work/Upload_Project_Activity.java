@@ -81,6 +81,7 @@ public class Upload_Project_Activity extends AppCompatActivity {
         binding.videoView.setMediaController(mediaController);
         binding.videoView.stopPlayback();
 
+
         binding.imageView1.setOnClickListener(view -> imageView1());
 
         binding.imageView2.setOnClickListener(view -> imageView2());

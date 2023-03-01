@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.MediaItem;
-import com.wooble.wooble.R;
+
 import com.wooble.wooble.databinding.ActivityVideoUploaderBinding;
 
 import java.util.Objects;
