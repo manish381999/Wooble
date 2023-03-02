@@ -25,6 +25,8 @@ ActivityGifUploaderBinding binding;
         setSupportActionBar(binding.imToolbar);
 
 
+
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 

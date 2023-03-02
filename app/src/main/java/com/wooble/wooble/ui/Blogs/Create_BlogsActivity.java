@@ -60,6 +60,7 @@ import com.rakeshsutar.blogeditor.BlogEditor;
 import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 
+
 import com.wooble.wooble.databinding.ActivityCreateBlogsBinding;
 import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
@@ -193,6 +194,7 @@ public class Create_BlogsActivity extends AppCompatActivity {
         binding.createTitle.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(binding.createTitle, InputMethodManager.SHOW_IMPLICIT);
+
 
 
         binding.btnPublish.setOnClickListener(new View.OnClickListener() {

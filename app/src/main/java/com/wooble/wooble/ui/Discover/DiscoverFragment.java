@@ -23,8 +23,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.wooble.wooble.R;
 import com.wooble.wooble.Social_media_Activity;
 
-import com.wooble.wooble.databinding.FragmentDiscoverBinding;
 
+import com.wooble.wooble.databinding.FragmentDiscoverBinding;
 import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.PortfolioActivity;

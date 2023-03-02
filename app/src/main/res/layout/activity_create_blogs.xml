@@ -91,6 +91,7 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/toolBox"
         android:layout_width="match_parent"
@@ -106,6 +107,8 @@
             android:background="@null"
             android:contentDescription="@null"
             android:src="@drawable/no_format" />
+
+
         <ImageButton
             android:id="@+id/action_undo"
             android:layout_width="50dp"

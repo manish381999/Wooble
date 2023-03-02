@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
@@ -51,7 +50,7 @@ import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.Gallery.GifUploaderActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
 import com.wooble.wooble.ui.Gallery.VideoUploaderActivity;
-import com.wooble.wooble.ui.Work.Upload_Project_Activity;
+import com.wooble.wooble.ui.Work.WorkUploaderActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
 
@@ -139,7 +138,7 @@ public class ProfileFragment extends Fragment {
                 view.findViewById(R.id.add_work).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(getActivity(), Upload_Project_Activity.class);
+                        Intent intent=new Intent(getActivity(), WorkUploaderActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -150,6 +149,7 @@ public class ProfileFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent=new Intent(getActivity(), Create_BlogsActivity.class);
                         startActivity(intent);
+
                     }
                 });
 
@@ -197,7 +197,7 @@ public class ProfileFragment extends Fragment {
         });
 
 
-                pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            pickImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             public void onActivityResult(Uri result) {
                 Intent intent = new Intent(getActivity(), Gallery_Image_CropperActivity.class);
                 intent.putExtra("DATA", result.toString());
@@ -253,6 +253,7 @@ public class ProfileFragment extends Fragment {
             Intent intent=new Intent(getActivity(), GifUploaderActivity.class);
             intent.putExtra("gif", gif_Uri.toString());
             startActivity(intent);
+
 
         }
 
