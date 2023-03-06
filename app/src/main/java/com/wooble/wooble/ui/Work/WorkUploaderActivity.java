@@ -64,11 +64,9 @@ public class WorkUploaderActivity extends AppCompatActivity {
         setSupportActionBar(binding.imToolbar);
 
 
-
-
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         binding.blogEditor.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

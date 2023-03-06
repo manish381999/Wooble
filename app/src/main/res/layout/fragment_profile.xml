@@ -45,12 +45,22 @@
                 tools:targetApi="p"/>
 
             <ImageView
+                android:id="@+id/setting"
+                android:layout_width="@dimen/dp_24_dsa"
+                android:layout_height="@dimen/dp_24_dsa"
+                android:src="@drawable/ic_more"
+                android:layout_marginTop="@dimen/dp_5_dsa"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/dp_10_dsa"
+                android:contentDescription="@null" />
+
+            <ImageView
                 android:id="@+id/more"
                 android:layout_width="@dimen/dp_24_dsa"
                 android:layout_height="@dimen/dp_24_dsa"
                 android:src="@drawable/ic_more2"
-                android:layout_gravity="end"
                 android:layout_marginTop="@dimen/dp_5_dsa"
+                android:layout_gravity="end"
                 android:layout_marginEnd="@dimen/dp_15_dsa"
                 android:contentDescription="@null" />
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.Work.WorkUploaderActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -27,7 +28,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:navigationIcon="@drawable/ic_back_btn"
-            app:titleTextColor="@color/main_textColor"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout

@@ -140,6 +140,8 @@
     <string name="or_sign_up_with">Or Sign up With</string>
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="image_title">Image Title</string>
+    <string name="theme">Theme</string>
+    <string name="about">About</string>
 
 
 </resources>

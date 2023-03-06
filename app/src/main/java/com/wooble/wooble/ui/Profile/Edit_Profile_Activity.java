@@ -1,10 +1,14 @@
 package com.wooble.wooble.ui.Profile;
 
 import   androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 
 import android.os.Bundle;
+import android.view.Window;
+
+
 
 import android.widget.Toast;
 
@@ -14,7 +18,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
+
 import com.wooble.wooble.databinding.ActivityEditProfileBinding;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -38,9 +44,13 @@ ActivityEditProfileBinding binding;
 
         loadProfileData();
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Profile");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        setSupportActionBar(binding.imToolbar);
+
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
 
 binding.btUpdate.setOnClickListener(view -> {
     updateProfileData();
@@ -127,5 +137,12 @@ binding.btUpdate.setOnClickListener(view -> {
         };
 
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
+
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

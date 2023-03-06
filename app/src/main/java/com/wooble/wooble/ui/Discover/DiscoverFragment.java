@@ -21,11 +21,10 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 
 import com.wooble.wooble.R;
-import com.wooble.wooble.Social_media_Activity;
+
 
 
 import com.wooble.wooble.databinding.FragmentDiscoverBinding;
-import com.wooble.wooble.ui.Setting.SettingActivity;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
 import com.wooble.wooble.ui.portfolio.PortfolioActivity;
 
@@ -42,6 +41,7 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
         requireActivity().setTitle("Discover");
 
         return binding.getRoot();
+
   }
 
 
@@ -70,22 +70,17 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
 
             case R.id.navigation_email_signature:
 
-            case R.id.navigation_share:
-                Toast.makeText(getContext(), "Coming Soon", Toast.LENGTH_SHORT).show();
-                break;
-
             case R.id.navigation_edit_portfolio:
                 startActivity(new Intent(getActivity(), Edit_Portfolio_Activity.class));
                 break;
 
-            case R.id.navigation_setting:
-               Intent intent=new Intent(getActivity(), SettingActivity.class);
-                startActivity(intent);
+            case R.id.navigation_resume:
+                Toast.makeText(getContext(), "Resume", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.navigation_social_media:
-               startActivity(new Intent(getActivity(), Social_media_Activity.class));
-                break;
+
+
+
         }
         return true;
     }

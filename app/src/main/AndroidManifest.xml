@@ -33,7 +33,7 @@
             android:name=".ui.Gallery.GifUploaderActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -42,7 +42,7 @@
             android:name=".ui.Gallery.VideoUploaderActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+           >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -91,7 +91,6 @@
             android:name=".ui.Blogs.Edit_BlogActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
@@ -171,14 +170,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.Setting.SettingActivity"
-            android:exported="false"
-            android:screenOrientation="locked">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ui.Setting.Help_Center_Activity"
             android:exported="false"
             android:screenOrientation="locked">
@@ -240,7 +231,7 @@
             android:name=".ui.Work.WorkUploaderActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+
             android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.app.lib_name"
@@ -249,7 +240,6 @@
         <activity
             android:name=".ui.Profile.Edit_Profile_Activity"
             android:exported="false"
-            android:parentActivityName=".ui.Profile.Edit_Profile_Activity"
             android:screenOrientation="locked">
             <meta-data
                 android:name="android.app.lib_name"
@@ -268,7 +258,7 @@
             android:name=".ui.Gallery.ImageUploaderActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+           >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -282,7 +272,6 @@
             android:name=".ui.Blogs.Create_BlogsActivity"
             android:exported="false"
             android:screenOrientation="locked"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.credentials.Reset_PasswordActivity"

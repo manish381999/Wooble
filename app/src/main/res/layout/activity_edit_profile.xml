@@ -19,45 +19,54 @@
         >
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/im_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/white"
             app:layout_constraintStart_toStartOf="parent"
+            app:navigationIcon="@drawable/ic_back_btn"
             app:layout_constraintTop_toTopOf="parent">
 
-
-            <ImageView
-                android:id="@+id/bt_clear"
-                android:layout_width="@dimen/dp_30_dsa"
-                android:layout_height="@dimen/dp_30_dsa"
-                android:src="@drawable/ic_clear"
-                android:layout_gravity="start"
-                android:layout_marginTop="@dimen/dp_5_dsa"
-                android:layout_marginEnd="@dimen/dp_15_dsa"
-                android:contentDescription="@null" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:elevation="0dp"
+                android:layout_height="wrap_content">
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit Profile"
-                android:textColor="@color/main_textColor"
-                android:textFontWeight="500"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/ubuntu"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_profile"
+                    android:textSize="@dimen/sp_16_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/secondary_textColor"
+                    android:textFontWeight="1000"
+                    android:layout_marginTop="@dimen/dp_10_dsa"
+                    android:lineHeight="@dimen/sp_18_dsa"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center_vertical"
+                    tools:targetApi="p" />
 
-            <ImageView
-                android:id="@+id/bt_update"
-                android:layout_width="@dimen/dp_30_dsa"
-                android:layout_height="@dimen/dp_30_dsa"
-                android:src="@drawable/ic_check"
-                android:layout_gravity="end"
-                android:layout_marginTop="@dimen/dp_5_dsa"
-                android:layout_marginEnd="@dimen/dp_15_dsa"
-                android:contentDescription="@null" />
+                <ImageView
+                    android:id="@+id/bt_update"
+                    android:layout_width="@dimen/dp_30_dsa"
+                    android:layout_height="@dimen/dp_30_dsa"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/dp_5_dsa"
+                    android:layout_marginEnd="@dimen/dp_15_dsa"
+                    android:contentDescription="@null" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 
         </androidx.appcompat.widget.Toolbar>
@@ -99,7 +108,7 @@
                 android:id="@+id/add_cover_pic"
                 android:layout_width="@dimen/dp_24_dsa"
                 android:layout_height="@dimen/dp_24_dsa"
-                android:src="@drawable/edit_2"
+                android:src="@drawable/ic_camera"
                 android:elevation="@dimen/dp_10_dsa"
                 app:layout_constraintBottom_toBottomOf="@+id/cover_pic"
                 app:layout_constraintEnd_toEndOf="@+id/cover_pic"
@@ -126,7 +135,7 @@
                 android:id="@+id/add_profile_pic"
                 android:layout_width="@dimen/dp_40_dsa"
                 android:layout_height="@dimen/dp_35_dsa"
-                android:src="@drawable/ic_blogs"
+                android:src="@drawable/ic_photo_camera"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="@dimen/dp_2_dsa"
                 android:padding="@dimen/dp_2_dsa"

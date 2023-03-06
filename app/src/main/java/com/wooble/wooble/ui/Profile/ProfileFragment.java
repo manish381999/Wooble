@@ -6,6 +6,7 @@ import static android.app.Activity.RESULT_OK;
 import android.content.Intent;
 
 
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -35,6 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -50,6 +52,8 @@ import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.Gallery.GifUploaderActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
 import com.wooble.wooble.ui.Gallery.VideoUploaderActivity;
+import com.wooble.wooble.ui.Setting.Help_Center_Activity;
+import com.wooble.wooble.ui.Setting.Privacy_Policy_Activity;
 import com.wooble.wooble.ui.Work.WorkUploaderActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -127,13 +131,7 @@ public class ProfileFragment extends Fragment {
                 View view=inflater.inflate(R.layout.bottom_sheet_layout,null);
                 LinearLayout linearLayout=view.findViewById(R.id.sheet);
 
-                view.findViewById(R.id.edit_profile).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent=new Intent(getActivity(), Edit_Profile_Activity.class);
-                        startActivity(intent);
-                    }
-                });
+
 
                 view.findViewById(R.id.add_work).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -193,6 +191,51 @@ public class ProfileFragment extends Fragment {
                 bottomSheetDialog.setContentView(view);
                 bottomSheetDialog.show();
 
+            }
+        });
+
+        binding.setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog=new BottomSheetDialog(getContext(),R.style.BottomSheetStyle);
+
+                View view2=inflater.inflate(R.layout.setting_bottom_sheet_layout,null);
+                LinearLayout linearLayout2=view2.findViewById(R.id.setting_sheet);
+
+
+                Glide.with(getContext())
+                        .load(profileImage)
+                        .placeholder(R.drawable.place_holder)
+                        .centerCrop()
+                        .into((ImageView) view2.findViewById(R.id.profile_pic));
+
+                view2.findViewById(R.id.edit_profile).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getActivity(),Edit_Profile_Activity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                view2.findViewById(R.id.help_center).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getActivity(), Help_Center_Activity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                view2.findViewById(R.id.privacy_policy).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(getActivity(), Privacy_Policy_Activity.class);
+                        startActivity(intent);
+                    }
+                });
+
+
+                bottomSheetDialog.setContentView(view2);
+                bottomSheetDialog.show();
             }
         });
 

@@ -41,7 +41,8 @@ ActivityLoginBinding binding;
         super.onCreate(savedInstanceState);
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Objects.requireNonNull(getSupportActionBar()).hide();
+
+//
 
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
 

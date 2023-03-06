@@ -61,10 +61,8 @@ ActivityMainBinding binding;
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
 
         NavigationView navigationView = findViewById(R.id.navigation_drawer);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
 
