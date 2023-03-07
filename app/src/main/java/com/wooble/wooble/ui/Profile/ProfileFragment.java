@@ -6,7 +6,7 @@ import static android.app.Activity.RESULT_OK;
 import android.content.Intent;
 
 
-import android.graphics.drawable.Drawable;
+
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -36,7 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.Target;
+
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -52,8 +52,8 @@ import com.wooble.wooble.ui.Gallery.Gallery_Image_CropperActivity;
 import com.wooble.wooble.ui.Gallery.GifUploaderActivity;
 import com.wooble.wooble.ui.Gallery.ImageUploaderActivity;
 import com.wooble.wooble.ui.Gallery.VideoUploaderActivity;
+import com.wooble.wooble.ui.Setting.AboutActivity;
 import com.wooble.wooble.ui.Setting.Help_Center_Activity;
-import com.wooble.wooble.ui.Setting.Privacy_Policy_Activity;
 import com.wooble.wooble.ui.Work.WorkUploaderActivity;
 import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
@@ -90,13 +90,12 @@ public class ProfileFragment extends Fragment {
     Uri video_Uri, gif_Uri;
 
 
+
         ActivityResultLauncher<String> pickImage;
 
     private String[] titles=new String[]{"Work", "Blogs", "Gallery"};
 
     private int[] tabIcons={R.drawable.ic_work, R.drawable.ic_blog, R.drawable.ic_gallery};
-
-
 
 
     @Override
@@ -147,7 +146,6 @@ public class ProfileFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent=new Intent(getActivity(), Create_BlogsActivity.class);
                         startActivity(intent);
-
                     }
                 });
 
@@ -217,6 +215,7 @@ public class ProfileFragment extends Fragment {
                     }
                 });
 
+
                 view2.findViewById(R.id.help_center).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -225,10 +224,10 @@ public class ProfileFragment extends Fragment {
                     }
                 });
 
-                view2.findViewById(R.id.privacy_policy).setOnClickListener(new View.OnClickListener() {
+                view2.findViewById(R.id.about).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(getActivity(), Privacy_Policy_Activity.class);
+                        Intent intent=new Intent(getActivity(), AboutActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -353,6 +352,8 @@ public class ProfileFragment extends Fragment {
         //adding the request to volley
         Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
     }
+
+
     public void loadProfileData() {
         SessionManagement sessionManagement = new SessionManagement(getContext());
         profileEmail = sessionManagement.getSessionEmail();
@@ -379,7 +380,7 @@ public class ProfileFragment extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
 

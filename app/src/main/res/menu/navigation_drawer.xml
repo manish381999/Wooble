@@ -7,7 +7,7 @@
 
         android:id="@+id/navigation_portfolio"
         android:title="@string/portfolio"
-        android:icon="@drawable/ic_account"/>
+        android:icon="@drawable/ic_portfolio"/>
 
     <item
 

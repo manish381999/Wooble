@@ -44,7 +44,6 @@ public class PortfolioActivity extends AppCompatActivity {
         loadPortfolio();
 
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
 
 
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){

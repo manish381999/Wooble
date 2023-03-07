@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Setting.AboutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/im_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:navigationIcon="@drawable/ic_back_btn"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:elevation="0dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:textSize="@dimen/sp_16_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/secondary_textColor"
+                    android:textFontWeight="1000"
+                    android:lineHeight="@dimen/sp_18_dsa"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center_vertical"
+                    tools:targetApi="p" />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <TextView
+        android:id="@+id/privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_policy"
+        android:textSize="@dimen/sp_20_dsa"
+        android:layout_margin="@dimen/dp_20_dsa"
+        android:textColor="@color/light_black_color"
+        app:drawableStartCompat="@drawable/ic_privacy_policy"
+        android:fontFamily="@font/ubuntu"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
+        android:layout_marginStart="@dimen/dp_20_dsa"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_20_dsa"
+        />
+
+    <TextView
+        android:id="@+id/data_privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_privacy"
+        android:textSize="@dimen/sp_20_dsa"
+       android:layout_marginTop="@dimen/dp_30_dsa"
+        android:textColor="@color/light_black_color"
+        app:drawableStartCompat="@drawable/ic_data_privacy"
+        android:fontFamily="@font/ubuntu"
+        app:layout_constraintTop_toBottomOf="@id/privacy_policy"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dp_20_dsa"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_20_dsa"
+        />
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/term_amp_conditions"
+        android:textSize="@dimen/sp_20_dsa"
+        android:layout_marginTop="@dimen/dp_30_dsa"
+        android:textColor="@color/light_black_color"
+        android:fontFamily="@font/ubuntu"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_20_dsa"
+        app:layout_constraintTop_toBottomOf="@id/data_privacy"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dp_20_dsa"
+        app:drawableStartCompat="@drawable/ic_terms_and_conditions" />
+
+
+
+    <TextView
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/end_user_license_agreement"
+        android:textSize="@dimen/sp_20_dsa"
+        android:layout_marginTop="@dimen/dp_30_dsa"
+        android:textColor="@color/light_black_color"
+        android:fontFamily="@font/ubuntu"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/terms"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dp_20_dsa"
+        android:drawablePadding="@dimen/dp_20_dsa"
+        app:drawableStartCompat="@drawable/ic_end_user_license_agreement" />
+
+    <TextView
+        android:id="@+id/rateUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_us"
+        android:textSize="@dimen/sp_20_dsa"
+        android:textColor="@color/light_black_color"
+        android:layout_marginTop="@dimen/dp_30_dsa"
+        app:drawableStartCompat="@drawable/ic_baseline_star_rate"
+        android:fontFamily="@font/ubuntu"
+        app:layout_constraintTop_toBottomOf="@id/end"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dp_20_dsa"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_20_dsa"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="0dp"
+        android:elevation="@dimen/dp_0_dsa"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
@@ -35,7 +35,7 @@
          <Button
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Done"
+             android:text="@string/done"
              android:textAllCaps="false"
              android:textColor="@color/done_text_color"
              android:textSize="@dimen/sp_16_dsa"
@@ -58,12 +58,11 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0_dsa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,7 +87,7 @@
     android:id="@+id/et_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Add Title"
+    android:hint="@string/add_title"
     android:textColorHint="@color/main_textColor"
     android:textSize="@dimen/sp_16_dsa"
     android:lineHeight="@dimen/sp_18_dsa"
@@ -118,7 +117,7 @@
                 android:id="@+id/et_cation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write a caption..."
+                android:hint="@string/write_a_caption"
                 android:textColorHint="@color/textColorHint"
                 android:textSize="@dimen/sp_16_dsa"
                 android:lineHeight="@dimen/sp_18_dsa"
@@ -144,12 +143,11 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
 
 
-
             <EditText
                 android:id="@+id/et_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Add Location"
+                android:hint="@string/add_location"
                 android:textColorHint="@color/textColorHint"
                 android:textSize="@dimen/sp_16_dsa"
                 android:lineHeight="@dimen/sp_18_dsa"

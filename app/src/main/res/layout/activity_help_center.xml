@@ -8,10 +8,65 @@
     android:background="@color/light_white"
     tools:context=".ui.Setting.Help_Center_Activity">
 
-    <ScrollView
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/im_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:navigationIcon="@drawable/ic_back_btn"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:elevation="0dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_center"
+                    android:textSize="@dimen/sp_16_dsa"
+                    android:fontFamily="@font/ubuntu"
+                    android:textColor="@color/secondary_textColor"
+                    android:textFontWeight="1000"
+                    android:lineHeight="@dimen/sp_18_dsa"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center_vertical"
+                    tools:targetApi="p" />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_dsa"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +127,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:cardElevation="@dimen/dp_4_dsa"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/dp_10_dsa"
         android:layout_marginHorizontal="@dimen/dp_10_dsa"
         app:layout_constraintTop_toBottomOf="@id/constraint_layout"
@@ -168,21 +222,26 @@
                   android:textStyle="bold" />
           </com.google.android.material.textfield.TextInputLayout>
 
+
+
           <com.google.android.material.button.MaterialButton
               android:id="@+id/btn_submit"
-              android:layout_width="@dimen/dp_200_dsa"
+              android:layout_width="@dimen/dp_120_dsa"
               android:layout_height="wrap_content"
               android:layout_gravity="center_horizontal"
               android:layout_marginTop="@dimen/dp_24_dsa"
-              android:background="@drawable/login_button_bg"
-              android:gravity="center_horizontal|center_vertical"
+              android:background="@drawable/next_btn_bg"
+              app:backgroundTint="@null"
               android:text="@string/submit"
               android:textAllCaps="false"
-              android:textSize="@dimen/sp_18_dsa"
-              app:icon="@drawable/ic_send"
-              app:iconGravity="textStart" />
-
-
+              android:textColor="@color/white"
+              android:layout_marginBottom="@dimen/dp_20_dsa"
+              android:textStyle="bold"
+              android:padding="5dp"
+              android:textSize="18sp"
+              android:textFontWeight="500"
+              android:lineHeight="30sp"
+              tools:targetApi="p" />
       </LinearLayout>
 
 

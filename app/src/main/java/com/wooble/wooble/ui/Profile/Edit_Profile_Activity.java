@@ -1,12 +1,12 @@
 package com.wooble.wooble.ui.Profile;
 
 import   androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+
 
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.view.Window;
+
 
 
 
@@ -18,7 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.wooble.wooble.R;
+
 import com.wooble.wooble.SessionManagement;
 
 import com.wooble.wooble.databinding.ActivityEditProfileBinding;
@@ -52,11 +52,13 @@ ActivityEditProfileBinding binding;
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
+
 binding.btUpdate.setOnClickListener(view -> {
     updateProfileData();
     startActivity(new Intent(Edit_Profile_Activity.this, ProfileActivity.class));
     finish();
 });
+
     }
     public void loadProfileData() {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
@@ -95,6 +97,7 @@ binding.btUpdate.setOnClickListener(view -> {
 
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
+
     private void updateProfileData() {
 
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
@@ -133,6 +136,7 @@ binding.btUpdate.setOnClickListener(view -> {
                 params.put("password", password);
                 return params;
             }
+
 
         };
 

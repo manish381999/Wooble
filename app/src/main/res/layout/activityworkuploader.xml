@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="0dp"
+        android:elevation="@dimen/dp_0_dsa"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Work"
+                    android:text="@string/new_work"
                     android:textSize="@dimen/sp_16_dsa"
                     android:fontFamily="@font/ubuntu"
                     android:textColor="@color/secondary_textColor"
@@ -81,7 +81,7 @@
                     android:id="@+id/btn_done"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Done"
+                    android:text="@string/done"
                     android:textAllCaps="false"
                     android:textColor="@color/done_text_color"
                     android:textSize="@dimen/sp_16_dsa"
@@ -207,7 +207,7 @@
 
                 <ImageButton
                     android:id="@+id/action_file"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -216,7 +216,7 @@
 
                 <ImageButton
                     android:id="@+id/action_camera"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -225,7 +225,7 @@
 
                 <ImageButton
                     android:id="@+id/action_text_editer"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -233,7 +233,7 @@
 
                 <ImageButton
                     android:id="@+id/action_text_color"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -242,7 +242,7 @@
 
                 <ImageButton
                     android:id="@+id/action_bold"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -250,7 +250,7 @@
 
                 <ImageButton
                     android:id="@+id/action_italic"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -258,7 +258,7 @@
 
                 <ImageButton
                     android:id="@+id/action_underline"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -268,7 +268,7 @@
 
                 <ImageButton
                     android:id="@+id/action_align_left"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -276,7 +276,7 @@
 
                 <ImageButton
                     android:id="@+id/action_align_center"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -284,7 +284,7 @@
 
                 <ImageButton
                     android:id="@+id/action_align_right"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -293,7 +293,7 @@
 
                 <ImageButton
                     android:id="@+id/action_insert_link"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"
@@ -301,7 +301,7 @@
 
                 <ImageButton
                     android:id="@+id/action_aliment"
-                    android:layout_width="50dp"
+                    android:layout_width="@dimen/dp_50_dsa"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:contentDescription="@null"

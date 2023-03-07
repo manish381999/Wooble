@@ -52,6 +52,8 @@ dependencies {
     implementation 'com.github.duanhong169:colorpicker:1.1.6'
 
 
+
+
     implementation 'de.hdodenhof:circleimageview:3.1.0' //circle image
     implementation 'com.mikhaellopez:circularimageview:4.3.1' // Adv circular image
     implementation 'com.github.aabhasr1:OtpView:v1.1.2' //otp
@@ -64,7 +66,7 @@ dependencies {
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'  // PdfViewer
     implementation 'com.squareup.picasso:picasso:2.8' // picasso
     implementation 'com.facebook.shimmer:shimmer:0.5.0' //shimmer
-    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0' //spin_kit
 
 
 

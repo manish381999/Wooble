@@ -5,27 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.wooble.wooble.R;
+import com.wooble.wooble.databinding.ActivityPrivacyPolicyBinding;
 
 import java.util.Objects;
 
 public class Privacy_Policy_Activity extends AppCompatActivity {
-
+ActivityPrivacyPolicyBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privacy_policy);
+        binding=ActivityPrivacyPolicyBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+
+        setSupportActionBar(binding.imToolbar);
 
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("PrivacyPolicy");
+
+
 
 
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        return super.onSupportNavigateUp();
+        return true;
     }
 }

@@ -142,6 +142,11 @@
     <string name="image_title">Image Title</string>
     <string name="theme">Theme</string>
     <string name="about">About</string>
+    <string name="new_work">New Work</string>
+    <string name="done">Done</string>
+    <string name="add_title">Add Title</string>
+    <string name="write_a_caption">Write a caption...</string>
+    <string name="add_location">Add Location</string>
 
 
 </resources>

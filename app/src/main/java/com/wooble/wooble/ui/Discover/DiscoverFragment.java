@@ -16,22 +16,49 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import com.wooble.wooble.R;
 
 
-
+import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.FragmentDiscoverBinding;
 import com.wooble.wooble.ui.portfolio.Edit_Portfolio_Activity;
+import com.wooble.wooble.ui.portfolio.EndPoints;
 import com.wooble.wooble.ui.portfolio.PortfolioActivity;
+import com.wooble.wooble.ui.portfolio.VolleyMultipartRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DiscoverFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
  FragmentDiscoverBinding binding;
+    String profileEmail;
+    String profileImage;
+    String coverImage;
+    CircularImageView circularImageView;
+    ImageView coverPic;
+    TextView navUsername;
+    TextView navProfession;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,6 +66,22 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
         binding=FragmentDiscoverBinding.inflate(inflater, container, false);
 
         requireActivity().setTitle("Discover");
+
+
+        NavigationView navigationView = binding.navigationDrawer;
+
+
+
+        View headerView = navigationView.getHeaderView(0);
+        navUsername = headerView.findViewById(R.id.username);
+        navProfession = headerView.findViewById(R.id.profession);
+        circularImageView = headerView.findViewById(R.id.profile_pic);
+        coverPic = headerView.findViewById(R.id.cover_pic);
+        loadProfileImage();
+        loadProfileData();
+        loadCoverImage();
+
+
 
         return binding.getRoot();
 
@@ -53,6 +96,7 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
 
         AppBarConfiguration configuration=new AppBarConfiguration.Builder(navController.getGraph())
                 .setDrawerLayout(binding.drawerLayout).build();
+
         NavigationUI.setupWithNavController(binding.navigationDrawer, navController);
         NavigationUI.setupWithNavController(binding.toolbar,navController,configuration);
 
@@ -85,5 +129,135 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
         return true;
     }
 
+    public void loadProfileImage() {
+        SessionManagement sessionManagement = new SessionManagement(getContext());
+        profileEmail = sessionManagement.getSessionEmail();
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.GET_ONLY_PROFILE_PIC,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+                            //Log.d("image","image");
+                            JSONArray array = new JSONArray(new String(response.data));
+                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
+                            JSONObject jObj = array.getJSONObject(0);
+                            profileImage = jObj.getString("image");
+                            //Log.d("image",profileImage);
+                            Glide.with(getContext())
+                                    .load(profileImage)
+                                    .placeholder(R.drawable.place_holder)
+                                    .centerCrop()
+                                    .into(circularImageView);
+                            //Log.d("image",date);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("profileEmail", profileEmail);
+                return params;
+            }
+
+        };
+
+        //adding the request to volley
+        Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
+    }
+
+
+
+    public void loadProfileData() {
+        SessionManagement sessionManagement = new SessionManagement(getContext());
+        profileEmail = sessionManagement.getSessionEmail();
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.GET_FULL_PROFILE,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+                            //Log.d("image","image");
+                            JSONArray array = new JSONArray(new String(response.data));
+                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
+                            JSONObject jObj = array.getJSONObject(0);
+                            navUsername.setText(jObj.getString("fullname"));
+                            navProfession.setText(jObj.getString("designation"));
+                            //Log.d("fullname",jObj.getString("fullname"));
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("profileEmail", profileEmail);
+                return params;
+            }
+
+        };
+
+        Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
+    }
+    public void loadCoverImage() {
+        SessionManagement sessionManagement = new SessionManagement(getContext());
+        profileEmail = sessionManagement.getSessionEmail();
+        VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, EndPoints.GET_ONLY_COVER_PIC,
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        try {
+                            //Log.d("image","image");
+                            JSONArray array = new JSONArray(new String(response.data));
+                            //Toast.makeText(getApplicationContext(), obj.getString("image"), Toast.LENGTH_SHORT).show();
+                            JSONObject jObj = array.getJSONObject(0);
+                            coverImage = jObj.getString("image");
+                            //Log.d("image",profileImage);
+                            Glide.with(getContext())
+                                    .load(coverImage)
+                                    .placeholder(R.drawable.place_holder)
+                                    .centerCrop()
+                                    .into(coverPic);
+                            //Log.d("image",date);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("profileEmail", profileEmail);
+                return params;
+            }
+
+        };
+
+        //adding the request to volley
+        Volley.newRequestQueue(getContext()).add(volleyMultipartRequest);
+    }
 
 }
