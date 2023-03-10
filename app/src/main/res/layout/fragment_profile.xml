@@ -33,7 +33,7 @@
                 android:id="@+id/tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Name"
+                android:text="@string/user_name"
                 android:textSize="@dimen/sp_18_dsa"
                 android:lineHeight="@dimen/sp_21_dsa"
                 android:textFontWeight="700"

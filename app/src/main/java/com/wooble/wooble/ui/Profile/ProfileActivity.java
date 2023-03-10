@@ -64,6 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
         binding.addCoverPic.setOnClickListener(view -> coverImage());
         binding.addProfilePic.setOnClickListener(view -> profileImage());
         binding.btEditProfile.setOnClickListener(view -> startActivity(new Intent(ProfileActivity.this, Edit_Profile_Activity.class)));
+
+
         pickProfile=registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
@@ -168,6 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
                 return params;
             }
         };
+
 
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }

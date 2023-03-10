@@ -111,11 +111,15 @@ public class DiscoverFragment extends Fragment implements NavigationView.OnNavig
                 break;
 
             case R.id.navigation_template:
-
-            case R.id.navigation_email_signature:
+                Toast.makeText(getContext(), "Template", Toast.LENGTH_SHORT).show();
+                break;
 
             case R.id.navigation_edit_portfolio:
                 startActivity(new Intent(getActivity(), Edit_Portfolio_Activity.class));
+                break;
+
+            case R.id.navigation_email_signature:
+                Toast.makeText(getContext(), "Email Signature", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.navigation_resume:

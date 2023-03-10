@@ -108,7 +108,7 @@
                 android:id="@+id/add_cover_pic"
                 android:layout_width="@dimen/dp_24_dsa"
                 android:layout_height="@dimen/dp_24_dsa"
-                android:src="@drawable/ic_camera"
+                android:src="@drawable/ic_capture"
                 android:elevation="@dimen/dp_10_dsa"
                 app:layout_constraintBottom_toBottomOf="@+id/cover_pic"
                 app:layout_constraintEnd_toEndOf="@+id/cover_pic"

@@ -31,6 +31,7 @@ import com.wooble.wooble.R;
 import com.wooble.wooble.SessionManagement;
 import com.wooble.wooble.databinding.ActivityEditPortfolioBinding;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,9 +63,10 @@ ActivityEditPortfolioBinding binding;
         binding=ActivityEditPortfolioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Edit Portfolio");
+        setSupportActionBar(binding.imToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
 
         loadProfileData();
         
@@ -285,4 +287,11 @@ ActivityEditPortfolioBinding binding;
 
         Volley.newRequestQueue(this).add(volleyMultipartRequest);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     }
